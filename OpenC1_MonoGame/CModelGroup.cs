@@ -43,7 +43,7 @@ namespace OpenC1
 
 			if (_vertices.Count > 0)
 			{
-                //_vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device, VertexPositionNormalTexture.SizeInBytes * _vertices.Count, BufferUsage.WriteOnly);
+                _vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device, new VertexDeclaration(VertexPositionNormalTexture.VertexDeclaration.GetVertexElements()), VertexPositionNormalTexture.VertexDeclaration.VertexStride * _vertices.Count, BufferUsage.WriteOnly);
                 _vertexBuffer.SetData<VertexPositionNormalTexture>(_vertices.ToArray());
 
 				if (!injectHardEdges)

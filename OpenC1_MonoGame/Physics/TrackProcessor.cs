@@ -76,13 +76,13 @@ namespace OpenC1.Physics
 
 					if (Char.IsDigit(materialName[0]))
 					{
-						ushort matModiferId = (ushort)(ushort.Parse(materialName.Substring(0, 1)) + 1);
+					/*	ushort matModiferId = (ushort)(ushort.Parse(materialName.Substring(0, 1)) + 1);
 						if (matModiferId >= file.MaterialModifiers.Count) matModiferId = 0;
 
-						materialIndices.Add(matModiferId);
+						materialIndices.Add(matModiferId); */
 					}
 					else
-						materialIndices.Add(0);
+						materialIndices.Add(0); 
 				}
 			}
 
@@ -237,7 +237,9 @@ namespace OpenC1.Physics
 
 		public static NonCar GenerateNonCar(CActor actor, List<NoncarFile> nonCars)
 		{
-			if (actor.Model == null) return null;
+            return null; //DEBUG
+
+            if (actor.Model == null) return null;
 			if (actor.Name.StartsWith("&"))
 			{
 				int index = int.Parse(actor.Name.Substring(1, 2));

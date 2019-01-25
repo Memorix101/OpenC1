@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/b.jpg</SourceFile>
-  <SourceTime>2014-08-17T01:14:20+02:00</SourceTime>
-  <DestFile>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/bin/DesktopGL/Content/b.xnb</DestFile>
-  <DestTime>2019-01-25T08:21:55.1895002+01:00</DestTime>
+  <SourceFile>D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/blank-particle.png</SourceFile>
+  <SourceTime>2019-01-06T14:08:29.1157711+01:00</SourceTime>
+  <DestFile>D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/bin/DesktopGL/Content/blank-particle.xnb</DestFile>
+  <DestTime>2019-01-25T11:33:18.8068873+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

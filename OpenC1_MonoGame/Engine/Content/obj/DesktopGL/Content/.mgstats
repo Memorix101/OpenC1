@@ -1,0 +1,6 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/blank-particle.png","D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/bin/DesktopGL/Content/blank-particle.xnb","TextureProcessor","Texture2DContent",1288,16469,0.102726
+"D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/Fonts/Arial_14.spritefont","D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/bin/DesktopGL/Content/Fonts/Arial_14.xnb","FontDescriptionProcessor","SpriteFontContent",1637,13329,0.158576
+"D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/ParticleEffect.fx","D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/bin/DesktopGL/Content/ParticleEffect.xnb","EffectProcessor","CompiledEffectContent",6534,4745,0.2403576
+"D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/SkyBox/skybox.fx","D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/bin/DesktopGL/Content/SkyBox/skybox.xnb","EffectProcessor","CompiledEffectContent",1376,1444,0.1136959
+"D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/smoke.png","D:/SourceTree/OpenC1/OpenC1_MonoGame/Engine/Content/bin/DesktopGL/Content/smoke.xnb","TextureProcessor","Texture2DContent",90978,262229,0.0109706

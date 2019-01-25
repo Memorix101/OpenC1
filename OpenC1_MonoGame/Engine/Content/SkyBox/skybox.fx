@@ -60,14 +60,14 @@ technique Simple
 {
    pass Single_Pass
    {
-        LIGHTING = FALSE;
+        //LIGHTING = FALSE;
         ZENABLE = FALSE;
         ZWRITEENABLE = FALSE;
         ALPHABLENDENABLE = FALSE;
 
         CULLMODE = CCW;
 
-        VertexShader = compile vs_1_1 SimpleVS();
-        PixelShader = compile ps_1_1 SimplePS();
+        VertexShader = compile vs_2_0 SimpleVS();
+        PixelShader = compile ps_2_0 SimplePS();
    }
 }

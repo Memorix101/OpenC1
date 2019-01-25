@@ -145,13 +145,13 @@ namespace OpenC1.Parsers
 
             ReadOpponentPathsSection();
 
-            ReadCopStartPointsSection();
+            //ReadCopStartPointsSection();
 
-            ReadMaterialModifierSection();
+            //ReadMaterialModifierSection();
 
-            ReadNonCarSection();
+            //ReadNonCarSection();
 
-            ReadSmokeTablesSection();
+            //ReadSmokeTablesSection();
             
             CloseFile();
         }
@@ -281,8 +281,11 @@ namespace OpenC1.Parsers
 
         private void ReadOpponentPathsSection()
         {
-            Trace.Assert(ReadLine() == "START OF OPPONENT PATHS");
-            
+            //Trace.Assert(ReadLine() == "START OF OPPONENT PATHS");
+
+            if (ReadLine() == "START OF OPPONENT PATHS")
+                return;
+
             int nbrNodes = ReadLineAsInt();
 
             OpponentPathNodes = new List<OpponentPathNode>();
@@ -324,7 +327,7 @@ namespace OpenC1.Parsers
                 pos += new Vector3(0, 2, 0);
                 CopStartPoints.Add(new CopStartPoint { Position = pos, IsSpecialForces = tokens[3].Contains("9") });
             }
-            Trace.Assert(ReadLine() == "END OF OPPONENT PATHS");
+            //Trace.Assert(ReadLine() == "END OF OPPONENT PATHS");
         }
 
         private void ReadMaterialModifierSection()

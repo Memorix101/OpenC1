@@ -224,7 +224,7 @@ namespace OneAmEngine
 		/// </summary>
 		void LoadParticleEffect()
 		{
-			Effect effect = Engine.ContentManager.Load<Effect>("Content/ParticleEffect");
+			Effect effect = Engine.ContentManager.Load<Effect>("ParticleEffect");
 
             // If we have several particle systems, the content manager will return
             // a single shared effect instance to them all. But we want to preconfigure

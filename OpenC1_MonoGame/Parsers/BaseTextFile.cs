@@ -84,12 +84,14 @@ namespace OpenC1.Parsers
                 {
                     return line.Split(new string[] { "//" }, StringSplitOptions.None)[0].Trim();
                 }
+                Console.WriteLine(line);
             }
         }
 
         public int ReadLineAsInt()
         {
             string line = ReadLine();
+            Console.WriteLine(line);
             return int.Parse(line);
         }
 

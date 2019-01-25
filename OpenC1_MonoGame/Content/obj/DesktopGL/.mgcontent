@@ -4,22 +4,20 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/b.jpg</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/BasicEffect2.fx</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/damage-smoke.png</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/Fontana.spritefont</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/Fonts/Arial_14.spritefont</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/LucidaConsole.spritefont</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/map-icon-opponent.png</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/map-icon-opponent-dead.png</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/map-icon-player.png</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/material-modifier-smoke.png</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/menu-background.jpg</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/Sg14.spritefont</File>
-    <File>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/sparks.png</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/BasicEffect2.fx</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/damage-smoke.png</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/Fontana.spritefont</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/Fonts/Arial_14.spritefont</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/LucidaConsole.spritefont</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/map-icon-opponent.png</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/map-icon-opponent-dead.png</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/map-icon-player.png</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/material-modifier-smoke.png</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/menu-background.jpg</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/Sg14.spritefont</File>
+    <File>D:/SourceTree/OpenC1/OpenC1_MonoGame/Content/sparks.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
