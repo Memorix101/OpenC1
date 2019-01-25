@@ -12,7 +12,7 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
  * BasiscEffect2.fx is currently disabled and needs to be ported to MonoGame as well!
  * Screenshot feature not yet reimplemented
 
- ## Konwn Issues
+ ### Konwn Issues
  * Cannot get in-game (where the 3D stuff happens) :(
 
 Keys:
