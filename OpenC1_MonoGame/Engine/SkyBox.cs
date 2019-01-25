@@ -62,7 +62,7 @@ namespace OneAmEngine
         
         public void LoadResources(float repetionsX)
         {
-            _effect = Engine.ContentManager.Load<Effect>("Content\\Skybox\\skybox");
+            _effect = Engine.ContentManager.Load<Effect>("Skybox\\skybox");
             //_vertexDeclaration = new VertexDeclaration(Engine.Device, VertexPositionTexture.VertexElements);
             _vertices = new VertexBuffer(Engine.Device, typeof(VertexPositionTexture), 4 * 6, BufferUsage.WriteOnly);
             VertexPositionTexture[] data = new VertexPositionTexture[4 * 6];

@@ -145,13 +145,13 @@ namespace OpenC1.Parsers
 
             ReadOpponentPathsSection();
 
-            //ReadCopStartPointsSection();
+            ReadCopStartPointsSection();
 
-            //ReadMaterialModifierSection();
+            ReadMaterialModifierSection();
 
-            //ReadNonCarSection();
+            ReadNonCarSection();
 
-            //ReadSmokeTablesSection();
+            ReadSmokeTablesSection();
             
             CloseFile();
         }
@@ -325,7 +325,16 @@ namespace OpenC1.Parsers
                 Vector3 pos = new Vector3(float.Parse(tokens[0]), float.Parse(tokens[1]), float.Parse(tokens[2]));
                 pos *= GameVars.Scale;
                 pos += new Vector3(0, 2, 0);
-                CopStartPoints.Add(new CopStartPoint { Position = pos, IsSpecialForces = tokens[3].Contains("9") });
+
+                bool _IsSpecialForces;
+                if (tokens.Length == 4)
+                {
+                    _IsSpecialForces = tokens[3].Contains("9");
+                }
+                else
+                    _IsSpecialForces = false;
+
+                 CopStartPoints.Add(new CopStartPoint { Position = pos, IsSpecialForces = _IsSpecialForces });
             }
             //Trace.Assert(ReadLine() == "END OF OPPONENT PATHS");
         }
@@ -339,7 +348,7 @@ namespace OpenC1.Parsers
             {
                 MaterialModifier modifier = new MaterialModifier
                     {
-                        CarWallFriction = ReadLineAsFloat(false),
+                    CarWallFriction = ReadLineAsFloat(false),
                         TyreRoadFriction = Math.Min(1, ReadLineAsFloat(false)),  /* deal with weird (wrong?) settings for grass on cityb maps*/
                         Downforce = ReadLineAsFloat(false),
                         Bumpiness = ReadLineAsFloat(false),

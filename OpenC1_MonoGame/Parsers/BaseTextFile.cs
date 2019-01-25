@@ -98,6 +98,7 @@ namespace OpenC1.Parsers
         public bool ReadLineAsBool()
         {
             string line = ReadLine();
+            Console.WriteLine(line);
             return bool.Parse(line);
         }
 
