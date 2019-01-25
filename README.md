@@ -7,7 +7,7 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
 ### Important Notes
  * Ported from XNA 3.0 to MonoGame (DesktopGL)
  * Running in custom MonoGame build (to fake XNA 3.0 for the Physix .Net Wrapper)
- * The content from the content folder needs to be build with the custom build Pipeline tool first before debugging otherwise it will throw an exception! You can fint it in
+ * The content from the content folder needs to be built with the custom build Pipeline tool first before debugging otherwise it will throw an exception! You can fint it in
  ``` OpenC1_MonoGame\MonoGame-develop\Tools\Pipeline\bin\Windows\AnyCPU\Debug ```
  * BasiscEffect2.fx is currently disabled and needs to be ported to MonoGame as well!
  * Screenshot feature not yet reimplemented
