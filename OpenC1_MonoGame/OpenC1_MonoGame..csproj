@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6080123-E23F-4612-8054-26CF3C223F08}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenC1</RootNamespace>
+    <AssemblyName>OpenC1</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;LINUX</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;LINUX</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\DesktopGL\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AnimationPlayer.cs" />
+    <Compile Include="BasicDirectionalLight2.cs" />
+    <Compile Include="BasicEffect2.cs" />
+    <Compile Include="BigEndianBitConverter.cs" />
+    <Compile Include="CActor.cs" />
+    <Compile Include="CActorHierarchy.cs" />
+    <Compile Include="Camera.cs" />
+    <Compile Include="CameraViews\ChaseView.cs" />
+    <Compile Include="CameraViews\CockpitView.cs" />
+    <Compile Include="CameraViews\FlyView.cs" />
+    <Compile Include="CameraViews\ICameraView.cs" />
+    <Compile Include="CameraViews\RaceCompletedView.cs" />
+    <Compile Include="CDeformableModel.cs" />
+    <Compile Include="Checkpoint.cs" />
+    <Compile Include="CircularList.cs" />
+    <Compile Include="CMaterial.cs" />
+    <Compile Include="CModel.cs" />
+    <Compile Include="CModelGroup.cs" />
+    <Compile Include="CopDriver.cs" />
+    <Compile Include="CpuDriver.cs" />
+    <Compile Include="CWheelActor.cs" />
+    <Compile Include="EndianBinaryReader.cs" />
+    <Compile Include="EndianBitConverter.cs" />
+    <Compile Include="Endianness.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="FontRenderer.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GameModes\FlyMode.cs" />
+    <Compile Include="GameModes\GameMode.cs" />
+    <Compile Include="GameModes\OpponentEditMode.cs" />
+    <Compile Include="GameModes\PedEditMode.cs" />
+    <Compile Include="GameModes\RaceCompletedMode.cs" />
+    <Compile Include="GameModes\StandardGameMode.cs" />
+    <Compile Include="GameVars.cs" />
+    <Compile Include="Gfx\DamageSmokeParticleSystem.cs" />
+    <Compile Include="Gfx\MaterialSmokeParticleSystem.cs" />
+    <Compile Include="Gfx\ModelShadow.cs" />
+    <Compile Include="Gfx\PedestrianGibsParticleSystem.cs" />
+    <Compile Include="Gfx\PixMapFont.cs" />
+    <Compile Include="Gfx\SkidMarkBuffer.cs" />
+    <Compile Include="Gfx\SkyboxGenerator.cs" />
+    <Compile Include="Gfx\SparksParticleSystem.cs" />
+    <Compile Include="Gfx\TyreSmokeParticleSystem.cs" />
+    <Compile Include="Gfx\VehicleBitsParticleSystem.cs" />
+    <Compile Include="GridPlacer.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="HUD\BaseHUDItem.cs" />
+    <Compile Include="HUD\RevCounter.cs" />
+    <Compile Include="HUD\StandardHudItem.cs" />
+    <Compile Include="HUD\Timer.cs" />
+    <Compile Include="IDriver.cs" />
+    <Compile Include="IPalette.cs" />
+    <Compile Include="MaterialModifier.cs" />
+    <Compile Include="Math.cs" />
+    <Compile Include="MessageRenderer.cs" />
+    <Compile Include="NonCar.cs" />
+    <Compile Include="Opponent.cs" />
+    <Compile Include="OpponentController.cs" />
+    <Compile Include="OpponentPath.cs" />
+    <Compile Include="OpponentPathNode.cs" />
+    <Compile Include="Parsers\ActFile.cs" />
+    <Compile Include="Parsers\BaseChunk.cs" />
+    <Compile Include="Parsers\BaseDataFile.cs" />
+    <Compile Include="Parsers\BaseTextFile.cs" />
+    <Compile Include="Parsers\CockpitFile.cs" />
+    <Compile Include="Parsers\DatFile.cs" />
+    <Compile Include="Parsers\FliFile.cs" />
+    <Compile Include="Parsers\FontDescriptionFile.cs" />
+    <Compile Include="Parsers\Funk.cs" />
+    <Compile Include="Parsers\Funks\BaseFunk.cs" />
+    <Compile Include="Parsers\Funks\FlicFunk.cs" />
+    <Compile Include="Parsers\Funks\FramesFunk.cs" />
+    <Compile Include="Parsers\Funks\FunkReader.cs" />
+    <Compile Include="Parsers\Funks\RollFunk.cs" />
+    <Compile Include="Parsers\Funks\SlitherFunk.cs" />
+    <Compile Include="Parsers\Funks\ThrobFunk.cs" />
+    <Compile Include="Parsers\Funks\WindscreenFunk.cs" />
+    <Compile Include="Parsers\GeneralSettingsFile.cs" />
+    <Compile Include="Parsers\Grooves\BaseGroove.cs" />
+    <Compile Include="Parsers\Grooves\GrooveReader.cs" />
+    <Compile Include="Parsers\Grooves\PathGroove.cs" />
+    <Compile Include="Parsers\Grooves\RockGroove.cs" />
+    <Compile Include="Parsers\Grooves\SpinGroove.cs" />
+    <Compile Include="Parsers\MatFile.cs" />
+    <Compile Include="Parsers\NoncarFile.cs" />
+    <Compile Include="Parsers\OpponentsFile.cs" />
+    <Compile Include="Parsers\PaletteFile.cs" />
+    <Compile Include="Parsers\PedestriansFile.cs" />
+    <Compile Include="Parsers\PixFile.cs" />
+    <Compile Include="Parsers\Polygon.cs" />
+    <Compile Include="Parsers\RaceFile.cs" />
+    <Compile Include="Parsers\RacesFile.cs" />
+    <Compile Include="Parsers\SettingsFile.cs" />
+    <Compile Include="Parsers\SoundsFile.cs" />
+    <Compile Include="Parsers\TextFileDecryptor.cs" />
+    <Compile Include="Parsers\VehicleFile.cs" />
+    <Compile Include="Pedestrian.cs" />
+    <Compile Include="PedestrianBehaviour.cs" />
+    <Compile Include="PedestrianController.cs" />
+    <Compile Include="PedestrianGibsController.cs" />
+    <Compile Include="Physics\AutoGearbox.cs" />
+    <Compile Include="Physics\BaseGearbox.cs" />
+    <Compile Include="Physics\ContactReport.cs" />
+    <Compile Include="Physics\Hasher.cs" />
+    <Compile Include="Physics\IOHelper.cs" />
+    <Compile Include="Physics\Motor.cs" />
+    <Compile Include="Physics\PhysX.cs" />
+    <Compile Include="Physics\PhysXConsts.cs" />
+    <Compile Include="Physics\TrackProcessor.cs" />
+    <Compile Include="Physics\TriggerReport.cs" />
+    <Compile Include="Physics\VehicleChassis.cs" />
+    <Compile Include="Physics\VehicleDimensions.cs" />
+    <Compile Include="Physics\VehicleWheel.cs" />
+    <Compile Include="PixmapBillboard.cs" />
+    <Compile Include="PlayerDriver.cs" />
+    <Compile Include="PlayerVehicleController.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Race.cs" />
+    <Compile Include="RaceMap.cs" />
+    <Compile Include="RaceTimeController.cs" />
+    <Compile Include="ResourceCache.cs" />
+    <Compile Include="RotatingCamera.cs" />
+    <Compile Include="Screens\BaseMenuScreen.cs" />
+    <Compile Include="Screens\ChooseDownloadDataScreen.cs" />
+    <Compile Include="Screens\DownloadGameDataScreen.cs" />
+    <Compile Include="Screens\GameSelectionScreen.cs" />
+    <Compile Include="Screens\LoadRaceScreen.cs" />
+    <Compile Include="Screens\MainMenuScreen.cs" />
+    <Compile Include="Screens\MenuOption.cs" />
+    <Compile Include="Screens\PauseMenuScreen.cs" />
+    <Compile Include="Screens\PlayGameScreen.cs" />
+    <Compile Include="Screens\SelectCarScreen.cs" />
+    <Compile Include="Screens\SelectRaceScreen.cs" />
+    <Compile Include="Screens\SelectSkillScreen.cs" />
+    <Compile Include="Screens\StartRaceScreen.cs" />
+    <Compile Include="SoundCache.cs" />
+    <Compile Include="SoundDesc.cs" />
+    <Compile Include="SpecialVolume.cs" />
+    <Compile Include="User Output.cs" />
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="VehicleAudio.cs" />
+    <Compile Include="VehicleModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\OpenCarma - Copy\OpenCarma\Lib\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="StillDesign.PhysX.Net, Version=0.12.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\StillDesign.PhysX.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.ico" />
+    <EmbeddedResource Include="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\SDL2.dll">
+      <Link>x86\SDL2.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\SDL2.dll">
+      <Link>x64\SDL2.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\soft_oal.dll">
+      <Link>x86\soft_oal.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\soft_oal.dll">
+      <Link>x64\soft_oal.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\libSDL2-2.0.so.0">
+      <Link>x86\libSDL2-2.0.so.0</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\libSDL2-2.0.so.0">
+      <Link>x64\libSDL2-2.0.so.0</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\libopenal.so.1">
+      <Link>x86\libopenal.so.1</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x64\libopenal.so.1">
+      <Link>x64\libopenal.so.1</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\libSDL2-2.0.0.dylib">
+      <Link>libSDL2-2.0.0.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\libopenal.1.dylib">
+      <Link>libopenal.1.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll.config">
+      <Link>MonoGame.Framework.dll.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\a\Microsoft.Xna.Framework.dll" />
+    <Content Include="Lib\a\MonoGame.Framework.dll" />
+    <Content Include="Lib\a\StillDesign.PhysX.Net.dll" />
+    <Content Include="Lib\Ionic.Zip.Reduced.dll" />
+    <Content Include="Lib\Microsoft.Xna.Framework.dll" />
+    <Content Include="Lib\Microsoft.Xna.Framework_.dll" />
+    <Content Include="Lib\NxCooking.dll" />
+    <Content Include="Lib\PhysXLoader.dll" />
+    <Content Include="Lib\SlimDX.dll" />
+    <Content Include="Lib\StillDesign.PhysX.Net.dll" />
+    <Content Include="OpenC1Settings.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Engine\Engine.csproj">
+      <Project>{0eceaf55-bb39-4c44-ac94-fdc46d3e6e9d}</Project>
+      <Name>Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="MonoGame-develop\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
+      <Project>{6d75e618-19ca-4c51-9546-f10965fbc0b8}</Project>
+      <Name>MonoGame.Framework.WindowsGL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\8\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

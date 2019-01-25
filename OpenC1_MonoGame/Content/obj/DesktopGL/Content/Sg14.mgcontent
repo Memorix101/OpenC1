@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/Sg14.spritefont</SourceFile>
+  <SourceTime>2019-01-22T21:44:20.1499842+01:00</SourceTime>
+  <DestFile>C:/Users/memor/source/repos/OpenC1/OpenC1_MonoGame/Content/bin/DesktopGL/Content/Sg14.xnb</DestFile>
+  <DestTime>2019-01-25T08:21:55.7124236+01:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

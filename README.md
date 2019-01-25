@@ -4,12 +4,16 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
 
 [Project page](http://1amstudios.com/projects/openc1)
 
-Prerequisites:
- * Microsoft C++ runtime - http://www.microsoft.com/downloads/en/details.aspx?familyid=A5C84275-3B97-4AB7-A40D-3802B2AF5FC2
- * XNA 3.0 - http://www.microsoft.com/downloads/en/details.aspx?FamilyID=6521d889-5414-49b8-ab32-e3fff05a4c50
- * Nvidia PhysX - http://www.nvidia.com/object/physx-9.10.0513-driver.html
- * Read and comply with license.txt
+### Important Notes
+ * Ported from XNA 3.0 to MonoGame (DesktopGL)
+ * Running in custom MonoGame build (to fake XNA 3.0 for the Physix .Net Wrapper)
+ * The content from the content folder needs to be build with the custom build Pipeline tool first before debugging otherwise it will throw an exception! You can fint it in
+ ``` OpenC1_MonoGame\MonoGame-develop\Tools\Pipeline\bin\Windows\AnyCPU\Debug ```
+ * BasiscEffect2.fx is currently disabled and needs to be ported to MonoGame as well!
+ * Screenshot feature not yet reimplemented
 
+ ## Konwn Issues
+ * Cannot get in-game (where the 3D stuff happens) :(
 
 Keys:
  * Up, Down, Left, Right - Accelerate, brake, steer
@@ -19,11 +23,10 @@ Keys:
  * R - Reset vehicle
  * F4 - Edit modes (for debugging)
  * P - Take screenshot
-
-
-Thanks to: 
-  Stainless Software (the original developers - of course!), 
-  Toshiba-3, 
+ 
+Thanks to:
+  Stainless Software (the original developers - of course!),
+  Toshiba-3,
   www.stilldesign.co.nz (PhysX.Net), 
   Neale Davidson (Fontana font),
   Shayde (txt file decryption),

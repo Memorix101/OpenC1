@@ -1,0 +1,57 @@
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\MonoGame.Framework.dll.config
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x86\SDL2.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x64\SDL2.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x86\soft_oal.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x64\soft_oal.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x86\libSDL2-2.0.so.0
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x64\libSDL2-2.0.so.0
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x86\libopenal.so.1
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\x64\libopenal.so.1
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\libSDL2-2.0.0.dylib
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\libopenal.1.dylib
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\OneAmEngine.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\OneAmEngine.pdb
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\MonoGame.Framework.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\bin\x86\Debug\SlimDX.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\obj\x86\Debug\Engine.csprojAssemblyReference.cache
+C:\Users\memor\source\repos\OpenCarma\Engine\obj\x86\Debug\Engine.csproj.CoreCompileInputs.cache
+C:\Users\memor\source\repos\OpenCarma\Engine\obj\x86\Debug\Engine.csproj.CopyComplete
+C:\Users\memor\source\repos\OpenCarma\Engine\obj\x86\Debug\OneAmEngine.dll
+C:\Users\memor\source\repos\OpenCarma\Engine\obj\x86\Debug\OneAmEngine.pdb
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x86\SDL2.dll
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x64\SDL2.dll
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x86\soft_oal.dll
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x64\soft_oal.dll
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x86\libSDL2-2.0.so.0
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x64\libSDL2-2.0.so.0
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x86\libopenal.so.1
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\x64\libopenal.so.1
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\libSDL2-2.0.0.dylib
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\libopenal.1.dylib
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\MonoGame.Framework.dll.config
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\OneAmEngine.dll
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\OneAmEngine.pdb
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\obj\x86\Debug\Engine.csproj.CoreCompileInputs.cache
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\obj\x86\Debug\Engine.csproj.CopyComplete
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\obj\x86\Debug\OneAmEngine.dll
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\obj\x86\Debug\OneAmEngine.pdb
+C:\Users\memor\source\repos\OpenCarma - Copy\Engine\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\obj\x86\Debug\Engine.csprojAssemblyReference.cache
+C:\Users\memor\source\repos\Game3\Game3\Engine\obj\x86\Debug\Engine.csproj.CoreCompileInputs.cache
+C:\Users\memor\source\repos\Game3\Game3\Engine\obj\x86\Debug\OneAmEngine.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\obj\x86\Debug\OneAmEngine.pdb
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x86\SDL2.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x64\SDL2.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x86\soft_oal.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x64\soft_oal.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x86\libSDL2-2.0.so.0
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x64\libSDL2-2.0.so.0
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x86\libopenal.so.1
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\x64\libopenal.so.1
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\libSDL2-2.0.0.dylib
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\libopenal.1.dylib
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\MonoGame.Framework.dll.config
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\OneAmEngine.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\OneAmEngine.pdb
+C:\Users\memor\source\repos\Game3\Game3\Engine\bin\x86\Debug\Microsoft.Xna.Framework.dll
+C:\Users\memor\source\repos\Game3\Game3\Engine\obj\x86\Debug\Engine.csproj.CopyComplete
