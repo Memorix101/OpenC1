@@ -4,7 +4,7 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
 
 [Project page](http://1amstudios.com/projects/openc1)
 
-### Important Notes
+#### Important Notes
  * Ported from XNA 3.0 to MonoGame (DesktopGL)
  * Running in custom MonoGame build (to fake XNA 3.0 for the Physix .Net Wrapper)
  * The content from the content folder needs to be built with the custom build Pipeline tool first before debugging otherwise it will throw an exception! You can fint it in
@@ -12,10 +12,11 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
  * BasiscEffect2.fx is currently disabled and needs to be ported to MonoGame as well!
  * Screenshot feature not yet reimplemented
 
- ### Konwn Issues
- * Cannot get in-game (where the 3D stuff happens) :(
+ #### Konwn Issues
+ * [Colours are wrong](https://twitter.com/Memorix101/status/1088748699986071552?s=20)
+ * Cannot get in-game (where the 3D stuff happens)😕
 
-Keys:
+##### Keys:
  * Up, Down, Left, Right - Accelerate, brake, steer
  * Space - Handbrake
  * Backspace - Repair
@@ -24,11 +25,7 @@ Keys:
  * F4 - Edit modes (for debugging)
  * P - Take screenshot
  
-Thanks to:
-  Stainless Software (the original developers - of course!),
-  Toshiba-3,
-  www.stilldesign.co.nz (PhysX.Net), 
-  Neale Davidson (Fontana font),
-  Shayde (txt file decryption),
-  PhysXInfo.com, 
-  cwaboard.com
+#### Thanks to:
+  Stainless Software (the original developers - of course!), Toshiba-3,
+  www.stilldesign.co.nz (PhysX.Net), Neale Davidson (Fontana font),
+  Shayde (txt file decryption), PhysXInfo.com, cwaboard.com
