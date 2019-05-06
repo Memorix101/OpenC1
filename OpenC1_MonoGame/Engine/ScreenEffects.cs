@@ -85,6 +85,7 @@ namespace OneAmEngine
 
                 Engine.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);//, SaveStateMode.SaveState);
 
+
                 Engine.SpriteBatch.Draw(_fadeTexture,
                                  new Rectangle(0, 0, viewport.Width, viewport.Height),
                                  new Color(255, 255, 255, _alpha));
@@ -104,14 +105,13 @@ namespace OneAmEngine
 
         #endregion
 
-       /* public static Texture2D TakeScreenshot()
-        {
-            int w = Engine.Device.PresentationParameters.BackBufferWidth;
-            int h = Engine.Device.PresentationParameters.BackBufferHeight;
-
-            ResolveTexture2D screenshot = new ResolveTexture2D(Engine.Device, w, h, 1, Engine.Device.PresentationParameters.BackBufferFormat);
-            Engine.Device.ResolveBackBuffer(screenshot);
-            return screenshot;
-        }*/
+        /* public static Texture2D TakeScreenshot()
+         {
+             int w = Engine.Device.PresentationParameters.BackBufferWidth;
+             int h = Engine.Device.PresentationParameters.BackBufferHeight;
+             ResolveTexture2D screenshot = new ResolveTexture2D(Engine.Device, w, h, 1, Engine.Device.PresentationParameters.BackBufferFormat);
+             Engine.Device.ResolveBackBuffer(screenshot);
+             return screenshot;
+         }*/
     }
 }

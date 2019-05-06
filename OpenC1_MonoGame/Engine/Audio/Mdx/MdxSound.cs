@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-//using Microsoft.DirectX.DirectSound;
 using Microsoft.Xna.Framework;
 
 namespace OneAmEngine.Audio
 {
-	class MdxSound : ISound
-	{
-		//SecondaryBuffer _buffer;
-		//Buffer3D _buffer3d;
+    class MdxSound : ISound
+    {
+        //SecondaryBuffer _buffer;
+        //Buffer3D _buffer3d;
         bool _is3d;
 
-        public int Id { get; set; }        
+        public int Id { get; set; }
         public object Owner { get; set; }
         public bool MuteAtMaximumDistance { get; set; }
 

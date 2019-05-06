@@ -1,2 +1,0 @@
-C:\Users\memor\source\repos\OpenCarma\Engine\obj\Debug\Engine.csprojAssemblyReference.cache
-C:\Users\memor\source\repos\OpenCarma\Engine\obj\Debug\Engine.csproj.CoreCompileInputs.cache

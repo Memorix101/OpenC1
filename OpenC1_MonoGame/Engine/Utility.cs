@@ -24,7 +24,7 @@ namespace OneAmEngine
         public static bool FindRayTriangleIntersection(ref Vector3 rayOrigin, Vector3 rayDirection, float maximumLength, ref Vector3 a, ref Vector3 b, ref Vector3 c, out Vector3 hitLocation, out float t)
         {
             hitLocation = new Vector3(float.NegativeInfinity, float.NegativeInfinity, float.NegativeInfinity);
-
+            
             t = float.NegativeInfinity;
             Vector3 vector = b - a;
             Vector3 vector2 = c - a;
@@ -165,7 +165,7 @@ namespace OneAmEngine
 
             if (results.Count > 1)
             {
-                results.Sort(delegate (float x, float y)
+                results.Sort(delegate(float x, float y)
                 {
                     return Math.Abs(originalHeight - x).CompareTo(Math.Abs(originalHeight - y));
                 });
@@ -174,7 +174,7 @@ namespace OneAmEngine
             if (results.Count > 0)
                 return results[0];
 
-            return float.MinValue;
+           return float.MinValue;
         }
     }
 }

@@ -74,7 +74,7 @@ namespace OneAmEngine
 
                     indices[(x + y * (TILES_X - 1)) * 6 + 3] = (x + 1) + (y + 1) * TILES_X;
                     indices[(x + y * (TILES_X - 1)) * 6 + 4] = x + y * TILES_X;
-                    indices[(x + y * (TILES_X - 1)) * 6 + 5] = x + (y + 1) * TILES_X;  
+                    indices[(x + y * (TILES_X - 1)) * 6 + 5] = x + (y + 1) * TILES_X;
                 }
             }
 
@@ -86,7 +86,7 @@ namespace OneAmEngine
         {
             //Engine.Device.RenderState.CullMode = CullMode.CullClockwiseFace;
             Engine.Device.RasterizerState = RasterizerState.CullCounterClockwise;
-            Matrix worldMatrix = Matrix.CreateTranslation(0, 0, -TILES_Z+1);
+            Matrix worldMatrix = Matrix.CreateTranslation(0, 0, -TILES_Z + 1);
             worldMatrix *= Matrix.CreateScale(10, 1, 10);
             BasicEffect effect = new BasicEffect(Engine.Device);
             effect.World = worldMatrix;

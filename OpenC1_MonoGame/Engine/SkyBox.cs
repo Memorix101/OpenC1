@@ -19,7 +19,7 @@ namespace OneAmEngine
             get { return _textures; }
             set { _textures = value; }
         }
-        
+
         VertexBuffer _vertices;
         IndexBuffer _indices;
         VertexDeclaration _vertexDeclaration;
@@ -59,7 +59,7 @@ namespace OneAmEngine
             get { return _projectionMatrix; }
         }
 
-        
+
         public void LoadResources(float repetionsX)
         {
             _effect = Engine.ContentManager.Load<Effect>("Skybox\\skybox");
@@ -188,7 +188,7 @@ namespace OneAmEngine
                 //_effect.Techniques[0].Passes[0].End();
             }
 
-           // _effect.End();
+            // _effect.End();
 
             device.DepthStencilState = ds;
             //device.DepthBufferWriteEnable.FogEnable = fogEnabled;

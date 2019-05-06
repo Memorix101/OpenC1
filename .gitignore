@@ -4,3 +4,10 @@ OpenC1_MonoGame/bin/
 OpenC1_MonoGame/obj/
 
 .vs/
+OpenC1_MonoGame/Engine/obj
+
+OpenC1_MonoGame/Engine/bin/
+
+OpenC1_MonoGame/Engine/Content/obj/
+
+OpenC1_MonoGame/Engine/Content/bin/

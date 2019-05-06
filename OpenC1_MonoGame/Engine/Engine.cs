@@ -44,7 +44,6 @@ namespace OneAmEngine
             DrawDistance = 1000;
 
             _contentManager = new ContentManager(Game.Services);
-            _contentManager.RootDirectory = "Content";
 
             Input = new InputProvider(Game);
             DebugRenderer = new DebugRenderer();

@@ -49,7 +49,7 @@ namespace OneAmEngine
             mFont1_get.Dispose();
              */
 
-            mFont1 = Engine.ContentManager.Load<SpriteFont>("Fonts\\Arial_14");
+            mFont1 = Engine.ContentManager.Load<SpriteFont>("Fonts/Arial_14");
             mSpriteBatch = new SpriteBatch(Engine.Device);
 
         }
@@ -59,13 +59,13 @@ namespace OneAmEngine
             SetViewMatrix(Engine.Camera.View);
             SetProjectionMatrix(Engine.Camera.Projection);
         }
-       
+
         /// <summary>
         /// Draw utility graphics waiting to be rendered this pass.
         /// </summary>
         public void Draw()
         {
-            
+
             // Draw shapes
             if (sShapeList.Count > 0)
             {
@@ -95,7 +95,7 @@ namespace OneAmEngine
                     mBasicShapeEffect.World = shapeData.mWorldMatrix;
                     mBasicShapeEffect.View = mViewMatrix;
                     mBasicShapeEffect.Projection = mProjectionMatrix;
-                    
+
 
                     //mBasicShapeEffect.Begin(SaveStateMode.SaveState);
                     foreach (EffectPass pass in mBasicShapeEffect.CurrentTechnique.Passes)
@@ -108,7 +108,7 @@ namespace OneAmEngine
                 }
             }
             ClearShapes();
-            
+
 
             // Draw lines
             if (sLinesList.Count > 0)
@@ -504,7 +504,7 @@ namespace OneAmEngine
 
             mBasicShapeEffect.LightingEnabled = true;
 
-            
+
         }
 
 
@@ -586,14 +586,14 @@ namespace OneAmEngine
             mCubeVertices[35] = new VertexPositionNormalTexture(bottomRightBack, rightNormal, textureBottomRight);
 
             mCubeVertexBuffer = new VertexBuffer(Engine.Device,
-                                                //VertexPositionNormalTexture.SizeInBytes * mCubeVertices.Length,
-                                                 typeof(VertexPositionColor),16 * mCubeVertices.Length,
+                                                 //VertexPositionNormalTexture.SizeInBytes * mCubeVertices.Length,
+                                                 typeof(VertexPositionColor), 16 * mCubeVertices.Length,
                                                  BufferUsage.WriteOnly);
 
             mCubeVertexBuffer.SetData<VertexPositionNormalTexture>(mCubeVertices);
         }
 
-        
+
 
         // Internal data types
         struct TextData

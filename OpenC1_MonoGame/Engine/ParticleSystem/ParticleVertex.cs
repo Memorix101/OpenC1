@@ -42,7 +42,7 @@ namespace OneAmEngine
             new VertexElement(0, VertexElementFormat.Short2,
                                     VertexElementUsage.Position, 0),
 
-			new VertexElement(4, VertexElementFormat.Vector3,
+            new VertexElement(4, VertexElementFormat.Vector3,
                                     VertexElementUsage.Position, 1),
 
             new VertexElement(16, VertexElementFormat.Vector3,
