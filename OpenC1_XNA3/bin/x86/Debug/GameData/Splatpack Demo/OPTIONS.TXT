@@ -1,0 +1,147 @@
+YonFactor 0.250000
+SkyTextureOn 1
+CarTexturingLevel 2
+RoadTexturingLevel 1
+WallTexturingLevel 2
+ShadowLevel 1
+DepthCueingOn 1
+Yon 0.000000
+CarSimplificationLevel 0
+AccessoryRendering 1
+SmokeOn 1
+SoundDetailLevel 1
+ScreenSize 0
+MapRenderX 6.000000
+MapRenderY 6.000000
+MapRenderWidth 64.000000
+MapRenderHeight 40.000000
+PlayerName 0
+MAX DAMAGE
+PlayerName 1
+DIE ANNA
+NetName 0
+RON TURN
+EVolume 0
+MVolume 0
+KeyMapIndex 0
+Joystick_min1x 0
+Joystick_min1y 0
+Joystick_min2x 0
+Joystick_min2y 0
+Joystick_range1x 0
+Joystick_range1y 0
+Joystick_range2x 0
+Joystick_range2y 0
+NETGAMETYPE 0
+NETSETTINGS 0
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+
+NETSETTINGS 1
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+
+NETSETTINGS 2
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+
+NETSETTINGS 3
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+
+NETSETTINGS 4
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+
+NETSETTINGS 5
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+
+NETSETTINGS 6
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+
+NETSETTINGS 7
+
+0 // Allow the sending of Abuse-o-Matic(tm) text messages
+0 // Show cars on map
+0 // Show peds on map
+0 // Show pickups on map
+0 // Pickup respawn
+0 // Open game
+0 // Grid start
+0 // Race order
+0 // Random car selection
+0 // Car choice mode
+0 // Starting credits index
+

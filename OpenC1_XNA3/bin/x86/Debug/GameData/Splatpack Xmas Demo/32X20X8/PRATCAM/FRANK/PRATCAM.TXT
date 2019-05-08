@@ -1,0 +1,548 @@
+// MAX DAMAGE (FRANKIE) PRATCAM TEXT FILE
+// sunday 19/1/97
+// last changes (hopefully!!)
+
+
+45				// NUMBER OF FLICS
+
+FDEADL.FLI        // 0
+FDISGUSL.FLI	// 1
+FDRIVE1L.FLI	// 2
+FGRINL.FLI		// 3
+FHELMETL.FLI	// 4
+FHITB1L.FLI       // 5
+FHITF1L.FLI       // 6
+FHITL1L.FLI       // 7
+FHITR1L.FLI       // 8
+FHORRORL.FLI	// 9
+FLAUGHL.FLI		// 10
+FLOOKLL.FLI       // 11  
+FLOOKRL.FLI	      // 12
+FROLL1L.FLI       // 13
+FSCREAML.FLI	// 14
+FSORRYL.FLI		// 15
+FWHIPL.FLI		// 16
+FYEAHL.FLI		// 17
+FDRIVE2L.FLI      // 18
+FDRIVE3L.FLI      // 19
+FSAILL.FLI        // 20
+FFALLL.FLI        // 21
+FROLL2L.FLI       // 22
+FROLL3L.FLI       // 23
+FHITB2L.FLI       // 24
+FHITB3L.FLI       // 25
+FHITF2L.FLI       // 26
+FHITF3L.FLI       // 27
+FHITL2L.FLI       // 28
+FHITL3L.FLI       // 29
+FHITR2L.FLI       // 30
+FHITR3L.FLI       // 31
+FSKIDLL.FLI       // 32
+FSKIDRL.FLI       // 33
+FHELMXL.FLI       // 34
+FLOOSEL.FLI       // 35
+FLOOSEXL.FLI      // 36
+FDEADXL.FLI       // 37
+FSPEEDL.FLI       // 38
+FGOODL.FLI        // 39
+FBADL.FLI         // 40
+FSILLYL.FLI       // 41
+FUPSIDEL.FLI      // 42
+FSTILLL.FLI       // 43
+FVFUZZL.FLI       // 44
+
+END
+
+
+
+// **** START OF SEQUENCES **** 
+
+45				// NUMBER OF SEQUENCES
+
+// Sequence 0 - Stationary or driving at below 25mph
+0							// Precedence
+0							// Chunk to start repeating at
+1           						// Number of chunks
+// Chunk #1
+	
+      3							// Number of alternatives
+
+//	 Chunk #1, alternative #1
+		2,90,0						// Flic index,% chance,% of sound
+		11,5,0						// Flic index,% chance,% of sound
+		12,5,0						// Flic index,% chance,% of sound
+
+
+  
+
+
+// Sequence 1 - Driving at between 25mph and 67mph
+50							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	4							// Number of alternatives
+	// Chunk #1, alternative #1
+		2,83,0						// Flic index,% chance,% of sound
+		11,5,0						// Flic index,% chance,% of sound
+		12,5,0						// Flic index,% chance,% of sound           
+            9,2,0                                   	// Flic index,% chance,% of sound
+
+
+
+// Sequence 2 - Driving at between 67mph and 167mph
+60							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	4							// Number of alternatives
+	// Chunk #1, alternative #1
+		18,85,0						// Flic index,% chance,% of sound	
+		11,5,0						// Flic index,% chance,% of sound
+		12,5,0						// Flic index,% chance,% of sound
+		9,5,0						// Flic index,% chance,% of sound
+
+
+// Sequence 3 - Driving at over 167mph
+70							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		19,100,0						// Flic index,% chance,% of sound
+
+
+// Sequence 4 - Accelerating (NOT USED)
+100							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+//	 Chunk #1, alternative #1
+		3,10,0						// Flic index,% chance,% of sound
+		9,40,0						// Flic index,% chance,% of sound
+		2,50,0						// Flic index,% chance,% of sound
+
+// Sequence 5 - Sailing gracefully through the air
+200							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		9,30,0						// Flic index,% chance,% of sound
+		14,30,0						// Flic index,% chance,% of sound
+		20,40,0						// Flic index,% chance,% of sound
+// Sequence 6 - Falling rapidly
+400							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		21,80,0						// Flic index,% chance,% of sound
+		42,10,0						// Flic index,% chance,% of sound
+		9,10,0						// Flic index,% chance,% of sound
+// Sequence 7 - Rolling gently
+200							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	2							// Number of alternatives
+	// Chunk #1, alternative #1
+		32,50,0						// Flic index,% chance,% of sound
+		33,50,0						// Flic index,% chance,% of sound
+
+
+// Sequence 8 - Rolling mediumly
+400							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		22,60,0						// Flic index,% chance,% of sound
+		28,20,0						// Flic index,% chance,% of sound
+		30,20,0						// Flic index,% chance,% of sound
+
+// Sequence 9 - Rolling violently
+1100							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		23,60,0						// Flic index,% chance,% of sound
+		31,20,0						// Flic index,% chance,% of sound
+		29,20,0						// Flic index,% chance,% of sound
+				
+// Sequence 10 - Spinning gently
+200							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		9,20,0						// Flic index,% chance,% of sound
+		32,40,0						// Flic index,% chance,% of sound
+		33,40,0						// Flic index,% chance,% of sound
+
+// Sequence 11 - Spinning mediumly
+290							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		22,60,0						// Flic index,% chance,% of sound
+		28,20,0						// Flic index,% chance,% of sound
+		30,20,0						// Flic index,% chance,% of sound
+
+
+// Sequence 12 - Spinning violently
+1100							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		23,60,0						// Flic index,% chance,% of sound
+		31,20,0						// Flic index,% chance,% of sound
+		29,20,0						// Flic index,% chance,% of sound
+
+
+// Sequence 13 - Small hit up the arse
+100						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		5,100,0						// Flic index,% chance,% of sound
+
+// Sequence 14 - Small hit in the front
+100						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	2							// Number of alternatives
+	// Chunk #1, alternative #1
+		6,50,0						// Flic index,% chance,% of sound
+		9,50,0						// Flic index,% chance,% of sound
+
+// Sequence 15 - Small hit up from the left
+100						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		7,100,0						// Flic index,% chance,% of sound
+
+// Sequence 16 - Small hit up from the right
+100						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		8,100,0						// Flic index,% chance,% of sound
+
+// Sequence 17 - Medium hit up the arse
+300						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		24,100,0						// Flic index,% chance,% of sound
+
+// Sequence 18 - Medium hit in the front
+300						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		26,100,0						// Flic index,% chance,% of sound
+
+// Sequence 19 - Medium hit up from the left
+300						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		28,100,0						// Flic index,% chance,% of sound
+
+// Sequence 20 - Medium hit up from the right
+300						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		30,100,0						// Flic index,% chance,% of sound
+
+// Sequence 21 - Big hit up the arse
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	2							// Number of alternatives
+	// Chunk #1, alternative #1
+		25,90,0						// Flic index,% chance,% of sound
+		44,10,0						// Flic index,% chance,% of sound
+
+// Sequence 22 - Big hit in the front
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		27,70,0						// Flic index,% chance,% of sound
+		16,10,0						// Flic index,% chance,% of sound
+		44,20,0						// Flic index,% chance,% of sound
+
+// Sequence 23 - Big hit up from the left
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	2							// Number of alternatives
+	// Chunk #1, alternative #1
+		29,90,0						// Flic index,% chance,% of sound
+		44,10,0						// Flic index,% chance,% of sound
+
+// Sequence 24 - Big hit up from the right
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	2							// Number of alternatives
+	// Chunk #1, alternative #1
+		31,90,0						// Flic index,% chance,% of sound
+		44,10,0						// Flic index,% chance,% of sound
+
+// Sequence 25 - Skidding to the left
+200						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		32,100,0						// Flic index,% chance,% of sound
+
+// Sequence 26 - Skidding to the right
+200						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		33,100,0						// Flic index,% chance,% of sound
+	
+
+// Sequence 27 - Turning head to the left in internal view
+150						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		11,100,0						// Flic index,% chance,% of sound
+
+// Sequence 28 - Turning head to the right in internal view
+150						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		12,100,0						// Flic index,% chance,% of sound
+
+// Sequence 29 - Killed a ped
+250						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	5							// Number of alternatives
+	// Chunk #1, alternative #1
+		1,20,0						// Flic index,% chance,% of sound
+            3,20,0	                              // Flic index,% chance,% of sound
+           15,20,0                                    // Flic index,% chance,% of sound
+		9,20,0						// Flic index,% chance,% of sound
+	     10,20,0						// Flic index,% chance,% of sound
+
+// Sequence 30 - Killed a whole bunch-o-peds/piledriver/arty impress etc
+255						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	5						// Number of alternatives
+
+	// Chunk #1, alternative #1
+		1,20,0						// Flic index,% chance,% of sound
+           15,20,0                               	// Flic index,% chance,% of sound
+            9,20,0	                              // Flic index,% chance,% of sound
+           10,20,0 	                              // Flic index,% chance,% of sound
+       	17,20,0			  			// Flic index,% chance,% of sound
+
+
+// Sequence 31 - Apologising after killing ped(s)
+260						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		15,100,0						// Flic index,% chance,% of sound
+
+// Sequence 32 - Wasted an opponent
+270						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	2							// Number of alternatives
+	// Chunk #1, alternative #1
+		17,50,0						// Flic index,% chance,% of sound
+ 	      15,50,0					     // Flic index,% chance,% of sound
+
+// Sequence 33 - Gone through a checkpoint
+270						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		17,100,0						// Flic index,% chance,% of sound
+
+// Sequence 34 - Successfully completing a race
+10000						// Precedence
+1							// Chunk to start repeating at
+2							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		4,100,0						// Flic index,% chance,% of sound
+
+// Chunk #2
+	1							// Number of alternatives
+	// Chunk #2, alternative #1
+		34,100,0						// Flic index,% chance,% of sound
+
+// Sequence 35 - Unsuccessfully completing a race (out of time)
+10000						// Precedence
+1							// Chunk to start repeating at
+2							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		35,100,0						// Flic index,% chance,% of sound
+
+// Chunk #2
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		36,100,0						
+
+
+// Sequence 36 - Dead (Network mode only)
+10000						// Precedence
+1							// Chunk to start repeating at
+2							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		0,100,0						// Flic index,% chance,% of sound
+1							// Number of alternatives
+
+      // Chunk #2 alternative #1
+		37,100,0				// Flic index,% chance,% of sound
+
+
+
+// Sequence 37 - Got points/time powerup
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		38,100,0						// Flic index,% chance,% of sound
+
+// Sequence 38 - Got good powerup
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		39,100,0				// Flic index,% chance,% of sound
+
+// Sequence 39 - Got bad powerup
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		 40,100,0			// Flic index,% chance,% of sound
+
+// Sequence 40 - Got weird powerup
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		41,100,0					// Flic index,% chance,% of sound
+
+// Sequence 41 - Instant handbrake
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	2							// Number of alternatives
+	// Chunk #1, alternative #1
+		27,50,0				// Flic index,% chance,% of sound
+		16,50,0						// Flic index,% chance,% of sound
+// Sequence 42 - Bouncey bouncey
+
+1000						// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		 25,100,0				// Flic index,% chance,% of sound
+
+// Sequence 43 - Instant bodywork trash
+
+1000						// Precedence
+0							// Chunk to start repeating at
+2							// Number of chunks
+// Chunk #1
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		40,100,0                         	// Flic index,% chance,% of sound
+		
+// Chunk #2
+	1							// Number of alternatives
+	// Chunk #1, alternative #1
+		9,100,0						// Flic index,% chance,% of sound
+
+// Sequence 44 - Upside down
+299							// Precedence
+0							// Chunk to start repeating at
+1							// Number of chunks
+// Chunk #1
+	3							// Number of alternatives
+	// Chunk #1, alternative #1
+		42,30,0					// Flic index,% chance,% of sound
+		44,30,0					// Flic index,% chance,% of sound	
+		43,40,0					// Flic index,% chance,% of sound
+
+END
+

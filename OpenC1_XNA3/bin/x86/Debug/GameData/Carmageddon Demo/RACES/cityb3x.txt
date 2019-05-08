@@ -1,0 +1,6834 @@
+VERSION 4							// V1 expects map checkpoint rectangles
+// V2 and above expect map checkpoint points
+// V3 and above expect splash file stuff at the end
+// V4 and above expect two sets of PIX and MAT and ped substitution entry
+-162.40,-3.34,36.94					// Position of centre of start of grid
+180									// Direction that grid faces in
+// Laps, checkpoints etc
+45,30,20							// Initial timer count for each skill level
+1									// # laps
+5000,5000,5000						// Race completed bonus (all laps raced) for each skill level
+10000,10000,10000					// Race completed bonus (all peds killed) for each skill level
+10000,10000,10000					// Race completed bonus (all oppos wasted) for each skill level
+// Width and height of map checkpoint rectangles
+9,18
+11,26
+5									// # checkpoints
+// Checkpoint #1
+20,10,5								// Timer increment for each skill level (ped mode)
+60,30,10							// Timer increment for each skill level (pedless mode)
+1									// # quads for this checkpoint
+-128.15,-100,171.84						// Point #0
+-128.15,100,171.84						// Point #1
+-128.15,100,167.83						// Point #2
+-128.15,-100,167.83					// Point #3
+141,141								// Map rectangle x
+36,36								// Map rectangle y
+// Checkpoint #2
+20,10,5								// Timer increment for each skill level (ped mode)
+60,30,10							// Timer increment for each skill level (pedless mode)
+1									// # quads for this checkpoint
+-39.47,-100,210.02						// Point #0
+-39.47,100,210.02						// Point #1
+-34.36,100,210.02						// Point #2
+-34.36,-100,210.02					// Point #3
+117,141								// Map rectangle x
+99,36								// Map rectangle y
+// Checkpoint #3
+20,10,5								// Timer increment for each skill level (ped mode)
+60,30,10							// Timer increment for each skill level (pedless mode)
+1									// # quads for this checkpoint
+-75.64,-100,246.83						// Point #0
+-75.64,100,246.83						// Point #1
+-80.06,100,246.43						// Point #2
+-80.06,-100,246.43					// Point #3
+90,141								// Map rectangle x
+71,36								// Map rectangle y
+// Checkpoint #4
+20,10,5								// Timer increment for each skill level (ped mode)
+60,30,10							// Timer increment for each skill level (pedless mode)
+1									// # quads for this checkpoint
+-56.73,-100,116.36						// Point #0
+-56.73,100,116.36						// Point #1
+-53.32,100,116.36						// Point #2
+-53.32,-100,116.36					// Point #3
+178,141								// Map rectangle x
+87,36								// Map rectangle y
+// Checkpoint #5
+20,10,5								// Timer increment for each skill level (ped mode)
+60,30,10							// Timer increment for each skill level (pedless mode)
+1									// # quads for this checkpoint
+-118.36,-100,68.256						// Point #0
+-118.36,100,68.256						// Point #1
+-118.36,100,72.068						// Point #2
+-118.36,-100,72.068					// Point #3
+216,141								// Map rectangle x
+81,36								// Map rectangle y
+3									// # pixelmap files to load (normal memory)
+CITYB.PIX
+DRKSCRN.PIX
+FOGSCRN.PIX
+3									// # pixelmap files to load (low memory)
+CITYB1.PIX
+DRKSCRN.PIX
+FOGSCRN.PIX
+1									// # shade table files to load
+DRRENDER.TAB
+5									// # material files to load (normal memory)
+CITYB.MAT
+DARKSKY.MAT
+DRKSCRN.MAT
+FOGSCRN.MAT
+SKIDMARK.MAT
+5									// # material files to load (low memory)
+CITYB1.MAT
+DARKSKY.MAT
+DRKSCRN.MAT
+FOGSCRN.MAT
+SKIDMARK.MAT
+1									// # model files to load
+CITYBNW3.DAT
+CITYBNW3.ACT							// Track actor
+CITYBX.ACT							// Additional actor
+// HORIZON STUFF
+none						// Name of sky texture pixelmap (or "none")
+5									// Horizontal repetitions of sky texture
+24									// Vertical size of sky texture (degrees)
+83									// Position of horizon (pixels below top)
+fog								// Depth cue mode ("none", "dark" or "fog")
+7,0									// Degree of fog/darkness
+// DEFAULT ENGINE NOISE
+0
+// SPECIAL EFFECTS VOLUMES
+5				// # special effects volumes
+NEW IMPROVED!
+-1.728, 0.000, -0.017
+0.000, 0.833, -0.002
+0.061, -0.015, -6.191
+-104.994, -2.820, 100.680
+1				// gravity multiplier
+1				// viscosity multiplier
+0				// Car damage per millisecond
+0				// Pedestrian damage per millisecond
+-1					// camera effect index
+-1					// depth effect index
+nonef				// Windscreen material to use
+-1					// Sound ID of entry noise
+-1					// Sound ID of exit noise
+1					// Engine noise index
+0					// material index
+NEW IMPROVED!
+0.101, 0.000, 6.191
+0.000, 1.000, 0.000
+-9.829, 0.000, 0.160
+-97.343, -2.860, 90.757
+1				// gravity multiplier
+1				// viscosity multiplier
+0				// Car damage per millisecond
+0				// Pedestrian damage per millisecond
+-1					// camera effect index
+-1					// depth effect index
+nonef				// Windscreen material to use
+-1					// Sound ID of entry noise
+-1					// Sound ID of exit noise
+1					// Engine noise index
+0					// material index
+NEW IMPROVED!
+18.747, 0.000, -0.026
+0.000, 6.192, 0.000
+-0.189, 0.000, 11.462
+-54.871, 1.147, 127.869
+1				// gravity multiplier
+1				// viscosity multiplier
+0				// Car damage per millisecond
+0				// Pedestrian damage per millisecond
+-1					// camera effect index
+-1					// depth effect index
+nonef				// Windscreen material to use
+-1					// Sound ID of entry noise
+-1					// Sound ID of exit noise
+1					// Engine noise index
+0					// material index
+NEW IMPROVED!
+2.073, 0.000, -0.058
+0.000, 1.000, 0.000
+0.175, 0.000, 6.189
+-54.945, -2.919, 100.573
+1				// gravity multiplier
+1				// viscosity multiplier
+0				// Car damage per millisecond
+0				// Pedestrian damage per millisecond
+-1					// camera effect index
+-1					// depth effect index
+nonef				// Windscreen material to use
+-1					// Sound ID of entry noise
+-1					// Sound ID of exit noise
+1					// Engine noise index
+0					// material index
+NEW IMPROVED!
+-0.084, 0.000, 5.791
+0.000, 1.000, 0.000
+-9.604, 0.000, -0.139
+-47.246, -3.279, 90.671
+1				// gravity multiplier
+1				// viscosity multiplier
+0				// Car damage per millisecond
+0				// Pedestrian damage per millisecond
+-1					// camera effect index
+-1					// depth effect index
+nonef				// Windscreen material to use
+-1					// Sound ID of entry noise
+-1					// Sound ID of exit noise
+1					// Engine noise index
+0					// material index
+
+// REFLECTIVE WINDSCREEN SPECIFICATIONS
+DARKSKY.MAT							// Material to use for default screens
+DRKSCRN.MAT							// Material to use for default screens during darkness
+FOGSCRN.MAT							// Material to use for default screens during fog
+0									// # areas with different screens
+// MAP DETAILS
+CITBMAP3.PIX						// Map pixelmap name
+0,			0.72,		0			// World->map transformation matrix
+0,			0,			0
+-0.72,		0,			0
+268.3,		132.3,		0
+// ****** START OF FUNK AND GROOVE STUFF ******
+START OF FUNK
+SSDIDDY.MAT
+distance
+piss off
+no fucking lighting bastards
+flic
+accurate
+PARTEE.FLI
+NEXT FUNK
+CAFE.MAT
+distance
+piss off
+no fucking lighting bastards
+flic
+approximate
+CAFE.FLI
+NEXT FUNK
+HOTEL.MAT
+distance
+piss off
+no fucking lighting bastards
+flic
+approximate
+HOTEL.FLI
+NEXT FUNK
+CHECK.MAT
+constant
+roll
+continuous
+0.2,0
+no fucking lighting
+no animation you cunt
+NEXT FUNK
+!SEE.MAT
+constant
+throb
+harmonic
+0.13,0.09
+5,5
+50,50
+no fucking lighting
+no animation you cunt
+END OF FUNK
+START OF GROOVE
+&CBO0471.ACT						// Actor name of moving part
+not a fuckin lolliiipop				// Not a lollipop
+distance							// Only moves when in view
+no fucking path you cuuuuuuunt		// Does not move on a path
+rock								// Object itself rocks
+linear								// Motion is linear (i.e. direction changes instantly)
+0.12								// Cycles per second
+0,0,0								// Centre of movement
+y									// Axis to rock in
+90									// Angle to rock (each way)
+NEXT GROOVE
+&CAR0471.ACT						// Actor name of moving part
+not a fuckin lolliiipop				// Not a lollipop
+distance							// Only moves when in view
+straight							// Moves on a straight path
+linear								// Motion is linear (i.e. direction changes instantly)
+0,0,-0.1							// Centre of movement
+0.2									// Cycles per second
+0,0,0.15							// Amount of movement (each way) in each axis
+no object moving cunt				// Object itself does not change orientation
+NEXT GROOVE
+&RCH0468.ACT						// Actor name of moving part
+not a fuckin lolliiipop				// Not a lollipop
+distance							// Only moves when in view
+straight							// Moves on a straight path
+linear								// Motion is linear (i.e. direction changes instantly)
+0,0,0								// Centre of movement
+0.25								// Cycles per second
+0,0,0.3								// Amount of movement (each way) in each axis
+no object moving cunt				// Object itself does not change orientation
+END OF GROOVE
+// ****** START OF PEDESTRIAN STUFF ******
+0
+510				// Number of pedestrians
+// Pedestrian number 1
+25				// Ref num
+5				// Number of instructions
+1				// Initial instruction
+point
+-28.304,-3.337,37.732
+point
+-28.174,-3.327,38.574
+point
+-27.449,-3.321,39.037
+point
+-23.199,-3.271,43.092
+reverse
+// Pedestrian number 2
+6				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-26.380,-3.281,42.729
+point
+-27.132,-3.281,42.995
+point
+-27.615,-3.282,45.432
+point
+-27.717,-3.282,49.534
+reverse
+// Pedestrian number 3
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-27.794,-3.282,45.618
+point
+-27.538,-3.282,50.387
+point
+-26.909,-3.282,53.031
+point
+-26.016,-3.283,53.573
+reverse
+// Pedestrian number 4
+3				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-33.575,-3.282,43.193
+point
+-32.420,-3.282,45.046
+point
+-32.277,-3.282,49.444
+point
+-33.741,-3.282,53.114
+reverse
+// Pedestrian number 5
+4				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-27.776,-3.284,67.796
+point
+-27.620,-3.285,72.510
+point
+-27.163,-3.285,73.585
+point
+-26.135,-3.286,78.293
+reverse
+// Pedestrian number 6
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-32.172,-3.283,49.864
+point
+-32.353,-3.284,58.668
+point
+-32.206,-3.284,66.631
+reverse
+// Pedestrian number 7
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-33.967,-3.284,52.979
+point
+-33.321,-3.284,53.265
+point
+-32.574,-3.284,58.940
+point
+-33.584,-3.284,65.122
+point
+-32.260,-3.281,67.251
+reverse
+// Pedestrian number 8
+6				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-33.882,-3.281,71.817
+point
+-32.189,-3.281,72.371
+point
+-23.380,-3.281,77.281
+point
+-23.108,-3.281,78.358
+reverse
+// Pedestrian number 9
+18				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-37.924,-3.285,77.274
+point
+-32.497,-3.285,77.354
+point
+-27.616,-3.286,83.276
+point
+-26.457,-3.286,83.496
+reverse
+// Pedestrian number 10
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-35.401,-3.280,106.697
+point
+-32.200,-3.280,96.697
+point
+-27.721,-3.280,83.632
+reverse
+// Pedestrian number 11
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-33.167,-3.280,109.922
+point
+-32.433,-3.280,103.724
+point
+-32.144,-3.280,97.836
+reverse
+// Pedestrian number 12
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.936,-3.281,75.645
+point
+-27.704,-3.281,77.603
+point
+-27.644,-3.281,82.934
+reverse
+// Pedestrian number 13
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-36.503,-3.281,107.059
+point
+-33.383,-3.281,110.322
+point
+-39.116,-3.279,113.192
+reverse
+// Pedestrian number 14
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-36.020,-3.279,107.090
+point
+-33.379,-3.280,112.573
+point
+-36.213,-3.280,116.039
+reverse
+// Pedestrian number 15
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-38.662,-3.280,110.723
+point
+-33.405,-3.280,113.683
+point
+-37.299,-3.280,116.058
+reverse
+// Pedestrian number 16
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.429,-3.280,118.228
+point
+-32.205,-3.280,116.371
+point
+-33.205,-3.280,114.785
+reverse
+// Pedestrian number 17
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.029,-3.280,134.129
+point
+-32.172,-3.280,141.266
+point
+-36.441,-3.280,144.424
+reverse
+// Pedestrian number 18
+3				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-25.509,-3.280,135.146
+point
+-27.796,-3.280,133.147
+point
+-25.902,-3.280,123.815
+point
+-14.471,-3.280,123.647
+point
+-14.454,-3.280,123.097
+reverse
+// Pedestrian number 19
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-32.215,-3.280,146.827
+point
+-27.870,-3.280,148.665
+point
+-23.600,-3.280,154.325
+reverse
+// Pedestrian number 20
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-38.113,-3.279,167.679
+point
+-33.779,-3.280,162.753
+point
+-32.318,-3.280,160.372
+reverse
+// Pedestrian number 21
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.799,-3.280,165.612
+point
+-32.080,-3.278,159.790
+point
+-35.659,-3.279,150.851
+reverse
+// Pedestrian number 22
+6				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-31.865,-3.278,167.122
+point
+-32.243,-3.278,166.773
+point
+-32.706,-3.278,160.239
+point
+-21.312,-3.278,141.353
+reverse
+// Pedestrian number 23
+18				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-26.957,-3.278,168.325
+point
+-31.732,-3.278,169.554
+point
+-32.309,-3.278,170.615
+point
+-78.674,-3.299,168.929
+point
+-84.531,-3.278,168.835
+reverse
+// Pedestrian number 24
+6				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-27.724,-3.278,170.643
+point
+-27.900,-3.278,186.266
+point
+-31.849,-3.278,195.400
+point
+-31.890,996.922,198.608
+point
+-33.338,996.922,199.976
+reverse
+// Pedestrian number 25
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-27.511,-3.304,165.552
+point
+-27.824,-3.302,154.473
+point
+-16.943,-3.301,149.269
+reverse
+// Pedestrian number 26
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-6.270,-3.281,154.495
+point
+-12.588,-3.280,149.966
+point
+-16.710,-3.279,142.473
+reverse
+// Pedestrian number 27
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-17.087,-3.279,144.481
+point
+-9.856,-3.278,142.223
+point
+-4.004,-3.279,144.622
+reverse
+// Pedestrian number 28
+4				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-2.239,-3.278,141.235
+point
+-2.919,-3.278,142.534
+point
+-10.441,-3.278,142.487
+point
+-18.510,-3.278,142.433
+point
+-18.613,-3.277,134.150
+reverse
+// Pedestrian number 29
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+6.359,-3.278,139.229
+point
+2.498,-3.279,144.609
+point
+-4.877,-3.280,149.223
+reverse
+// Pedestrian number 30
+6				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+5.154,-3.278,139.101
+point
+5.008,-3.278,141.887
+point
+2.549,-3.279,144.041
+point
+-3.470,-3.279,144.774
+reverse
+// Pedestrian number 31
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+10.042,-3.279,144.804
+point
+13.656,-3.280,149.238
+point
+13.843,-3.280,152.146
+reverse
+// Pedestrian number 32
+6				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+4.447,-3.280,138.995
+point
+6.387,-3.280,142.132
+point
+13.755,-3.280,144.477
+point
+20.654,-3.305,145.564
+reverse
+// Pedestrian number 33
+4				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+13.852,-3.280,152.605
+point
+13.430,-3.280,170.997
+point
+12.491,-3.280,180.971
+point
+7.070,-3.280,188.183
+reverse
+// Pedestrian number 34
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+12.657,-3.280,160.779
+point
+13.303,-3.280,168.310
+point
+16.652,-3.280,182.728
+reverse
+// Pedestrian number 35
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-32.909,-3.280,169.295
+point
+-27.193,-3.280,160.639
+point
+-22.297,-3.280,141.282
+reverse
+// Pedestrian number 36
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-27.658,-3.280,168.238
+point
+-32.256,996.920,181.415
+point
+-33.483,996.920,198.847
+reverse
+// Pedestrian number 37
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.008,-3.280,209.632
+point
+-27.905,-3.280,205.404
+point
+-33.286,996.920,199.142
+reverse
+// Pedestrian number 38
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.868,-3.280,190.256
+point
+-27.804,-3.278,200.742
+point
+-33.307,996.924,210.583
+reverse
+// Pedestrian number 39
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-34.723,996.926,219.790
+point
+-32.208,996.926,222.314
+point
+-24.400,996.926,225.469
+reverse
+// Pedestrian number 40
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-23.739,-3.276,213.662
+point
+-31.898,996.927,225.277
+point
+-53.136,990.550,246.594
+reverse
+// Pedestrian number 41
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.730,-3.279,211.969
+point
+-27.827,-3.278,229.256
+point
+-32.506,996.924,235.686
+reverse
+// Pedestrian number 42
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.194,-3.278,253.610
+point
+-31.831,-3.276,249.825
+point
+-32.867,996.924,241.010
+reverse
+// Pedestrian number 43
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.045,-3.279,234.253
+point
+-31.622,-3.276,250.662
+point
+-35.848,996.926,260.641
+reverse
+// Pedestrian number 44
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-26.521,-3.278,256.221
+point
+-36.302,-3.274,269.012
+point
+-50.292,996.933,287.660
+reverse
+// Pedestrian number 45
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-36.111,-3.274,269.447
+point
+-47.309,-3.307,274.962
+point
+-54.123,996.893,287.481
+reverse
+// Pedestrian number 46
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-36.394,996.893,261.631
+point
+-47.996,996.893,275.100
+point
+-55.705,996.893,287.204
+reverse
+// Pedestrian number 47
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-35.972,-3.307,269.739
+point
+-45.195,-3.307,274.440
+point
+-51.956,996.893,287.460
+reverse
+// Pedestrian number 48
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-32.519,996.893,251.317
+point
+-30.782,996.893,263.741
+point
+-15.150,996.893,293.618
+reverse
+// Pedestrian number 49
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-41.363,994.066,247.714
+point
+-30.124,997.379,262.176
+point
+-14.343,992.029,293.447
+reverse
+// Pedestrian number 50
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+5.987,993.513,289.456
+point
+-8.607,997.048,267.192
+point
+-15.487,-3.288,262.838
+reverse
+// Pedestrian number 51
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-103.496,-9.670,261.809
+point
+-101.013,-9.719,259.438
+point
+-100.949,-9.746,258.154
+point
+-102.201,-9.771,256.926
+reverse
+// Pedestrian number 52
+10				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-101.205,-9.470,271.404
+point
+-102.734,-9.700,260.352
+point
+-105.242,-9.727,259.051
+point
+-108.093,-9.768,257.104
+point
+-108.169,-9.790,256.034
+point
+-107.188,-9.804,255.331
+reverse
+// Pedestrian number 53
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-106.929,-9.804,255.336
+point
+-101.619,-9.790,256.042
+point
+-101.126,-9.738,258.504
+reverse
+// Pedestrian number 54
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-101.463,-9.724,259.167
+point
+-102.944,-9.756,257.668
+point
+-113.721,-9.753,257.782
+point
+-114.381,-9.741,258.362
+reverse
+// Pedestrian number 55
+10				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-104.238,-9.669,261.829
+point
+-109.733,-9.711,259.831
+point
+-110.676,-9.751,257.894
+point
+-117.645,-9.816,250.606
+reverse
+// Pedestrian number 56
+5				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-104.331,-9.730,258.944
+point
+-106.444,-9.708,259.998
+point
+-109.953,-9.708,259.965
+point
+-111.071,-9.749,257.986
+point
+-125.908,-9.688,258.109
+point
+-126.584,-9.676,258.837
+reverse
+// Pedestrian number 57
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-118.148,-9.655,261.949
+point
+-121.844,-9.675,259.810
+point
+-126.660,-9.667,259.405
+reverse
+// Pedestrian number 58
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-114.261,-9.701,259.409
+point
+-121.065,-9.680,259.585
+point
+-122.335,-9.691,258.517
+point
+-122.897,-9.690,258.547
+reverse
+// Pedestrian number 59
+5				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-130.082,-9.779,250.788
+point
+-130.627,-9.752,252.559
+point
+-130.772,-9.735,253.727
+point
+-135.669,-9.629,260.358
+point
+-135.887,-9.629,260.347
+reverse
+// Pedestrian number 60
+5				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-135.476,-9.768,250.466
+point
+-130.892,-9.755,252.334
+point
+-129.187,-9.759,252.340
+point
+-126.608,-9.722,255.530
+point
+-124.367,-9.678,259.099
+reverse
+// Pedestrian number 61
+10				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-103.476,-9.860,250.172
+point
+-103.944,-9.828,252.317
+point
+-107.962,-9.801,253.540
+point
+-117.468,-9.759,254.758
+reverse
+// Pedestrian number 62
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-109.648,-9.719,258.981
+point
+-110.523,-9.737,257.532
+point
+-113.077,-9.744,256.596
+point
+-117.516,-9.661,261.677
+reverse
+// Pedestrian number 63
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-108.455,-9.752,256.881
+point
+-109.858,-9.744,257.173
+point
+-126.580,-9.714,256.261
+reverse
+// Pedestrian number 64
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-129.824,-9.711,255.924
+point
+-130.521,-9.741,253.693
+point
+-131.128,-9.747,253.143
+reverse
+// Pedestrian number 65
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-135.798,-9.614,261.667
+point
+-138.472,-9.617,260.966
+point
+-140.732,-9.663,257.340
+reverse
+// Pedestrian number 66
+11				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-141.646,-9.658,257.466
+point
+-138.955,-9.620,260.677
+point
+-138.391,-9.624,260.503
+point
+-136.006,-9.633,260.239
+reverse
+// Pedestrian number 67
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-137.438,-9.622,260.759
+point
+-129.981,-9.619,262.354
+point
+-127.374,-9.660,259.943
+reverse
+// Pedestrian number 68
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-117.374,-9.822,250.310
+point
+-103.693,-9.865,249.776
+point
+-98.344,-9.939,241.090
+reverse
+// Pedestrian number 69
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-136.049,-9.638,259.568
+point
+-125.143,-9.657,260.461
+point
+-124.223,-9.653,260.851
+point
+-117.707,-9.650,262.302
+reverse
+// Pedestrian number 70
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-139.237,-9.684,255.931
+point
+-125.044,-9.696,257.685
+point
+-122.001,-9.692,258.495
+reverse
+// Pedestrian number 71
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-157.972,990.298,194.881
+point
+-158.892,990.260,196.112
+point
+-159.756,-9.940,198.174
+reverse
+// Pedestrian number 72
+3				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-157.942,-9.937,197.116
+point
+-158.907,-9.940,196.416
+point
+-164.498,-9.960,196.690
+point
+-174.843,-9.960,195.197
+reverse
+// Pedestrian number 73
+6				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-174.826,-9.960,196.842
+point
+-164.014,-9.960,195.396
+point
+-159.567,-9.940,197.043
+point
+-142.505,-9.940,199.981
+reverse
+// Pedestrian number 74
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-157.712,-9.940,197.235
+point
+-159.812,-9.940,198.558
+point
+-163.921,-9.960,195.948
+reverse
+// Pedestrian number 75
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-159.711,996.717,171.748
+point
+-159.055,993.135,184.767
+point
+-159.844,992.108,188.510
+reverse
+// Pedestrian number 76
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-155.230,990.854,193.023
+point
+-158.718,993.007,185.230
+point
+-164.235,997.454,169.117
+reverse
+// Pedestrian number 77
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-170.749,-3.279,170.896
+point
+-148.063,-3.279,165.778
+point
+-146.439,-3.279,164.094
+point
+-146.334,-3.279,163.708
+reverse
+// Pedestrian number 78
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-142.663,-3.279,168.505
+point
+-148.550,-3.279,165.489
+point
+-163.678,-3.279,160.825
+reverse
+// Pedestrian number 79
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-159.180,-3.279,142.352
+point
+-150.341,-3.279,146.225
+point
+-132.336,-3.279,147.257
+reverse
+// Pedestrian number 80
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-133.575,-3.279,148.172
+point
+-150.410,-3.279,146.441
+point
+-154.852,-3.279,148.131
+reverse
+// Pedestrian number 81
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-135.272,-3.279,146.647
+point
+-132.196,-3.279,142.097
+point
+-129.423,-3.279,139.249
+reverse
+// Pedestrian number 82
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-159.373,-3.279,142.604
+point
+-159.739,-3.279,154.912
+point
+-164.244,-3.299,170.832
+reverse
+// Pedestrian number 83
+22				// Ref num
+8				// Number of instructions
+3				// Initial instruction
+point
+-154.341,996.901,172.517
+point
+-154.743,996.901,170.775
+point
+-159.410,-3.299,154.340
+point
+-163.724,-3.299,151.297
+point
+-163.729,-3.299,142.943
+point
+-164.581,-3.299,141.512
+point
+-164.559,-3.299,140.910
+reverse
+// Pedestrian number 84
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-158.054,-3.280,138.620
+point
+-159.458,-3.280,129.784
+point
+-159.755,-3.280,106.899
+reverse
+// Pedestrian number 85
+22				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-151.297,-3.280,77.438
+point
+-159.358,-3.280,106.848
+point
+-163.781,-3.280,117.769
+point
+-163.760,-3.280,139.377
+point
+-163.092,-3.301,140.697
+reverse
+// Pedestrian number 86
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-159.688,-3.300,129.379
+point
+-158.819,-3.300,119.050
+point
+-159.637,-3.300,106.408
+reverse
+// Pedestrian number 87
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-159.854,-3.280,89.791
+point
+-159.347,-3.280,82.961
+point
+-159.712,-3.280,77.296
+reverse
+// Pedestrian number 88
+25				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-159.265,-3.301,76.326
+point
+-159.988,-3.301,77.112
+point
+-163.706,-3.301,77.916
+point
+-162.594,-3.301,139.671
+point
+-164.442,-3.304,142.812
+reverse
+// Pedestrian number 89
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-153.081,-3.281,71.676
+point
+-159.577,-3.281,72.879
+point
+-163.735,-3.290,74.853
+reverse
+// Pedestrian number 90
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-164.288,-3.301,73.725
+point
+-152.402,-3.281,71.698
+point
+-145.936,-3.281,71.630
+point
+-145.869,-3.281,71.302
+reverse
+// Pedestrian number 91
+22				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-141.312,-3.281,71.294
+point
+-141.130,-3.281,71.688
+point
+-134.396,-3.281,71.643
+point
+-131.052,-3.281,71.649
+point
+-126.445,-3.281,67.159
+reverse
+// Pedestrian number 92
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-130.147,-3.281,72.741
+point
+-131.264,-3.281,59.133
+point
+-131.446,-3.281,42.360
+point
+-133.249,-3.281,41.236
+reverse
+// Pedestrian number 93
+3				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-159.682,-3.281,70.927
+point
+-159.296,-3.281,63.967
+point
+-159.556,-3.281,59.446
+point
+-159.698,-3.281,59.297
+reverse
+// Pedestrian number 94
+22				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-158.650,-3.281,71.695
+point
+-159.205,-3.281,71.551
+point
+-159.619,-3.281,64.403
+point
+-159.184,-3.281,45.805
+reverse
+// Pedestrian number 95
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-159.808,-3.281,45.067
+point
+-159.574,-3.281,53.479
+point
+-159.807,-3.281,59.179
+reverse
+// Pedestrian number 96
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-159.703,-3.281,44.648
+point
+-159.481,-3.281,53.072
+point
+-159.161,-3.281,57.511
+point
+-159.653,-3.281,59.120
+reverse
+// Pedestrian number 97
+3				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-148.267,-3.281,41.227
+point
+-144.095,-3.281,41.197
+point
+-142.606,-3.281,41.378
+point
+-141.312,-3.281,42.572
+reverse
+// Pedestrian number 98
+25				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-145.965,-3.281,42.669
+point
+-145.958,-3.281,42.462
+point
+-144.444,-3.281,42.131
+point
+-140.702,-3.281,41.189
+reverse
+// Pedestrian number 99
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-140.338,-3.281,41.214
+point
+-137.246,-3.281,41.269
+point
+-135.053,-3.301,40.156
+point
+-133.508,-3.280,41.271
+reverse
+// Pedestrian number 100
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-130.131,-3.281,44.015
+point
+-127.038,-3.281,43.896
+point
+-126.282,-3.281,52.507
+point
+-125.829,-3.281,52.747
+reverse
+// Pedestrian number 101
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-129.355,-3.281,41.680
+point
+-127.743,-3.281,44.011
+point
+-121.237,-3.281,41.202
+reverse
+// Pedestrian number 102
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-116.703,-3.281,43.056
+point
+-117.860,-3.281,43.071
+point
+-119.753,-3.281,44.104
+reverse
+// Pedestrian number 103
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-119.828,-3.281,43.031
+point
+-117.545,-3.281,44.099
+point
+-116.783,-3.281,44.100
+reverse
+// Pedestrian number 104
+3				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-120.924,-3.281,41.068
+point
+-119.762,-3.281,41.316
+point
+-118.903,-3.281,42.900
+point
+-118.267,-3.281,44.121
+reverse
+// Pedestrian number 105
+25				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-74.268,-3.301,45.968
+point
+-74.415,-3.301,45.396
+point
+-80.792,-3.301,42.810
+point
+-77.400,-3.301,36.892
+point
+-76.568,-3.301,36.963
+point
+-76.164,-3.301,36.152
+reverse
+// Pedestrian number 106
+22				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-77.834,-3.301,36.593
+point
+-77.918,-3.301,37.149
+point
+-81.214,-3.301,42.835
+point
+-84.170,-3.301,45.424
+point
+-84.361,-3.301,47.066
+reverse
+// Pedestrian number 107
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-80.610,-3.281,45.549
+point
+-78.409,-3.281,42.732
+point
+-76.859,-3.281,36.878
+reverse
+// Pedestrian number 108
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-51.906,-3.281,43.789
+point
+-53.713,-3.281,43.619
+point
+-55.551,-3.281,43.403
+reverse
+// Pedestrian number 109
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-55.521,-3.281,43.120
+point
+-54.404,-3.281,42.821
+point
+-52.508,-3.281,44.513
+reverse
+// Pedestrian number 110
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-28.085,-3.316,39.662
+point
+-45.854,-3.297,41.400
+point
+-46.172,-3.281,42.910
+reverse
+// Pedestrian number 111
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-151.021,-3.275,77.276
+point
+-136.448,-3.279,77.513
+point
+-131.714,-3.281,77.303
+reverse
+// Pedestrian number 112
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-131.085,-3.281,77.247
+point
+-127.754,-3.282,77.535
+point
+-120.770,-3.284,77.251
+reverse
+// Pedestrian number 113
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-120.062,-3.284,77.268
+point
+-112.496,-3.287,77.455
+point
+-103.609,-3.289,77.222
+reverse
+// Pedestrian number 114
+22				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-83.320,-3.281,77.209
+point
+-80.449,-3.281,77.654
+point
+-80.336,-3.281,78.956
+point
+-80.193,-3.281,82.254
+reverse
+// Pedestrian number 115
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-80.248,-3.281,82.453
+point
+-82.666,-3.281,89.451
+point
+-80.156,-3.281,106.635
+reverse
+// Pedestrian number 116
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-83.368,-3.281,110.604
+point
+-82.873,-3.281,89.310
+point
+-84.876,-3.281,73.031
+reverse
+// Pedestrian number 117
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-71.950,-3.281,77.194
+point
+-75.489,-3.281,78.643
+point
+-79.917,-3.281,82.182
+reverse
+// Pedestrian number 118
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-75.712,-3.281,106.876
+point
+-75.468,-3.281,99.020
+point
+-75.909,-3.281,91.304
+reverse
+// Pedestrian number 119
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-75.831,-3.281,82.132
+point
+-75.180,-3.281,99.129
+point
+-75.905,-3.281,110.685
+reverse
+// Pedestrian number 120
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-73.811,-3.281,107.118
+point
+-80.194,-3.281,110.608
+point
+-83.260,-3.281,110.798
+reverse
+// Pedestrian number 121
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-83.525,-3.280,110.799
+point
+-98.490,-3.280,110.621
+point
+-103.643,-3.280,107.039
+point
+-103.645,-3.280,96.013
+reverse
+// Pedestrian number 122
+13				// Ref num
+6				// Number of instructions
+4				// Initial instruction
+point
+-105.730,-3.280,85.423
+point
+-106.157,-3.280,106.170
+point
+-106.547,-3.280,107.096
+point
+-106.816,-3.280,107.258
+point
+-107.048,-3.280,110.513
+reverse
+// Pedestrian number 123
+6				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-27.630,-3.281,39.730
+point
+-25.120,-3.281,39.558
+point
+-22.579,-3.282,42.609
+point
+-22.555,-3.282,44.299
+reverse
+// Pedestrian number 124
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-21.832,-3.282,41.145
+point
+-15.402,-3.282,41.439
+point
+-13.091,-3.282,43.836
+reverse
+// Pedestrian number 125
+4				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-12.957,-3.282,43.865
+point
+-11.120,-3.282,41.812
+point
+-9.261,-3.282,41.731
+point
+-8.246,-3.283,44.051
+reverse
+// Pedestrian number 126
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+3.388,-3.283,41.118
+point
+10.948,-3.284,42.081
+point
+12.713,-3.284,43.108
+point
+12.708,-3.284,44.053
+reverse
+// Pedestrian number 127
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+12.388,-3.284,43.263
+point
+14.655,-3.284,37.867
+point
+14.860,-3.304,36.295
+point
+17.732,-3.303,32.017
+reverse
+// Pedestrian number 128
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+13.759,-3.286,48.164
+point
+13.324,-3.286,47.234
+point
+8.688,-3.285,47.300
+point
+-0.109,-3.286,59.383
+reverse
+// Pedestrian number 129
+6				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+8.128,-3.286,59.564
+point
+12.964,-3.286,59.557
+point
+13.719,-3.286,56.077
+point
+12.275,-3.286,53.756
+point
+11.934,-3.286,53.582
+reverse
+// Pedestrian number 130
+25				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+12.865,-3.286,59.223
+point
+13.163,-3.286,59.815
+point
+13.615,-3.287,64.133
+point
+13.090,-3.287,69.589
+point
+7.936,-3.287,72.788
+reverse
+// Pedestrian number 131
+18				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+13.439,-3.287,72.735
+point
+2.677,-3.287,71.741
+point
+-5.369,-3.286,69.715
+point
+-5.735,-3.286,68.000
+point
+-8.225,-3.286,68.028
+reverse
+// Pedestrian number 132
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-7.295,-3.286,72.689
+point
+1.522,-3.286,72.411
+point
+8.445,-3.287,72.497
+point
+8.538,-3.287,72.817
+reverse
+// Pedestrian number 133
+13				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+5.049,-3.287,77.144
+point
+0.147,-3.287,78.045
+point
+-3.517,-3.285,80.174
+point
+-7.976,-3.285,91.805
+reverse
+// Pedestrian number 134
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-6.278,-3.285,67.974
+point
+-4.324,-3.285,80.374
+point
+-7.647,-3.285,83.481
+reverse
+// Pedestrian number 135
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-0.860,-3.285,91.845
+point
+10.100,-3.285,92.610
+point
+20.637,-3.285,85.233
+reverse
+// Pedestrian number 136
+13				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+13.857,-3.285,110.685
+point
+11.987,-3.285,95.853
+point
+10.279,-3.285,93.159
+point
+1.398,-3.285,90.389
+point
+-4.474,-3.285,83.761
+point
+-6.554,-3.285,68.157
+reverse
+// Pedestrian number 137
+25				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-38.274,-3.285,72.727
+point
+-46.220,-3.285,72.282
+point
+-53.467,-3.285,72.894
+point
+-59.686,-3.285,71.755
+point
+-60.129,-3.285,63.691
+point
+-61.198,-3.285,63.935
+reverse
+// Pedestrian number 138
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-82.969,-3.285,55.590
+point
+-88.954,-3.285,55.663
+point
+-97.841,-3.285,63.926
+reverse
+// Pedestrian number 139
+3				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-97.216,-3.285,54.766
+point
+-96.811,-3.285,55.600
+point
+-89.080,-3.285,55.665
+point
+-76.220,-3.285,64.010
+reverse
+// Pedestrian number 140
+6				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-118.574,-3.285,52.692
+point
+-109.038,-3.285,54.618
+point
+-97.603,-3.285,52.597
+point
+-97.584,-3.285,51.337
+reverse
+// Pedestrian number 141
+6				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-96.809,-3.285,50.796
+point
+-97.736,-3.285,52.895
+point
+-109.012,-3.285,54.711
+point
+-118.385,-3.285,63.932
+reverse
+// Pedestrian number 142
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-118.331,-3.285,56.220
+point
+-109.160,-3.285,54.664
+point
+-96.826,-3.285,54.672
+reverse
+// Pedestrian number 143
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-38.518,-3.281,77.345
+point
+-53.708,-3.281,77.480
+point
+-71.492,-3.281,77.370
+reverse
+// Pedestrian number 144
+22				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-132.068,-3.281,89.333
+point
+-132.092,-3.281,105.423
+point
+-128.914,-3.281,109.713
+point
+-123.898,-3.281,114.450
+point
+-123.891,-3.281,121.340
+point
+-118.791,-3.281,123.762
+reverse
+// Pedestrian number 145
+13				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-123.935,-3.281,123.249
+point
+-123.911,-3.281,114.145
+point
+-129.268,-3.281,109.975
+point
+-129.731,-3.281,89.329
+reverse
+// Pedestrian number 146
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-51.367,-3.281,110.538
+point
+-53.377,-3.281,107.406
+point
+-53.689,-3.281,106.246
+point
+-53.613,-3.281,96.191
+point
+-38.014,-3.281,90.800
+reverse
+// Pedestrian number 147
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-58.045,-3.281,110.626
+point
+-56.523,-3.281,107.373
+point
+-56.582,-3.280,92.214
+point
+-53.277,-3.280,85.158
+reverse
+// Pedestrian number 148
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-55.395,-3.280,90.783
+point
+-48.599,-3.281,90.972
+point
+-45.360,-3.281,95.878
+point
+-38.211,-3.281,96.206
+reverse
+// Pedestrian number 149
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-38.003,-3.281,89.414
+point
+-38.647,-3.280,92.768
+point
+-48.018,-3.281,91.954
+point
+-55.200,-3.280,95.607
+point
+-56.417,-3.281,98.874
+reverse
+// Pedestrian number 150
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-53.735,-3.281,97.059
+point
+-54.463,-3.280,95.951
+point
+-48.905,-3.281,91.700
+point
+-39.150,-3.281,88.223
+point
+-38.101,-3.281,85.313
+reverse
+// Pedestrian number 151
+13				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-41.865,-3.281,85.227
+point
+-45.110,-3.281,88.116
+point
+-47.686,-3.281,92.305
+point
+-56.418,-3.281,96.380
+reverse
+// Pedestrian number 152
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-56.497,-3.280,91.010
+point
+-55.848,-3.280,87.808
+point
+-48.487,-3.281,89.639
+point
+-43.143,-3.281,88.905
+point
+-38.029,-3.281,95.777
+reverse
+// Pedestrian number 153
+13				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-37.940,-3.281,94.550
+point
+-41.295,-3.281,96.122
+point
+-47.786,-3.281,91.742
+point
+-51.008,-3.281,85.119
+reverse
+// Pedestrian number 154
+13				// Ref num
+9				// Number of instructions
+3				// Initial instruction
+point
+-44.105,-3.281,85.049
+point
+-45.673,-3.281,86.167
+point
+-47.067,-3.280,90.049
+point
+-52.612,-3.280,93.883
+point
+-56.128,-3.281,105.361
+point
+-56.506,-3.281,113.285
+point
+-56.485,-3.281,123.665
+point
+-47.503,-3.281,133.858
+reverse
+// Pedestrian number 155
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-56.510,-3.281,126.911
+point
+-56.478,-3.281,129.941
+point
+-56.630,-3.281,130.355
+point
+-56.959,-3.281,130.313
+reverse
+// Pedestrian number 156
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-57.160,-3.281,132.545
+point
+-56.576,-3.281,132.738
+point
+-56.584,-3.281,133.882
+point
+-38.074,-3.281,133.990
+reverse
+// Pedestrian number 157
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-56.581,-3.281,125.089
+point
+-52.693,-3.281,125.050
+point
+-39.804,-3.305,133.059
+reverse
+// Pedestrian number 158
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-51.840,-3.281,113.273
+point
+-53.275,-3.281,114.537
+point
+-56.443,-3.281,121.945
+point
+-56.320,-3.281,134.000
+reverse
+// Pedestrian number 159
+6				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-33.317,-3.281,111.168
+point
+-39.051,-3.281,110.279
+point
+-47.733,-3.281,111.044
+point
+-56.553,-3.281,117.412
+reverse
+// Pedestrian number 160
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+35.541,-3.281,180.728
+point
+34.909,-3.281,192.003
+point
+33.494,-3.281,194.634
+point
+29.042,-3.281,193.449
+reverse
+// Pedestrian number 161
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+37.886,-3.281,184.929
+point
+38.046,-3.281,197.829
+point
+37.812,-3.281,201.109
+reverse
+// Pedestrian number 162
+6				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+33.982,-3.285,202.257
+point
+33.636,-3.285,202.666
+point
+29.446,-3.285,204.257
+point
+18.094,-3.285,204.364
+point
+13.942,-3.285,208.181
+reverse
+// Pedestrian number 163
+3				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+17.311,-3.285,204.272
+point
+15.462,-3.285,203.769
+point
+14.957,-3.285,203.274
+point
+13.886,-3.285,201.583
+point
+11.477,-3.285,201.437
+reverse
+// Pedestrian number 164
+6				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+17.509,-3.285,204.195
+point
+15.042,-3.285,203.153
+point
+14.266,-3.285,200.980
+point
+13.958,-3.285,188.801
+point
+15.164,-3.285,188.639
+reverse
+// Pedestrian number 165
+22				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+14.660,-3.285,195.542
+point
+16.044,-3.285,194.555
+point
+32.770,-3.285,194.269
+point
+33.804,-3.285,195.125
+point
+33.814,-3.285,196.032
+reverse
+// Pedestrian number 166
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+10.451,-3.285,211.860
+point
+12.537,-3.285,207.073
+point
+15.734,-3.285,202.680
+reverse
+// Pedestrian number 167
+22				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+9.961,-3.285,203.596
+point
+11.835,-3.285,207.239
+point
+13.896,-3.285,208.553
+point
+33.230,-3.285,208.910
+point
+33.363,-3.285,209.356
+reverse
+// Pedestrian number 168
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+35.483,-3.285,232.182
+point
+34.631,-3.285,226.023
+point
+33.389,-3.285,215.761
+point
+39.112,-3.285,213.868
+reverse
+// Pedestrian number 169
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+13.997,-3.285,262.284
+point
+20.105,-3.285,261.454
+point
+25.997,-3.285,263.480
+reverse
+// Pedestrian number 170
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+9.580,-3.285,261.076
+point
+20.111,-3.285,261.723
+point
+31.984,996.915,293.442
+reverse
+// Pedestrian number 171
+18				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+49.411,-3.285,225.363
+point
+52.417,-3.285,232.313
+point
+52.694,-3.285,236.010
+point
+51.824,-3.285,242.315
+reverse
+// Pedestrian number 172
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+70.541,-3.285,229.987
+point
+70.523,-3.285,231.757
+point
+70.461,-3.285,237.703
+reverse
+// Pedestrian number 173
+3				// Ref num
+3				// Number of instructions
+1				// Initial instruction
+point
+73.215,-3.285,235.781
+point
+68.069,-3.285,234.903
+reverse
+// Pedestrian number 174
+6				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+70.444,-3.285,229.674
+point
+66.478,-3.285,214.024
+point
+66.795,-3.285,211.496
+point
+63.503,-3.285,208.048
+point
+61.539,-3.285,208.057
+reverse
+// Pedestrian number 175
+6				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+19.860,-3.285,179.742
+point
+29.465,-3.285,181.163
+point
+33.843,-3.285,182.867
+point
+35.258,-3.285,184.478
+reverse
+// Pedestrian number 176
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+25.540,-3.305,176.700
+point
+19.649,-3.284,179.593
+point
+7.271,-3.284,188.272
+reverse
+// Pedestrian number 177
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+47.509,-3.284,183.057
+point
+41.724,-3.284,180.816
+point
+35.855,-3.305,176.174
+point
+35.831,-3.305,167.443
+reverse
+// Pedestrian number 178
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+52.039,-3.285,208.194
+point
+52.090,-3.285,206.703
+point
+48.581,-3.285,200.095
+point
+49.528,-3.285,185.768
+reverse
+// Pedestrian number 179
+22				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+51.681,-3.285,204.104
+point
+49.458,-3.285,205.515
+point
+49.240,-3.285,216.174
+point
+49.439,-3.285,224.974
+reverse
+// Pedestrian number 180
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+66.712,-3.285,246.907
+point
+67.953,-3.285,250.034
+point
+66.059,-3.285,256.748
+point
+65.580,-3.285,262.923
+point
+55.465,-3.285,264.263
+reverse
+// Pedestrian number 181
+4				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+39.798,-3.285,258.317
+point
+38.821,-3.285,258.294
+point
+38.427,-3.285,251.731
+point
+37.853,-3.285,248.865
+reverse
+// Pedestrian number 182
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-12.528,-3.285,204.563
+point
+-11.354,-3.285,207.648
+point
+-10.149,-3.285,231.909
+reverse
+// Pedestrian number 183
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-12.457,-3.285,234.629
+point
+-12.840,-3.285,248.436
+point
+-15.737,-3.285,266.476
+point
+-16.903,-3.285,267.173
+reverse
+// Pedestrian number 184
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-10.081,-3.285,260.581
+point
+-11.263,-3.285,260.279
+point
+-12.172,-3.285,248.401
+point
+-11.165,-3.285,236.493
+point
+-6.218,-3.285,234.794
+reverse
+// Pedestrian number 185
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-10.029,-3.285,232.061
+point
+-8.698,-3.285,229.114
+point
+-9.551,-3.285,226.819
+point
+-8.668,-3.285,225.149
+point
+-10.115,-3.285,220.980
+reverse
+// Pedestrian number 186
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-8.466,-3.285,213.226
+point
+-27.737,-3.285,214.734
+point
+-33.607,996.915,215.007
+reverse
+// Pedestrian number 187
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-12.506,-3.285,220.179
+point
+-13.028,-3.285,197.151
+point
+-12.557,-3.285,195.778
+reverse
+// Pedestrian number 188
+13				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-9.488,-3.285,187.272
+point
+-9.267,-3.285,187.713
+point
+-8.555,-3.285,189.627
+point
+-1.177,-3.285,191.763
+point
+6.759,-3.285,191.631
+point
+7.350,-3.285,190.778
+reverse
+// Pedestrian number 189
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-9.816,-3.285,168.178
+point
+-12.896,-3.285,171.806
+point
+-14.004,-3.285,184.388
+point
+-8.161,-3.285,191.714
+reverse
+// Pedestrian number 190
+6				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-7.933,-3.285,188.370
+point
+-8.538,-3.285,189.432
+point
+-13.872,-3.285,193.254
+point
+-13.834,-3.285,214.041
+point
+-24.266,-3.285,214.548
+point
+-24.339,-3.285,215.495
+reverse
+// Pedestrian number 191
+22				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-38.196,-3.285,168.789
+point
+-50.974,-3.285,168.566
+point
+-74.857,-3.285,168.426
+point
+-75.672,-3.285,160.153
+point
+-81.373,-3.285,159.813
+reverse
+// Pedestrian number 192
+3				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-81.251,-3.285,139.924
+point
+-81.251,-3.285,139.924
+point
+-80.330,-3.285,147.506
+point
+-80.248,-3.285,160.224
+point
+-74.690,-3.285,167.996
+point
+-74.222,-3.285,167.943
+reverse
+// Pedestrian number 193
+3				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-81.970,-3.279,167.968
+point
+-81.276,-3.279,167.936
+point
+-75.657,-3.279,156.629
+point
+-74.753,-3.279,148.423
+point
+-68.118,-3.279,141.543
+reverse
+// Pedestrian number 194
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-102.791,-3.279,140.656
+point
+-103.517,-3.279,147.346
+point
+-103.817,-3.279,151.058
+reverse
+// Pedestrian number 195
+6				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-103.188,-3.279,140.389
+point
+-106.561,-3.279,142.686
+point
+-111.139,-3.279,142.877
+point
+-116.670,-3.279,142.817
+point
+-122.141,-3.279,141.134
+reverse
+// Pedestrian number 196
+6				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-132.517,-3.279,142.596
+point
+-129.476,-3.279,142.654
+point
+-124.034,-3.279,141.588
+point
+-117.588,-3.279,141.239
+point
+-112.615,-3.279,137.778
+reverse
+// Pedestrian number 197
+3				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-117.409,-3.279,139.490
+point
+-117.436,-3.279,141.505
+point
+-122.201,-3.279,142.131
+point
+-129.417,-3.279,142.881
+point
+-132.215,-3.279,147.508
+reverse
+// Pedestrian number 198
+4				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-128.427,-3.279,148.410
+point
+-128.380,-3.279,148.212
+point
+-123.028,-3.279,141.712
+point
+-123.056,-3.279,141.262
+reverse
+// Pedestrian number 199
+18				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-113.156,-3.279,141.978
+point
+-122.332,-3.279,141.597
+point
+-125.413,-3.279,141.226
+point
+-132.808,-3.279,141.238
+reverse
+// Pedestrian number 200
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-112.999,-3.279,148.223
+point
+-123.170,-3.279,142.453
+point
+-163.888,-3.300,132.805
+reverse
+// Pedestrian number 201
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-106.501,-3.280,147.275
+point
+-120.783,-3.280,142.602
+point
+-132.802,-3.280,142.411
+reverse
+// Pedestrian number 202
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-123.281,-3.280,141.170
+point
+-125.109,-3.280,142.710
+point
+-132.321,-3.280,151.538
+point
+-133.159,-3.280,166.884
+point
+-133.551,-3.280,166.923
+reverse
+// Pedestrian number 203
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-143.069,-3.280,167.103
+point
+-137.467,-3.280,168.474
+point
+-135.160,-3.280,168.907
+reverse
+// Pedestrian number 204
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-132.186,-3.280,168.562
+point
+-132.256,-3.280,166.351
+point
+-132.082,-3.280,163.666
+reverse
+// Pedestrian number 205
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-129.774,-3.280,163.407
+point
+-129.617,-3.280,155.794
+point
+-128.399,-3.280,150.334
+reverse
+// Pedestrian number 206
+3				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-129.569,-3.280,168.779
+point
+-120.650,-3.280,168.419
+point
+-109.781,-3.280,168.719
+point
+-99.196,-3.280,168.873
+reverse
+// Pedestrian number 207
+3				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-81.381,996.921,174.955
+point
+-80.992,996.921,171.448
+point
+-80.104,996.921,160.254
+reverse
+// Pedestrian number 208
+13				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-98.997,995.209,177.180
+point
+-96.791,996.604,172.122
+point
+-95.068,996.623,172.049
+point
+-94.657,1001.132,194.475
+reverse
+// Pedestrian number 209
+13				// Ref num
+6				// Number of instructions
+4				// Initial instruction
+point
+-35.875,-3.280,149.163
+point
+-46.197,-3.280,148.659
+point
+-55.753,-3.280,143.136
+point
+-59.460,-3.280,143.313
+point
+-65.882,-3.280,141.915
+reverse
+// Pedestrian number 210
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-73.005,-3.280,147.365
+point
+-55.890,-3.280,148.606
+point
+-42.499,-3.280,149.600
+point
+-36.459,-3.280,170.804
+reverse
+// Pedestrian number 211
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-53.833,-4.016,173.667
+point
+-53.870,-7.160,184.994
+point
+-53.872,-8.860,191.120
+reverse
+// Pedestrian number 212
+6				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-56.080,-8.936,191.395
+point
+-56.388,-6.257,181.740
+point
+-54.581,-3.769,172.707
+point
+-56.532,-3.760,172.746
+reverse
+// Pedestrian number 213
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-56.716,-9.644,193.943
+point
+-63.200,-9.843,194.662
+point
+-71.911,-9.868,194.751
+reverse
+// Pedestrian number 214
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-75.677,-9.865,194.738
+point
+-80.191,-9.828,194.609
+point
+-95.705,-9.668,194.031
+point
+-98.152,-9.826,194.600
+reverse
+// Pedestrian number 215
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-108.758,-9.848,194.655
+point
+-117.805,-9.648,193.959
+point
+-128.578,-9.845,194.671
+point
+-129.587,-9.047,191.789
+reverse
+// Pedestrian number 216
+5				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-132.291,-9.082,191.912
+point
+-132.487,-9.815,194.559
+point
+-136.203,-9.843,194.659
+point
+-140.679,-9.594,193.764
+point
+-155.907,-9.649,193.861
+point
+-157.797,-9.883,194.810
+reverse
+// Pedestrian number 217
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-141.982,-9.940,198.893
+point
+-137.665,-9.940,198.199
+point
+-132.406,-9.940,197.199
+reverse
+// Pedestrian number 218
+22				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-129.635,-9.940,197.122
+point
+-123.692,-9.940,197.922
+point
+-108.617,-9.940,198.396
+point
+-107.133,-9.940,198.369
+point
+-107.112,-9.940,198.914
+reverse
+// Pedestrian number 219
+4				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-103.718,-9.940,200.968
+point
+-102.786,-9.940,198.443
+point
+-98.618,-9.940,197.646
+point
+-82.527,-9.940,197.005
+point
+-81.555,-9.940,198.097
+point
+-81.438,-9.940,199.111
+reverse
+// Pedestrian number 220
+6				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-72.630,-9.940,197.138
+point
+-69.399,-9.940,197.241
+point
+-66.412,-9.940,198.415
+point
+-61.737,-9.940,197.178
+point
+-60.580,-9.940,197.064
+point
+-60.532,-9.940,197.228
+reverse
+// Pedestrian number 221
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-56.533,990.975,192.432
+point
+-56.229,990.260,197.826
+point
+-52.801,990.617,213.192
+point
+-53.697,990.329,218.543
+reverse
+// Pedestrian number 222
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-56.146,-9.938,218.417
+point
+-56.150,-9.938,207.344
+point
+-53.823,991.234,191.430
+reverse
+// Pedestrian number 223
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-132.179,-9.940,197.473
+point
+-132.619,-9.940,198.171
+point
+-133.368,-9.940,207.851
+point
+-134.701,-9.940,208.456
+reverse
+// Pedestrian number 224
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-129.700,-9.940,218.470
+point
+-129.481,-9.940,213.036
+point
+-134.836,-9.938,209.957
+reverse
+// Pedestrian number 225
+18				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-128.357,-9.938,225.448
+point
+-120.450,-9.939,232.361
+point
+-115.268,-9.939,238.150
+reverse
+// Pedestrian number 226
+26				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-119.202,-9.939,237.542
+point
+-112.546,-9.939,235.664
+point
+-108.841,-9.939,225.536
+reverse
+// Pedestrian number 227
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-112.179,-9.939,225.430
+point
+-115.592,-9.939,227.973
+point
+-118.522,-9.939,229.258
+point
+-118.860,-9.939,230.128
+reverse
+// Pedestrian number 228
+4				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-123.910,-9.939,228.787
+point
+-119.973,-9.939,231.747
+point
+-119.154,-9.939,230.869
+point
+-117.870,990.645,231.488
+reverse
+// Pedestrian number 229
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-114.830,-9.939,233.016
+point
+-117.438,-9.939,233.477
+point
+-128.572,-9.939,236.633
+reverse
+// Pedestrian number 230
+26				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-108.324,-9.939,223.356
+point
+-112.743,-9.939,235.435
+point
+-114.853,-9.939,238.122
+reverse
+// Pedestrian number 231
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-123.919,-9.939,232.339
+point
+-119.972,-9.939,231.977
+point
+-117.571,990.769,231.486
+point
+-117.743,990.853,230.826
+reverse
+// Pedestrian number 232
+26				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-95.058,-9.939,240.696
+point
+-97.527,-9.939,234.803
+point
+-102.295,-9.939,225.478
+reverse
+// Pedestrian number 233
+26				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-99.368,-9.939,225.458
+point
+-97.557,-9.939,234.468
+point
+-96.631,-9.939,239.042
+point
+-94.915,-9.939,241.622
+point
+-85.097,-9.939,241.462
+reverse
+// Pedestrian number 234
+26				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-81.924,-9.939,241.297
+point
+-86.457,-9.939,236.801
+point
+-89.367,-9.939,235.130
+point
+-90.295,990.798,233.237
+reverse
+// Pedestrian number 235
+26				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-84.855,-9.939,241.135
+point
+-86.569,-9.939,237.034
+point
+-91.914,990.261,225.438
+reverse
+// Pedestrian number 236
+26				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-82.382,-9.939,225.369
+point
+-85.596,-9.939,231.838
+point
+-97.888,990.261,240.516
+reverse
+// Pedestrian number 237
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-94.940,-9.939,225.452
+point
+-92.937,-9.939,233.445
+point
+-80.949,990.261,235.706
+point
+-80.301,-9.939,243.184
+reverse
+// Pedestrian number 238
+22				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-102.589,-9.939,225.008
+point
+-103.216,-9.939,219.963
+point
+-103.782,-9.939,201.399
+reverse
+// Pedestrian number 239
+22				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-106.171,-9.939,200.428
+point
+-106.347,-9.939,214.887
+point
+-106.966,-9.939,219.591
+point
+-108.246,-9.939,220.826
+reverse
+// Pedestrian number 240
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-108.505,-9.939,220.820
+point
+-117.991,-9.939,220.399
+point
+-121.199,-9.939,224.945
+point
+-121.311,-9.939,225.375
+point
+-138.118,-9.885,235.968
+reverse
+// Pedestrian number 241
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-132.475,-9.939,223.297
+point
+-138.041,-9.939,225.383
+point
+-159.696,-9.640,234.770
+reverse
+// Pedestrian number 242
+4				// Ref num
+8				// Number of instructions
+4				// Initial instruction
+point
+-128.389,-9.939,224.953
+point
+-124.505,-9.939,224.869
+point
+-120.809,-9.939,225.621
+point
+-116.716,-9.939,224.469
+point
+-113.724,-9.939,225.626
+point
+-110.196,-9.939,225.383
+point
+-102.809,-9.939,213.407
+reverse
+// Pedestrian number 243
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-145.039,-9.939,198.835
+point
+-152.125,-9.940,213.119
+point
+-150.578,-9.888,220.173
+point
+-153.653,-9.816,223.540
+point
+-139.784,-9.868,236.335
+reverse
+// Pedestrian number 244
+6				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-143.682,-9.939,218.709
+point
+-141.840,-9.939,220.310
+point
+-138.646,-9.939,220.699
+reverse
+// Pedestrian number 245
+25				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-80.333,-9.939,220.745
+point
+-80.798,-9.939,211.532
+point
+-80.199,-9.939,197.360
+reverse
+// Pedestrian number 246
+25				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-82.213,-9.939,197.229
+point
+-80.825,-9.939,199.005
+point
+-80.993,-9.939,211.489
+point
+-75.452,-9.939,220.558
+reverse
+// Pedestrian number 247
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-23.140,-3.282,44.102
+reverse
+// Pedestrian number 248
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-23.186,-3.282,43.507
+reverse
+// Pedestrian number 249
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-18.606,-3.282,44.381
+reverse
+// Pedestrian number 250
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-18.621,-3.282,47.159
+reverse
+// Pedestrian number 251
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-2.806,-3.285,53.468
+reverse
+// Pedestrian number 252
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-3.533,-3.285,53.448
+reverse
+// Pedestrian number 253
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-2.839,-3.285,54.167
+reverse
+// Pedestrian number 254
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-1.433,-3.285,53.458
+reverse
+// Pedestrian number 255
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-2.859,-3.285,52.505
+reverse
+// Pedestrian number 256
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-8.562,-3.286,68.244
+reverse
+// Pedestrian number 257
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-5.332,-3.286,68.173
+reverse
+// Pedestrian number 258
+101				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-24.526,-3.284,56.250
+reverse
+// Pedestrian number 259
+132				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-25.124,-3.284,56.252
+reverse
+// Pedestrian number 260
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-33.285,-3.288,110.866
+reverse
+// Pedestrian number 261
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-33.275,-3.288,111.986
+reverse
+// Pedestrian number 262
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-33.245,-3.288,113.219
+reverse
+// Pedestrian number 263
+118				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-33.219,-3.288,114.164
+reverse
+// Pedestrian number 264
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-9.720,-3.290,130.719
+reverse
+// Pedestrian number 265
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-9.717,-3.290,129.689
+reverse
+// Pedestrian number 266
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-9.737,-3.290,128.589
+reverse
+// Pedestrian number 267
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-9.730,-3.290,127.444
+reverse
+// Pedestrian number 268
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-9.723,-3.290,126.372
+reverse
+// Pedestrian number 269
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-24.491,0.119,167.155
+reverse
+// Pedestrian number 270
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-24.472,0.118,164.109
+reverse
+// Pedestrian number 271
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-24.495,0.113,154.921
+reverse
+// Pedestrian number 272
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-18.201,0.119,167.191
+reverse
+// Pedestrian number 273
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-14.035,0.119,167.184
+reverse
+// Pedestrian number 274
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-11.678,0.119,167.195
+reverse
+// Pedestrian number 275
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-19.889,0.113,154.943
+reverse
+// Pedestrian number 276
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-17.684,0.113,154.960
+reverse
+// Pedestrian number 277
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-15.612,0.113,154.959
+reverse
+// Pedestrian number 278
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-10.892,0.113,154.911
+reverse
+// Pedestrian number 279
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-8.686,0.113,154.888
+reverse
+// Pedestrian number 280
+119				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-23.865,0.116,161.004
+reverse
+// Pedestrian number 281
+101				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-19.178,0.116,160.987
+reverse
+// Pedestrian number 282
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-34.111,-3.064,212.982
+reverse
+// Pedestrian number 283
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-34.115,-3.064,213.786
+reverse
+// Pedestrian number 284
+101				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-34.119,-3.064,214.792
+reverse
+// Pedestrian number 285
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-27.929,-3.290,256.325
+reverse
+// Pedestrian number 286
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-26.832,-3.290,256.296
+reverse
+// Pedestrian number 287
+136				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-110.813,-9.727,258.998
+reverse
+// Pedestrian number 288
+120				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-110.290,-9.727,258.970
+reverse
+// Pedestrian number 289
+138				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-109.864,-9.728,258.958
+reverse
+// Pedestrian number 290
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-106.338,-9.721,259.280
+reverse
+// Pedestrian number 291
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-106.322,-9.727,258.991
+reverse
+// Pedestrian number 292
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-106.357,-9.736,258.571
+reverse
+// Pedestrian number 293
+123				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-126.479,-9.672,259.116
+reverse
+// Pedestrian number 294
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-126.460,-9.664,259.675
+reverse
+// Pedestrian number 295
+105				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-126.552,-9.705,256.742
+reverse
+// Pedestrian number 296
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-129.932,-9.698,256.553
+reverse
+// Pedestrian number 297
+132				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-129.947,-9.671,258.474
+reverse
+// Pedestrian number 298
+109				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-129.945,-9.661,259.205
+reverse
+// Pedestrian number 299
+109				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-131.830,-9.744,252.908
+reverse
+// Pedestrian number 300
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-119.550,-9.939,230.509
+reverse
+// Pedestrian number 301
+108				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-119.365,-9.939,231.398
+reverse
+// Pedestrian number 302
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-115.710,-9.939,231.109
+reverse
+// Pedestrian number 303
+108				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-91.880,-9.939,232.767
+reverse
+// Pedestrian number 304
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-89.980,-9.939,232.242
+reverse
+// Pedestrian number 305
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-89.138,-9.939,232.608
+reverse
+// Pedestrian number 306
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-89.263,-9.939,233.756
+reverse
+// Pedestrian number 307
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-117.074,-9.939,230.098
+reverse
+// Pedestrian number 308
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.644,-3.299,170.026
+reverse
+// Pedestrian number 309
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.688,-3.299,170.491
+reverse
+// Pedestrian number 310
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.740,-3.299,169.588
+reverse
+// Pedestrian number 311
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.552,-3.299,142.206
+reverse
+// Pedestrian number 312
+109				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.647,-3.299,140.193
+reverse
+// Pedestrian number 313
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.634,-3.299,141.211
+reverse
+// Pedestrian number 314
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.592,-3.299,74.191
+reverse
+// Pedestrian number 315
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.642,-3.299,75.780
+reverse
+// Pedestrian number 316
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-170.634,-3.299,74.987
+reverse
+// Pedestrian number 317
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-38.830,-3.280,126.553
+reverse
+// Pedestrian number 318
+109				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-38.782,-3.280,128.549
+reverse
+// Pedestrian number 319
+101				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-38.754,-3.280,130.575
+reverse
+// Pedestrian number 320
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-40.362,-3.305,132.548
+reverse
+// Pedestrian number 321
+101				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-112.243,19.967,71.460
+reverse
+// Pedestrian number 322
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-109.791,19.967,71.413
+reverse
+// Pedestrian number 323
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-106.810,19.967,71.438
+reverse
+// Pedestrian number 324
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-104.001,19.967,71.424
+reverse
+// Pedestrian number 325
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-101.237,19.967,71.410
+reverse
+// Pedestrian number 326
+101				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-96.953,19.967,71.405
+reverse
+// Pedestrian number 327
+132				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-60.303,7.567,136.602
+reverse
+// Pedestrian number 328
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-65.220,7.567,131.293
+reverse
+// Pedestrian number 329
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-54.563,7.566,131.272
+reverse
+// Pedestrian number 330
+138				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-134.741,0.551,200.436
+reverse
+// Pedestrian number 331
+109				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-136.331,0.551,200.357
+reverse
+// Pedestrian number 332
+133				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-139.590,0.551,200.209
+reverse
+// Pedestrian number 333
+125				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-141.540,0.551,200.177
+reverse
+// Pedestrian number 334
+108				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-138.958,-9.871,236.796
+reverse
+// Pedestrian number 335
+120				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-137.565,-9.723,253.541
+reverse
+// Pedestrian number 336
+124				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-147.462,-9.656,254.663
+reverse
+// Pedestrian number 337
+132				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-138.628,-9.478,274.171
+reverse
+// Pedestrian number 338
+136				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-141.128,-9.478,272.671
+reverse
+// Pedestrian number 339
+115				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-135.583,-9.478,274.984
+reverse
+// Pedestrian number 340
+132				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-127.497,-3.064,213.760
+reverse
+// Pedestrian number 341
+132				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-127.531,-3.064,214.734
+reverse
+// Pedestrian number 342
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-112.619,-3.064,202.433
+reverse
+// Pedestrian number 343
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-111.672,-3.064,203.439
+reverse
+// Pedestrian number 344
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-112.635,-3.064,204.343
+reverse
+// Pedestrian number 345
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-113.719,-3.064,203.347
+reverse
+// Pedestrian number 346
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-124.900,-3.064,202.448
+reverse
+// Pedestrian number 347
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-125.793,-3.064,203.482
+reverse
+// Pedestrian number 348
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-124.805,-3.064,204.159
+reverse
+// Pedestrian number 349
+100				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-123.993,-3.064,203.441
+reverse
+// Pedestrian number 350
+139				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-92.700,-3.064,218.573
+reverse
+// Pedestrian number 351
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-155.697,-3.280,155.208
+reverse
+// Pedestrian number 352
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-155.144,-3.280,157.268
+reverse
+// Pedestrian number 353
+109				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-154.144,-3.279,160.728
+reverse
+// Pedestrian number 354
+128				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-152.800,-3.279,164.947
+reverse
+// Pedestrian number 355
+129				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-151.815,-3.279,168.037
+reverse
+// Pedestrian number 356
+124				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-143.496,-2.104,110.087
+reverse
+// Pedestrian number 357
+125				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-143.932,-2.104,110.107
+reverse
+// Pedestrian number 358
+136				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-144.370,-2.104,110.111
+reverse
+// Pedestrian number 359
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-143.932,-2.104,107.175
+reverse
+// Pedestrian number 360
+132				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-143.921,-2.104,105.132
+reverse
+// Pedestrian number 361
+139				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-144.321,-2.104,105.157
+reverse
+// Pedestrian number 362
+138				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-143.511,-2.104,105.108
+reverse
+// Pedestrian number 363
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-103.691,-3.280,92.955
+reverse
+// Pedestrian number 364
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-104.377,-3.280,87.196
+reverse
+// Pedestrian number 365
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-52.347,-2.583,87.363
+reverse
+// Pedestrian number 366
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-52.408,-2.583,90.131
+reverse
+// Pedestrian number 367
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-52.465,-2.583,92.421
+reverse
+// Pedestrian number 368
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-60.529,1007.767,136.261
+point
+-64.202,1007.767,133.005
+point
+-75.349,1007.767,131.255
+reverse
+// Pedestrian number 369
+11				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-63.380,1007.767,139.949
+point
+-66.000,1007.767,136.669
+point
+-71.083,1007.767,135.073
+point
+-74.810,1007.767,135.261
+reverse
+// Pedestrian number 370
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-68.555,7.567,116.423
+point
+-67.115,7.567,128.154
+point
+-62.816,7.567,130.663
+reverse
+// Pedestrian number 371
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-71.021,7.567,134.297
+point
+-67.807,7.567,128.264
+point
+-54.344,7.567,116.576
+point
+-43.382,7.567,116.821
+reverse
+// Pedestrian number 372
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-43.329,7.567,119.725
+point
+-57.741,7.567,128.094
+point
+-59.130,1007.767,133.438
+point
+-65.786,1007.767,136.238
+point
+-65.930,1007.767,140.111
+reverse
+// Pedestrian number 373
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-50.470,7.567,128.657
+point
+-57.749,1007.767,127.786
+point
+-75.041,1007.767,124.191
+reverse
+// Pedestrian number 374
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-48.505,7.567,130.619
+point
+-41.370,1007.767,135.441
+point
+-35.080,1007.767,137.776
+reverse
+// Pedestrian number 375
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-34.447,1007.767,140.431
+point
+-41.496,1007.767,135.752
+point
+-47.524,7.567,130.603
+reverse
+// Pedestrian number 376
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-35.210,1007.767,128.644
+point
+-40.035,1007.767,122.624
+point
+-42.785,1007.767,115.479
+reverse
+// Pedestrian number 377
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-47.580,7.567,126.789
+point
+-41.996,1007.767,121.192
+point
+-41.121,1007.767,115.885
+reverse
+// Pedestrian number 378
+10				// Ref num
+3				// Number of instructions
+1				// Initial instruction
+point
+-70.830,1007.767,136.165
+point
+-74.545,1007.767,136.767
+reverse
+// Pedestrian number 379
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-63.315,7.567,131.759
+point
+-67.045,1007.767,132.068
+point
+-74.811,1007.767,133.360
+reverse
+// Pedestrian number 380
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-33.229,1007.768,94.832
+point
+-37.150,1007.768,94.774
+point
+-43.606,7.568,90.235
+point
+-60.722,7.568,94.292
+reverse
+// Pedestrian number 381
+10				// Ref num
+8				// Number of instructions
+2				// Initial instruction
+point
+-60.767,7.568,96.043
+point
+-41.199,1007.768,91.865
+point
+-39.472,1008.124,88.455
+point
+-38.686,1012.497,73.608
+point
+-44.923,1012.497,66.520
+point
+-60.597,1020.167,66.635
+point
+-61.249,19.967,69.420
+reverse
+// Pedestrian number 382
+11				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-35.333,1007.767,90.782
+point
+-40.283,1007.767,91.876
+point
+-56.766,1007.767,98.376
+point
+-57.685,1007.767,107.460
+reverse
+// Pedestrian number 383
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-55.997,1007.767,107.704
+point
+-42.806,1007.767,94.668
+point
+-35.284,1007.767,88.665
+reverse
+// Pedestrian number 384
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-35.204,1007.767,96.934
+point
+-40.936,1007.767,91.671
+point
+-50.022,1007.767,77.025
+reverse
+// Pedestrian number 385
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-52.384,1007.767,76.583
+point
+-42.311,1007.767,94.072
+point
+-38.377,1007.767,100.763
+point
+-34.880,1007.767,101.987
+reverse
+// Pedestrian number 386
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-105.102,19.967,64.962
+reverse
+// Pedestrian number 387
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-107.876,19.967,66.524
+reverse
+// Pedestrian number 388
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-111.668,19.967,68.723
+reverse
+// Pedestrian number 389
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-115.466,19.967,70.926
+reverse
+// Pedestrian number 390
+109				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-115.495,19.967,65.239
+reverse
+// Pedestrian number 391
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-46.512,-3.064,208.376
+point
+-40.316,997.136,209.168
+point
+-33.146,997.136,209.063
+point
+-28.300,997.136,210.739
+reverse
+// Pedestrian number 392
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-28.485,997.136,211.708
+point
+-35.738,997.136,210.842
+point
+-41.284,997.136,220.264
+reverse
+// Pedestrian number 393
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-43.293,997.136,197.914
+point
+-39.629,997.136,208.690
+point
+-33.454,997.136,216.881
+reverse
+// Pedestrian number 394
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-53.109,997.136,205.173
+point
+-41.470,997.136,207.396
+point
+-24.310,997.136,209.412
+reverse
+// Pedestrian number 395
+12				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-56.342,990.261,240.742
+point
+-57.810,990.261,237.102
+point
+-65.282,990.925,235.066
+reverse
+// Pedestrian number 396
+12				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-56.155,-9.939,241.130
+point
+-57.683,-9.939,239.976
+point
+-57.469,-9.939,236.985
+point
+-57.572,990.261,231.995
+point
+-75.115,990.261,224.784
+reverse
+// Pedestrian number 397
+12				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-75.723,990.261,224.818
+point
+-74.022,990.261,231.551
+point
+-57.471,990.261,243.819
+reverse
+// Pedestrian number 398
+12				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-67.863,990.261,246.649
+point
+-73.591,990.261,232.456
+point
+-73.608,990.261,228.087
+point
+-71.290,990.261,223.745
+reverse
+// Pedestrian number 399
+12				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-75.446,990.261,235.498
+point
+-74.258,990.261,231.949
+point
+-58.146,990.261,225.483
+point
+-56.325,990.261,229.717
+point
+-64.565,990.261,233.990
+reverse
+// Pedestrian number 400
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-50.192,991.410,226.276
+point
+-39.140,997.136,213.967
+point
+-24.302,997.136,196.142
+reverse
+// Pedestrian number 401
+105				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-149.735,-3.281,47.780
+reverse
+// Pedestrian number 402
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-142.207,-3.281,47.648
+reverse
+// Pedestrian number 403
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-142.198,-3.281,57.381
+reverse
+// Pedestrian number 404
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-142.196,-3.281,66.441
+reverse
+// Pedestrian number 405
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-153.383,-3.281,66.416
+reverse
+// Pedestrian number 406
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-153.449,-3.281,57.736
+reverse
+// Pedestrian number 407
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-153.492,-3.281,47.092
+reverse
+// Pedestrian number 408
+124				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-151.972,-3.281,51.923
+reverse
+// Pedestrian number 409
+133				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-143.324,-3.281,51.861
+reverse
+// Pedestrian number 410
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-118.067,19.968,71.483
+reverse
+// Pedestrian number 411
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-118.080,19.968,70.848
+reverse
+// Pedestrian number 412
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-118.062,19.968,70.025
+reverse
+// Pedestrian number 413
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-117.067,19.968,71.437
+reverse
+// Pedestrian number 414
+112				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-114.419,19.968,71.570
+reverse
+// Pedestrian number 415
+99				// Ref num
+7				// Number of instructions
+4				// Initial instruction
+point
+-160.305,-3.301,26.243
+point
+-161.935,-3.301,34.194
+point
+-160.286,-3.301,37.139
+point
+-160.511,-3.301,37.375
+point
+-163.206,-3.301,39.957
+point
+-164.172,-3.301,39.845
+reverse
+// Pedestrian number 416
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-152.100,-3.279,126.865
+point
+-158.354,-3.279,117.495
+point
+-159.349,-3.279,110.067
+point
+-163.715,-3.300,106.682
+reverse
+// Pedestrian number 417
+25				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-45.641,-3.281,41.156
+point
+-44.022,-3.281,42.589
+point
+-37.661,-3.281,41.899
+point
+-33.725,-3.281,42.746
+point
+-32.220,-3.281,44.875
+reverse
+// Pedestrian number 418
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-62.251,19.967,70.160
+point
+-70.524,19.967,66.911
+point
+-73.691,19.967,65.470
+point
+-73.916,19.967,65.076
+reverse
+// Pedestrian number 419
+11				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-64.581,1020.167,72.584
+point
+-68.715,1020.167,68.053
+point
+-71.019,19.967,66.966
+point
+-72.129,19.967,64.284
+reverse
+// Pedestrian number 420
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-60.450,19.967,64.478
+point
+-68.480,19.967,67.444
+point
+-72.445,19.967,70.657
+reverse
+// Pedestrian number 421
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-77.038,19.967,71.536
+point
+-71.809,19.967,71.627
+point
+-69.448,19.967,68.571
+point
+-67.760,19.967,64.357
+point
+-60.492,19.967,64.337
+reverse
+// Pedestrian number 422
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-66.184,1020.167,63.092
+point
+-68.197,1020.167,66.049
+point
+-75.915,1020.167,72.291
+reverse
+// Pedestrian number 423
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-75.915,1020.167,72.291
+point
+-79.477,1020.167,67.810
+point
+-85.524,19.967,64.476
+reverse
+// Pedestrian number 424
+5				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-60.495,19.967,71.621
+point
+-62.089,19.967,71.449
+point
+-64.008,19.967,69.845
+point
+-67.312,1020.167,65.839
+point
+-67.089,1020.167,63.519
+reverse
+// Pedestrian number 425
+4				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-76.596,19.967,64.399
+point
+-79.401,19.967,67.501
+point
+-85.657,19.967,71.381
+reverse
+// Pedestrian number 426
+5				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-94.716,19.967,64.310
+point
+-96.215,19.967,64.694
+point
+-100.297,19.967,68.376
+point
+-103.164,1020.167,69.955
+point
+-106.420,1020.167,72.580
+reverse
+// Pedestrian number 427
+10				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-119.621,1020.167,68.096
+point
+-114.220,1020.167,67.428
+point
+-111.458,19.967,66.078
+point
+-104.273,19.967,65.167
+reverse
+// Pedestrian number 428
+10				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-86.668,19.967,71.468
+point
+-88.810,19.967,71.004
+point
+-91.675,19.967,69.112
+point
+-94.529,19.967,65.233
+reverse
+// Pedestrian number 429
+10				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-87.597,19.967,64.556
+point
+-88.847,19.967,64.983
+point
+-89.664,19.967,67.094
+point
+-94.810,19.967,70.588
+point
+-100.731,1020.167,71.191
+point
+-101.564,1020.167,72.706
+reverse
+// Pedestrian number 430
+11				// Ref num
+7				// Number of instructions
+4				// Initial instruction
+point
+-111.148,19.967,64.864
+point
+-104.287,19.967,69.017
+point
+-101.686,19.967,67.538
+point
+-99.678,19.967,68.623
+point
+-97.349,19.967,70.187
+point
+-92.376,19.967,71.455
+reverse
+// Pedestrian number 431
+11				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-93.371,19.967,64.372
+point
+-94.489,19.967,66.569
+point
+-96.331,19.967,67.540
+point
+-97.099,19.967,69.296
+point
+-101.661,19.967,70.796
+reverse
+// Pedestrian number 432
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-73.482,19.967,70.825
+point
+-76.262,19.967,70.348
+point
+-80.341,1020.167,65.085
+point
+-85.689,1020.167,63.753
+reverse
+// Pedestrian number 433
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-83.301,19.967,64.292
+point
+-86.785,19.967,68.094
+point
+-95.117,1020.167,68.901
+point
+-97.219,1020.167,72.580
+reverse
+// Pedestrian number 434
+12				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-75.891,1007.767,124.417
+point
+-71.760,1007.767,122.593
+point
+-70.688,7.567,118.074
+point
+-63.601,7.567,116.651
+point
+-58.227,1007.767,116.825
+point
+-57.121,1007.767,115.777
+reverse
+// Pedestrian number 435
+12				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-70.152,7.567,116.370
+point
+-72.032,7.567,122.585
+point
+-72.573,7.567,134.373
+point
+-70.990,7.567,135.990
+reverse
+// Pedestrian number 436
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-58.321,7.567,134.544
+point
+-56.746,7.567,130.818
+point
+-50.480,7.567,129.028
+reverse
+// Pedestrian number 437
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-55.474,7.567,116.676
+point
+-57.126,7.567,123.970
+point
+-60.778,7.567,130.545
+reverse
+// Pedestrian number 438
+10				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-71.237,7.567,133.436
+point
+-70.320,7.567,132.224
+point
+-70.299,7.567,129.897
+point
+-65.067,1007.767,124.393
+point
+-61.227,1007.767,115.688
+reverse
+// Pedestrian number 439
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-73.972,7.567,118.496
+point
+-63.292,7.567,128.715
+point
+-49.456,7.567,135.213
+point
+-47.798,7.567,139.213
+reverse
+// Pedestrian number 440
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-35.607,7.567,137.260
+point
+-38.771,7.567,128.421
+point
+-39.437,7.567,122.928
+reverse
+// Pedestrian number 441
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-35.685,7.567,117.012
+point
+-38.258,7.567,123.584
+point
+-46.424,7.567,128.878
+reverse
+// Pedestrian number 442
+11				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-50.342,7.567,116.489
+point
+-42.582,7.567,124.481
+point
+-41.081,7.567,130.734
+point
+-35.689,7.567,131.895
+point
+-35.840,1007.767,139.088
+point
+-36.009,1007.767,140.006
+reverse
+// Pedestrian number 443
+11				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-37.369,7.567,139.279
+point
+-41.909,7.567,129.148
+point
+-46.076,7.567,126.537
+point
+-50.228,7.567,126.331
+point
+-52.596,7.567,128.802
+point
+-55.089,7.567,139.216
+reverse
+// Pedestrian number 444
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-73.884,7.567,139.165
+point
+-64.582,7.567,137.152
+point
+-60.806,1007.767,137.085
+point
+-57.843,1007.767,140.014
+reverse
+// Pedestrian number 445
+5				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-57.843,7.567,139.273
+point
+-57.186,7.567,131.558
+point
+-55.600,7.567,127.216
+point
+-52.406,7.567,125.300
+point
+-50.630,1007.767,117.263
+point
+-50.339,1007.767,115.548
+reverse
+// Pedestrian number 446
+5				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-60.046,7.567,116.438
+point
+-55.952,7.567,124.618
+point
+-50.535,7.567,127.891
+point
+-50.323,7.567,130.759
+point
+-43.926,7.567,139.256
+reverse
+// Pedestrian number 447
+5				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-42.637,7.567,139.301
+point
+-41.456,7.567,132.009
+point
+-36.752,7.567,125.399
+point
+-37.997,7.567,121.429
+point
+-40.139,7.567,119.015
+reverse
+// Pedestrian number 448
+25				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-95.829,-3.279,168.254
+point
+-96.962,-3.279,168.780
+point
+-98.492,996.921,168.883
+point
+-100.543,996.921,177.017
+reverse
+// Pedestrian number 449
+11				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-99.027,-2.619,187.125
+point
+-96.674,-2.619,184.416
+point
+-92.963,-2.619,182.620
+point
+-87.240,997.581,177.795
+point
+-81.383,997.581,175.165
+reverse
+// Pedestrian number 450
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-91.150,-2.619,185.515
+point
+-93.882,-2.619,182.523
+point
+-102.307,-2.619,178.994
+reverse
+// Pedestrian number 451
+11				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-96.352,-3.608,172.457
+point
+-92.823,-2.620,177.295
+point
+-92.155,-2.619,179.595
+point
+-89.265,-2.619,182.914
+point
+-88.133,-2.619,188.634
+reverse
+// Pedestrian number 452
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-81.656,-2.619,182.754
+point
+-91.022,-2.619,180.304
+point
+-93.956,-2.619,177.810
+point
+-102.264,-2.619,177.420
+reverse
+// Pedestrian number 453
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-102.973,997.581,179.176
+point
+-94.930,997.581,184.861
+point
+-91.870,997.581,194.468
+reverse
+// Pedestrian number 454
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-93.142,997.581,194.307
+point
+-94.525,997.581,187.463
+point
+-103.161,997.581,184.557
+reverse
+// Pedestrian number 455
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-103.358,997.581,182.487
+point
+-95.969,997.581,184.860
+point
+-93.718,997.581,187.441
+point
+-92.658,997.581,194.256
+reverse
+// Pedestrian number 456
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-87.713,997.581,176.761
+point
+-88.721,997.581,181.843
+point
+-85.279,997.581,194.098
+reverse
+// Pedestrian number 457
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-87.941,997.136,198.360
+point
+-93.808,997.136,202.893
+point
+-102.856,997.136,205.565
+reverse
+// Pedestrian number 458
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-102.526,-3.064,203.129
+point
+-94.274,-3.064,201.061
+point
+-91.602,-3.064,198.864
+point
+-82.151,-3.064,198.883
+reverse
+// Pedestrian number 459
+13				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-81.691,-3.064,199.645
+point
+-86.051,-3.064,201.683
+point
+-88.529,-3.064,204.947
+point
+-93.198,-3.064,212.164
+reverse
+// Pedestrian number 460
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-93.693,-3.064,211.061
+point
+-94.593,-3.064,208.199
+point
+-101.858,-3.064,198.755
+reverse
+// Pedestrian number 461
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-102.461,-3.064,200.547
+point
+-94.005,-3.064,203.083
+point
+-86.102,997.136,209.593
+point
+-81.304,997.136,211.350
+reverse
+// Pedestrian number 462
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-81.664,-3.064,210.580
+point
+-87.965,-3.064,206.548
+point
+-96.029,-3.064,198.751
+reverse
+// Pedestrian number 463
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-103.078,997.136,211.422
+point
+-100.309,997.136,206.728
+point
+-95.101,997.136,197.900
+reverse
+// Pedestrian number 464
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-97.346,-3.064,198.703
+point
+-93.639,-3.064,208.215
+point
+-91.555,-3.064,212.192
+point
+-81.827,-3.064,212.352
+reverse
+// Pedestrian number 465
+5				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-81.713,-3.064,211.350
+point
+-90.335,-3.064,209.814
+point
+-91.159,-3.064,210.123
+point
+-92.029,-3.064,210.692
+point
+-92.093,-3.064,212.209
+reverse
+// Pedestrian number 466
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-91.413,-3.064,216.848
+point
+-81.149,-3.064,215.304
+point
+-77.934,-3.064,213.250
+point
+-75.581,-3.064,213.142
+point
+-74.686,-3.064,212.636
+reverse
+// Pedestrian number 467
+13				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-74.678,-3.064,215.805
+point
+-77.173,-3.064,213.952
+point
+-81.241,-3.064,213.294
+point
+-84.788,997.136,217.374
+point
+-86.022,997.136,220.418
+reverse
+// Pedestrian number 468
+13				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-81.655,-3.064,217.312
+point
+-91.590,-3.064,215.490
+point
+-94.042,997.136,215.689
+point
+-102.906,997.136,217.854
+reverse
+// Pedestrian number 469
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-102.900,997.136,212.485
+point
+-104.304,997.136,213.736
+point
+-106.914,997.136,215.872
+reverse
+// Pedestrian number 470
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-106.987,997.136,212.671
+point
+-103.567,997.136,214.900
+point
+-96.708,-3.064,218.819
+point
+-93.053,-3.064,218.433
+reverse
+// Pedestrian number 471
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-107.359,-3.064,217.223
+point
+-109.349,-3.064,212.569
+point
+-114.507,-3.064,207.601
+reverse
+// Pedestrian number 472
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-113.741,-3.064,205.661
+point
+-108.186,-3.064,213.174
+point
+-102.135,-3.064,215.156
+point
+-99.429,-3.064,219.327
+reverse
+// Pedestrian number 473
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-107.360,-3.064,212.516
+point
+-119.315,-3.064,214.960
+point
+-122.232,-3.064,219.251
+point
+-128.027,-3.064,219.331
+reverse
+// Pedestrian number 474
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-128.177,-3.064,215.915
+point
+-125.725,-3.064,213.446
+point
+-123.627,-3.064,205.728
+reverse
+// Pedestrian number 475
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-126.448,-3.064,198.852
+point
+-124.191,-3.064,215.292
+point
+-119.247,-3.064,216.468
+point
+-118.204,-3.064,219.309
+point
+-107.454,-3.064,219.303
+reverse
+// Pedestrian number 476
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-107.378,-3.064,218.491
+point
+-114.858,-3.064,209.337
+point
+-118.394,-3.064,207.043
+point
+-118.655,-3.064,199.096
+reverse
+// Pedestrian number 477
+5				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-107.327,-3.064,199.111
+point
+-112.083,-3.064,207.228
+point
+-119.126,-3.064,219.257
+reverse
+// Pedestrian number 478
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-114.335,-3.064,219.076
+point
+-115.590,-3.064,214.777
+point
+-121.915,-3.064,202.952
+point
+-123.094,-3.064,202.694
+reverse
+// Pedestrian number 479
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-115.036,997.136,198.410
+point
+-119.670,997.136,213.215
+point
+-124.574,997.136,217.169
+point
+-125.102,997.136,220.368
+reverse
+// Pedestrian number 480
+1				// Ref num
+2				// Number of instructions
+1				// Initial instruction
+point
+-115.137,-2.024,204.892
+reverse
+// Pedestrian number 481
+1				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-134.987,0.552,201.130
+point
+-136.293,1000.752,210.776
+point
+-142.752,1000.752,213.262
+reverse
+// Pedestrian number 482
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-141.525,0.552,214.138
+point
+-136.579,0.552,211.861
+point
+-133.733,0.552,210.808
+reverse
+// Pedestrian number 483
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-133.640,0.552,206.699
+point
+-136.774,0.552,212.621
+point
+-137.500,0.552,219.172
+reverse
+// Pedestrian number 484
+13				// Ref num
+5				// Number of instructions
+3				// Initial instruction
+point
+-133.688,0.552,217.397
+point
+-133.700,0.552,214.713
+point
+-138.772,0.552,209.417
+point
+-139.196,0.552,207.039
+reverse
+// Pedestrian number 485
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-142.126,0.552,207.522
+point
+-139.276,0.552,203.955
+point
+-136.048,0.552,200.352
+reverse
+// Pedestrian number 486
+13				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-140.934,0.552,199.197
+point
+-139.602,0.552,203.106
+point
+-133.705,0.552,209.213
+reverse
+// Pedestrian number 487
+11				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-135.595,0.552,219.125
+point
+-141.267,0.552,210.811
+point
+-142.101,0.552,199.184
+reverse
+// Pedestrian number 488
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-164.102,-3.301,37.223
+point
+-163.679,-3.301,38.775
+point
+-161.115,-3.301,42.699
+point
+-159.295,-3.281,43.935
+reverse
+// Pedestrian number 489
+18				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-159.917,-3.301,39.769
+point
+-159.635,-3.281,41.056
+point
+-159.641,-3.281,42.393
+point
+-160.137,-3.301,43.137
+point
+-163.358,-3.301,46.970
+point
+-163.797,-3.301,51.493
+reverse
+// Pedestrian number 490
+5				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-163.891,-3.301,39.813
+point
+-163.495,-3.301,40.942
+point
+-161.613,-3.301,43.314
+point
+-160.513,-3.301,46.980
+point
+-159.392,-3.301,47.632
+reverse
+// Pedestrian number 491
+18				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-159.505,-3.301,39.139
+point
+-159.838,-3.281,41.801
+point
+-161.548,-3.301,42.814
+point
+-163.577,-3.301,45.100
+reverse
+// Pedestrian number 492
+13				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-160.118,-3.301,39.251
+point
+-160.438,-3.301,39.938
+point
+-163.498,-3.301,43.377
+point
+-160.156,-3.301,48.991
+point
+-159.381,-3.281,49.514
+reverse
+// Pedestrian number 493
+13				// Ref num
+8				// Number of instructions
+4				// Initial instruction
+point
+-163.071,-3.281,26.322
+point
+-163.572,-3.281,36.082
+point
+-162.959,-3.281,37.850
+point
+-163.506,-3.301,38.216
+point
+-163.637,-3.301,39.653
+point
+-162.898,-3.301,40.851
+point
+-159.323,-3.301,42.729
+reverse
+// Pedestrian number 494
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-160.091,-3.301,59.198
+point
+-162.741,-3.301,67.944
+point
+-163.325,-3.301,72.718
+point
+-164.104,-3.301,73.234
+reverse
+// Pedestrian number 495
+10				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-160.095,-3.301,58.307
+point
+-160.359,-3.301,68.007
+point
+-162.287,-3.301,70.178
+point
+-159.285,-3.301,73.920
+reverse
+// Pedestrian number 496
+10				// Ref num
+6				// Number of instructions
+3				// Initial instruction
+point
+-159.201,-3.281,51.625
+point
+-160.723,-3.301,53.381
+point
+-161.245,-3.301,73.423
+point
+-162.378,-3.301,75.299
+point
+-163.680,-3.301,75.872
+reverse
+// Pedestrian number 497
+10				// Ref num
+4				// Number of instructions
+2				// Initial instruction
+point
+-159.677,-3.301,75.823
+point
+-160.959,-3.301,75.405
+point
+-164.353,-3.301,73.998
+reverse
+// Pedestrian number 498
+10				// Ref num
+7				// Number of instructions
+3				// Initial instruction
+point
+-159.726,-3.281,71.302
+point
+-159.986,-3.281,72.102
+point
+-160.113,-3.301,72.609
+point
+-161.606,-3.301,75.395
+point
+-162.640,-3.301,76.324
+point
+-163.853,-3.300,79.561
+reverse
+// Pedestrian number 499
+5				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-170.785,-3.300,73.156
+point
+-163.999,-3.300,73.918
+point
+-161.358,-3.301,76.539
+point
+-160.065,-3.301,82.678
+reverse
+// Pedestrian number 500
+4				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-157.225,-3.281,71.639
+point
+-159.954,-3.301,73.517
+point
+-161.540,-3.301,75.627
+point
+-162.733,-3.300,79.874
+point
+-160.086,-3.300,89.880
+reverse
+// Pedestrian number 501
+25				// Ref num
+8				// Number of instructions
+2				// Initial instruction
+point
+-170.785,-3.301,73.711
+point
+-163.869,-3.301,76.065
+point
+-162.564,-3.301,77.037
+point
+-161.328,-3.301,77.614
+point
+-161.189,-3.301,78.800
+point
+-159.693,-3.281,80.954
+point
+-159.703,-3.281,82.401
+reverse
+// Pedestrian number 502
+18				// Ref num
+5				// Number of instructions
+2				// Initial instruction
+point
+-159.218,-3.301,74.082
+point
+-160.274,-3.301,74.696
+point
+-161.087,-3.301,75.988
+point
+-163.776,-3.301,77.458
+reverse
+// Pedestrian number 503
+10				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-165.058,-3.301,73.208
+point
+-162.466,-3.301,74.670
+point
+-160.283,-3.301,78.377
+point
+-160.172,-3.301,81.169
+point
+-163.730,-3.301,85.825
+reverse
+// Pedestrian number 504
+10				// Ref num
+6				// Number of instructions
+2				// Initial instruction
+point
+-163.838,-3.301,71.710
+point
+-163.257,-3.301,73.278
+point
+-161.883,-3.301,75.222
+point
+-158.466,-3.301,76.380
+point
+-151.060,-3.301,76.957
+reverse
+// Pedestrian number 505
+10				// Ref num
+8				// Number of instructions
+2				// Initial instruction
+point
+-163.856,-3.301,69.863
+point
+-160.904,-3.301,73.365
+point
+-163.807,-3.301,81.024
+point
+-162.166,-3.301,83.330
+point
+-161.225,-3.301,83.941
+point
+-163.807,-3.301,88.816
+point
+-158.567,-3.301,96.392
+reverse
+// Pedestrian number 506
+5				// Ref num
+8				// Number of instructions
+2				// Initial instruction
+point
+-160.065,-3.301,71.122
+point
+-160.894,-3.301,73.861
+point
+-163.038,-3.301,75.769
+point
+-162.922,-3.301,77.626
+point
+-160.517,-3.300,78.817
+point
+-160.196,-3.300,98.268
+point
+-159.141,-3.280,98.763
+reverse
+// Pedestrian number 507
+13				// Ref num
+6				// Number of instructions
+4				// Initial instruction
+point
+-159.077,-3.280,99.974
+point
+-160.141,-3.300,99.287
+point
+-162.616,-3.300,87.795
+point
+-161.355,-3.300,75.683
+point
+-163.624,-3.301,74.901
+reverse
+// Pedestrian number 508
+4				// Ref num
+7				// Number of instructions
+2				// Initial instruction
+point
+-163.925,-3.301,74.493
+point
+-162.507,-3.301,75.708
+point
+-161.896,-3.301,77.863
+point
+-160.862,-3.301,80.045
+point
+-162.465,-3.301,83.656
+point
+-163.649,-3.301,84.647
+reverse
+// Pedestrian number 509
+22				// Ref num
+8				// Number of instructions
+6				// Initial instruction
+point
+-160.052,-3.300,106.570
+point
+-163.012,-3.300,99.868
+point
+-160.430,-3.300,90.050
+point
+-162.571,-3.300,85.485
+point
+-163.017,-3.300,80.946
+point
+-161.563,-3.300,76.680
+point
+-159.782,-3.301,75.047
+reverse
+// Pedestrian number 510
+22				// Ref num
+11				// Number of instructions
+3				// Initial instruction
+point
+-164.442,-3.301,75.050
+point
+-164.161,-3.301,76.075
+point
+-162.622,-3.301,76.648
+point
+-161.371,-3.301,79.365
+point
+-160.813,-3.301,84.881
+point
+-163.249,-3.301,93.289
+point
+-163.086,-3.301,98.244
+point
+-160.067,-3.301,102.418
+point
+-159.863,-3.280,102.825
+point
+-159.816,-3.280,106.075
+reverse
+START OF OPPONENT PATHS
+302                             // Number of path nodes
+-30.010,   -3.340,   29.280   // Node #0
+-30.000,   -3.290,  249.690   // Node #1
+-29.966,   -3.326,   38.756   // Node #2
+16.133,   -3.326,   38.977   // Node #3
+15.983,   -3.305,   74.491   // Node #4
+20.197,   -3.305,   38.892   // Node #5
+18.471,   -3.305,   38.932   // Node #6
+15.676,   -3.303,   31.383   // Node #7
+14.602,   -3.305,   38.916   // Node #8
+14.632,   -3.304,   31.290   // Node #9
+15.959,   -3.304,   87.064   // Node #10
+15.852,   -3.304,  147.098   // Node #11
+15.963,   -3.304,  171.175   // Node #12
+19.576,   -3.304,  177.459   // Node #13
+24.379,   -3.304,  178.678   // Node #14
+36.879,   -3.305,  178.584   // Node #15
+50.992,   -2.970,  178.489   // Node #16
+67.848,   -2.995,  178.639   // Node #17
+74.060,   -2.983,  182.189   // Node #18
+75.371,   -2.975,  186.359   // Node #19
+75.253,   -3.320,  233.886   // Node #20
+75.258,   -2.500,  284.530   // Node #21
+71.522,   -2.506,  290.740   // Node #22
+67.591,   -2.504,  291.861   // Node #23
+-32.890,   -9.525,  291.605   // Node #24
+-45.412,   -9.487,  286.130   // Node #25
+-142.676,   -9.156,  281.624   // Node #26
+-148.550,   -9.129,  279.984   // Node #27
+-154.441,   -9.122,  275.284   // Node #28
+-161.489,   -9.047,  266.241   // Node #29
+-162.014,   -9.977,  196.029   // Node #30
+-161.984,   -3.299,  169.785   // Node #31
+-160.715,   -3.301,  140.906   // Node #32
+-161.924,   -3.299,   74.618   // Node #33
+-162.020,   -3.302,   36.945   // Node #34
+-128.688,   -3.299,   39.059   // Node #35
+-76.839,   -3.299,   39.015   // Node #36
+-8.251,   -3.299,   38.829   // Node #37
+-8.141,   -3.299,   53.032   // Node #38
+7.889,   -3.299,   59.087   // Node #39
+-15.318,   -3.299,   59.407   // Node #40
+-29.961,   -3.299,   59.394   // Node #41
+-18.625,   -3.299,   51.311   // Node #42
+-18.483,   -3.299,   38.779   // Node #43
+20.379,   -3.307,   74.883   // Node #44
+-30.172,   -3.355,   74.935   // Node #45
+-129.238,   -3.301,   74.993   // Node #46
+-170.414,   -3.301,   75.889   // Node #47
+20.417,   -3.301,   86.905   // Node #48
+10.198,   -3.302,   92.241   // Node #49
+-9.543,   -3.306,   92.542   // Node #50
+-11.478,   -3.324,   74.497   // Node #51
+-14.257,   -3.304,   95.861   // Node #52
+-14.136,   -3.266,  134.819   // Node #53
+-2.538,   -3.262,  136.816   // Node #54
+-2.563,   -3.252,  146.831   // Node #55
+-2.951,   -3.279,  118.963   // Node #56
+15.937,   -3.275,  119.334   // Node #57
+-18.385,   -3.300,  134.532   // Node #58
+-30.137,   -3.300,  134.339   // Node #59
+-18.389,   -3.299,  147.053   // Node #60
+-14.386,   -3.299,  124.849   // Node #61
+-30.243,   -3.299,  124.660   // Node #62
+-30.191,   -3.299,  111.875   // Node #63
+-54.996,   -3.300,  111.977   // Node #64
+-54.976,   -3.300,   91.092   // Node #65
+-38.380,   -3.300,   85.198   // Node #66
+-38.259,   -3.300,   96.067   // Node #67
+-55.619,   -3.300,   85.747   // Node #68
+-55.013,   -3.298,  131.076   // Node #69
+-38.392,   -3.298,  133.812   // Node #70
+-38.286,   -3.298,  125.360   // Node #71
+-55.047,   -3.298,  125.899   // Node #72
+-68.393,   -0.831,  131.324   // Node #73
+-71.693,   -0.831,  129.749   // Node #74
+-72.446,   -0.831,  125.516   // Node #75
+-69.670,   -0.831,  122.027   // Node #76
+-66.193,   -0.686,  121.262   // Node #77
+-40.671,    2.578,  124.805   // Node #78
+-37.284,    2.578,  127.730   // Node #79
+-37.688,    2.578,  132.144   // Node #80
+-41.561,    2.578,  134.995   // Node #81
+-65.650,    7.602,  134.857   // Node #82
+-71.500,    7.567,  127.142   // Node #83
+-68.258,    7.567,  122.894   // Node #84
+-41.633,    7.567,  136.392   // Node #85
+-41.752,    7.567,  120.901   // Node #86
+-39.231,    7.567,   90.385   // Node #87
+-39.399,   12.297,   72.122   // Node #88
+-42.433,   12.297,   67.863   // Node #89
+-45.516,   12.297,   66.647   // Node #90
+-60.337,   20.157,   66.493   // Node #91
+-117.742,   19.967,   68.029   // Node #92
+-129.014,   -3.301,   68.474   // Node #93
+-25.230,   -3.309,  147.117   // Node #94
+-30.066,   -3.304,  151.426   // Node #95
+-30.118,   -3.303,  142.648   // Node #96
+-29.826,   -3.304,  168.644   // Node #97
+-21.602,   -3.305,  169.783   // Node #98
+-11.453,   -3.305,  169.576   // Node #99
+-11.176,   -3.305,  167.641   // Node #100
+16.084,   -3.305,  167.491   // Node #101
+2.513,   -3.305,  167.508   // Node #102
+-6.148,   -3.284,  164.309   // Node #103
+-6.197,   -3.300,  147.046   // Node #104
+1.650,   -3.340,  160.631   // Node #105
+-2.236,   -3.283,  189.525   // Node #106
+12.610,   -3.280,  189.524   // Node #107
+12.588,   -3.280,  194.473   // Node #108
+12.684,   -3.280,  205.272   // Node #109
+12.640,   -3.279,  233.377   // Node #110
+12.622,   -3.279,  263.415   // Node #111
+36.529,   -3.305,  265.616   // Node #112
+50.388,   -3.305,  265.529   // Node #113
+66.523,   -3.305,  265.579   // Node #114
+72.365,   -3.305,  233.921   // Node #115
+66.646,   -3.305,  205.532   // Node #116
+50.617,   -3.305,  205.581   // Node #117
+50.587,   -3.305,  233.247   // Node #118
+50.640,   -3.305,  235.665   // Node #119
+36.669,   -3.305,  235.846   // Node #120
+36.675,   -3.305,  233.679   // Node #121
+36.688,   -3.305,  205.619   // Node #122
+36.693,   -3.305,  167.917   // Node #123
+-11.170,   -3.305,  205.556   // Node #124
+-11.343,   -3.305,  188.960   // Node #125
+-11.374,   -3.305,  214.057   // Node #126
+-11.341,   -3.305,  222.506   // Node #127
+-11.386,   -3.305,  233.711   // Node #128
+5.717,   -3.305,  220.754   // Node #129
+5.796,   -3.305,  233.451   // Node #130
+12.508,   -3.305,  223.090   // Node #131
+-12.602,   -3.305,  238.940   // Node #132
+-12.791,   -3.305,  268.160   // Node #133
+12.928,   -3.433,  266.386   // Node #134
+-44.615,   -3.287,  272.424   // Node #135
+-49.168,   -3.307,  273.605   // Node #136
+-55.295,   -3.659,  273.971   // Node #137
+-99.535,   -9.479,  273.893   // Node #138
+-132.048,   -9.476,  277.019   // Node #139
+-157.269,   -9.121,  272.451   // Node #140
+-77.839,   -9.959,  248.108   // Node #141
+-77.935,   -9.959,  222.163   // Node #142
+-77.903,   -9.959,  196.179   // Node #143
+-77.956,   -3.299,  170.171   // Node #144
+-78.001,   -3.298,  145.090   // Node #145
+-78.010,   -3.299,  112.032   // Node #146
+-78.021,   -3.301,   75.009   // Node #147
+-105.196,   -3.300,  111.990   // Node #148
+-130.989,   -3.300,  111.999   // Node #149
+-128.967,   -3.301,   43.580   // Node #150
+-123.991,   -3.301,   39.040   // Node #151
+-133.449,   -3.301,   39.073   // Node #152
+-128.306,   -3.301,   36.333   // Node #153
+-129.022,   -3.301,   28.703   // Node #154
+-163.658,   -3.299,   37.378   // Node #155
+-170.172,   -3.301,   37.565   // Node #156
+-161.920,   -3.301,   40.808   // Node #157
+-170.483,   -3.301,   40.031   // Node #158
+-164.385,   -3.301,   73.519   // Node #159
+-157.820,   -3.281,   78.784   // Node #160
+-161.956,   -3.301,   72.535   // Node #161
+-148.582,   -3.299,  143.480   // Node #162
+-130.972,   -3.301,  145.085   // Node #163
+-104.978,   -3.298,  144.987   // Node #164
+-36.169,   -3.299,  146.827   // Node #165
+-30.029,   -3.299,  153.707   // Node #166
+-30.131,   -3.299,  141.278   // Node #167
+-32.761,   -3.279,  168.510   // Node #168
+-35.288,   -3.279,  169.948   // Node #169
+-54.973,   -3.299,  170.007   // Node #170
+-94.399,   -3.299,  170.072   // Node #171
+-105.056,   -3.299,  170.039   // Node #172
+-130.957,   -3.299,  170.025   // Node #173
+-144.497,   -3.299,  169.986   // Node #174
+-170.289,   -3.299,  170.022   // Node #175
+-104.999,   -3.300,   91.130   // Node #176
+-88.405,   -3.305,   85.889   // Node #177
+-88.557,   -3.305,   95.704   // Node #178
+-105.442,   -3.305,   85.987   // Node #179
+-105.024,   -9.960,  196.042   // Node #180
+-105.025,   -9.959,  221.988   // Node #181
+-104.605,   -9.959,  243.249   // Node #182
+-54.952,   -9.959,  248.013   // Node #183
+-35.874,   -4.486,  249.651   // Node #184
+-29.967,   -3.307,  246.269   // Node #185
+-30.923,   -3.312,  257.112   // Node #186
+-34.120,   -3.318,  263.583   // Node #187
+-40.547,   -3.326,  269.789   // Node #188
+-54.972,   -9.959,  222.101   // Node #189
+-130.979,   -9.959,  222.011   // Node #190
+-145.090,   -9.959,  221.961   // Node #191
+-144.776,   -9.959,  203.506   // Node #192
+-143.200,   -9.959,  195.998   // Node #193
+-131.003,   -9.959,  195.975   // Node #194
+-55.063,   -9.959,  195.990   // Node #195
+-29.860,   -3.299,  195.940   // Node #196
+-29.896,   -3.298,  223.880   // Node #197
+-130.062,   -9.959,  238.579   // Node #198
+-94.006,   -2.619,  178.818   // Node #199
+-92.753,   -3.064,  214.223   // Node #200
+-128.210,   -3.064,  214.289   // Node #201
+-133.605,    0.552,  214.300   // Node #202
+-138.252,    0.552,  212.990   // Node #203
+-139.008,    0.552,  219.410   // Node #204
+-138.974,   -8.424,  244.081   // Node #205
+-139.144,   -9.800,  246.735   // Node #206
+-74.417,   -3.064,  214.077   // Node #207
+-73.226,   -3.064,  202.638   // Node #208
+-62.035,   -3.064,  203.159   // Node #209
+-36.930,   -3.064,  203.463   // Node #210
+-36.085,   -3.064,  214.830   // Node #211
+-47.823,   -3.064,  214.029   // Node #212
+-116.138,   -3.299,  145.020   // Node #213
+-113.055,   -3.299,  135.039   // Node #214
+-113.884,   -3.299,  136.938   // Node #215
+-59.725,   -3.301,   75.044   // Node #216
+-59.858,   -3.281,   53.136   // Node #217
+-74.062,   -3.281,   53.141   // Node #218
+-74.175,   -3.281,   38.980   // Node #219
+-97.590,   -3.281,   61.017   // Node #220
+-97.020,   -3.281,   39.055   // Node #221
+-117.928,   -3.281,   63.645   // Node #222
+-97.440,   -3.281,   54.114   // Node #223
+-117.758,   -3.281,   53.230   // Node #224
+-59.796,   -3.281,   62.689   // Node #225
+-129.048,   -3.281,   64.504   // Node #226
+-119.211,   -3.281,   64.565   // Node #227
+-119.336,   -3.281,   74.990   // Node #228
+36.763,   -3.281,  194.548   // Node #229
+-18.709,   -3.281,  268.912   // Node #230
+-20.244,    3.535,  256.124   // Node #231
+-21.223,    3.586,  244.682   // Node #232
+-14.710,    3.586,  240.773   // Node #233
+-6.510,    2.374,  240.177   // Node #234
+3.215,    2.349,  240.435   // Node #235
+6.598,    3.326,  240.471   // Node #236
+18.685,    0.641,  240.225   // Node #237
+27.227,    0.641,  258.093   // Node #238
+27.054,    0.641,  243.163   // Node #239
+27.012,    1.537,  240.025   // Node #240
+27.184,    0.641,  226.006   // Node #241
+31.936,    0.641,  214.170   // Node #242
+21.845,    0.641,  214.037   // Node #243
+17.913,    1.820,  214.022   // Node #244
+-4.936,    0.641,  218.540   // Node #245
+-4.841,    0.641,  212.886   // Node #246
+-4.941,    1.823,  208.904   // Node #247
+-5.318,    0.641,  192.789   // Node #248
+-6.257,    0.121,  169.480   // Node #249
+-23.149,    0.120,  161.029   // Node #250
+-29.962,   -3.283,  161.190   // Node #251
+-29.885,   -3.290,  214.119   // Node #252
+-161.983,   -3.301,  136.653   // Node #253
+-162.282,   -3.301,  142.807   // Node #254
+-170.361,   -3.299,  142.226   // Node #255
+-29.967,   -3.299,   41.913   // Node #256
+-22.330,   -3.299,   39.007   // Node #257
+-29.990,   -3.301,   53.274   // Node #258
+-161.962,   -3.317,   26.546   // Node #259
+-157.831,   -3.301,  145.795   // Node #260
+-92.840,   -3.064,  207.659   // Node #261
+-90.723,   -3.064,  208.618   // Node #262
+-89.069,   -3.064,  204.378   // Node #263
+-142.270,   -9.748,  249.505   // Node #264
+-144.219,   -9.627,  259.396   // Node #265
+-137.891,   -9.503,  268.885   // Node #266
+-130.789,   -9.456,  273.667   // Node #267
+-115.169,   -9.492,  274.018   // Node #268
+-116.052,   -9.768,  254.331   // Node #269
+-140.922,   12.568,   70.174   // Node #270
+-156.449,    0.974,   68.335   // Node #271
+-161.920,   -3.300,   81.657   // Node #272
+-40.221,    7.567,  102.598   // Node #273
+-67.049,    7.567,  102.287   // Node #274
+-67.086,    7.567,   83.745   // Node #275
+-83.268,   19.967,   67.068   // Node #276
+-141.066,   12.568,   46.258   // Node #277
+-137.248,   12.568,   69.012   // Node #278
+-37.007,    7.567,  139.033   // Node #279
+-35.599,    7.567,  139.327   // Node #280
+-73.992,    7.567,  131.305   // Node #281
+-144.854,   -3.298,   83.176   // Node #282
+-101.794,   -3.064,  198.723   // Node #283
+-93.027,   -3.064,  202.097   // Node #284
+-102.277,   -3.064,  219.442   // Node #285
+-95.159,   -3.064,  214.247   // Node #286
+-81.577,   -3.064,  219.403   // Node #287
+-62.032,   -3.064,  214.056   // Node #288
+-73.668,   -3.064,  219.564   // Node #289
+-33.823,   -3.064,  212.244   // Node #290
+-36.304,   -3.064,  212.096   // Node #291
+-33.831,   -3.064,  198.563   // Node #292
+-65.439,   -3.064,  198.570   // Node #293
+-81.606,   -3.064,  198.666   // Node #294
+-128.036,   -3.064,  219.429   // Node #295
+-122.200,   -3.064,  214.293   // Node #296
+-116.202,   -3.064,  198.610   // Node #297
+-48.522,   -3.064,  219.549   // Node #298
+-52.613,   -3.064,  198.648   // Node #299
+-133.161,   -9.913,  238.006   // Node #300
+-136.359,   -9.876,  238.711   // Node #301
+409                                           // Number of path sections
+0,   2,   0, 255,   0, 255,    1.0, 1000   // Section #0
+2, 256,   0, 255,   0, 255,    1.0,    0   // Section #1
+3,   4,   0, 255,   0, 255,    1.0,    0   // Section #2
+5,   6,   0, 255,   0, 255,    1.0, 1000   // Section #3
+7,   6,   0, 255,   0, 255,    1.0, 1000   // Section #4
+6,   3,   0, 255,   0, 255,    1.0, 1000   // Section #5
+9,   8,   0, 255,   0, 255,    1.0, 1000   // Section #6
+8,   3,   0, 255,   0, 255,    1.0,    0   // Section #7
+4,  10,   0, 255,   0, 255,    1.0,    0   // Section #8
+10,  57,   0, 255,   0, 255,    1.0,    0   // Section #9
+11, 101,   0, 255,   0, 255,    1.0,    0   // Section #10
+12,  13,   0, 255,   0, 255,    1.0,    0   // Section #11
+13,  14,   0, 255,   0, 255,    1.0,    0   // Section #12
+14,  15,   0, 255,   0, 255,    1.0,    0   // Section #13
+15,  16,   0, 255,   0, 255,    1.0,    0   // Section #14
+16,  17,   0, 255,   0, 255,    1.0,    0   // Section #15
+17,  18,   0, 255,   0, 255,    1.0,    0   // Section #16
+18,  19,   0, 255,   0, 255,    1.0,    0   // Section #17
+19,  20,   0, 255,   0, 255,    1.0,    0   // Section #18
+20,  21,   0, 255,   0, 255,    1.0,    0   // Section #19
+21,  22,   0, 255,   0, 255,    1.0,    0   // Section #20
+22,  23,   0, 255,   0, 255,    1.0,    0   // Section #21
+23,  24,   0, 255,   0, 255,    1.0,    0   // Section #22
+24,  25,   0, 255,   0, 255,    1.0,    0   // Section #23
+25,  26,   0, 255,   0, 255,    1.0,    0   // Section #24
+26,  27,   0, 255,   0, 255,    1.0,    0   // Section #25
+27,  28,   0, 255,   0, 255,    1.0,    0   // Section #26
+28, 140,   0, 255,   0, 255,    1.0,    0   // Section #27
+29,  30,   0, 255,   0, 255,    1.0,    0   // Section #28
+30,  31,   0, 255,   0, 255,    1.0,    0   // Section #29
+31, 254,   0, 255,   0, 255,    1.0,    0   // Section #30
+253,  32,   0, 255,   0, 255,    1.0,    1   // Section #31
+161,  33,   0, 255,   0, 255,    1.0,    1   // Section #32
+34, 152,   0, 255,   0, 255,    1.0,    0   // Section #33
+35, 151,   0, 255,   0, 255,    1.0,    0   // Section #34
+36, 219,   0, 255,   0, 255,    1.0,    0   // Section #35
+38,  37,   0, 255,   0, 255,    0.2, 1000   // Section #36
+37,   8,   0, 255,   0, 255,    1.0,    0   // Section #37
+39,  38,   0, 255,   0, 255,    1.0, 1000   // Section #38
+38,  40,   0, 255,   0, 255,    0.7,    0   // Section #39
+40,  41,   0, 255,   0, 255,    0.1, 1000   // Section #40
+41,  45,   0, 255,   0, 255,    1.0,    0   // Section #41
+38,  42,   0, 255,   0, 255,    0.2,    0   // Section #42
+42,  43,   0, 255,   0, 255,    0.2, 1000   // Section #43
+43,  37,   0, 255,   0, 255,    1.0,    0   // Section #44
+44,   4,   0, 255,   0, 255,    1.0, 1000   // Section #45
+4,  51,   0, 255,   0, 255,    1.0,    0   // Section #46
+45,  63,   0, 255,   0, 255,    1.0,    0   // Section #47
+45, 216,   0, 255,   0, 255,    1.0,    0   // Section #48
+46, 160,   0, 255,   0, 255,    1.0,    0   // Section #49
+47, 159,   0, 255,   0, 255,    1.0, 1000   // Section #50
+48,  10,   0, 255,   0, 255,    1.0, 1000   // Section #51
+10,  49,   0, 255,   0, 255,    1.0,    0   // Section #52
+50,  49,   0, 255,   0, 255,    1.0, 1000   // Section #53
+50,  51,   0, 255,   0, 255,    1.0, 1000   // Section #54
+51,  45,   0, 255,   0, 255,    1.0,    0   // Section #55
+50,  52,   0, 255,   0, 255,    1.0,    0   // Section #56
+52,  61,   0, 255,   0, 255,    1.0,    0   // Section #57
+53,  54,   0, 255,   0, 255,    1.0,    0   // Section #58
+54,  55,   0, 255,   0, 255,    0.5, 1000   // Section #59
+54,  56,   0, 255,   0, 255,    1.0,    0   // Section #60
+56,  57,   0, 255,   0, 255,    1.0, 1000   // Section #61
+57,  11,   0, 255,   0, 255,    1.0,    0   // Section #62
+53,  58,   0, 255,   0, 255,    1.0,    0   // Section #63
+58,  59,   0, 255,   0, 255,    0.3, 1000   // Section #64
+59, 167,   0, 255,   0, 255,    1.0,    0   // Section #65
+58,  60,   0, 255,   0, 255,    1.0, 1000   // Section #66
+61,  62,   0, 255,   0, 255,    1.0,    0   // Section #67
+61,  53,   0, 255,   0, 255,    1.0,    0   // Section #68
+62,  59,   0, 255,   0, 255,    1.0,    0   // Section #69
+64,  63,   0, 255,   0, 255,    1.0,    0   // Section #70
+63,  62,   0, 255,   0, 255,    1.0,    0   // Section #71
+65,  64,   0, 255,   0, 255,    1.0,    0   // Section #72
+66,  65,   0, 255,   0, 255,    1.0, 1000   // Section #73
+67,  65,   0, 255,   0, 255,    1.0, 1000   // Section #74
+67,  66,   0, 255,   0, 255,    1.0,    0   // Section #75
+68,  65,   0, 255,   0, 255,    1.0, 1000   // Section #76
+68,  66,   0, 255,   0, 255,    1.0,    0   // Section #77
+64,  72,   0, 255,   0, 255,    1.0,    1   // Section #78
+70,  69,   0, 255,   0, 255,    1.0, 1000   // Section #79
+70,  71,   0, 255,   0, 255,    1.0,    0   // Section #80
+71,  72,   0, 255,   0, 255,    1.0, 1000   // Section #81
+72,  69,   0, 255,   0, 255,    1.0,    1   // Section #82
+69,  73,   0, 255,   0, 255,    1.0,    1   // Section #83
+73,  74,   0, 255,   0, 255,    1.0,    1   // Section #84
+74,  75,   0, 255,   0, 255,    1.0,    1   // Section #85
+75,  76,   0, 255,   0, 255,    1.0,    1   // Section #86
+76,  77,   0, 255,   0, 255,    1.0,    1   // Section #87
+77,  78,   0, 255,   0, 255,    1.0,    1   // Section #88
+78,  79,   0, 255,   0, 255,    1.0,    1   // Section #89
+79,  80,   0, 255,   0, 255,    1.0,    1   // Section #90
+80,  81,   0, 255,   0, 255,    1.0,    1   // Section #91
+81,  82,   0, 255,   0,  30,    1.0,    1   // Section #92
+82,  83,   0, 255,   0, 255,    1.0,    1   // Section #93
+83,  84,   0, 255,   0, 255,    1.0,    1   // Section #94
+84,  85,   0, 255,   0, 255,    1.0,    1   // Section #95
+85,  86,   0, 255,  35, 255,    1.0,    1   // Section #96
+86, 273,   0, 255,   0, 255,    1.0,    1   // Section #97
+87,  88,   0, 255,   0, 255,    1.0,    1   // Section #98
+88,  89,   0, 255,   0, 255,    1.0,    1   // Section #99
+89,  90,   0, 255,   0, 255,    1.0,    1   // Section #100
+90,  91,   0, 255,   0, 255,    1.0,    1   // Section #101
+91, 276,   0, 255,   0, 255,    1.0,    1   // Section #102
+11,  55,   0, 255,   0, 255,    1.0,    0   // Section #103
+55, 104,   0, 255,   0, 255,    0.5,    0   // Section #104
+60,  94,   0, 255,   0, 255,    1.0,    0   // Section #105
+94,  95,   0, 255,   0, 255,    1.0,    0   // Section #106
+95, 166,   0, 255,   0, 255,    1.0,    0   // Section #107
+94,  96,   0, 255,   0, 255,    1.0,    0   // Section #108
+96,  95,   0, 255,   0, 255,    1.0,    0   // Section #109
+98,  97,   0, 255,   0, 255,    1.0,    0   // Section #110
+97, 196,   0, 255,   0, 255,    1.0,    0   // Section #111
+98,  99,   0, 255,   0, 255,    1.0,    0   // Section #112
+99, 100,   0, 255,   0, 255,    1.0,    0   // Section #113
+100, 102,   0, 255,   0, 255,    0.1,    0   // Section #114
+101,  12,   0, 255,   0, 255,    1.0,    0   // Section #115
+103, 102,   0, 255,   0, 255,    1.0,    0   // Section #116
+102, 101,   0, 255,   0, 255,    1.0,    0   // Section #117
+103, 104,   0, 255,   0, 255,    0.1,    0   // Section #118
+104,  60,   0, 255,   0, 255,    0.5,    0   // Section #119
+105, 102,   0, 255,   0, 255,    1.0, 1000   // Section #120
+103, 105,   0, 255,   0, 255,    1.0,    0   // Section #121
+102, 106,   0, 255,   0, 255,    0.5,    0   // Section #122
+107, 106,   0, 255,   0, 255,    0.6,    0   // Section #123
+107,  12,   0, 255,   0, 255,    1.0,    0   // Section #124
+107, 108,   0, 255,   0, 255,    0.6,    0   // Section #125
+108, 109,   0, 255,   0, 255,    0.6,    0   // Section #126
+109, 131,   0, 255,   0, 255,    0.6,    0   // Section #127
+110, 111,   0, 255,   0, 255,    0.6,    0   // Section #128
+111, 112,   0, 255,   0, 255,    0.6,    0   // Section #129
+112, 113,   0, 255,   0, 255,    0.6,    0   // Section #130
+113, 114,   0, 255,   0, 255,    0.6,    0   // Section #131
+114, 115,   0, 255,   0, 255,    0.6,    0   // Section #132
+115, 116,   0, 255,   0, 255,    0.6,    0   // Section #133
+116, 117,   0, 255,   0, 255,    0.6,    0   // Section #134
+117, 118,   0, 255,   0, 255,    0.6,    0   // Section #135
+118, 115,   0, 255,   0, 255,    0.6,    0   // Section #136
+115,  20,   0, 255,   0, 255,    0.6,    0   // Section #137
+118, 119,   0, 255,   0, 255,    0.6,    0   // Section #138
+119, 113,   0, 255,   0, 255,    0.6,    0   // Section #139
+112, 120,   0, 255,   0, 255,    0.6,    0   // Section #140
+120, 119,   0, 255,   0, 255,    0.6,    0   // Section #141
+120, 121,   0, 255,   0, 255,    0.6,    0   // Section #142
+121, 122,   0, 255,   0, 255,    0.6,    0   // Section #143
+122, 229,   0, 255,   0, 255,    0.6,    0   // Section #144
+123,  15,   0, 255,   0, 255,    1.0, 1000   // Section #145
+122, 109,   0, 255,   0, 255,    0.6,    0   // Section #146
+109, 124,   0, 255,   0, 255,    0.6,    0   // Section #147
+124, 125,   0, 255,   0, 255,    0.6,    0   // Section #148
+125,  99,   0, 255,   0, 255,    0.6,    0   // Section #149
+125, 106,   0, 255,   0, 255,    0.6,    0   // Section #150
+124, 126,   0, 255,   0, 255,    0.6,    0   // Section #151
+126, 127,   0, 255,   0, 255,    0.6,    0   // Section #152
+127, 128,   0, 255,   0, 255,    0.6,    0   // Section #153
+128, 130,   0, 255,   0, 255,    0.6,    0   // Section #154
+129, 127,   0, 255,   0, 255,    0.6, 1000   // Section #155
+129, 130,   0, 255,   0, 255,    0.6,    0   // Section #156
+130, 110,   0, 255,   0, 255,    0.6,    0   // Section #157
+129, 131,   0, 255,   0, 255,    0.6, 1000   // Section #158
+131, 110,   0, 255,   0, 255,    0.6,    0   // Section #159
+128, 132,   0, 255,   0, 255,    0.6,    0   // Section #160
+132, 133,   0, 255,   0, 255,    0.6,    0   // Section #161
+133, 134,   0, 255,   0, 255,    0.6,    0   // Section #162
+134, 111,   0, 255,   0, 255,    0.6,    0   // Section #163
+110, 121,   0, 255,   0, 255,    0.6,    0   // Section #164
+133, 230,   0, 255,   0, 255,    0.6,    0   // Section #165
+135, 136,   0, 255,   0, 255,    0.6,    0   // Section #166
+136, 137,   0, 255,   0, 255,    0.6,    0   // Section #167
+137, 138,   0, 255,   0, 255,    0.6,    0   // Section #168
+268, 138,   0, 255,   0, 255,    0.6,    1   // Section #169
+140, 139,   0, 255,   0, 255,    0.6,    0   // Section #170
+140,  29,   0, 255,   0, 255,    1.0,    0   // Section #171
+138, 141,   0, 255,   0, 255,    0.6,    1   // Section #172
+141, 142,   0, 255,   0, 255,    0.6,    1   // Section #173
+142, 143,   0, 255,   0, 255,    0.6,    1   // Section #174
+143, 144,   0, 255,   0, 255,    0.6,    1   // Section #175
+144, 145,   0, 255,   0, 255,    0.6,    1   // Section #176
+145, 146,   0, 255,   0, 255,    0.6,    1   // Section #177
+146, 147,   0, 255,   0, 255,    0.6,    0   // Section #178
+147, 228,   0, 255,   0, 255,    1.0,    0   // Section #179
+146, 148,   0, 255,   0, 255,    0.6,    0   // Section #180
+148, 149,   0, 255,   0, 255,    0.6,    0   // Section #181
+149,  46,   0, 255,   0, 255,    0.6,    0   // Section #182
+46,  93,   0, 255,   0, 255,    1.0,    0   // Section #183
+93, 226,   0, 255,   0, 255,    1.0,    0   // Section #184
+150, 151,   0, 255,   0, 255,    1.0,    0   // Section #185
+151, 221,   0, 255,   0, 255,    1.0,    0   // Section #186
+150, 152,   0, 255,   0, 255,    1.0,    0   // Section #187
+152,  35,   0, 255,   0, 255,    1.0,    0   // Section #188
+153,  35,   0, 255,   0, 255,    0.1, 1000   // Section #189
+154, 153,   0, 255,   0, 255,    1.0, 1000   // Section #190
+155,  34,   0, 255,   0, 255,    1.0,    0   // Section #191
+156, 155,   0, 255,   0, 255,    1.0, 1000   // Section #192
+158, 157,   0, 255,   0, 255,    1.0, 1000   // Section #193
+34, 157,   0, 255,   0, 255,    1.0,    1   // Section #194
+159,  33,   0, 255,   0, 255,    1.0, 1000   // Section #195
+160,  33,   0, 255,   0, 255,    1.0,    0   // Section #196
+46, 161,   0, 255,   0, 255,    1.0,    0   // Section #197
+157, 161,   0, 255,   0, 255,    1.0,    1   // Section #198
+163, 162,   0, 255,   0, 255,    1.0,    0   // Section #199
+163, 213,   0, 255,   0, 255,    1.0,    0   // Section #200
+164, 145,   0, 255,   0, 255,    1.0,    0   // Section #201
+145, 165,   0, 255,   0, 255,    0.6,    0   // Section #202
+165, 166,   0, 255,   0, 255,    0.6,    0   // Section #203
+166, 251,   0, 255,   0, 255,    1.0,    0   // Section #204
+165, 167,   0, 255,   0, 255,    0.6,    0   // Section #205
+167,  96,   0, 255,   0, 255,    1.0,    0   // Section #206
+97, 168,   0, 255,   0, 255,    1.0,    0   // Section #207
+168, 169,   0, 255,   0, 255,    1.0,    0   // Section #208
+169, 170,   0, 255,   0, 255,    1.0,    0   // Section #209
+170, 144,   0, 255,   0, 255,    1.0,    0   // Section #210
+144, 171,   0, 255,   0, 255,    0.6,    0   // Section #211
+172, 171,   0, 255,   0, 255,    0.6,    1   // Section #212
+173, 172,   0, 255,   0, 255,    0.6,    1   // Section #213
+174, 173,   0, 255,   0, 255,    0.6,    1   // Section #214
+260, 174,   0, 255,   0, 255,    0.6,    1   // Section #215
+174,  31,   0, 255,   0, 255,    0.6,    0   // Section #216
+175,  31,   0, 255,   0, 255,    1.0, 1000   // Section #217
+173, 163,   0, 255,   0, 255,    0.6,    0   // Section #218
+163, 149,   0, 255,   0, 255,    1.0,    0   // Section #219
+148, 176,   0, 255,   0, 255,    0.6,    0   // Section #220
+177, 176,   0, 255,   0, 255,    0.6, 1000   // Section #221
+178, 176,   0, 255,   0, 255,    0.6, 1000   // Section #222
+179, 176,   0, 255,   0, 255,    0.6, 1000   // Section #223
+148, 164,   0, 255,   0, 255,    0.6,    0   // Section #224
+164, 172,   0, 255,   0, 255,    1.0,    0   // Section #225
+172, 180,   0, 255,   0, 255,    0.6,    0   // Section #226
+180, 181,   0, 255,   0, 255,    0.6,    0   // Section #227
+181, 182,   0, 255,   0, 255,    0.6,    0   // Section #228
+182, 141,   0, 255,   0, 255,    0.6,    0   // Section #229
+141, 183,   0, 255,   0, 255,    0.6,    0   // Section #230
+183, 184,   0, 255,   0, 255,    0.6,    0   // Section #231
+184, 185,   0, 255,   0, 255,    0.6,    0   // Section #232
+185,   1,   0, 255,   0, 255,    1.0,    0   // Section #233
+1, 186,   0, 255,   0, 255,    1.0,    0   // Section #234
+186, 187,   0, 255,   0, 255,    1.0,    0   // Section #235
+187, 188,   0, 255,   0, 255,    1.0,    0   // Section #236
+188, 135,   0, 255,   0, 255,    1.0,    0   // Section #237
+184, 187,   0, 255,   0, 255,    0.6,    0   // Section #238
+189, 183,   0, 255,   0, 255,    0.6,    0   // Section #239
+189, 142,   0, 255,   0, 255,    0.6,    0   // Section #240
+142, 181,   0, 255,   0, 255,    0.6,    0   // Section #241
+181, 190,   0, 255,   0, 255,    0.6,    0   // Section #242
+190, 191,   0, 255,   0, 255,    0.6,    0   // Section #243
+191, 192,   0, 255,   0, 255,    0.6,    0   // Section #244
+192,  30,   0, 255,   0, 255,    0.6,    0   // Section #245
+192, 193,   0, 255,   0, 255,    0.6,    0   // Section #246
+193,  30,   0, 255,   0, 255,    0.6,    0   // Section #247
+193, 194,   0, 255,   0, 255,    0.6,    0   // Section #248
+194, 180,   0, 255,   0, 255,    0.6,    0   // Section #249
+180, 143,   0, 255,   0, 255,    0.6,    0   // Section #250
+143, 195,   0, 255,   0, 255,    0.6,    0   // Section #251
+195, 196,   0, 255,   0, 255,    0.6,    0   // Section #252
+196, 252,   0, 255,   0, 255,    1.0,    0   // Section #253
+189, 195,   0, 255,   0, 255,    0.6,    0   // Section #254
+195, 170,   0, 255,   0, 255,    0.6,    0   // Section #255
+189, 197,   0, 255,   0, 255,    0.6,    0   // Section #256
+197, 185,   0, 255,   0, 255,    1.0,    0   // Section #257
+190, 198,   0, 255,   0, 255,    0.6,    0   // Section #258
+182, 198,   0, 255,   0, 255,    0.6,    0   // Section #259
+198, 300,   0, 255,   0, 255,    0.6,    0   // Section #260
+190, 194,   0, 255,   0, 255,    0.6,    0   // Section #261
+194, 173,   0, 255,   0, 255,    0.6,    0   // Section #262
+171, 199,   0, 255,   0, 255,    0.6,    1   // Section #263
+199, 284,   0, 255,   0, 255,    0.6,    1   // Section #264
+200, 286,   0, 255,   0, 255,    0.6,    1   // Section #265
+201, 202,   0, 255,   0,  30,    0.6,    1   // Section #266
+202, 203,   0, 255,   0, 255,    0.6,    1   // Section #267
+203, 204,   0, 255,   0, 255,    0.6,    1   // Section #268
+204, 205,   0, 255,   0, 255,    0.6,    1   // Section #269
+205, 206,   0, 255,   0, 255,    0.6, 1001   // Section #270
+206, 264,   0, 255,   0, 255,    0.6,    1   // Section #271
+207, 200,   0, 255,   0, 255,    0.6,    1   // Section #272
+208, 209,   0, 255,  25,  30,    0.6,    1   // Section #273
+209, 210,   0, 255,   0, 255,    0.6,    1   // Section #274
+210, 291,   0, 255,   0, 255,    0.6,    1   // Section #275
+211, 212,   0, 255,  30, 255,    0.6,    1   // Section #276
+212, 288,   0, 255,   0, 255,    0.6,    1   // Section #277
+214, 215,   0, 255,   0, 255,    1.0, 1000   // Section #278
+213, 164,   0, 255,   0, 255,    1.0,    0   // Section #279
+215, 213,   0, 255,   0, 255,    1.0, 1000   // Section #280
+217, 225,   0, 255,   0, 255,    1.0, 1000   // Section #281
+216, 147,   0, 255,   0, 255,    1.0,    0   // Section #282
+217, 218,   0, 255,   0, 255,    1.0, 1000   // Section #283
+218, 219,   0, 255,   0, 255,    1.0, 1000   // Section #284
+2, 219,   0, 255,   0, 255,    1.0,    0   // Section #285
+217, 220,   0, 255,   0, 255,    1.0,    0   // Section #286
+220, 223,   0, 255,   0, 255,    0.5, 1000   // Section #287
+221,  36,   0, 255,   0, 255,    1.0,    0   // Section #288
+222, 220,   0, 255,   0, 255,    1.0, 1000   // Section #289
+224, 223,   0, 255,   0, 255,    0.5, 1000   // Section #290
+223, 221,   0, 255,   0, 255,    0.5, 1000   // Section #291
+224, 222,   0, 255,   0, 255,    0.5,    0   // Section #292
+220, 225,   0, 255,   0, 255,    1.0,    0   // Section #293
+225, 216,   0, 255,   0, 255,    1.0, 1000   // Section #294
+227, 226,   0, 255,   0, 255,    1.0, 1000   // Section #295
+226, 150,   0, 255,   0, 255,    1.0,    0   // Section #296
+227, 228,   0, 255,   0, 255,    1.0, 1000   // Section #297
+228,  46,   0, 255,   0, 255,    1.0,    0   // Section #298
+108, 229,   0, 255,   0, 255,    0.6,    0   // Section #299
+229,  15,   0, 255,   0, 255,    0.6,    0   // Section #300
+230, 231,   0, 255,   0, 255,    0.6,    0   // Section #301
+230, 135,   0, 255,   0, 255,    0.6,    0   // Section #302
+231, 232,   0, 255,   0, 255,    0.6,    0   // Section #303
+232, 233,   0, 255,  20, 255,    0.6,    0   // Section #304
+233, 234,   0, 255,   0, 255,    0.6,    0   // Section #305
+234, 235,   0, 255,  20, 255,    0.6,    0   // Section #306
+235, 236,   0, 255,   0, 255,    0.6,    0   // Section #307
+236, 237,   0, 255,   0, 255,    0.6,    0   // Section #308
+237, 238,   0, 255,   0, 255,    0.6,    0   // Section #309
+238, 239,   0, 255,  30, 255,    0.6,    0   // Section #310
+239, 240,   0, 255,   0, 255,    0.6,    0   // Section #311
+240, 241,   0, 255,   0, 255,    0.6,    0   // Section #312
+241, 242,   0, 255,   0, 255,    0.6,    0   // Section #313
+242, 243,   0, 255,  30, 255,    0.6,    0   // Section #314
+243, 244,   0, 255,   0, 255,    0.6,    0   // Section #315
+244, 245,   0, 255,   0, 255,    0.6,    0   // Section #316
+245, 246,  35, 255,  35, 255,    0.6,    0   // Section #317
+246, 247,   0, 255,   0, 255,    0.6,    0   // Section #318
+247, 248,   0, 255,  40, 255,    0.6,    0   // Section #319
+248, 249,   0, 255,   0, 255,    0.6,    0   // Section #320
+249, 250,   0, 255,   0, 255,    0.6,    0   // Section #321
+250, 251,   0, 255,   0, 255,    0.6,    0   // Section #322
+251,  97,   0, 255,   0, 255,    1.0,    0   // Section #323
+126, 252,   0, 255,   0, 255,    0.5,    0   // Section #324
+252, 197,   0, 255,   0, 255,    1.0,    0   // Section #325
+33, 272,   0, 255,   0, 255,    1.0,    1   // Section #326
+255, 254,   0, 255,   0, 255,    1.0, 1000   // Section #327
+43, 257,   0, 255,   0, 255,    0.2,    0   // Section #328
+256, 258,   0, 255,   0, 255,    1.0,    0   // Section #329
+257, 256,   0, 255,   0, 255,    0.2,    0   // Section #330
+217, 258,   0, 255,   0, 255,    0.4, 1000   // Section #331
+258,  41,   0, 255,   0, 255,    1.0,    0   // Section #332
+259,  34,   0, 255,   0, 255,    1.0, 1001   // Section #333
+254, 260,   0, 255,   0, 255,    1.0, 1000   // Section #334
+32, 260,   0, 255,   0, 255,    0.6,    1   // Section #335
+261, 262,   0, 255,   0, 255,    0.6,    1   // Section #336
+262, 263,   0, 255,   0, 255,    0.6,    1   // Section #337
+263, 208,   0, 255,   0, 255,    0.6,    1   // Section #338
+264, 265,   0, 255,   0, 255,    0.6,    1   // Section #339
+29, 264,   0, 255,   0, 255,    0.6,    0   // Section #340
+265, 266,   0, 255,   0, 255,    0.6,    1   // Section #341
+266, 267,   0, 255,   0, 255,    0.6,    1   // Section #342
+267, 268,   0, 255,   0, 255,    0.6,    1   // Section #343
+269, 182,   0, 255,   0, 255,    0.6,    0   // Section #344
+139, 267,   0, 255,   0, 255,    0.6,    0   // Section #345
+269, 267,   0, 255,   0, 255,    0.6,    0   // Section #346
+146,  64,   0, 255,   0, 255,    0.6,    1   // Section #347
+92, 278,   0, 255,   0, 255,    1.0,    1   // Section #348
+270, 271,   0, 255,   0, 255,    1.0,    1   // Section #349
+271, 272,   0, 255,   0, 255,    1.0,    1   // Section #350
+272, 253,   0, 255,   0, 255,    1.0,    1   // Section #351
+162, 260,   0, 255,   0, 255,    1.0,    0   // Section #352
+46,  92,   0, 255,   0, 255,    1.0,    0   // Section #353
+216,  91,   0, 255,   0, 255,    1.0,    0   // Section #354
+45,  87,   0, 255,   0, 255,    1.0,    0   // Section #355
+167, 280,   0, 255,   0, 255,    1.0,    0   // Section #356
+145, 281,   0, 255,   0, 255,    0.6,    0   // Section #357
+146,  84,   0, 255,   0, 255,    0.6,    0   // Section #358
+64,  85,   0, 255,   0, 255,    1.0,    0   // Section #359
+63,  87,   0, 255,   0, 255,    1.0,    0   // Section #360
+273, 274,   0, 255,   0, 255,    1.0,    0   // Section #361
+273,  87,   0, 255,   0, 255,    1.0,    1   // Section #362
+274, 275,   0, 255,   0, 255,    1.0,    0   // Section #363
+275,  87,   0, 255,   0, 255,    1.0,    0   // Section #364
+147, 276,   0, 255,   0, 255,    0.6,    0   // Section #365
+276,  92,   0, 255,   0, 255,    1.0,    1   // Section #366
+46, 270,   0, 255,   0, 255,    1.0,    0   // Section #367
+34, 277,   0, 255,   0, 255,    1.0,    0   // Section #368
+277, 278,   0, 255,   0, 255,    1.0,    0   // Section #369
+278, 270,   0, 255,   0, 255,    1.0,    1   // Section #370
+279,  85,   0, 255,   0, 255,    1.0,    0   // Section #371
+280,  86,   0, 255,   0, 255,    1.0,    0   // Section #372
+280, 279,   0, 255,   0, 255,    1.0,    0   // Section #373
+281,  83,   0, 255,   0, 255,    0.6,    0   // Section #374
+162, 282,   0, 255,   0, 255,    1.0,    0   // Section #375
+282, 160,   0, 255,   0, 255,    1.0,    0   // Section #376
+180, 283,   0, 255,   0, 255,    0.6,    0   // Section #377
+283, 284,   0, 255,   0, 255,    0.6,    0   // Section #378
+284, 261,   0, 255,   0, 255,    0.6,    1   // Section #379
+181, 285,   0, 255,   0, 255,    0.6,    0   // Section #380
+285, 286,   0, 255,   0, 255,    0.6,    0   // Section #381
+286, 296,   0, 255,   0, 255,    0.6,    1   // Section #382
+142, 287,   0, 255,   0, 255,    0.6,    0   // Section #383
+287, 200,   0, 255,   0, 255,    0.6,    0   // Section #384
+142, 289,   0, 255,   0, 255,    0.6,    0   // Section #385
+288, 207,   0, 255,   0, 255,    0.6,    1   // Section #386
+289, 288,   0, 255,   0, 255,    0.6,    0   // Section #387
+252, 290,   0, 255,   0, 255,    1.0,    0   // Section #388
+290, 291,   0, 255,   0, 255,    1.0,    0   // Section #389
+291, 211,   0, 255,   0, 255,    0.6,    1   // Section #390
+196, 292,   0, 255,   0, 255,    1.0,    0   // Section #391
+292, 210,   0, 255,   0, 255,    1.0,    0   // Section #392
+195, 293,   0, 255,   0, 255,    0.6,    0   // Section #393
+293, 209,   0, 255,   0, 255,    0.6,    0   // Section #394
+143, 294,   0, 255,   0, 255,    0.6,    0   // Section #395
+294, 263,   0, 255,   0, 255,    0.6,    0   // Section #396
+190, 295,   0, 255,   0, 255,    0.6,    0   // Section #397
+295, 296,   0, 255,   0, 255,    0.6,    0   // Section #398
+296, 201,   0, 255,   0, 255,    0.6,    1   // Section #399
+296, 297,   0, 255,   0, 255,    0.6,    0   // Section #400
+297, 194,   0, 255,   0, 255,    0.6,    0   // Section #401
+189, 298,   0, 255,   0, 255,    0.6,    0   // Section #402
+298, 212,   0, 255,   0, 255,    0.6,    0   // Section #403
+195, 299,   0, 255,   0, 255,    0.6,    0   // Section #404
+299, 210,   0, 255,   0, 255,    0.6,    0   // Section #405
+300, 301,   0, 255,   0, 255,    0.6,    0   // Section #406
+300, 301,   0, 255,   0, 255,    0.6,    0   // Section #407
+301, 206,   0, 255,   0, 255,    0.6,    0   // Section #408
+6                                                             // Number of cop start points
+14.660,   -3.300,  177.920,    0.000,    0.000,    0.000   // Cop start point #0
+-25.187,   -8.640,  287.560,    0.000,    0.000,    0.000   // Cop start point #1
+12.190,   -3.300,  119.260,    0.000,    0.000,    0.000   // Cop start point #2
+-33.250,   -3.280,  157.650,    0.000,    0.000,    0.000   // Cop start point #3
+-49.990,   -3.280,  131.790,    0.000,    0.000,    0.000   // Cop start point #4
+72.340,   -3.280,  223.770,    0.000,    0.000,    0.000   // Cop start point #5
+END OF OPPONENT PATHS
+4										// number of material modifiers
+// default material
+1.0										// car wall friction
+1.0										// tyre road friction
+1.0										// down force
+0.0										// bumpiness
+0										// tyre sound index
+0										// crash sound index
+0										// scrape noise index
+1.0										// sparkiness
+1										// room for expansion
+SKIDMARK.MAT							// skid mark material
+//	material '0'
+1.2										// car wall friction
+1.0										// tyre road friction
+1.0										// down force
+9.0										// bumpiness
+-1										// tyre sound index
+0										// crash sound index
+0										// scrape noise index
+0.0										// sparkiness
+2										// room for expansion
+MUD1.MAT							// skid mark material
+//	material '1'
+1.2										// car wall friction
+1.0										// tyre road friction
+1.0										// down force
+5.0										// bumpiness
+-1										// tyre sound index
+0										// crash sound index
+0										// scrape noise index
+0.0										// sparkiness
+2										// room for expansion
+MUD2.MAT							// skid mark material
+//	material '2'
+2.0										// car wall friction
+1.7										// tyre road friction
+1.0										// down force
+5.0										// bumpiness
+-1										// tyre sound index
+-1										// crash sound index
+-1										// scrape noise index
+0.0										// sparkiness
+2										// room for expansion
+MUD1.MAT							// skid mark material
+// Non CarObjects
+9									// number of non car objects
+PEDCROSS.TXT
+TRAFF.TXT
+PHONE.TXT
+LITE.TXT
+TREE.TXT
+FTREE.TXT
+WRECK.TXT
+BARRIER.TXT
+BENCH.TXT
+2									// Number of smoke shadetables
+92, 51, 34							// r g b values
+0.25, 0.5, 0.75							// quarter, half and three quarter "strength"
+61, 84, 33							// r g b values
+0.25, 0.5, 0.75							// quarter, half and three quarter "strength"
+12										// Number of network start points
+18.62,-3.34,38.93							//1
+270													
+-23.63,-3.3,74.98							//2						
+270									
+-161.99,-3.3,74.62							//3						
+180									
+-131.31,-3.3,112							//4						
+90									
+-77.98,-3.3,74.90							//5						
+180									
+-77.93,-3.3,144.92							//6						
+90									
+-36.12,-3,213.89							//7						
+270									
+-162.04,-9.97,196.29							//8						
+0									
+-144.98,-9.96,199.69							//9						
+180									
+-77.97,-9.95,248.36							//10						
+0									
+18.94,-3.2,146.94							//11						
+270									
+-41.76,7.56,136.62							//12						
+0									
+1										// number of splash files
+SPLSHBLU.PIX 								//  name of pixelmapfile for splashes

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenC1_XNA3", "OpenC1_XNA3\OpenC1_XNA3.csproj", "{3BA0D501-86F5-43C6-B150-7AE82E9B9CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine_XNA3", "Engine_XNA3\Engine_XNA3.csproj", "{170C3A99-A2E6-496F-9BDD-E2EF75B17F43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BA0D501-86F5-43C6-B150-7AE82E9B9CC8}.Debug|x86.ActiveCfg = Debug|x86
+		{3BA0D501-86F5-43C6-B150-7AE82E9B9CC8}.Debug|x86.Build.0 = Debug|x86
+		{3BA0D501-86F5-43C6-B150-7AE82E9B9CC8}.Release|x86.ActiveCfg = Release|x86
+		{3BA0D501-86F5-43C6-B150-7AE82E9B9CC8}.Release|x86.Build.0 = Release|x86
+		{170C3A99-A2E6-496F-9BDD-E2EF75B17F43}.Debug|x86.ActiveCfg = Debug|x86
+		{170C3A99-A2E6-496F-9BDD-E2EF75B17F43}.Debug|x86.Build.0 = Debug|x86
+		{170C3A99-A2E6-496F-9BDD-E2EF75B17F43}.Release|x86.ActiveCfg = Release|x86
+		{170C3A99-A2E6-496F-9BDD-E2EF75B17F43}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC614EDF-62D7-4AFC-88EB-7DAA9AE31CB5}
+	EndGlobalSection
+EndGlobal

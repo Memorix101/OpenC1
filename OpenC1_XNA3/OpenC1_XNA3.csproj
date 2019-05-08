@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BA0D501-86F5-43C6-B150-7AE82E9B9CC8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OpenC1</RootNamespace>
+    <AssemblyName>OpenC1</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip.Reduced">
+      <HintPath>Lib\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="StillDesign.PhysX.Net">
+      <HintPath>Lib\StillDesign.PhysX.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimationPlayer.cs" />
+    <Compile Include="BasicDirectionalLight2.cs" />
+    <Compile Include="BasicEffect2.cs" />
+    <Compile Include="BigEndianBitConverter.cs" />
+    <Compile Include="CActor.cs" />
+    <Compile Include="CActorHierarchy.cs" />
+    <Compile Include="CameraViews\ChaseView.cs" />
+    <Compile Include="CameraViews\CockpitView.cs" />
+    <Compile Include="CameraViews\FlyView.cs" />
+    <Compile Include="CameraViews\ICameraView.cs" />
+    <Compile Include="CameraViews\RaceCompletedView.cs" />
+    <Compile Include="CDeformableModel.cs" />
+    <Compile Include="Checkpoint.cs" />
+    <Compile Include="CircularList.cs" />
+    <Compile Include="CMaterial.cs" />
+    <Compile Include="CModel.cs" />
+    <Compile Include="CModelGroup.cs" />
+    <Compile Include="CopDriver.cs" />
+    <Compile Include="CpuDriver.cs" />
+    <Compile Include="CWheelActor.cs" />
+    <Compile Include="EndianBinaryReader.cs" />
+    <Compile Include="EndianBitConverter.cs" />
+    <Compile Include="Endianness.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="FontRenderer.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GameModes\FlyMode.cs" />
+    <Compile Include="GameModes\GameMode.cs" />
+    <Compile Include="GameModes\OpponentEditMode.cs" />
+    <Compile Include="GameModes\PedEditMode.cs" />
+    <Compile Include="GameModes\RaceCompletedMode.cs" />
+    <Compile Include="GameModes\StandardGameMode.cs" />
+    <Compile Include="GameVars.cs" />
+    <Compile Include="Gfx\DamageSmokeParticleSystem.cs" />
+    <Compile Include="Gfx\MaterialSmokeParticleSystem.cs" />
+    <Compile Include="Gfx\ModelShadow.cs" />
+    <Compile Include="Gfx\PedestrianGibsParticleSystem.cs" />
+    <Compile Include="Gfx\PixMapFont.cs" />
+    <Compile Include="Gfx\SkidMarkBuffer.cs" />
+    <Compile Include="Gfx\SkyboxGenerator.cs" />
+    <Compile Include="Gfx\SparksParticleSystem.cs" />
+    <Compile Include="Gfx\TyreSmokeParticleSystem.cs" />
+    <Compile Include="Gfx\VehicleBitsParticleSystem.cs" />
+    <Compile Include="GridPlacer.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="HUD\BaseHUDItem.cs" />
+    <Compile Include="HUD\RevCounter.cs" />
+    <Compile Include="HUD\StandardHudItem.cs" />
+    <Compile Include="HUD\Timer.cs" />
+    <Compile Include="IDriver.cs" />
+    <Compile Include="IPalette.cs" />
+    <Compile Include="MaterialModifier.cs" />
+    <Compile Include="MessageRenderer.cs" />
+    <Compile Include="NonCar.cs" />
+    <Compile Include="Opponent.cs" />
+    <Compile Include="OpponentController.cs" />
+    <Compile Include="OpponentPath.cs" />
+    <Compile Include="OpponentPathNode.cs" />
+    <Compile Include="Parsers\ActFile.cs" />
+    <Compile Include="Parsers\BaseDataFile.cs" />
+    <Compile Include="Parsers\BaseTextFile.cs" />
+    <Compile Include="Parsers\CockpitFile.cs" />
+    <Compile Include="Parsers\DatFile.cs" />
+    <Compile Include="Parsers\FliFile.cs" />
+    <Compile Include="Parsers\FontDescriptionFile.cs" />
+    <Compile Include="Parsers\Funk.cs" />
+    <Compile Include="Parsers\Funks\BaseFunk.cs" />
+    <Compile Include="Parsers\Funks\FlicFunk.cs" />
+    <Compile Include="Parsers\Funks\FramesFunk.cs" />
+    <Compile Include="Parsers\Funks\FunkReader.cs" />
+    <Compile Include="Parsers\Funks\RollFunk.cs" />
+    <Compile Include="Parsers\Funks\SlitherFunk.cs" />
+    <Compile Include="Parsers\Funks\ThrobFunk.cs" />
+    <Compile Include="Parsers\Funks\WindscreenFunk.cs" />
+    <Compile Include="Parsers\GeneralSettingsFile.cs" />
+    <Compile Include="Parsers\Grooves\BaseGroove.cs" />
+    <Compile Include="Parsers\Grooves\GrooveReader.cs" />
+    <Compile Include="Parsers\Grooves\PathGroove.cs" />
+    <Compile Include="Parsers\Grooves\RockGroove.cs" />
+    <Compile Include="Parsers\Grooves\SpinGroove.cs" />
+    <Compile Include="Parsers\MatFile.cs" />
+    <Compile Include="Parsers\NoncarFile.cs" />
+    <Compile Include="Parsers\OpponentsFile.cs" />
+    <Compile Include="Parsers\PaletteFile.cs" />
+    <Compile Include="Parsers\PedestriansFile.cs" />
+    <Compile Include="Parsers\PixFile.cs" />
+    <Compile Include="Parsers\Polygon.cs" />
+    <Compile Include="Parsers\RaceFile.cs" />
+    <Compile Include="Parsers\RacesFile.cs" />
+    <Compile Include="Parsers\SettingsFile.cs" />
+    <Compile Include="Parsers\SoundsFile.cs" />
+    <Compile Include="Parsers\TextFileDecryptor.cs" />
+    <Compile Include="Parsers\VehicleFile.cs" />
+    <Compile Include="Pedestrian.cs" />
+    <Compile Include="PedestrianBehaviour.cs" />
+    <Compile Include="PedestrianController.cs" />
+    <Compile Include="PedestrianGibsController.cs" />
+    <Compile Include="Physics\AutoGearbox.cs" />
+    <Compile Include="Physics\BaseGearbox.cs" />
+    <Compile Include="Physics\ContactReport.cs" />
+    <Compile Include="Physics\Motor.cs" />
+    <Compile Include="Physics\PhysX.cs" />
+    <Compile Include="Physics\PhysXConsts.cs" />
+    <Compile Include="Physics\TrackProcessor.cs" />
+    <Compile Include="Physics\TriggerReport.cs" />
+    <Compile Include="Physics\VehicleChassis.cs" />
+    <Compile Include="Physics\VehicleWheel.cs" />
+    <Compile Include="PixmapBillboard.cs" />
+    <Compile Include="PlayerDriver.cs" />
+    <Compile Include="PlayerVehicleController.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Race.cs" />
+    <Compile Include="RaceMap.cs" />
+    <Compile Include="RaceTimeController.cs" />
+    <Compile Include="ResourceCache.cs" />
+    <Compile Include="RotatingCamera.cs" />
+    <Compile Include="Screens\BaseMenuScreen.cs" />
+    <Compile Include="Screens\ChooseDownloadDataScreen.cs" />
+    <Compile Include="Screens\DownloadGameDataScreen.cs" />
+    <Compile Include="Screens\GameSelectionScreen.cs" />
+    <Compile Include="Screens\LoadRaceScreen.cs" />
+    <Compile Include="Screens\MainMenuScreen.cs" />
+    <Compile Include="Screens\MenuOption.cs" />
+    <Compile Include="Screens\PauseMenuScreen.cs" />
+    <Compile Include="Screens\PlayGameScreen.cs" />
+    <Compile Include="Screens\SelectCarScreen.cs" />
+    <Compile Include="Screens\SelectRaceScreen.cs" />
+    <Compile Include="Screens\SelectSkillScreen.cs" />
+    <Compile Include="Screens\StartRaceScreen.cs" />
+    <Compile Include="SoundCache.cs" />
+    <Compile Include="SoundDesc.cs" />
+    <Compile Include="SpecialVolume.cs" />
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="VehicleAudio.cs" />
+    <Compile Include="VehicleModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="OpenC1Settings.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\BasicEffect2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\damage-smoke.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fontana.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\LucidaConsole.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\map-icon-opponent-dead.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\map-icon-opponent.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\map-icon-player.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\material-modifier-smoke.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\menu-background.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sparks.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine_XNA3\Engine_XNA3.csproj">
+      <Project>{170c3a99-a2e6-496f-9bdd-e2ef75b17f43}</Project>
+      <Name>Engine_XNA3</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

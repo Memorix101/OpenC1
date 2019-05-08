@@ -1,0 +1,38 @@
+CKPT5F.PIX								// Cockpit forward image file names
+15,16,335,168							// Left, top, right, bottom rendering coordinates
+CKPT5L.PIX								// Cockpit left image file names
+15,12,335,190							// Left, top, right, bottom rendering coordinates
+CKPT5R.PIX								// Cockpit right image file names
+15,15,335,151							// Left, top, right, bottom rendering coordinates
+d,37,183,SPEEDO0.PIX,7					// Speedo type, x, y, filename, x-pitch
+a,86,198,SPEDOMSK.PIX,129,210,6,27,135,45,238,85	// Speedo type, x, y, filename, x-pitch
+a,4,152,TACHO.PIX,31,179,0,21,215,0,-4	// tacho type, x, y, filename, x-pitch
+a,200,150,none,81,143,-3,9,225,-45,4	// tacho type, x, y, filename, x-pitch
+27,188,GEARS.PIX						// Gear display x,y,image (external)
+150,180,GEARS.PIX						// Gear display x,y,image (internal)
+7										// Number of hands frames
+144,156,HANDS56R.PIX,0,0,none			// Left-most hands frame
+154,165,HANDS55R.PIX,0,0,none			// Leftish hands frame
+168,177,HANDS54R.PIX,44,198,HANDS54L.PIX	// Leftish hands frame
+173,187,HANDS53R.PIX,45,187,HANDS53L.PIX	// Centre hands frame
+173,191,HANDS52R.PIX,50,180,HANDS52L.PIX	// Rightish hands frame
+0,0,none,54,172,HANDS51L.PIX			// Rightish hands frame
+0,0,none,50,163,HANDS50L.PIX			// Right-most hands frame
+277,21,335,44							// Left, top, right, bottom of mirror
+0,0,52,46								// Left, top, right, bottom of pratcam (*** relative to screen, not cockpit)
+276,189,1,1,2,3,1,ENGDM5.PIX			// Engine damage x,y,flash1..5
+285,190,1,1,2,3,1,TRNDM5.PIX			// Transmission damage x,y,flash1..5
+285,195,1,1,2,3,1,STRDM5.PIX			// Steering damage x,y,flash1..5
+280,198,1,1,2,3,1,LBRKDM5.PIX			// lf brake damage x,y,flash1..5
+280,183,1,1,2,3,1,RBRKDM5.PIX			// rf brake damage x,y,flash1..5
+302,198,1,1,2,3,1,LBRKDM5.PIX			// lr brake damage x,y,flash1..5
+302,183,1,1,2,3,1,RBRKDM5.PIX			// rr brake damage x,y,flash1..5
+279,196,1,1,2,3,1,LFSUSDM5.PIX			// lf wheel damage x,y,flash1..5
+279,182,1,1,2,3,1,RFSUSDM5.PIX			// rf wheel damage x,y,flash1..5
+301,196,1,1,2,3,1,LRSUSDM5.PIX			// lr wheel damage x,y,flash1..5
+301,182,1,1,2,3,1,RRSUSDM5.PIX			// rr wheel damage x,y,flash1..5
+0,0,257,172,DAMASK5.PIX
+2										// Number of dimmed areas (external)
+255,170,305,195							// Dim rectangle
+26,182,59,197							// Dim rectangle
+0										// Number of dimmed areas (internal)

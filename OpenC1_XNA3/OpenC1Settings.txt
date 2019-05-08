@@ -1,0 +1,10 @@
+﻿// -- OpenC1 settings file v1.4 --
+//
+								
+35								// Draw distance
+false							// Full screen (true / false)
+
+
+// To add new games, copy the games DATA folder into the OpenC1 GameData folder.  It will appear as an available game. 
+// If you add the full SplatPack DATA folder, you will need to unencrypt the files first. 
+// Standard Carmageddon 1 encrypted files are able to be read by OpenC1.

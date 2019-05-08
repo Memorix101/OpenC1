@@ -1,0 +1,32 @@
+15										// Number of headups (external)
+10,145,3,lh,194,1,262,10							// Development info display
+197,3,5,lh,-1					// Credits earned
+197,13,8,lh,194,11,262,20				// Pedestrian kill count
+260,170,2,cc,-1							// Pedestrian warning
+160,32,5,ch,-1							// Miscellaneous messages
+160,45,8,ch,-1							// Start of race countdown
+160,120,1,ch,-1							// Fancy bonuses, timeup, race over etc
+160,2,1,ch,133,0,192,21						// Timer
+127,3,2,rh,60,1,131,10					// Lap count
+160,90,1,ch,-1							// End of race bonus
+160,110,1,ch,-1							// Time bonus
+160,22,1,ch,-1							// Time awarded
+127,13,5,rh,60,11,131,20				// Cars out count
+316,18,1,rh,247,16,318,27				// Cash in network mode
+160,18,1,ch,132,16,188,25				// Cash in network mode
+15										// Number of headups (internal)
+10,145,3,lh,-1							// Development info display
+197,3,5,lh,194,1,262,10					// Credits earned
+197,13,8,lh,194,11,262,20				// Pedestrian kill count
+260,170,2,cc,-1							// Pedestrian warning
+160,32,5,ch,-1							// Miscellaneous messages
+160,45,8,ch,-1							// Start of race countdown
+160,110,1,ch,-1							// Fancy bonuses, timeup, race over etc
+160,2,1,ch,133,0,192,21						// Timer
+127,3,2,rh,60,1,131,10					// Lap count
+160,100,1,ch,-1							// End of race bonus
+160,120,1,ch,-1							// Time bonus
+160,22,1,ch,-1							// Time awarded
+127,13,5,rh,60,11,131,20				// Cars out count
+316,58,1,rh,247,56,318,65				// Cash in network mode
+160,18,1,ch,132,16,188,25				// Cash in network mode
