@@ -7,7 +7,7 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
 
 #### Prerequisites:
  * **[Microsoft C++ Runtime](https://aka.ms/vs/16/release/vc_redist.x86.exe)**
- * **[XNA 3.1](https://www.microsoft.com/en-us/download/details.aspx?id=39)**
+ * **[XNA 3.1](https://www.microsoft.com/en-us/download/details.aspx?id=15163)**
  * **[Nvidia PhysX](https://www.nvidia.com/object/physx-9.18.0907-driver.html)**
  * **Read and comply with license.txt**
 
