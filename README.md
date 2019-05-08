@@ -3,7 +3,7 @@
 OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainless Software.
 **[Project page](http://1amstudios.com/projects/openc1)**
 
-###### Upgradet to Visual Studio 2019, .Net Framework 3.5 and XNA 3.1
+###### Upgraded to Visual Studio 2019, .Net Framework 3.5 and XNA 3.1
 
 #### Prerequisites:
  * **[Microsoft C++ Runtime](https://aka.ms/vs/16/release/vc_redist.x86.exe)**
