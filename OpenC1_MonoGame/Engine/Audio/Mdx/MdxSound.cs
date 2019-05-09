@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -13,10 +14,10 @@ namespace OneAmEngine.Audio
         //Buffer3D _buffer3d;
         bool _is3d;
         private FileStream _filename;
-        private float _volume;
         private float _MinimumDistance;
         private float _MaximumDistance;
-        private SoundEffect fx;
+        private SoundEffect _sndfx;
+        private SoundEffectInstance _sndInstance;
 
         public int Id { get; set; }
         public object Owner { get; set; }
@@ -43,9 +44,9 @@ namespace OneAmEngine.Audio
                 Console.WriteLine("YES!!");
             else
                 Console.WriteLine("NAH!!");
-            fx = SoundEffect.FromStream(_filename); //OGG sounds are not supported
+            _sndfx = SoundEffect.FromStream(_filename); //OGG sounds are not supported
             _filename.Dispose();
-            //fx.CreateInstance();
+            _sndInstance = _sndfx.CreateInstance();
 
             /*
             if (is3d)
@@ -56,37 +57,17 @@ namespace OneAmEngine.Audio
             }*/
         }
 
-        public float Duration => throw new NotImplementedException();
-        public float Volume
-        {
-            get => _volume;
-            set => _volume = value;
-        }
-        public Vector3 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float Duration => _sndfx.Duration.Seconds;
+        public float Volume { get => _sndInstance.Volume; set => _sndInstance.Volume = value; }
+        public Vector3 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); } //_sndInstance.Apply3D(new AudioListener(), new AudioEmitter());
         public Vector3 Velocity { set => throw new NotImplementedException(); }
         public int Frequency { set => throw new NotImplementedException(); }
-        public bool IsPlaying => throw new NotImplementedException();
-        public float MinimumDistance
-        {
-            get => 0f;
-            set => _MinimumDistance = 0f;
-        }
-        public float MaximumDistance { get => 0f; set => _MaximumDistance = 0f; }
-        public void Pause()
-        {
-            throw new NotImplementedException();
-        }
-        public void Stop()
-        {
-            throw new NotImplementedException();
-        }
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
-        public void Play(bool loop)
-        {
-            fx.Play(_volume, 0f, 0f);
-        }
+        public bool IsPlaying => _sndInstance.State == SoundState.Playing;
+        public float MinimumDistance { get => _MinimumDistance; set => _MinimumDistance = value; }
+        public float MaximumDistance { get => _MaximumDistance; set => _MaximumDistance = value; }
+        public void Pause() { _sndInstance.Pause(); }
+        public void Stop() { _sndInstance.Stop(); }
+        public void Reset() { throw new NotImplementedException(); }
+        public void Play(bool loop) { _sndInstance.Play(); }
     }
 }
