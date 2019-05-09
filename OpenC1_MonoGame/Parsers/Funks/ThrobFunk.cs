@@ -18,11 +18,13 @@ namespace OpenC1.Parsers.Funks
         public override void BeforeRender()
         {
             GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
+            GameVars.CurrentEffect.CommitChanges();
         }
 
         public override void AfterRender()
         {
             GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
+            GameVars.CurrentEffect.CommitChanges();
         }
 
         public void Initialize()
@@ -38,7 +40,7 @@ namespace OpenC1.Parsers.Funks
             // _cyclePosition is the current position in the cycle. As the cycle gets to 
             // halfway, _cyclePosition starts returning to origin
 
-            _cycleTime += OneAmEngine.Engine.ElapsedSeconds * _harmonicMultiplier;
+            _cycleTime += GameEngine.ElapsedSeconds * _harmonicMultiplier;
 
             if (_cycleTime > _targetTime)
             {
@@ -48,7 +50,7 @@ namespace OpenC1.Parsers.Funks
 
             if (_cycleTime > _targetTime / 2)
             {
-                _cyclePosition -= OneAmEngine.Engine.ElapsedSeconds * _harmonicMultiplier;  //sither back to start
+                _cyclePosition -= GameEngine.ElapsedSeconds * _harmonicMultiplier;  //sither back to start
             }
             else
             {
@@ -69,8 +71,8 @@ namespace OpenC1.Parsers.Funks
 
         private void AssignNewTarget()
         {
-            _direction.X = OneAmEngine.Engine.Random.Next(0.5f, 1f) * (OneAmEngine.Engine.Random.Next(1, 20) % 2 == 0 ? 1 : -1);
-            _direction.Y = OneAmEngine.Engine.Random.Next(0.5f, 1) * (OneAmEngine.Engine.Random.Next(1, 20) % 2 == 0 ? 1 : -1);
+            _direction.X = GameEngine.Random.Next(0.5f, 1f) * (GameEngine.Random.Next(1, 20) % 2 == 0 ? 1 : -1);
+            _direction.Y = GameEngine.Random.Next(0.5f, 1) * (GameEngine.Random.Next(1, 20) % 2 == 0 ? 1 : -1);
         }
 
         

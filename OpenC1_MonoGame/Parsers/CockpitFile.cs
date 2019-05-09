@@ -6,37 +6,37 @@ using System.IO;
 
 namespace OpenC1.Parsers
 {
-	class CockpitHandFrame
-	{
-		public Vector2 Position1, Position2;
-		public Texture2D Texture1, Texture2;
-	}
+    class CockpitHandFrame
+    {
+        public Vector2 Position1, Position2;
+        public Texture2D Texture1, Texture2;
+    }
 
-	class CockpitFile : BaseTextFile
-	{
-		public Texture2D Forward, Left, Right;
+    class CockpitFile : BaseTextFile
+    {
+        public Texture2D Forward, Left, Right;
         public Rectangle ForwardRect, LeftRect, RightRect;
         public List<CockpitHandFrame> LeftHands = new List<CockpitHandFrame>();
         public List<CockpitHandFrame> RightHands = new List<CockpitHandFrame>();
         public CockpitHandFrame CenterHands;
         public bool IsHighRes;
-        
 
-		public CockpitFile(string filename) : base(filename)
-		{
+
+        public CockpitFile(string filename) : base(filename)
+        {
             string folderName = Path.GetDirectoryName(filename);
-            
+
             if (filename.Contains("64x48"))
                 IsHighRes = true;
 
-			Forward = GetTextureFromPixFile(folderName, ReadLine());
-            ForwardRect = ReadLineAsRect();            
+            Forward = GetTextureFromPixFile(folderName, ReadLine());
+            ForwardRect = ReadLineAsRect();
             Left = GetTextureFromPixFile(folderName, ReadLine());
             LeftRect = ReadLineAsRect();
             Right = GetTextureFromPixFile(folderName, ReadLine());
             RightRect = ReadLineAsRect();
-			SkipLines(6); //internal & external speedo, tacho, gears
-			int nbrHandFrames = ReadLineAsInt();
+            SkipLines(6); //internal & external speedo, tacho, gears
+            int nbrHandFrames = ReadLineAsInt();
 
             int center = nbrHandFrames / 2;
             for (int i = 0; i < nbrHandFrames; i++)
@@ -55,9 +55,9 @@ namespace OpenC1.Parsers
                     RightHands.Add(frame);
             }
 
-			SkipLines(2); //mirror
+            SkipLines(2); //mirror
 
-			CloseFile();
+            CloseFile();
 
             int w = 640; int h = 480;
             if (!IsHighRes)
@@ -83,15 +83,15 @@ namespace OpenC1.Parsers
             CenterHands.Position2 += new Vector2(-20, 0);
             CenterHands.Position1 /= new Vector2(w, h);
             CenterHands.Position2 /= new Vector2(w, h);
-		}
+        }
 
         private Texture2D GetTextureFromPixFile(string curFolder, string filename)
         {
             if (filename == "none") return null;
             PixFile pixFile = new PixFile(filename);
-			if (pixFile.PixMaps.Count > 0)
-				return pixFile.PixMaps[0].Texture;
-			return null;
+            if (pixFile.PixMaps.Count > 0)
+                return pixFile.PixMaps[0].Texture;
+            return null;
         }
-	}
+    }
 }

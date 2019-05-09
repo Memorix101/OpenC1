@@ -34,7 +34,7 @@ namespace OpenC1.Parsers.Funks
 
         public override void Update()
         {
-            _currentFrameTime += OneAmEngine.Engine.ElapsedSeconds;
+            _currentFrameTime += GameEngine.ElapsedSeconds;
             if (_currentFrameTime > Speed)
             {
                 _currentFrame++;

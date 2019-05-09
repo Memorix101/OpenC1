@@ -38,7 +38,7 @@ namespace OpenC1
         {
             if (!_playing) return;
 
-            _currentFrameTime += OneAmEngine.Engine.ElapsedSeconds;
+            _currentFrameTime += GameEngine.ElapsedSeconds;
 
             if (_currentFrameTime > ((float)100 / 1000))
             {

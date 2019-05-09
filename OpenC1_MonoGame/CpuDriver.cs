@@ -53,11 +53,11 @@ namespace OpenC1
 
         public virtual void OnRaceStart()
         {
-            _lastStateChangeTime = OneAmEngine.Engine.TotalSeconds;
+            _lastStateChangeTime = GameEngine.TotalSeconds;
             Vehicle.Chassis.Motor.Gearbox.CurrentGear = 1;
             LogPosition(Vehicle.Position);
             _raceStarted = true;
-            _catchupDistance = OneAmEngine.Engine.Random.Next(MIN_CATCHUP_DISTANCE, MAX_CATCHUP_DISTANCE);
+            _catchupDistance = GameEngine.Random.Next(MIN_CATCHUP_DISTANCE, MAX_CATCHUP_DISTANCE);
         }
 
         public virtual void Update()
@@ -75,7 +75,7 @@ namespace OpenC1
 
             if (DistanceFromPlayer > _catchupDistance)
             {
-                _catchupDistance = OneAmEngine.Engine.Random.Next(MIN_CATCHUP_DISTANCE, MAX_CATCHUP_DISTANCE);
+                _catchupDistance = GameEngine.Random.Next(MIN_CATCHUP_DISTANCE, MAX_CATCHUP_DISTANCE);
                 Teleport(OpponentController.GetNodeCloseToPlayer());
             }
 
@@ -96,7 +96,7 @@ namespace OpenC1
             }
 
             // check for state change
-            if (_nextDirectionChangeTime < OneAmEngine.Engine.TotalSeconds)
+            if (_nextDirectionChangeTime < GameEngine.TotalSeconds)
             {
                 if (_isReversing)
                 {
@@ -207,7 +207,7 @@ namespace OpenC1
                 {
                     _closestPointOnPath = Vector3.Lerp(_currentPath.End.Position, _closestPointOnPath, dist / (_currentPath.Width * 1.5f));
                 }
-                //OneAmEngine.Engine.DebugRenderer.AddCube(Matrix.CreateTranslation(_closestPointOnPath), Color.Blue);
+                //GameEngine.DebugRenderer.AddCube(Matrix.CreateTranslation(_closestPointOnPath), Color.Blue);
             }
             else if (_state == CpuDriverState.Attacking)
             {
@@ -276,19 +276,19 @@ namespace OpenC1
             if (Vehicle.Chassis.Motor.Gearbox.CurrentGear == 0)
                 Vehicle.Chassis.Motor.Gearbox.CurrentGear = 1;
 
-            //OneAmEngine.Engine.DebugRenderer.AddWireframeCube(Matrix.CreateScale(2) * Matrix.CreateTranslation(_targetNode.Position), Color.Green);
+            //GameEngine.DebugRenderer.AddWireframeCube(Matrix.CreateScale(2) * Matrix.CreateTranslation(_targetNode.Position), Color.Green);
         }
 
         public void SetState(CpuDriverState state)
         {
             _state = state;
-            _lastStateChangeTime = OneAmEngine.Engine.TotalSeconds;
+            _lastStateChangeTime = GameEngine.TotalSeconds;
         }
 
         private void LogPosition(Vector3 pos)
         {
             _lastPosition = pos;
-            _lastPositionTime = OneAmEngine.Engine.TotalSeconds;
+            _lastPositionTime = GameEngine.TotalSeconds;
         }
 
         private void TargetClosestNode(Vector3 pos)
@@ -311,15 +311,15 @@ namespace OpenC1
         {
             _targetNode = node;
             SetState(CpuDriverState.Racing);
-            _lastTargetChangeTime = OneAmEngine.Engine.TotalSeconds;
+            _lastTargetChangeTime = GameEngine.TotalSeconds;
             GetNextPath();
         }
 
         private void Escape()
         {
             _isReversing = !_isReversing;
-            _nextDirectionChangeTime = OneAmEngine.Engine.TotalSeconds + OneAmEngine.Engine.Random.Next(1.5f, 5f);
-            _reverseTurning = OneAmEngine.Engine.Random.Next(-1f, 1f);
+            _nextDirectionChangeTime = GameEngine.TotalSeconds + GameEngine.Random.Next(1.5f, 5f);
+            _reverseTurning = GameEngine.Random.Next(-1f, 1f);
         }
 
         private void Teleport()
@@ -365,7 +365,7 @@ namespace OpenC1
 
         internal void OnPlayerHit(float force)
         {
-            LastPlayerTouchTime = OneAmEngine.Engine.TotalSeconds;
+            LastPlayerTouchTime = GameEngine.TotalSeconds;
             SetState(CpuDriverState.Attacking);
         }
     }

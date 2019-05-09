@@ -27,7 +27,7 @@ namespace OpenC1.Parsers.Grooves
             switch (Motion)
             {
                 case Motion.Harmonic:
-                    _currentRock += _direction * OneAmEngine.Engine.ElapsedSeconds * Speed * 6.28f * _speed2;
+                    _currentRock += _direction * GameEngine.ElapsedSeconds * Speed * 6.28f * _speed2;
 
                     float distance = (MaxAngle - Math.Abs(_currentRock)) / MaxAngle;
                     //if (distance < 0.15f)
@@ -38,10 +38,10 @@ namespace OpenC1.Parsers.Grooves
                 case Motion.Linear:
                 case Motion.Absolute:
                     //case Motion.Flash:
-                    _currentRock += _direction * OneAmEngine.Engine.ElapsedSeconds * Speed * 6.28f;
+                    _currentRock += _direction * GameEngine.ElapsedSeconds * Speed * 6.28f;
                     break;
                 case Motion.Flash:
-                    _flashRock += _direction * OneAmEngine.Engine.ElapsedSeconds * Speed * 6.28f;
+                    _flashRock += _direction * GameEngine.ElapsedSeconds * Speed * 6.28f;
                     break;
                 default:
                     throw new NotImplementedException();

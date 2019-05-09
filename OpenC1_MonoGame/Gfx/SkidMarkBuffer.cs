@@ -53,7 +53,7 @@ namespace OpenC1.Gfx
             //int size = VertexPositionTexture.SizeInBytes * _vertices.Length;
             int size = VertexPositionTexture.VertexDeclaration.VertexStride * _vertices.Length;
 
-            _buffer = new DynamicVertexBuffer(OneAmEngine.Engine.Device, _vertexDeclaration, size, BufferUsage.WriteOnly);
+            _buffer = new DynamicVertexBuffer(GameEngine.Device, _vertexDeclaration, size, BufferUsage.WriteOnly);
 
             if (_defaultTexture == null)
             {
@@ -123,7 +123,7 @@ namespace OpenC1.Gfx
                 {
                     AddToBuffer(skid);
                     skid.StartPosition = skid.EndPosition;
-                    skid.StartTime = OneAmEngine.Engine.TotalSeconds;
+                    skid.StartTime = GameEngine.TotalSeconds;
                 }
             }
 
@@ -155,7 +155,7 @@ namespace OpenC1.Gfx
         {
             Update();
 
-            GraphicsDevice device = OneAmEngine.Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
 
             //device.Vertices[0].SetSource(_buffer, 0, VertexPositionTexture.SizeInBytes);
             //device.VertexDeclaration = _vertexDeclaration;
@@ -163,7 +163,7 @@ namespace OpenC1.Gfx
             GameVars.CurrentEffect.World = Matrix.Identity;          
 
             device.RasterizerState.DepthBias = -0.00002f;
-            CullMode oldCullMode = OneAmEngine.Engine.Device.RasterizerState.CullMode;
+            CullMode oldCullMode = GameEngine.Device.RasterizerState.CullMode;
             device.RasterizerState.CullMode = CullMode.None;
 
             int nbrCalls = 0;
@@ -249,7 +249,7 @@ namespace OpenC1.Gfx
             }
             if (skid == null)
             {
-                skid = new CurrentSkid { Wheel = wheel, StartPosition = pos, EndPosition = pos, StartTime = OneAmEngine.Engine.TotalSeconds };
+                skid = new CurrentSkid { Wheel = wheel, StartPosition = pos, EndPosition = pos, StartTime = GameEngine.TotalSeconds };
                 _currentSkids.Add(skid);
             }
             else

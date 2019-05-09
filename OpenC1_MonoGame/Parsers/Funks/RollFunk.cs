@@ -20,24 +20,26 @@ namespace OpenC1.Parsers.Funks
 
         public override void BeforeRender()
         {
-            _lastMode = OneAmEngine.Engine.Device.SamplerStates[0].AddressU;
+            _lastMode = GameEngine.Device.SamplerStates[0].AddressU;
             if (_lastMode != TextureAddressMode.Wrap)
-                OneAmEngine.Engine.Device.SamplerStates[0].AddressU = OneAmEngine.Engine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
 
             GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
+            GameVars.CurrentEffect.CommitChanges();
         }
 
         public override void AfterRender()
         {
             if (_lastMode != TextureAddressMode.Wrap)
-                OneAmEngine.Engine.Device.SamplerStates[0].AddressU = OneAmEngine.Engine.Device.SamplerStates[0].AddressV = _lastMode;
+                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = _lastMode;
 
             GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
+            GameVars.CurrentEffect.CommitChanges();
         }
 
         public override void Update()
         {
-            _uvOffset += Speed * 0.8f * OneAmEngine.Engine.ElapsedSeconds;
+            _uvOffset += Speed * 0.8f * GameEngine.ElapsedSeconds;
             if (_uvOffset.X > 1) _uvOffset.X = 1 - _uvOffset.X;
             if (_uvOffset.Y > 1) _uvOffset.Y = 1 - _uvOffset.Y;
         }

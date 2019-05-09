@@ -96,7 +96,7 @@ namespace OpenC1
         
         public virtual void Render(CMaterial actorMaterial)
         {
-            GraphicsDevice device = OneAmEngine.Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
             
             CMaterial currentMaterial = null;
             int baseVert = VertexBaseIndex;
@@ -141,9 +141,9 @@ namespace OpenC1
                 }
                 GameVars.NbrDrawCalls++;
                 if (!HardEdgesInserted)
-                    OneAmEngine.Engine.Device.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVert, 0, 3 * poly.NbrPrims, indexBufferStart, poly.NbrPrims);
+                    GameEngine.Device.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVert, 0, 3 * poly.NbrPrims, indexBufferStart, poly.NbrPrims);
                 else
-                    OneAmEngine.Engine.Device.DrawPrimitives(PrimitiveType.TriangleList, indexBufferStart, poly.NbrPrims);
+                    GameEngine.Device.DrawPrimitives(PrimitiveType.TriangleList, indexBufferStart, poly.NbrPrims);
                 indexBufferStart += poly.NbrPrims * 3;
 
                 if (currentMaterial != null && currentMaterial.Funk != null)

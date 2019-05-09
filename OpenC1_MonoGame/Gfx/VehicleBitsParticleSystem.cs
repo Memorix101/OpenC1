@@ -20,7 +20,7 @@ namespace OpenC1.Gfx
 
         protected override void InitializeSettings(ParticleSettings settings)
         {
-            settings.Texture = OneAmEngine.Engine.ContentManager.Load<Texture2D>("blank-particle");
+            settings.Texture = GameEngine.ContentManager.Load<Texture2D>("Content/blank-particle");
 
             settings.MaxParticles = 100;
 

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenC1_MonoGame.", "OpenC1_MonoGame.\OpenC1_MonoGame..csproj", "{C6080123-E23F-4612-8054-26CF3C223F08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenC1_MonoGame", "OpenC1_MonoGame\OpenC1_MonoGame.csproj", "{C6080123-E23F-4612-8054-26CF3C223F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "OpenC1_MonoGame.\Engine\Engine.csproj", "{0ECEAF55-BB39-4C44-AC94-FDC46D3E6E9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1amStudiosEngine", "OpenC1_MonoGame\Engine\1amStudiosEngine.csproj", "{0ECEAF55-BB39-4C44-AC94-FDC46D3E6E9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.WindowsGL", "OpenC1_MonoGame.\MonoGame-develop\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj", "{6D75E618-19CA-4C51-9546-F10965FBC0B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.WindowsGL", "OpenC1_MonoGame\MonoGame-develop\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj", "{6D75E618-19CA-4C51-9546-F10965FBC0B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -32,15 +32,15 @@ namespace OpenC1
 
         public void BeginBatch()
         {
-            //OneAmEngine.Engine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
-            //OneAmEngine.Engine.Device.VertexDeclaration = _vertexDeclaration;
-            OneAmEngine.Engine.Device.SetVertexBuffer(_vertexBuffer);
-            //OneAmEngine.Engine.CurrentEffect.CurrentTechnique.Passes[0].Begin();
+            //GameEngine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
+            //GameEngine.Device.VertexDeclaration = _vertexDeclaration;
+            GameEngine.Device.SetVertexBuffer(_vertexBuffer);
+            //GameEngine.CurrentEffect.CurrentTechnique.Passes[0].Begin();
         }
 
         public void EndBatch()
         {
-            //OneAmEngine.Engine.CurrentEffect.CurrentTechnique.Passes[0].End();
+            //GameEngine.CurrentEffect.CurrentTechnique.Passes[0].End();
         }
 
         public void Render(Vector3 position)
@@ -50,13 +50,13 @@ namespace OpenC1
             Update();
             BeginBatch();
 
-            Matrix world = Matrix.CreateScale(0.03f) * Matrix.CreateBillboard(position, OneAmEngine.Engine.Camera.Position, Vector3.Up, Vector3.Forward);
+            Matrix world = Matrix.CreateScale(0.03f) * Matrix.CreateBillboard(position, GameEngine.Camera.Position, Vector3.Up, Vector3.Forward);
 
             BasicEffect2 effect = GameVars.CurrentEffect;
             effect.World = _scaleMatrix * world;
             effect.Texture = _pixmaps[_currentFrame].Texture;
-            OneAmEngine.Engine.Device.RasterizerState.CullMode = CullMode.None;
-            OneAmEngine.Engine.Device.DrawPrimitives(PrimitiveType.TriangleStrip, 0, 2);
+            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+            GameEngine.Device.DrawPrimitives(PrimitiveType.TriangleStrip, 0, 2);
             EndBatch();
         }
 
@@ -78,11 +78,11 @@ namespace OpenC1
             _vertices[2] = new VertexPositionTexture(topRightFront, textureTopRight);
             _vertices[3] = new VertexPositionTexture(bottomRightFront, textureBottomRight);
 
-            /*_vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device,
+            /*_vertexBuffer = new VertexBuffer(GameEngine.Device,
                                                  VertexPositionTexture.SizeInBytes * _vertices.Length,
                                                  BufferUsage.WriteOnly);*/
 
-            _vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device, new VertexDeclaration(VertexPositionTexture.VertexDeclaration.GetVertexElements()),
+            _vertexBuffer = new VertexBuffer(GameEngine.Device, new VertexDeclaration(VertexPositionTexture.VertexDeclaration.GetVertexElements()),
                                                  VertexPositionTexture.VertexDeclaration.VertexStride * _vertices.Length,
                                                  BufferUsage.WriteOnly);
 
@@ -92,7 +92,7 @@ namespace OpenC1
 
         public void Update()
         {
-            _currentFrameTime += OneAmEngine.Engine.ElapsedSeconds;
+            _currentFrameTime += GameEngine.ElapsedSeconds;
             if (_currentFrameTime > 0.03f)
             {
                 _currentFrame++;

@@ -31,21 +31,23 @@ namespace OpenC1.Parsers.Funks
 
         public override void BeforeRender()
         {
-            _lastMode = OneAmEngine.Engine.Device.SamplerStates[0].AddressU;
+            _lastMode = GameEngine.Device.SamplerStates[0].AddressU;
             if (_lastMode != TextureAddressMode.Wrap)
-                OneAmEngine.Engine.Device.SamplerStates[0].AddressU = OneAmEngine.Engine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
 
             GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
-            //GameVars.CurrentEffect.TexCoordsMultiplier = 0.1f;
+            GameVars.CurrentEffect.TexCoordsMultiplier = 0.1f;
+            GameVars.CurrentEffect.CommitChanges();
         }
 
         public override void AfterRender()
         {
             if (_lastMode != TextureAddressMode.Wrap)
-                OneAmEngine.Engine.Device.SamplerStates[0].AddressU = OneAmEngine.Engine.Device.SamplerStates[0].AddressV = _lastMode;
+                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = _lastMode;
 
             GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
-            //GameVars.CurrentEffect.TexCoordsMultiplier = 1;
+            GameVars.CurrentEffect.TexCoordsMultiplier = 1;
+            GameVars.CurrentEffect.CommitChanges();
         }
 
         public override void Update()
@@ -53,7 +55,7 @@ namespace OpenC1.Parsers.Funks
             float y = Math.Min(1, _vehicle.Chassis.Actor.AngularVelocity.Y / 10);
             Speed.X = y;
             Speed.Y = Math.Min(1, _vehicle.Chassis.Actor.LinearVelocity.Length() / 10); 
-            _uvOffset += Speed * OneAmEngine.Engine.ElapsedSeconds;
+            _uvOffset += Speed * GameEngine.ElapsedSeconds;
             if (_uvOffset.X > 10) _uvOffset.X = 10 - _uvOffset.X;
             if (_uvOffset.Y > 10) _uvOffset.Y = 10 - _uvOffset.Y;
 

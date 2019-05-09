@@ -31,7 +31,7 @@ namespace OpenC1.GameModes
 
         public override void Update()
         {
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.D0))
+            if (GameEngine.Input.WasPressed(Keys.D0))
             {
                 _watchingOpponent = (_watchingOpponent + 1) % (Race.Current.Opponents.Count + 1);
             }
@@ -40,14 +40,14 @@ namespace OpenC1.GameModes
             {
                 _opponentCamera.Position = Race.Current.PlayerVehicle.GetBodyBottom();
                 _opponentCamera.Orientation = Race.Current.PlayerVehicle.Chassis.Actor.GlobalOrientation.Forward;
-                OneAmEngine.Engine.Camera = _opponentCamera;
+                GameEngine.Camera = _opponentCamera;
             }
             else
             {
                 Opponent opponent = Race.Current.Opponents[_watchingOpponent - 1];
                 _opponentCamera.Position = opponent.Vehicle.GetBodyBottom();
                 _opponentCamera.Orientation = opponent.Vehicle.Chassis.Actor.GlobalOrientation.Forward;
-                OneAmEngine.Engine.Camera = _opponentCamera;
+                GameEngine.Camera = _opponentCamera;
 
                 opponent.Vehicle.Chassis.OutputDebugInfo();
             }
@@ -63,13 +63,13 @@ namespace OpenC1.GameModes
             foreach (OpponentPathNode node in Race.Current.ConfigFile.OpponentPathNodes)
             {
                 
-                OneAmEngine.Engine.DebugRenderer.AddCube(Matrix.CreateTranslation(node.Position), Color.White);
+                GameEngine.DebugRenderer.AddCube(Matrix.CreateTranslation(node.Position), Color.White);
                 foreach (OpponentPath path in node.Paths)
                 {                    
                         Color c = Color.Yellow;
                         if (path.Type == PathType.Race) c = Color.Red;
                         if (path.Type == PathType.Cheat) c = Color.Blue;
-                        //OneAmEngine.Engine.DebugRenderer.AddLine(node.Position, path.End.Position, c);
+                        //GameEngine.DebugRenderer.AddLine(node.Position, path.End.Position, c);
 
                         Vector3 offs = new Vector3(0, 0, path.Width);
 
@@ -81,12 +81,12 @@ namespace OpenC1.GameModes
                         Vector3 s2 = Vector3.Transform(s3, Matrix.CreateRotationY(90) * Matrix.CreateTranslation(path.End.Position));
                         s2.Y = path.End.Position.Y;
                         
-                        OneAmEngine.Engine.DebugRenderer.AddLine(s1, s2, c);
+                        GameEngine.DebugRenderer.AddLine(s1, s2, c);
                         s1 = Vector3.Transform(s3, Matrix.CreateRotationY(-90) * Matrix.CreateTranslation(node.Position));
                         s1.Y = node.Position.Y;
                         s2 = Vector3.Transform(s3, Matrix.CreateRotationY(-90) * Matrix.CreateTranslation(path.End.Position));
                         s2.Y = path.End.Position.Y;
-                        OneAmEngine.Engine.DebugRenderer.AddLine(s1, s2, c);
+                        GameEngine.DebugRenderer.AddLine(s1, s2, c);
                     
                 }
             }

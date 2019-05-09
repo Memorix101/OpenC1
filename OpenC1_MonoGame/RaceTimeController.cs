@@ -48,13 +48,13 @@ namespace OpenC1
 
         public void Update()
         {
-            TotalTime += OneAmEngine.Engine.ElapsedSeconds;
+            TotalTime += GameEngine.ElapsedSeconds;
 
             if (IsOver) return;
 
             if (IsStarted)
             {
-                TimeRemaining -= OneAmEngine.Engine.ElapsedSeconds;
+                TimeRemaining -= GameEngine.ElapsedSeconds;
                 if (TimeRemaining < 0)
                 {
                     TimeRemaining = 0;
@@ -71,7 +71,7 @@ namespace OpenC1
             }
             if (CountingDown)
             {
-                CountdownTime += OneAmEngine.Engine.ElapsedSeconds;
+                CountdownTime += GameEngine.ElapsedSeconds;
                 if (CountdownTime > 5)
                 {
                     IsStarted = true;

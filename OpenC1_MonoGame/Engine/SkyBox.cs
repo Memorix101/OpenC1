@@ -62,9 +62,9 @@ namespace OneAmEngine
 
         public void LoadResources(float repetionsX)
         {
-            _effect = Engine.ContentManager.Load<Effect>("Skybox\\skybox");
-            //_vertexDeclaration = new VertexDeclaration(Engine.Device, VertexPositionTexture.VertexElements);
-            _vertices = new VertexBuffer(Engine.Device, typeof(VertexPositionTexture), 4 * 6, BufferUsage.WriteOnly);
+            _effect = GameEngine.ContentManager.Load<Effect>("Skybox\\skybox");
+            //_vertexDeclaration = new VertexDeclaration(GameEngine.Device, VertexPositionTexture.VertexElements);
+            _vertices = new VertexBuffer(GameEngine.Device, typeof(VertexPositionTexture), 4 * 6, BufferUsage.WriteOnly);
             VertexPositionTexture[] data = new VertexPositionTexture[4 * 6];
 
             Vector3 vExtents = new Vector3(200, 125, 200);
@@ -131,7 +131,7 @@ namespace OneAmEngine
             _vertices.SetData<VertexPositionTexture>(data);
 
 
-            _indices = new IndexBuffer(Engine.Device, typeof(short), 6 * 6, BufferUsage.WriteOnly);
+            _indices = new IndexBuffer(GameEngine.Device, typeof(short), 6 * 6, BufferUsage.WriteOnly);
 
             short[] ib = new short[6 * 6];
 
@@ -155,14 +155,14 @@ namespace OneAmEngine
             if (_vertices == null)
                 return;
 
-            CameraPosition = Engine.Camera.Position + new Vector3(0, HeightOffset, 0);
-            ProjectionMatrix = Engine.Camera.Projection;
-            ViewMatrix = Engine.Camera.View;
+            CameraPosition = GameEngine.Camera.Position + new Vector3(0, HeightOffset, 0);
+            ProjectionMatrix = GameEngine.Camera.Projection;
+            ViewMatrix = GameEngine.Camera.View;
 
             //_effect.Begin(SaveStateMode.SaveState);
             _effect.Parameters["worldViewProjection"].SetValue(_worldMatrix * _viewMatrix * _projectionMatrix);
 
-            GraphicsDevice device = Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
 
             // bool fogEnabled = device.RenderState.FogEnable;
             // device.RenderState.FogEnable = false;

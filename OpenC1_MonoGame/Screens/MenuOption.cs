@@ -34,7 +34,7 @@ namespace OpenC1.Screens
 
         public void RenderInSpriteBatch()
         {
-            OneAmEngine.Engine.SpriteBatch.Draw(_texture, _rect, Color.White);
+            GameEngine.SpriteBatch.Draw(_texture, _rect, Color.White);
         }
 
         public void RenderOutsideSpriteBatch()

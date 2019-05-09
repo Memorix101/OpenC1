@@ -121,10 +121,10 @@ namespace OpenC1
 
             //int size = VertexPositionNormalTexture.SizeInBytes * _localVertices.Length;
             int size = VertexPositionNormalTexture.VertexDeclaration.VertexStride * _localVertices.Length;
-            _vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device,new VertexDeclaration(VertexPositionNormalTexture.VertexDeclaration.GetVertexElements()), size, BufferUsage.WriteOnly);
+            _vertexBuffer = new VertexBuffer(GameEngine.Device,new VertexDeclaration(VertexPositionNormalTexture.VertexDeclaration.GetVertexElements()), size, BufferUsage.WriteOnly);
             _vertexBuffer.SetData(_localVertices);
 
-            _indexBuffer = new IndexBuffer(OneAmEngine.Engine.Device, typeof(UInt16), indices2.Count, BufferUsage.WriteOnly);
+            _indexBuffer = new IndexBuffer(GameEngine.Device, typeof(UInt16), indices2.Count, BufferUsage.WriteOnly);
             _indexBuffer.SetData(indices2.ToArray());
 
         }
@@ -246,7 +246,7 @@ namespace OpenC1
                         vdir.Normalize();
 
                         Vector3 newpos = _localVertices[point.VertexIndex].Position + (vdir * distanceMoved * parentScale * 2f * (1 - point.DistanceFromParent));
-                        if (point.DistanceFromParent < 0.1f || OneAmEngine.Engine.Random.Next(10) % 2 == 0)
+                        if (point.DistanceFromParent < 0.1f || GameEngine.Random.Next(10) % 2 == 0)
                         {
                             newpos = _localVertices[point.VertexIndex].Position + (parentDir * 0.6f * (1 - point.DistanceFromParent));
                         }
@@ -359,23 +359,23 @@ namespace OpenC1
 
             //    Vector3 crushPoint = Vector3.Transform(_originalPositions[data.RefVertex], GameVariables.ScaleMatrix * _actor.GlobalPose);
 
-            //    OneAmEngine.Engine.DebugRenderer.AddWireframeCube(
+            //    GameEngine.DebugRenderer.AddWireframeCube(
             //        Matrix.CreateScale(0.09f)
             //        * Matrix.CreateTranslation(crushPoint)
             //        , Color.White);
 
             //    crushPoint = Vector3.Transform(_localVertices[data.RefVertex].Position, GameVariables.ScaleMatrix * _actor.GlobalPose);
 
-            //    OneAmEngine.Engine.DebugRenderer.AddWireframeCube(
+            //    GameEngine.DebugRenderer.AddWireframeCube(
             //        Matrix.CreateScale(0.09f)
             //        * Matrix.CreateTranslation(crushPoint)
             //        , Color.Yellow);
 
-            //    //OneAmEngine.Engine.DebugRenderer.AddAxis(
+            //    //GameEngine.DebugRenderer.AddAxis(
             //    //    Matrix.CreateTranslation(Vector3.Transform(data.Box.Max, GameVariables.ScaleMatrix * _actor.GlobalPose))
             //    //    , 10);
 
-            //    //OneAmEngine.Engine.DebugRenderer.AddAxis(
+            //    //GameEngine.DebugRenderer.AddAxis(
             //    //    Matrix.CreateTranslation(Vector3.Transform(data.Box.Min, GameVariables.ScaleMatrix * _actor.GlobalPose))
             //    //    , 10);
 
@@ -383,7 +383,7 @@ namespace OpenC1
 
             //    foreach (CrushPoint point in data.Points)
             //    {
-            //        OneAmEngine.Engine.DebugRenderer.AddWireframeCube(
+            //        GameEngine.DebugRenderer.AddWireframeCube(
             //        Matrix.CreateScale(0.05f)
             //        * Matrix.CreateTranslation(Vector3.Transform(_localVertices[point.VertexIndex].Position, GameVariables.ScaleMatrix * _actor.GlobalPose))
 
@@ -399,7 +399,7 @@ namespace OpenC1
                 {
                     _localVertices[i].Position = Vector3.Lerp(_repairPoisitons[i], _originalPositions[i], _repairingFactor);
                 }
-                _repairingFactor += OneAmEngine.Engine.ElapsedSeconds;
+                _repairingFactor += GameEngine.ElapsedSeconds;
                 _changed = true;
 
                 if (_repairingFactor >= 1) _repairing = false;
@@ -412,7 +412,7 @@ namespace OpenC1
             }
 
 
-            GraphicsDevice device = OneAmEngine.Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
 
             //VertexBuffer oldVertBuffer = device.Vertices[0].VertexBuffer;
             //IndexBuffer oldIndexBuffer = device.Indices;
@@ -454,7 +454,7 @@ namespace OpenC1
                     currentMaterial.Funk.BeforeRender();
                 }
                 GameVars.NbrDrawCalls++;
-				OneAmEngine.Engine.Device.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVert, 0, _localVertices.Length, indexBufferStart, poly.NbrPrims);
+				GameEngine.Device.DrawIndexedPrimitives(PrimitiveType.TriangleList, baseVert, 0, _localVertices.Length, indexBufferStart, poly.NbrPrims);
 
                 indexBufferStart += poly.NbrPrims * 3;
 

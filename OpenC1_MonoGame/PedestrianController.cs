@@ -34,7 +34,7 @@ namespace OpenC1
             {   //match up behaviour to ped instance
                 ped.Behaviour = _behaviours.Find(a => a.RefNumber == ped.RefNumber);
                 if (ped.Behaviour == null)
-                    ped.Behaviour = _behaviours[OneAmEngine.Engine.Random.Next(1, _behaviours.Count-1)];
+                    ped.Behaviour = _behaviours[GameEngine.Random.Next(1, _behaviours.Count-1)];
 
                 ped.Initialize();
 
@@ -118,11 +118,11 @@ namespace OpenC1
 
         public void Render()
         {
-            //OneAmEngine.Engine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
-            //OneAmEngine.Engine.Device.VertexDeclaration = _vertexDeclaration;
-            OneAmEngine.Engine.Device.SetVertexBuffer(_vertexBuffer);
-            OneAmEngine.Engine.Device.RasterizerState.CullMode = CullMode.None;
-			//OneAmEngine.Engine.Device.RasterizerState.ReferenceAlpha = 100; #
+            //GameEngine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
+            //GameEngine.Device.VertexDeclaration = _vertexDeclaration;
+            GameEngine.Device.SetVertexBuffer(_vertexBuffer);
+            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+			//GameEngine.Device.RasterizerState.ReferenceAlpha = 100; #
 
             foreach (Pedestrian ped in _peds)
             {
@@ -149,11 +149,11 @@ namespace OpenC1
             _vertices[2] = new VertexPositionTexture(topRightFront, textureTopRight);
             _vertices[3] = new VertexPositionTexture(bottomRightFront, textureBottomRight);
 
-            /*_vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device,
+            /*_vertexBuffer = new VertexBuffer(GameEngine.Device,
                                                  VertexPositionTexture.SizeInBytes * _vertices.Length,
                                                  BufferUsage.WriteOnly);*/
 
-            _vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device, new VertexDeclaration(VertexPositionTexture.VertexDeclaration.GetVertexElements()),
+            _vertexBuffer = new VertexBuffer(GameEngine.Device, new VertexDeclaration(VertexPositionTexture.VertexDeclaration.GetVertexElements()),
                                                  VertexPositionTexture.VertexDeclaration.VertexStride * _vertices.Length,
                                                  BufferUsage.WriteOnly);
 

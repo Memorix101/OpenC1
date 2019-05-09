@@ -34,20 +34,20 @@ namespace OpenC1
 
         private MessageRenderer()
         {
-            _screenWidth = OneAmEngine.Engine.Window.Width;
+            _screenWidth = GameEngine.Window.Width;
         }
 
         public override void Update()
         {
-            if (_headerTtl > 0) _headerTtl -= OneAmEngine.Engine.ElapsedSeconds;
-            if (_animationSpeed == 0 && _messageTtl > 0) _messageTtl -= OneAmEngine.Engine.ElapsedSeconds;
-            if (_timerTtl > 0) _timerTtl -= OneAmEngine.Engine.ElapsedSeconds;
+            if (_headerTtl > 0) _headerTtl -= GameEngine.ElapsedSeconds;
+            if (_animationSpeed == 0 && _messageTtl > 0) _messageTtl -= GameEngine.ElapsedSeconds;
+            if (_timerTtl > 0) _timerTtl -= GameEngine.ElapsedSeconds;
 
             if (_animationSpeed > 0)
             {
                 if (_pauseTime <= 0)
                 {
-                    _progress += _animationSpeed * OneAmEngine.Engine.ElapsedSeconds;
+                    _progress += _animationSpeed * GameEngine.ElapsedSeconds;
                     _messageX = MathHelper.Lerp(_screenWidth, -300, _progress);
                     if (_messageX < _centerX && !_hasPaused)
                     {
@@ -58,7 +58,7 @@ namespace OpenC1
                 }
                 else
                 {
-                    _pauseTime -= OneAmEngine.Engine.ElapsedSeconds;
+                    _pauseTime -= GameEngine.ElapsedSeconds;
                 }
             }
         }
@@ -119,14 +119,14 @@ namespace OpenC1
             if (_animationSpeed == 0)
             {
                 if (_messageTtl > 0)
-                    OneAmEngine.Engine.SpriteBatch.Draw(_messageTexture, _messageRect, Color.White);
+                    GameEngine.SpriteBatch.Draw(_messageTexture, _messageRect, Color.White);
             }
             else
             {
                 if (_progress < 1)
                 {
                     _messageRect.X = (int)_messageX;
-                    OneAmEngine.Engine.SpriteBatch.Draw(_messageTexture, _messageRect, Color.White);
+                    GameEngine.SpriteBatch.Draw(_messageTexture, _messageRect, Color.White);
                 }
             }
         }

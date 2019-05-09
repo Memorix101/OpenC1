@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Text;
 using MiscUtil.IO;
 using MiscUtil.Conversion;
 using System.IO;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace OpenC1.Parsers
 {
     class PaletteFile : BaseDataFile, IPalette
     {
-
         enum PaletteBlockType
         {
             Null = 0,
@@ -82,7 +80,7 @@ namespace OpenC1.Parsers
             rgb[0] = _paletteData[pixel * 4 + 1];
             rgb[1] = _paletteData[pixel * 4 + 2];
             rgb[2] = _paletteData[pixel * 4 + 3];
-            return new Color(rgb[0], rgb[1], rgb[2], (byte)255);
+            return new Color(new Vector4(rgb[0], rgb[1], rgb[2], 255));
         }
     }
 }

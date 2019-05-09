@@ -22,13 +22,13 @@ namespace OpenC1.Parsers.Grooves
             switch (Axis)
             {
                 case Axis.X:
-                    rot = Matrix.CreateRotationX(Speed * 6.28f /*=rads*/ * OneAmEngine.Engine.ElapsedSeconds);
+                    rot = Matrix.CreateRotationX(Speed * 6.28f /*=rads*/ * GameEngine.ElapsedSeconds);
                     break;
                 case Axis.Y:
-                    rot = Matrix.CreateRotationY(Speed * 6.28f /*=rads*/ * OneAmEngine.Engine.ElapsedSeconds);
+                    rot = Matrix.CreateRotationY(Speed * 6.28f /*=rads*/ * GameEngine.ElapsedSeconds);
                     break;
                 case Axis.Z:
-                    rot = Matrix.CreateRotationZ(Speed * 6.28f /*=rads*/ * OneAmEngine.Engine.ElapsedSeconds);
+                    rot = Matrix.CreateRotationZ(Speed * 6.28f /*=rads*/ * GameEngine.ElapsedSeconds);
                     break;
                 default:
                     throw new NotImplementedException();

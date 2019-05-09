@@ -324,7 +324,7 @@ namespace Microsoft.Xna.Framework.Content
 			}
 			
             // Try to load as XNB file
-            var stream = OpenStream(assetName);
+            var stream = OpenStream("Content/" + assetName);
             using (var xnbReader = new BinaryReader(stream))
             {
                 using (var reader = GetContentReaderFromXnb(assetName, stream, xnbReader, recordDisposableObject))

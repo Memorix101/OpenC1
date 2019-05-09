@@ -17,10 +17,10 @@ namespace OpenC1
                 if (ForceBrake)
                     return 0;
 
-                if (OneAmEngine.Engine.Input.IsKeyDown(Keys.Up))
+                if (GameEngine.Input.IsKeyDown(Keys.Up))
                     return 1.0f;
 
-                return OneAmEngine.Engine.Input.GamePadState.Triggers.Right;
+                return GameEngine.Input.GamePadState.Triggers.Right;
             }
         }
 
@@ -31,10 +31,10 @@ namespace OpenC1
                 if (ForceBrake)
                     return 0f;
 
-                if (OneAmEngine.Engine.Input.IsKeyDown(Keys.Down))
+                if (GameEngine.Input.IsKeyDown(Keys.Down))
                     return 1.0f;
 
-                return OneAmEngine.Engine.Input.GamePadState.Triggers.Left;
+                return GameEngine.Input.GamePadState.Triggers.Left;
             }
         }
 
@@ -42,34 +42,34 @@ namespace OpenC1
         {
             get
             {
-                if (OneAmEngine.Engine.Input.IsKeyDown(Keys.Left))
+                if (GameEngine.Input.IsKeyDown(Keys.Left))
                     return -1;
-                else if (OneAmEngine.Engine.Input.IsKeyDown(Keys.Right))
+                else if (GameEngine.Input.IsKeyDown(Keys.Right))
                     return 1;
 
-                return OneAmEngine.Engine.Input.GamePadState.ThumbSticks.Left.X;
+                return GameEngine.Input.GamePadState.ThumbSticks.Left.X;
             }
         }
 
-        public static bool ChangeView
+        /*public static bool ChangeView
         {
             get
             {
-                if (OneAmEngine.Engine.Input.WasPressed(Keys.C))
+                if (GameEngine.Input.WasPressed(Keys.C))
                     return true;
-                if (OneAmEngine.Engine.Input.WasPressed(Buttons.RightShoulder))
+                if (GameEngine.Input.WasPressed(Buttons.DPadUp))
                     return true;
                 return false;
             }
-        }
+        }*/
 
         public static bool GearUp
         {
             get
             {
-                if (OneAmEngine.Engine.Input.WasPressed(Keys.A))
+                if (GameEngine.Input.WasPressed(Keys.A))
                     return true;
-                if (OneAmEngine.Engine.Input.WasPressed(Buttons.B))
+                if (GameEngine.Input.WasPressed(Buttons.RightShoulder))
                     return true;
                 return false;
             }
@@ -79,9 +79,9 @@ namespace OpenC1
         {
             get
             {
-                if (OneAmEngine.Engine.Input.WasPressed(Keys.Z))
+                if (GameEngine.Input.WasPressed(Keys.Z) || GameEngine.Input.WasPressed(Keys.Y)) //QWERTZ
                     return true;
-                if (OneAmEngine.Engine.Input.WasPressed(Buttons.X))
+                if (GameEngine.Input.WasPressed(Buttons.LeftShoulder))
                     return true;
                 return false;
             }
@@ -92,7 +92,7 @@ namespace OpenC1
             get
             {
                 if (ForceBrake) return true;
-                return OneAmEngine.Engine.Input.IsKeyDown(Keys.Space);
+                return GameEngine.Input.IsKeyDown(Keys.Space) || GameEngine.Input.IsButtonDown(Buttons.X);
             }
         }
     }

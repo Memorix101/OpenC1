@@ -22,20 +22,20 @@ namespace OpenC1.CameraViews
         public CockpitView(Vehicle vehicle, string cockpitFile)
         {
             _vehicle = vehicle;
-			if (GameVars.Emulation == EmulationMode.Demo)
+            if (GameVars.Emulation == EmulationMode.Demo)
                 cockpitFile = Path.GetDirectoryName(cockpitFile) + "\\blkeagle.txt";
-			else if (GameVars.Emulation == EmulationMode.SplatPackDemo)
-				cockpitFile = Path.GetDirectoryName(cockpitFile) + "\\neweagle.txt";
-			else if (!File.Exists(cockpitFile))
-				cockpitFile = Path.GetDirectoryName(cockpitFile) + "\\blkeagle.txt";
-			
+            else if (GameVars.Emulation == EmulationMode.SplatPackDemo)
+                cockpitFile = Path.GetDirectoryName(cockpitFile) + "\\neweagle.txt";
+            else if (!File.Exists(cockpitFile))
+                cockpitFile = Path.GetDirectoryName(cockpitFile) + "\\blkeagle.txt";
+
             if (File.Exists(cockpitFile))
             {
                 _cockpitFile = new CockpitFile(cockpitFile);
-                
+
                 ActFile actFile = new ActFile(vehicle.Config.BonnetActorFile);
-				if (!actFile.Exists)
-					actFile = new ActFile("EBONNET.ACT");
+                if (!actFile.Exists)
+                    actFile = new ActFile("EBONNET.ACT");
                 _actors = actFile.Hierarchy;
                 DatFile modelsFile = new DatFile(_actors.Root.ModelName);
                 _actors.AttachModels(modelsFile.Models);
@@ -44,7 +44,7 @@ namespace OpenC1.CameraViews
                 //move head back
                 _vehicle.Config.DriverHeadPosition.Z += 0.11f;
             }
-            
+
             _camera = new SimpleCamera();
             _camera.FieldOfView = MathHelper.ToRadians(55.55f);
 
@@ -53,7 +53,7 @@ namespace OpenC1.CameraViews
         #region ICameraView Members
 
         public bool Selectable
-        { 
+        {
             get { return true; }
         }
 
@@ -64,10 +64,10 @@ namespace OpenC1.CameraViews
             _camera.Orientation = forward;
 
             _camera.Up = m.Up;
-                        
+
             _camera.Position = _vehicle.GetBodyBottom() + Vector3.Transform(_vehicle.Config.DriverHeadPosition, _vehicle.Chassis.Actor.GlobalOrientation) + new Vector3(0, 0.018f, 0);
 
-            OneAmEngine.Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
         }
 
         public override void Render()
@@ -81,10 +81,10 @@ namespace OpenC1.CameraViews
             else
                 src = new Rectangle(32, 20, 320, 200);
             Rectangle rect = new Rectangle(0, 0, 800, 600);
-            OneAmEngine.Engine.SpriteBatch.Draw(_cockpitFile.Forward, rect, src, Color.White);
+            GameEngine.SpriteBatch.Draw(_cockpitFile.Forward, rect, src, Color.White);
 
             float steerRatio = _vehicle.Chassis.SteerRatio;
-            
+
             CockpitHandFrame frame = null;
             if (steerRatio < -0.2)
             {
@@ -97,7 +97,7 @@ namespace OpenC1.CameraViews
                     frame = _cockpitFile.RightHands[1];
                 else if (steerRatio < -0.2f)
                     frame = _cockpitFile.RightHands[0];
-                
+
             }
             else if (steerRatio > 0.2f)
             {
@@ -116,27 +116,37 @@ namespace OpenC1.CameraViews
                 frame = _cockpitFile.CenterHands;
             }
 
-            if (frame.Texture1 != null)
-                OneAmEngine.Engine.SpriteBatch.Draw(frame.Texture1, ScaleVec2(frame.Position1), Color.White);
-            if (frame.Texture2 != null)
-                OneAmEngine.Engine.SpriteBatch.Draw(frame.Texture2, ScaleVec2(frame.Position2), Color.White);
-            
+            if (_cockpitFile.IsHighRes)
+            {
+                if (frame.Texture1 != null)
+                    GameEngine.SpriteBatch.Draw(frame.Texture1, ScaleVec2(frame.Position1), Color.White);
+                if (frame.Texture2 != null)
+                    GameEngine.SpriteBatch.Draw(frame.Texture2, ScaleVec2(frame.Position2), Color.White);
+            }
+            else
+            {
+                if (frame.Texture1 != null)
+                    GameEngine.SpriteBatch.Draw(frame.Texture1,
+                        new Rectangle((int)ScaleVec2(frame.Position1).X + 5, (int)ScaleVec2(frame.Position1).Y - 20, 100, 100), Color.White);
+                if (frame.Texture2 != null)
+                    GameEngine.SpriteBatch.Draw(frame.Texture2,
+                        new Rectangle((int)ScaleVec2(frame.Position2).X - 50, (int)ScaleVec2(frame.Position2).Y - 20, 100, 100), Color.White);
+            }
+
             _actors.Render(Matrix.CreateFromQuaternion(_vehicle.Chassis.Actor.GlobalOrientationQuat) * Matrix.CreateTranslation(_vehicle.GetBodyBottom()), null);
         }
 
         public void Activate()
         {
-            OneAmEngine.Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
             _camera.Position = _vehicle.GetBodyBottom() + Vector3.Transform(_vehicle.Config.DriverHeadPosition, _vehicle.Chassis.Actor.GlobalOrientation);
-            _camera.Update(); 
+            _camera.Update();
         }
 
         public void Deactivate()
         {
-            
-        }
 
+        }
         #endregion
-
-        }
     }
+}

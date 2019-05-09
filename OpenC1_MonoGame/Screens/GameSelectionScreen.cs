@@ -27,7 +27,7 @@ namespace OpenC1.Screens
             ScreenEffects.Instance.FadeSpeed = 300;
             ScreenEffects.Instance.UnFadeScreen();
 
-            _showTime = OneAmEngine.Engine.TotalSeconds;
+            _showTime = GameEngine.TotalSeconds;
 
 			string[] mods = Directory.GetDirectories("GameData");
 			foreach (string game in mods)
@@ -38,7 +38,7 @@ namespace OpenC1.Screens
         {
             base.Render();
 
-            OneAmEngine.Engine.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+            GameEngine.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
 			RenderDefaultBackground();
 
@@ -49,29 +49,30 @@ namespace OpenC1.Screens
 			{
 				Color c = Color.White;
 				if (i == _selectedIndex)
-					OneAmEngine.Engine.SpriteBatch.DrawString(_font, "< " + _mods[i] + " >", new Vector2(40, y), Color.YellowGreen);
+					GameEngine.SpriteBatch.DrawString(_font, "< " + _mods[i] + " >", new Vector2(40, y), Color.YellowGreen);
 				else
-					OneAmEngine.Engine.SpriteBatch.DrawString(_font, "  " + _mods[i], new Vector2(40, y), Color.White);
+					GameEngine.SpriteBatch.DrawString(_font, "  " + _mods[i], new Vector2(40, y), Color.White);
 				y += 35;
 			}
             
-            OneAmEngine.Engine.SpriteBatch.End();
+            GameEngine.SpriteBatch.End();
         }
 
 		public override void Update()
 		{
-			base.Update();
-			if (OneAmEngine.Engine.Input.WasPressed(Keys.Up))
-				_selectedIndex = Math.Max(0, _selectedIndex-1);
-			else if (OneAmEngine.Engine.Input.WasPressed(Keys.Down))
+            if (GameEngine.Input.WasPressed(Keys.Up) || GameEngine.Input.WasPressed(Buttons.DPadUp) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickUp))
+                _selectedIndex = Math.Max(0, _selectedIndex-1);
+			else if (GameEngine.Input.WasPressed(Keys.Down) || GameEngine.Input.WasPressed(Buttons.DPadDown) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickDown))
 				_selectedIndex = Math.Min(_mods.Count-1, _selectedIndex+1);
-		}
+
+            base.Update();
+        }
 
 		public override void OnOutAnimationFinished()
 		{
 			GameVars.BasePath = Path.Combine(Environment.CurrentDirectory, "GameData") + "\\" + _mods[_selectedIndex] + "\\";
 			GameVars.DetectEmulationMode();
-			OneAmEngine.Engine.Screen = new MainMenuScreen(null);
+			GameEngine.Screen = new MainMenuScreen(null);
 		}
 	}
 }

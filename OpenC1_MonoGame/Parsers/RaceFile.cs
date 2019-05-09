@@ -281,11 +281,8 @@ namespace OpenC1.Parsers
 
         private void ReadOpponentPathsSection()
         {
-            //Trace.Assert(ReadLine() == "START OF OPPONENT PATHS");
-
-            if (ReadLine() == "START OF OPPONENT PATHS")
-                return;
-
+            Trace.Assert(ReadLine() == "START OF OPPONENT PATHS");
+            
             int nbrNodes = ReadLineAsInt();
 
             OpponentPathNodes = new List<OpponentPathNode>();
@@ -325,18 +322,9 @@ namespace OpenC1.Parsers
                 Vector3 pos = new Vector3(float.Parse(tokens[0]), float.Parse(tokens[1]), float.Parse(tokens[2]));
                 pos *= GameVars.Scale;
                 pos += new Vector3(0, 2, 0);
-
-                bool _IsSpecialForces;
-                if (tokens.Length == 4)
-                {
-                    _IsSpecialForces = tokens[3].Contains("9");
-                }
-                else
-                    _IsSpecialForces = false;
-
-                 CopStartPoints.Add(new CopStartPoint { Position = pos, IsSpecialForces = _IsSpecialForces });
+                CopStartPoints.Add(new CopStartPoint { Position = pos, IsSpecialForces = tokens[3].Contains("9") });
             }
-            //Trace.Assert(ReadLine() == "END OF OPPONENT PATHS");
+            Trace.Assert(ReadLine() == "END OF OPPONENT PATHS");
         }
 
         private void ReadMaterialModifierSection()
@@ -348,7 +336,7 @@ namespace OpenC1.Parsers
             {
                 MaterialModifier modifier = new MaterialModifier
                     {
-                    CarWallFriction = ReadLineAsFloat(false),
+                        CarWallFriction = ReadLineAsFloat(false),
                         TyreRoadFriction = Math.Min(1, ReadLineAsFloat(false)),  /* deal with weird (wrong?) settings for grass on cityb maps*/
                         Downforce = ReadLineAsFloat(false),
                         Bumpiness = ReadLineAsFloat(false),

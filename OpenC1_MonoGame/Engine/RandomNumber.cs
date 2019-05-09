@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace OneamEngine
+namespace OneAmEngine
 {
     public class RandomGenerator
     {

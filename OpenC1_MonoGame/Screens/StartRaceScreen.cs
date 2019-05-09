@@ -61,9 +61,9 @@ namespace OpenC1.Screens
 
             if (base.ShouldRenderOptions())
             {
-                OneAmEngine.Engine.SpriteBatch.Begin();
-                OneAmEngine.Engine.SpriteBatch.Draw(GameVars.SelectedRaceScene, BaseHUDItem.ScaleRect(0.205f, 0.16f, 0.333f, 0.7f), Color.White);
-                OneAmEngine.Engine.SpriteBatch.End();
+                GameEngine.SpriteBatch.Begin();
+                GameEngine.SpriteBatch.Draw(GameVars.SelectedRaceScene, BaseHUDItem.ScaleRect(0.205f, 0.16f, 0.333f, 0.7f), Color.White);
+                GameEngine.SpriteBatch.End();
             }
         }
 
@@ -74,14 +74,14 @@ namespace OpenC1.Screens
             {
                 case 0:
                     if (_selectRaceScreen == null) _selectRaceScreen = new SelectRaceScreen(this);
-                    OneAmEngine.Engine.Screen = _selectRaceScreen;
+                    GameEngine.Screen = _selectRaceScreen;
                     break;
                 case 1:
                     if (_selectCarScreen == null) _selectCarScreen = new SelectCarScreen(this);
-                    OneAmEngine.Engine.Screen = _selectCarScreen;
+                    GameEngine.Screen = _selectCarScreen;
                     break;
                 case 2:
-                    OneAmEngine.Engine.Screen = new LoadRaceScreen(this);
+                    GameEngine.Screen = new LoadRaceScreen(this);
                     break;
             }
         }

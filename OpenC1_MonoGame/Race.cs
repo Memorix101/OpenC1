@@ -103,7 +103,7 @@ namespace OpenC1
 				int index = 0;
 				while (true)
 				{
-					index = OneAmEngine.Engine.Random.Next(1, OpponentsFile.Instance.Opponents.Count);
+					index = GameEngine.Random.Next(1, OpponentsFile.Instance.Opponents.Count);
 					if (!pickedNbrs.Contains(index))
 					{
 						pickedNbrs.Add(index);
@@ -158,10 +158,10 @@ namespace OpenC1
                     foreach (IDriver driver in Drivers)
                         driver.Vehicle.Chassis.FixSuspension();
                 }
-                if (OneAmEngine.Engine.Camera is FixedChaseCamera)
+                if (GameEngine.Camera is FixedChaseCamera)
                 {
                     float height = 55 - (RaceTime.CountdownTime * 35f);
-                    ((FixedChaseCamera)OneAmEngine.Engine.Camera).MinHeight = Math.Max(0, height);
+                    ((FixedChaseCamera)GameEngine.Camera).MinHeight = Math.Max(0, height);
                 }
                 var closestPath = OpponentController.GetClosestPath(ConfigFile.GridPosition);
                 
@@ -212,18 +212,19 @@ namespace OpenC1
 
             MessageRenderer.Instance.Update();
 
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.Tab))
+            if (GameEngine.Input.WasPressed(Keys.Tab) || GameEngine.Input.WasPressed(Buttons.DPadUp))
                 _map.Show = !_map.Show;
-
-			if (OneAmEngine.Engine.Input.WasPressed(Keys.T))
+#if DEBUG
+            if (GameEngine.Input.WasPressed(Keys.T) || GameEngine.Input.WasPressed(Buttons.DPadRight))
 				RaceTime.TimeRemaining += 60;
+#endif
         }
 
         public void Render()
         {
             if (_skybox != null) _skybox.Draw();
 
-            BoundingFrustum frustum = new BoundingFrustum(OneAmEngine.Engine.Camera.View * OneAmEngine.Engine.Camera.Projection);   
+            BoundingFrustum frustum = new BoundingFrustum(GameEngine.Camera.View * GameEngine.Camera.Projection);   
             _actors.Render(Matrix.Identity, frustum);
 
             foreach (Opponent opponent in Opponents)
@@ -245,7 +246,7 @@ namespace OpenC1
 
             RaceTime.Render();
             MessageRenderer.Instance.Render();
-            //OneAmEngine.Engine.DebugRenderer.AddAxis(Matrix.CreateTranslation(ConfigFile.GridPosition), 10);
+            //GameEngine.DebugRenderer.AddAxis(Matrix.CreateTranslation(ConfigFile.GridPosition), 10);
             
             if (_map.Show)
             {
@@ -344,7 +345,7 @@ namespace OpenC1
 
         public void OnPedestrianHit(Pedestrian ped, Vehicle vehicle)
         {
-			vehicle.LastRunOverPedTime = OneAmEngine.Engine.TotalSeconds;
+			vehicle.LastRunOverPedTime = GameEngine.TotalSeconds;
 			if (ped.IsHit)
 			{
 				SoundCache.Play(SoundIds.PedSquelch, vehicle, true);
@@ -377,13 +378,13 @@ namespace OpenC1
 			ParticleSystem.AllParticleSystems.Clear();
 			Race.Current = null;
 			PhysX.Instance.Delete();
-			var screen = OneAmEngine.Engine.Screen.Parent;
+			var screen = GameEngine.Screen.Parent;
 			if (screen is PlayGameScreen)  //this will be true if called from the pause screen
 				screen = screen.Parent;
 
-			OneAmEngine.Engine.Screen = null;
+			GameEngine.Screen = null;
 			GC.Collect();
-			OneAmEngine.Engine.Screen = screen;
+			GameEngine.Screen = screen;
 		}
     }
 }

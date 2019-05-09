@@ -20,20 +20,20 @@ namespace OneAmEngine
     /// </summary>
     struct ParticleVertex
     {
-		// Stores which corner of the particle quad this vertex represents.
-		public Short2 Corner;
+        // Stores which corner of the particle quad this vertex represents.
+        public Short2 Corner;
 
-		// Stores the starting position of the particle.
-		public Vector3 Position;
+        // Stores the starting position of the particle.
+        public Vector3 Position;
 
-		// Stores the starting velocity of the particle.
-		public Vector3 Velocity;
+        // Stores the starting velocity of the particle.
+        public Vector3 Velocity;
 
-		// Four random values, used to make each particle look slightly different.
-		public Color Random;
+        // Four random values, used to make each particle look slightly different.
+        public Color Random;
 
-		// The time (in seconds) at which this particle was created.
-		public float Time;
+        // The time (in seconds) at which this particle was created.
+        public float Time;
 
 
         // Describe the layout of this vertex structure.

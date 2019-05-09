@@ -27,7 +27,7 @@ namespace OpenC1
 
         static FontRenderer()
         {
-            _default = OneAmEngine.Engine.ContentManager.Load<SpriteFont>("fonts\\Arial_14");
+            _default = GameEngine.ContentManager.Load<SpriteFont>("content\\fonts\\Arial_14");
 
             PixMapFont font = new PixMapFont("BLUEHEAD");
             if (font.Exists)
@@ -48,7 +48,7 @@ namespace OpenC1
         public static void Render(Fonts font, string text, Vector2 position, Color color)
         {
             if (_useDefaultFont)
-                OneAmEngine.Engine.SpriteBatch.DrawString(_default, text, position, Color.Black);
+                GameEngine.SpriteBatch.DrawString(_default, text, position, Color.Black);
             else
                 _fonts[(int)font].DrawString(text, position, color, 1);
         }
@@ -56,7 +56,7 @@ namespace OpenC1
         public static void Render(Fonts font, string text, Vector2 position, Color color, float scale)
         {
             if (_useDefaultFont)
-                OneAmEngine.Engine.SpriteBatch.DrawString(_default, text, position, Color.Black, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+                GameEngine.SpriteBatch.DrawString(_default, text, position, Color.Black, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
             else
                 _fonts[(int)font].DrawString(text, position, color, scale);
         }
@@ -64,7 +64,7 @@ namespace OpenC1
         public static void RenderGear(int gear, Vector2 position, Color color, float scale)
         {
             if (_useDefaultFont)
-                OneAmEngine.Engine.SpriteBatch.DrawString(_default, gear.ToString(), position, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+                GameEngine.SpriteBatch.DrawString(_default, gear.ToString(), position, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
             else
                 _fonts[(int)Fonts.Gears].DrawChar(gear, position, color, scale);
         }

@@ -49,16 +49,16 @@ namespace OpenC1
                 verts[i2++] = new VertexPositionColor(points[i], shadowColor);
             }
 
-            GraphicsDevice device = OneAmEngine.Engine.Device;
-            CullMode oldCullMode = OneAmEngine.Engine.Device.RasterizerState.CullMode;
-            OneAmEngine.Engine.Device.RasterizerState.CullMode = CullMode.None;
+            GraphicsDevice device = GameEngine.Device;
+            CullMode oldCullMode = GameEngine.Device.RasterizerState.CullMode;
+            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
             
             GameVars.CurrentEffect.World = Matrix.Identity;
             GameVars.CurrentEffect.TextureEnabled = false;
             GameVars.CurrentEffect.VertexColorEnabled = true;
             //VertexDeclaration oldVertDecl = device.VertexDeclaration;
             //device.VertexDeclaration = _vertexDeclaration;
-            //OneAmEngine.Engine.Device.RasterizerState.AlphaTestEnable = false;
+            //GameEngine.Device.RasterizerState.AlphaTestEnable = false;
 			GameVars.CurrentEffect.PreferPerPixelLighting = false;
             //GameVars.CurrentEffect.LightingEnabled = false; #
 
@@ -74,10 +74,10 @@ namespace OpenC1
             //device.RasterizerState.AlphaBlendEnable = false; #
             //device.RasterizerState.DepthBufferWriteEnable = true; #
             //device.VertexDeclaration = oldVertDecl;
-            OneAmEngine.Engine.Device.RasterizerState.CullMode = oldCullMode;
+            GameEngine.Device.RasterizerState.CullMode = oldCullMode;
 
 			GameVars.CurrentEffect.PreferPerPixelLighting = true;
-			//OneAmEngine.Engine.Device.RasterizerState.AlphaTestEnable = true; #
+			//GameEngine.Device.RasterizerState.AlphaTestEnable = true; #
 			GameVars.CurrentEffect.TextureEnabled = true;
             
         }

@@ -45,11 +45,11 @@ namespace OpenC1
 		{
 			if (Bumpiness > 0)
 			{
-				if (wheel.Index == _nextWheel && chassis.Speed > 5 && _lastBump + 0.3f < OneAmEngine.Engine.TotalSeconds && !wheel.InAir)
+				if (wheel.Index == _nextWheel && chassis.Speed > 5 && _lastBump + 0.3f < GameEngine.TotalSeconds && !wheel.InAir)
 				{
 					chassis.Actor.AddForceAtLocalPosition(new Vector3(0, Bumpiness * 65, 0), wheel.Shape.LocalPosition, ForceMode.Impulse, true);
-					_lastBump = OneAmEngine.Engine.TotalSeconds;
-					_nextWheel = OneAmEngine.Engine.Random.Next(0, chassis.Wheels.Count - 1);
+					_lastBump = GameEngine.TotalSeconds;
+					_nextWheel = GameEngine.Random.Next(0, chassis.Wheels.Count - 1);
 				}
 			}
 

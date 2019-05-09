@@ -38,7 +38,7 @@ namespace OneAmEngine
         {
             _fadeDirection = FadeDirection.None;
 
-            _fadeTexture = new Texture2D(Engine.Device, 1, 1);
+            _fadeTexture = new Texture2D(GameEngine.Device, 1, 1);
             _fadeTexture.SetData<Color>(new Color[] { Color.Black });
         }
 
@@ -64,13 +64,13 @@ namespace OneAmEngine
         {
             if (_fadeDirection == FadeDirection.FadeOut)
             {
-                _alpha += FadeSpeed * Engine.ElapsedSeconds;
+                _alpha += FadeSpeed * GameEngine.ElapsedSeconds;
                 if (_alpha >= 255)
                     CompleteFade();
             }
             else if (_fadeDirection == FadeDirection.FadeIn)
             {
-                _alpha -= FadeSpeed * 0.5f * Engine.ElapsedSeconds;
+                _alpha -= FadeSpeed * 0.5f * GameEngine.ElapsedSeconds;
                 if (_alpha <= 0)
                     CompleteFade();
             }
@@ -81,16 +81,16 @@ namespace OneAmEngine
         {
             if (_fadeDirection != FadeDirection.None)
             {
-                Viewport viewport = Engine.Device.Viewport;
+                Viewport viewport = GameEngine.Device.Viewport;
 
-                Engine.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);//, SaveStateMode.SaveState);
+                GameEngine.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);//, SaveStateMode.SaveState);
 
 
-                Engine.SpriteBatch.Draw(_fadeTexture,
+                GameEngine.SpriteBatch.Draw(_fadeTexture,
                                  new Rectangle(0, 0, viewport.Width, viewport.Height),
                                  new Color(255, 255, 255, _alpha));
 
-                Engine.SpriteBatch.End();
+                GameEngine.SpriteBatch.End();
             }
         }
 
@@ -107,10 +107,10 @@ namespace OneAmEngine
 
         /* public static Texture2D TakeScreenshot()
          {
-             int w = Engine.Device.PresentationParameters.BackBufferWidth;
-             int h = Engine.Device.PresentationParameters.BackBufferHeight;
-             ResolveTexture2D screenshot = new ResolveTexture2D(Engine.Device, w, h, 1, Engine.Device.PresentationParameters.BackBufferFormat);
-             Engine.Device.ResolveBackBuffer(screenshot);
+             int w = GameEngine.Device.PresentationParameters.BackBufferWidth;
+             int h = GameEngine.Device.PresentationParameters.BackBufferHeight;
+             ResolveTexture2D screenshot = new ResolveTexture2D(GameEngine.Device, w, h, 1, GameEngine.Device.PresentationParameters.BackBufferFormat);
+             GameEngine.Device.ResolveBackBuffer(screenshot);
              return screenshot;
          }*/
     }

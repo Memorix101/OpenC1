@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StillDesign.PhysX;
-using OneamEngine;
 using OpenC1;
 using OpenC1.Parsers;
 using OneAmEngine;
@@ -191,7 +190,7 @@ namespace OpenC1.Physics
         public void Update()
         {
             LastSpeeds.Add(Speed);
-            //Actor.GlobalOrientation *= Matrix.CreateRotationZ(OneAmEngine.Engine.ElapsedSeconds);
+            //Actor.GlobalOrientation *= Matrix.CreateRotationZ(GameEngine.ElapsedSeconds);
             GameConsole.WriteLine("Height", Actor.GlobalPosition.Y);
             //LastLinearMomentum = Actor.LinearMomentum;
 
@@ -216,7 +215,7 @@ namespace OpenC1.Physics
                 else
                     diff *= 0.05f;
 
-                diff *= OneAmEngine.Engine.ElapsedSeconds * 1000; //TotalMilliseconds;
+                diff *= GameEngine.ElapsedSeconds * 1000; //TotalMilliseconds;
                 if (endLocal > _steerAngle)
                 {
                     _steerAngle += diff;
@@ -392,7 +391,7 @@ namespace OpenC1.Physics
 
         public void PullHandbrake()
         {
-            //_handbrake += OneAmEngine.Engine.ElapsedSeconds * 1.5f; // *0.5f;
+            //_handbrake += GameEngine.ElapsedSeconds * 1.5f; // *0.5f;
             //if (_handbrake > 1) _handbrake = 1;
             _handbrake = 1;
         }
@@ -400,7 +399,7 @@ namespace OpenC1.Physics
         public void ReleaseHandbrake()
         {
             if (_handbrake == 0) return;
-            _handbrake -= OneAmEngine.Engine.ElapsedSeconds * 1.8f;
+            _handbrake -= GameEngine.ElapsedSeconds * 1.8f;
             if (_handbrake < 0) _handbrake = 0;
         }
 

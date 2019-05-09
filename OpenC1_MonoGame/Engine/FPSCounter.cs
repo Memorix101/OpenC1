@@ -13,7 +13,7 @@ namespace OneAmEngine
         TimeSpan elapsedTime = TimeSpan.Zero;
         
         public FrameRateCounter()
-            : base(Engine.Game)
+            : base(GameEngine.Game)
         {
         }
 

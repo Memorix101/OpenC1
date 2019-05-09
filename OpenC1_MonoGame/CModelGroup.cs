@@ -43,25 +43,25 @@ namespace OpenC1
 
 			if (_vertices.Count > 0)
 			{
-                _vertexBuffer = new VertexBuffer(OneAmEngine.Engine.Device, new VertexDeclaration(VertexPositionNormalTexture.VertexDeclaration.GetVertexElements()), VertexPositionNormalTexture.VertexDeclaration.VertexStride * _vertices.Count, BufferUsage.WriteOnly);
+                _vertexBuffer = new VertexBuffer(GameEngine.Device, new VertexDeclaration(VertexPositionNormalTexture.VertexDeclaration.GetVertexElements()), VertexPositionNormalTexture.VertexDeclaration.VertexStride * _vertices.Count, BufferUsage.WriteOnly);
                 _vertexBuffer.SetData<VertexPositionNormalTexture>(_vertices.ToArray());
 
 				if (!injectHardEdges)
 				{
-					_indexBuffer = new IndexBuffer(OneAmEngine.Engine.Device, typeof(UInt16), indices.Count, BufferUsage.WriteOnly);
+					_indexBuffer = new IndexBuffer(GameEngine.Device, typeof(UInt16), indices.Count, BufferUsage.WriteOnly);
 					_indexBuffer.SetData<UInt16>(indices.ToArray());
 					_indices = indices;
 				}
 			}
 
-            //_vertexDeclaration = new VertexDeclaration(OneAmEngine.Engine.Device, VertexPositionNormalTexture.VertexElements);
+            //_vertexDeclaration = new VertexDeclaration(GameEngine.Device, VertexPositionNormalTexture.VertexElements);
             _vertexTextureMap = null; //dont need this data anymore
         }
 
 
         public void SetupRender()
         {
-            GraphicsDevice device = OneAmEngine.Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
 			if (_vertexBuffer != null)
 			{
 				//device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionNormalTexture.SizeInBytes);

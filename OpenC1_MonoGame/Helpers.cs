@@ -127,7 +127,7 @@ namespace OpenC1
 
         public static bool HasTimePassed(float seconds, float eventTime)
         {
-            return eventTime + seconds < OneAmEngine.Engine.TotalSeconds;
+            return eventTime + seconds < GameEngine.TotalSeconds;
         }
     }
 }

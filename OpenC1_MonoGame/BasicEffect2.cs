@@ -44,8 +44,8 @@ namespace OpenC1
 
         public BasicEffect2()
         {
-            _effect = OneAmEngine.Engine.ContentManager.Load<Effect>("BasicEffect2");
-            this.CacheEffectParams(OneAmEngine.Engine.Device);
+            _effect = GameEngine.ContentManager.Load<Effect>("Content/BasicEffect2");
+            this.CacheEffectParams(GameEngine.Device);
         }
 
         private void CacheEffectParams(GraphicsDevice device)
@@ -75,10 +75,27 @@ namespace OpenC1
             this.light1 = new BasicDirectionalLight2(_effect.Parameters["DirLight1Direction"], _effect.Parameters["DirLight1DiffuseColor"], _effect.Parameters["DirLight1SpecularColor"]);
             this.light2 = new BasicDirectionalLight2(_effect.Parameters["DirLight2Direction"], _effect.Parameters["DirLight2DiffuseColor"], _effect.Parameters["DirLight2SpecularColor"]);
         }
+
+        /*public void Begin(SaveStateMode mode)
+        {
+            _effect.Begin(mode);
+        }
+
+        public void End()
+        {
+            _effect.End();
+        }*/
+
         public EffectTechnique CurrentTechnique
         {
             get { return _effect.CurrentTechnique; }
         }
+
+        public void CommitChanges()
+        {
+            //_effect.CommitChanges();
+        }
+
 
         public void EnableDefaultLighting()
         {
@@ -138,7 +155,7 @@ namespace OpenC1
 			bool lightingEnabled2 = true;
 			int num = ((this.vertexColorEnabled ? 1 : 0) | (this.textureEnabled ? 2 : 0)) | (lightingEnabled2 ? 4 : 0);
 			num += ((lightingEnabled2 && this.preferPerPixelLighting) && this.hasPS20) ? 4 : 0;
-            //this.shaderIndexParam.SetValue(num);
+            this.shaderIndexParam.SetValue(num);
         }
 
         // Properties
@@ -372,7 +389,7 @@ namespace OpenC1
             {
                 this.viewParam.SetValue(value);
                 Matrix matrix = Matrix.Invert(value);
-                //this.eyePositionParam.SetValue(matrix.Translation);
+                this.eyePositionParam.SetValue(matrix.Translation);
             }
         }
 
@@ -393,9 +410,9 @@ namespace OpenC1
             set { texCoordsOffsetParam.SetValue(value); }
         }
 
-        /*public float TexCoordsMultiplier
+        public float TexCoordsMultiplier
         {
-            set { texCoordsMultiplierParam.SetValue(value); }            
-        }*/
+            set { texCoordsMultiplierParam.SetValue(value); }
+        }
     }
 }

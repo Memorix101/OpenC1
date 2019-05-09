@@ -43,13 +43,13 @@ namespace OpenC1.CameraViews
         public void Update()
         {
 			
-			if (OneAmEngine.Engine.Input.IsKeyDown(Keys.PageDown))
+			if (GameEngine.Input.IsKeyDown(Keys.PageDown))
 			{
-				_chaseCameraPositionMultiplier += OneAmEngine.Engine.ElapsedSeconds;
+				_chaseCameraPositionMultiplier += GameEngine.ElapsedSeconds;
 			}
-			else if (OneAmEngine.Engine.Input.IsKeyDown(Keys.PageUp))
+			else if (GameEngine.Input.IsKeyDown(Keys.PageUp))
 			{
-				_chaseCameraPositionMultiplier -= OneAmEngine.Engine.ElapsedSeconds;
+				_chaseCameraPositionMultiplier -= GameEngine.ElapsedSeconds;
 				if (_chaseCameraPositionMultiplier < 1)
 					_chaseCameraPositionMultiplier = 1;
 			}
@@ -76,7 +76,7 @@ namespace OpenC1.CameraViews
             foreach (BaseHUDItem item in _hudItems)
                 item.Update();
 
-            OneAmEngine.Engine.Camera = _camera;
+           GameEngine.Camera = _camera;
         }
 
         public void Render()
@@ -89,7 +89,7 @@ namespace OpenC1.CameraViews
 
         public void Activate()
         {
-            OneAmEngine.Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
         }
 
         public void Deactivate()

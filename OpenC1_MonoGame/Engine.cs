@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -140,14 +139,14 @@ namespace StillDesign
 			//_visualizationEffect.End();
 		}
 
-		private Color Int32ToColor( int color )
+		private Microsoft.Xna.Framework.Color Int32ToColor( int color )
 		{
 			byte a = (byte)( ( color & 0xFF000000 ) >> 32 );
 			byte r = (byte)( ( color & 0x00FF0000 ) >> 16 );
 			byte g = (byte)( ( color & 0x0000FF00 ) >> 8 );
 			byte b = (byte)( ( color & 0x000000FF ) >> 0 );
 
-			return new Color( r, g, b, a );
+			return new Microsoft.Xna.Framework.Color( r, g, b, a );
 		}
 
 		#region Properties

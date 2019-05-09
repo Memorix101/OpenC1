@@ -41,13 +41,13 @@ namespace OpenC1
 
             SettingsFile settings = new SettingsFile();  //load openc1settings.txt
 
-            OneAmEngine.Engine.ScreenSize = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            GameEngine.ScreenSize = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
             _graphics.IsFullScreen = GameVars.FullScreen;
             //_graphics.SynchronizeWithVerticalRetrace = false;
 
-            //_graphics.MinimumVertexShaderProfile = ShaderProfile.VS_1_1;
-            //_graphics.MinimumPixelShaderProfile = ShaderProfile.PS_2_0;
+           // _graphics.MinimumVertexShaderProfile = ShaderProfile.VS_1_1;
+           // _graphics.MinimumPixelShaderProfile = ShaderProfile.PS_2_0;
         }
 
         //void FixFile()
@@ -94,16 +94,16 @@ namespace OpenC1
         {
             base.Initialize();
 
-            OneAmEngine.Engine.Startup(this, _graphics);
+            GameEngine.Startup(this, _graphics);
 
-            OneAmEngine.Engine.DrawDistance = GameVars.DrawDistance;
-            OneAmEngine.Engine.Audio = new MdxSoundEngine();
+            GameEngine.DrawDistance = GameVars.DrawDistance;
+            GameEngine.Audio = new MdxSoundEngine();
 
 			string gameDataPath = "GameData";
 			if (!Directory.Exists(gameDataPath) || Directory.GetDirectories(gameDataPath).Length == 0)
-				OneAmEngine.Engine.Screen = new ChooseDownloadGameDataScreen(null);
+				GameEngine.Screen = new ChooseDownloadGameDataScreen(null);
 			else
-				OneAmEngine.Engine.Screen = new GameSelectionScreen(null);
+				GameEngine.Screen = new GameSelectionScreen(null);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace OpenC1
         /// </summary>
         protected override void UnloadContent()
         {
-            OneAmEngine.Engine.ContentManager.Unload();
+            GameEngine.ContentManager.Unload();
         }
 
         /// <summary>
@@ -131,12 +131,12 @@ namespace OpenC1
         protected override void Update(GameTime gameTime)
         {
             //check for exit
-            //if (OneAmEngine.Engine.Input.WasPressed(Keys.Escape))
+            //if (GameEngine.Input.WasPressed(Keys.Escape))
             //{
             //    Exit();
             //}
 
-            OneAmEngine.Engine.Update(gameTime);
+            GameEngine.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -147,7 +147,7 @@ namespace OpenC1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            OneAmEngine.Engine.Render(gameTime);
+            GameEngine.Render(gameTime);
             base.Draw(gameTime);
         }
     }

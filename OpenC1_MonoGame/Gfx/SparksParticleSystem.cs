@@ -18,7 +18,7 @@ namespace OpenC1.Gfx
 
         protected override void InitializeSettings(ParticleSettings settings)
         {
-            settings.Texture = OneAmEngine.Engine.ContentManager.Load<Texture2D>("sparks");
+            settings.Texture = GameEngine.ContentManager.Load<Texture2D>("Content/sparks");
 
             settings.MaxParticles = 100;
 

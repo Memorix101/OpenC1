@@ -56,7 +56,7 @@ namespace OpenC1.Gfx
                 int charIndex = c - _description.FirstChar;
                 srcRet.Width = _description.CharWidths[charIndex];
                 srcRet.Y = charIndex * _description.Height;
-                OneAmEngine.Engine.SpriteBatch.Draw(_texture, position, srcRet, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+                GameEngine.SpriteBatch.Draw(_texture, position, srcRet, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
                 position.X += ((srcRet.Width + _description.Padding) * scale);
             }
         }
@@ -64,7 +64,7 @@ namespace OpenC1.Gfx
         public void DrawChar(int index, Vector2 position, Color color, float scale)
         {
             Rectangle srcRet = new Rectangle(0, index * _description.Height, _texture.Width, _description.Height);
-            OneAmEngine.Engine.SpriteBatch.Draw(_texture, position, srcRet, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
+            GameEngine.SpriteBatch.Draw(_texture, position, srcRet, color, 0, Vector2.Zero, scale, SpriteEffects.None, 0);
         }
     }
 }

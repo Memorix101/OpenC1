@@ -53,12 +53,12 @@ namespace OpenC1
             foreach (ParticleSystem system in ParticleSystem.AllParticleSystems)
                 system.Update();
 
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.F4))
+            if (GameEngine.Input.WasPressed(Keys.F4))
             {
                 _currentEditMode = (_currentEditMode + 1) % _modes.Count;
                 GameMode.Current = _modes[_currentEditMode];
             }
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.P))
+            if (GameEngine.Input.WasPressed(Keys.P))
             {
                 TakeScreenshot();
                 //MessageRenderer.Instance.PostMainMessage("destroy.pix", 50, 0.7f, 0.003f, 1.4f);
@@ -67,14 +67,14 @@ namespace OpenC1
             GameMode.Current.Update();
             _race.PlayerVehicle.Chassis.OutputDebugInfo();
 
-            OneAmEngine.Engine.Camera.Update();
+            GameEngine.Camera.Update();
             
-            GameConsole.WriteLine("FPS", OneAmEngine.Engine.Fps);   
+            GameConsole.WriteLine("FPS", GameEngine.Fps);   
         }
 
         public void Render()
         {
-            OneAmEngine.Engine.Device.Clear(GameVars.FogColor);
+            GameEngine.Device.Clear(GameVars.FogColor);
 			
             GameVars.NbrDrawCalls = 0;
             
@@ -82,23 +82,23 @@ namespace OpenC1
 			
             GameVars.NbrSectionsChecked = GameVars.NbrSectionsRendered = 0;
 
-            OneAmEngine.Engine.SpriteBatch.Begin();
+            GameEngine.SpriteBatch.Begin();
 
             _race.Render();
             _modes[_currentEditMode].Render();
 
-			OneAmEngine.Engine.Device.RasterizerState.CullMode = CullMode.None;
+			GameEngine.Device.RasterizerState.CullMode = CullMode.None;
 
             foreach (ParticleSystem system in ParticleSystem.AllParticleSystems)
             {
                 system.Render();
             }
 
-            OneAmEngine.Engine.SpriteBatch.End();
-            //OneAmEngine.Engine.Device.RasterizerState.DepthBufferEnable = true; #
-            //OneAmEngine.Engine.Device.RasterizerState.AlphaBlendEnable = false; #
-            OneAmEngine.Engine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
-            OneAmEngine.Engine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+            GameEngine.SpriteBatch.End();
+            //GameEngine.Device.RasterizerState.DepthBufferEnable = true; #
+            //GameEngine.Device.RasterizerState.AlphaBlendEnable = false; #
+            GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
+            GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
 
             GameConsole.WriteLine("Position", Race.Current.PlayerVehicle.GetBodyBottom() / 6);
 
@@ -110,7 +110,7 @@ namespace OpenC1
 
         private BasicEffect2 SetupRenderEffect()
         {
-            GraphicsDevice device = OneAmEngine.Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
 
             if (_effect == null)
             {
@@ -130,7 +130,7 @@ namespace OpenC1
                 }
 				_effect.FogEnabled = true;
                 _effect.FogColor = GameVars.FogColor.ToVector3();
-                _effect.FogEnd = OneAmEngine.Engine.DrawDistance * 6 * (1 / Race.Current.ConfigFile.FogAmount);
+                _effect.FogEnd = GameEngine.DrawDistance * 6 * (1 / Race.Current.ConfigFile.FogAmount);
 				_effect.FogStart = _effect.FogEnd - 200;
                 _effect.TextureEnabled = true;
                 //_effect.TexCoordsMultiplier = 1;
@@ -138,17 +138,17 @@ namespace OpenC1
 				_effect.LightingEnabled = false;
             }
 
-			//OneAmEngine.Engine.Device.RasterizerState.AlphaTestEnable = true; #
-			//OneAmEngine.Engine.Device.RasterizerState.ReferenceAlpha = 200; #
-			//OneAmEngine.Engine.Device.RasterizerState.AlphaFunction = CompareFunction.Greater; #
+			//GameEngine.Device.RasterizerState.AlphaTestEnable = true; #
+			//GameEngine.Device.RasterizerState.ReferenceAlpha = 200; #
+			//GameEngine.Device.RasterizerState.AlphaFunction = CompareFunction.Greater; #
 
 			if (GameVars.CullingOff)
-				OneAmEngine.Engine.Device.RasterizerState.CullMode = CullMode.None;
+				GameEngine.Device.RasterizerState.CullMode = CullMode.None;
 			else
-				OneAmEngine.Engine.Device.RasterizerState.CullMode = CullMode.CullClockwiseFace;
+				GameEngine.Device.RasterizerState.CullMode = CullMode.CullClockwiseFace;
 			
-            _effect.View = OneAmEngine.Engine.Camera.View;
-            _effect.Projection = OneAmEngine.Engine.Camera.Projection;
+            _effect.View = GameEngine.Camera.View;
+            _effect.Projection = GameEngine.Camera.Projection;
 
             return _effect;
         }
@@ -158,7 +158,7 @@ namespace OpenC1
          /*   int count = Directory.GetFiles(StorageContainer.TitleLocation+"\\", "ndump*.bmp").Length + 1;
             string name = "\\ndump" + count.ToString("000") + ".bmp";
 
-            GraphicsDevice device = OneAmEngine.Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
             using (ResolveTexture2D screenshot = new ResolveTexture2D(device, device.PresentationParameters.BackBufferWidth, device.PresentationParameters.BackBufferHeight, 1, SurfaceFormat.Color))
             {
                 device.ResolveBackBuffer(screenshot);

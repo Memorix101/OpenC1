@@ -74,15 +74,15 @@ namespace OpenC1.Physics
 						verts[index] = transformedVec;
 					}
 
-					/*if (Char.IsDigit(materialName[0]))
+					if (Char.IsDigit(materialName[0]))
 					{
-                        	ushort matModiferId = (ushort)(ushort.Parse(materialName.Substring(0, 1)) + 1);
-                            if (matModiferId >= file.MaterialModifiers.Count) matModiferId = 0;
+						ushort matModiferId = (ushort)(ushort.Parse(materialName.Substring(0, 1)) + 1);
+						if (matModiferId >= file.MaterialModifiers.Count) matModiferId = 0;
 
-                            materialIndices.Add(matModiferId); 
-                    }
+						materialIndices.Add(matModiferId);
+					}
 					else
-						materialIndices.Add(0);*/ 
+						materialIndices.Add(0);
 				}
 			}
 
@@ -92,11 +92,11 @@ namespace OpenC1.Physics
 
 			meshDesc.AllocateVertices<Vector3>(meshDesc.VertexCount);
 			meshDesc.AllocateTriangles<ushort>(meshDesc.TriangleCount);
-			//meshDesc.AllocateMaterialIndices<ushort>(materialIndices.Count);
+			meshDesc.AllocateMaterialIndices<ushort>(materialIndices.Count);
 
 			meshDesc.TriangleStream.SetData(indices.ToArray());
 			meshDesc.VerticesStream.SetData(verts.ToArray());
-			//meshDesc.MaterialIndicesStream.SetData(materialIndices.ToArray());
+			meshDesc.MaterialIndicesStream.SetData(materialIndices.ToArray());
 			meshDesc.Flags = MeshFlag.Indices16Bit;
 
 			MemoryStream s = new MemoryStream();
@@ -237,9 +237,7 @@ namespace OpenC1.Physics
 
 		public static NonCar GenerateNonCar(CActor actor, List<NoncarFile> nonCars)
 		{
-            return null; //DEBUG
-
-            if (actor.Model == null) return null;
+			if (actor.Model == null) return null;
 			if (actor.Name.StartsWith("&"))
 			{
 				int index = int.Parse(actor.Name.Substring(1, 2));

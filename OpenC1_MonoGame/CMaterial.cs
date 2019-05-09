@@ -6,8 +6,8 @@ using OpenC1.Parsers.Funks;
 
 using OpenC1.Parsers;
 using System.IO;
-using OneAmEngine;
 using Microsoft.Xna.Framework;
+using OneAmEngine;
 
 namespace OpenC1
 {
@@ -67,7 +67,7 @@ namespace OpenC1
 
         private void GenerateSimpMatGradient()
         {
-            Texture2D tex = new Texture2D(OneAmEngine.Engine.Device, 1, SimpMatGradientCount + 1, true, SurfaceFormat.Color); //true was 1
+            Texture2D tex = new Texture2D(GameEngine.Device, 1, SimpMatGradientCount + 1, true, SurfaceFormat.Color); //true was 1
             Color[] pixels = new Color[1 * SimpMatGradientCount+1];
             for (int i = 0; i < SimpMatGradientCount+1; i++)
                 pixels[i] = GameVars.Palette.GetRGBColorForPixel((SimpMatPixelIndex+i) % 255);

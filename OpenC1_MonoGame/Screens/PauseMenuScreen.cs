@@ -50,7 +50,7 @@ namespace OpenC1.Screens
 					Race.Current.ExitAndReturnToMenu();
                     break;
                 case 2:
-                    OneAmEngine.Engine.Game.Exit();
+                    GameEngine.Game.Exit();
                     break;
             }
         }

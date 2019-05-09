@@ -84,21 +84,18 @@ namespace OpenC1.Parsers
                 {
                     return line.Split(new string[] { "//" }, StringSplitOptions.None)[0].Trim();
                 }
-                Console.WriteLine(line);
             }
         }
 
         public int ReadLineAsInt()
         {
             string line = ReadLine();
-            Console.WriteLine(line);
             return int.Parse(line);
         }
 
         public bool ReadLineAsBool()
         {
             string line = ReadLine();
-            Console.WriteLine(line);
             return bool.Parse(line);
         }
 
@@ -139,10 +136,10 @@ namespace OpenC1.Parsers
             return float.Parse(line) * (scale ? GameVars.Scale.X : 1); 
         }
 
-        public Color ReadLineAsColor()
+        public Microsoft.Xna.Framework.Color ReadLineAsColor()
         {
             Vector3 v3 = ReadLineAsVector3(false);
-            return new Color((byte)v3.X, (byte)v3.Y, (byte)v3.Z, (byte)255);
+            return new Microsoft.Xna.Framework.Color(new Vector4((byte)v3.X, (byte)v3.Y, (byte)v3.Z, 255));
         }
 
         public Vector3 ReadLineAsVector3()

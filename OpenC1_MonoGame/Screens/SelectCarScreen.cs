@@ -20,9 +20,9 @@ namespace OpenC1.Screens
         public SelectCarScreen(BaseMenuScreen parent)
             : base(parent)
         {
-            _titleFont = OneAmEngine.Engine.ContentManager.Load<SpriteFont>("LucidaConsole");
+            _titleFont = GameEngine.ContentManager.Load<SpriteFont>("LucidaConsole");
 
-            SimpleCamera cam = OneAmEngine.Engine.Camera as SimpleCamera;
+            SimpleCamera cam = GameEngine.Camera as SimpleCamera;
             cam.DrawDistance = 999999;
 
             _inAnimation = new AnimationPlayer(LoadAnimation("chcrcome.fli"));
@@ -36,11 +36,11 @@ namespace OpenC1.Screens
             //_effect.TexCoordsMultiplier = 1;
             _effect.TextureEnabled = true;
 
-            OneAmEngine.Engine.Camera.Position = new Vector3(-1.5f, 3.5f, 10);
-            OneAmEngine.Engine.Camera.Orientation = new Vector3(0, -0.28f, -1);
-            OneAmEngine.Engine.Camera.Update();
-            _effect.View = OneAmEngine.Engine.Camera.View;
-            _effect.Projection = OneAmEngine.Engine.Camera.Projection;
+            GameEngine.Camera.Position = new Vector3(-1.5f, 3.5f, 10);
+            GameEngine.Camera.Orientation = new Vector3(0, -0.28f, -1);
+            GameEngine.Camera.Update();
+            _effect.View = GameEngine.Camera.View;
+            _effect.Projection = GameEngine.Camera.Projection;
 
             _opponents = OpponentsFile.Instance.Opponents;
             if (GameVars.Emulation != EmulationMode.Demo && GameVars.Emulation != EmulationMode.SplatPackDemo)
@@ -119,12 +119,12 @@ namespace OpenC1.Screens
 
         public void RenderInSpriteBatch()
         {
-            OneAmEngine.Engine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _info.Name.ToUpperInvariant(), BaseHUDItem.ScaleVec2(0.22f, 0.17f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
-            OneAmEngine.Engine.SpriteBatch.DrawString(SelectCarScreen._titleFont, new String('_', _info.Name.Length), BaseHUDItem.ScaleVec2(0.22f, 0.175f), Color.Red, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
+            GameEngine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _info.Name.ToUpperInvariant(), BaseHUDItem.ScaleVec2(0.22f, 0.17f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
+            GameEngine.SpriteBatch.DrawString(SelectCarScreen._titleFont, new String('_', _info.Name.Length), BaseHUDItem.ScaleVec2(0.22f, 0.175f), Color.Red, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
 
 			if (_loadException != null)
 			{
-				OneAmEngine.Engine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _loadException, BaseHUDItem.ScaleVec2(0.22f, 0.37f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
+				GameEngine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _loadException, BaseHUDItem.ScaleVec2(0.22f, 0.37f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
 			}
         }
 
@@ -137,16 +137,16 @@ namespace OpenC1.Screens
             if (_model == null)
                 return;
 
-            OneAmEngine.Engine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
-            OneAmEngine.Engine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+            GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
+            GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
 
             _model.Update();
-            //OneAmEngine.Engine.Device.RasterizerState.DepthBufferEnable = true; #
-            OneAmEngine.Engine.Device.RasterizerState.CullMode = CullMode.None;
-			//OneAmEngine.Engine.Device.RenderState.FillMode = FillMode.WireFrame;
+            //GameEngine.Device.RasterizerState.DepthBufferEnable = true; #
+            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+			//GameEngine.Device.RenderState.FillMode = FillMode.WireFrame;
 			_effect.TextureEnabled = true;
             _model.Render(Matrix.CreateScale(1.2f) * Matrix.CreateRotationY(2.55f));
-			OneAmEngine.Engine.Device.RasterizerState.FillMode = FillMode.Solid;
+			GameEngine.Device.RasterizerState.FillMode = FillMode.Solid;
         }
     }
 }

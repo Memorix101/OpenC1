@@ -85,7 +85,7 @@ namespace OpenC1
             SetSequence(Behaviour.Sequences[_currentAction.Sequences[0].SequenceIndex]);
 
             if (_currentAction.Sounds.Length > 0)
-                SoundCache.Play(_currentAction.Sounds[OneAmEngine.Engine.Random.Next(_currentAction.Sounds.Length)], Race.Current.PlayerVehicle, true);
+                SoundCache.Play(_currentAction.Sounds[GameEngine.Random.Next(_currentAction.Sounds.Length)], Race.Current.PlayerVehicle, true);
         }
 
         public void OnHit(Vehicle vehicle)
@@ -97,8 +97,8 @@ namespace OpenC1
 
             if (speed > 90)
             {
-                _hitSpinSpeed = speed * OneAmEngine.Engine.Random.Next(0.07f, 0.13f);
-                if (OneAmEngine.Engine.Random.Next() % 2 == 0) _hitSpinSpeed *= -1;
+                _hitSpinSpeed = speed * GameEngine.Random.Next(0.07f, 0.13f);
+                if (GameEngine.Random.Next() % 2 == 0) _hitSpinSpeed *= -1;
                 _hitUpSpeed = speed * 0.10f;
                 _hitSpeed = speed * Behaviour.Acceleration * 10000;
 				if (!IsPowerup)
@@ -152,7 +152,7 @@ namespace OpenC1
         {
             if (_stopUpdating) return;
 
-            float angle = Helpers.GetSignedAngleBetweenVectors(OneAmEngine.Engine.Camera.Orientation, _direction, false);
+            float angle = Helpers.GetSignedAngleBetweenVectors(GameEngine.Camera.Orientation, _direction, false);
             angle = MathHelper.ToDegrees(angle);
             if (angle < 0) angle += 360;
 
@@ -170,7 +170,7 @@ namespace OpenC1
                 }
             }
 
-            _frameTime += OneAmEngine.Engine.ElapsedSeconds;
+            _frameTime += GameEngine.ElapsedSeconds;
             if (_frameTime > _frameRate)
             {
                 _frameIndex++;
@@ -205,13 +205,13 @@ namespace OpenC1
 
             if (IsHit)
             {
-                Position += _direction * _hitSpeed * OneAmEngine.Engine.ElapsedSeconds;
+                Position += _direction * _hitSpeed * GameEngine.ElapsedSeconds;
 
                 if (_hitSpinSpeed != 0)
                 {
-                    Position.Y += _hitUpSpeed * OneAmEngine.Engine.ElapsedSeconds;
-                    _hitUpSpeed -= OneAmEngine.Engine.ElapsedSeconds * 45;
-                    _hitSpeed -= OneAmEngine.Engine.ElapsedSeconds * 10;
+                    Position.Y += _hitUpSpeed * GameEngine.ElapsedSeconds;
+                    _hitUpSpeed -= GameEngine.ElapsedSeconds * 45;
+                    _hitSpeed -= GameEngine.ElapsedSeconds * 10;
                     if (Position.Y <= _groundHeight)
                     {
                         Position.Y = _groundHeight;
@@ -219,7 +219,7 @@ namespace OpenC1
                         _hitSpeed = 0;
                         _stopUpdating = true;
                     }
-                    _hitCurrentSpin += _hitSpinSpeed * OneAmEngine.Engine.ElapsedSeconds;
+                    _hitCurrentSpin += _hitSpinSpeed * GameEngine.ElapsedSeconds;
                 }
                 else
                 {
@@ -245,7 +245,7 @@ namespace OpenC1
                 if (_direction != Vector3.Zero)
                 {
                     _direction.Normalize();
-                    Position += _direction * RunningSpeed * OneAmEngine.Engine.ElapsedSeconds;
+                    Position += _direction * RunningSpeed * GameEngine.ElapsedSeconds;
                     if (float.IsNaN(_direction.X))
                     {
                     }
@@ -262,7 +262,7 @@ namespace OpenC1
                             _isFalling = true;
                         }
                         if (fallDist > 0.5f)
-                            Position.Y -= OneAmEngine.Engine.ElapsedSeconds * 20;
+                            Position.Y -= GameEngine.ElapsedSeconds * 20;
                         else
                         {
                             Position.Y = hit.WorldImpact.Y;
@@ -293,7 +293,7 @@ namespace OpenC1
             switch (_currentSequence.FrameRateType)
             {
                 case PedestrianSequenceFrameRate.Variable:
-                    _frameRate = 1 / OneAmEngine.Engine.Random.Next(_currentSequence.MinFrameRate, _currentSequence.MaxFrameRate);
+                    _frameRate = 1 / GameEngine.Random.Next(_currentSequence.MinFrameRate, _currentSequence.MaxFrameRate);
                     break;
                 case PedestrianSequenceFrameRate.Speed:
                     _frameRate = 1 / _currentSequence.MaxFrameRate;
@@ -306,7 +306,7 @@ namespace OpenC1
 
         public void Render()
         {
-            Matrix world = Matrix.CreateConstrainedBillboard(Position, OneAmEngine.Engine.Camera.Position, Vector3.Up, null, null);
+            Matrix world = Matrix.CreateConstrainedBillboard(Position, GameEngine.Camera.Position, Vector3.Up, null, null);
 
             PedestrianFrame frame = _inLoopingFrames ? _currentSequence.LoopingFrames[_frameIndex] : _currentSequence.InitialFrames[_frameIndex];
 			if (frame.Texture == null) return;
@@ -327,7 +327,8 @@ namespace OpenC1
             BasicEffect2 effect = GameVars.CurrentEffect;
             effect.World = world;
             effect.Texture = frame.Texture;
-            OneAmEngine.Engine.Device.DrawPrimitives(PrimitiveType.TriangleStrip, 0, 2);
+            effect.CommitChanges();
+            GameEngine.Device.DrawPrimitives(PrimitiveType.TriangleStrip, 0, 2);
         }
 
 		public bool IsPowerup

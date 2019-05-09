@@ -44,7 +44,7 @@ namespace OpenC1.Screens
 
         public override void OnOutAnimationFinished()
         {
-            OneAmEngine.Engine.Screen = new StartRaceScreen(this);
+            GameEngine.Screen = new StartRaceScreen(this);
         }
     }
 }

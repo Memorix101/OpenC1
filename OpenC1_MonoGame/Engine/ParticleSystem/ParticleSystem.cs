@@ -191,13 +191,13 @@ namespace OneAmEngine
         {
             LoadParticleEffect();
 
-            //_vertexDeclaration = new VertexDeclaration(Engine.Device, ParticleVertex.VertexElements);
+            //_vertexDeclaration = new VertexDeclaration(GameEngine.Device, ParticleVertex.VertexElements);
             _vertexDeclaration = new VertexDeclaration(ParticleVertex.VertexElements);
 
             int size = ParticleVertex.SizeInBytes * particles.Length * 4;
 
-            //vertexBuffer = new DynamicVertexBuffer(Engine.Device, size, BufferUsage.WriteOnly);
-            vertexBuffer = new DynamicVertexBuffer(Engine.Device, _vertexDeclaration, size, BufferUsage.WriteOnly);
+            //vertexBuffer = new DynamicVertexBuffer(GameEngine.Device, size, BufferUsage.WriteOnly);
+            vertexBuffer = new DynamicVertexBuffer(GameEngine.Device, _vertexDeclaration, size, BufferUsage.WriteOnly);
 
             // Create and populate the index buffer.
             ushort[] indices = new ushort[settings.MaxParticles * 6];
@@ -213,7 +213,7 @@ namespace OneAmEngine
                 indices[i * 6 + 5] = (ushort)(i * 4 + 3);
             }
 
-            indexBuffer = new IndexBuffer(Engine.Device, typeof(ushort), indices.Length, BufferUsage.WriteOnly);
+            indexBuffer = new IndexBuffer(GameEngine.Device, typeof(ushort), indices.Length, BufferUsage.WriteOnly);
 
             indexBuffer.SetData(indices);
         }
@@ -224,7 +224,7 @@ namespace OneAmEngine
         /// </summary>
         void LoadParticleEffect()
         {
-            Effect effect = Engine.ContentManager.Load<Effect>("ParticleEffect");
+            Effect effect = GameEngine.ContentManager.Load<Effect>("ParticleEffect");
 
             // If we have several particle systems, the content manager will return
             // a single shared effect instance to them all. But we want to preconfigure
@@ -232,7 +232,7 @@ namespace OneAmEngine
             // particle system. By cloning the effect, we prevent one particle system
             // from stomping over the parameter settings of another.
 
-            //particleEffect = effect.Clone(Engine.Device);
+            //particleEffect = effect.Clone(GameEngine.Device);
             particleEffect = effect.Clone();
 
             EffectParameterCollection parameters = particleEffect.Parameters;
@@ -274,7 +274,7 @@ namespace OneAmEngine
         /// </summary>
         public void Update()
         {
-            currentTime += Engine.ElapsedSeconds;
+            currentTime += GameEngine.ElapsedSeconds;
 
             RetireActiveParticles();
             FreeRetiredParticles();
@@ -359,9 +359,9 @@ namespace OneAmEngine
         /// </summary>
         public void Render()
         {
-            GraphicsDevice device = Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
 
-            ICamera camera = Engine.Camera;
+            ICamera camera = GameEngine.Camera;
             effectViewParameter.SetValue(camera.View);
             effectProjectionParameter.SetValue(camera.Projection);
 

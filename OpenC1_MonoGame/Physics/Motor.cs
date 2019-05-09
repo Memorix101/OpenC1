@@ -115,16 +115,16 @@ namespace OpenC1.Physics
             if (_rpmLimiter > 0)
             {
                 if (!WheelsSpinning) _currentPowerOutput = 0;
-                _rpmLimiter -= OneAmEngine.Engine.ElapsedSeconds;
+                _rpmLimiter -= GameEngine.ElapsedSeconds;
             }
             else
             {
-                if (_rpm > 0.5f && Damage > 40 && _lastBlip + 1.2f < OneAmEngine.Engine.TotalSeconds)
+                if (_rpm > 0.5f && Damage > 40 && _lastBlip + 1.2f < GameEngine.TotalSeconds)
                 {
-                    if (OneAmEngine.Engine.Random.Next() % 2 == 0)
+                    if (GameEngine.Random.Next() % 2 == 0)
                     {
                         _rpmLimiter = (Damage / 100) * 0.8f;
-                        _lastBlip = OneAmEngine.Engine.TotalSeconds;
+                        _lastBlip = GameEngine.TotalSeconds;
                     }
                 }
                 _currentPowerOutput = MaxPower * MathHelper.Lerp(_powerCurve[(int)_rpm], _powerCurve[(int)_rpm + 1], _rpm - (int)_rpm);
@@ -190,14 +190,14 @@ namespace OpenC1.Physics
         {
             if (_throttle == 0.0f || _rpmLimiter > 0)
             {
-                _rpm -= OneAmEngine.Engine.ElapsedSeconds * 4.4f;
+                _rpm -= GameEngine.ElapsedSeconds * 4.4f;
 
                 if (_rpm < 0.8f)
                     _rpm = 0.8f;
             }
             else
             {
-                _rpm += OneAmEngine.Engine.ElapsedSeconds * _throttle * 8f;
+                _rpm += GameEngine.ElapsedSeconds * _throttle * 8f;
             }
         }
 

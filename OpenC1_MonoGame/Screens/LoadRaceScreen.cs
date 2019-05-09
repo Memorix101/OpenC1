@@ -32,15 +32,15 @@ namespace OpenC1.Screens
             //if (_loadRaceThread.ThreadState != ThreadState.Running)
             {
 				LoadRaceThreadProc();
-                OneAmEngine.Engine.Screen = _raceScreen;
+                GameEngine.Screen = _raceScreen;
             }
         }
 
         public void Render()
         {
-            OneAmEngine.Engine.SpriteBatch.Begin();
-            OneAmEngine.Engine.SpriteBatch.Draw(_loadingTexture, new Rectangle(0, 0, OneAmEngine.Engine.Window.Width, OneAmEngine.Engine.Window.Height), Color.White);
-            OneAmEngine.Engine.SpriteBatch.End();
+            GameEngine.SpriteBatch.Begin();
+            GameEngine.SpriteBatch.Draw(_loadingTexture, new Rectangle(0, 0, GameEngine.Window.Width, GameEngine.Window.Height), Color.White);
+            GameEngine.SpriteBatch.End();
         }
 
         private void LoadRaceThreadProc()

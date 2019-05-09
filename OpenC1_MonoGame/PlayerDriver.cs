@@ -20,7 +20,7 @@ namespace OpenC1
 
         public PlayerDriver()
         {
-            _audioListener = OneAmEngine.Engine.Audio.GetListener();
+            _audioListener = GameEngine.Audio.GetListener();
             _audioListener.DistanceFactor = 2f;
             _audioListener.RolloffFactor = 1f;
         }
@@ -48,7 +48,7 @@ namespace OpenC1
             else
                 chassis.ReleaseHandbrake();
 
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.R))
+            if (GameEngine.Input.WasPressed(Keys.R) || GameEngine.Input.WasPressed(Buttons.B))
             {
                 if (_recoverPositions.Count > 0)
                 {
@@ -59,7 +59,7 @@ namespace OpenC1
                     Vehicle.Chassis.Reset();
             }
 
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.Back))
+            if (GameEngine.Input.WasPressed(Keys.Back) || GameEngine.Input.WasPressed(Buttons.Back))
             {
                 Vehicle.Repair();
             }
@@ -70,13 +70,13 @@ namespace OpenC1
             _audioListener.Velocity = Vector3.Zero;
             _audioListener.CommitChanges();
 
-            if (OneAmEngine.Engine.TotalSeconds > _lastRecoverTime + 5)
+            if (GameEngine.TotalSeconds > _lastRecoverTime + 5)
             {
                 _recoverPositions.Add(Vehicle.Chassis.Actor.GlobalPose);
                 if (_recoverPositions.Count > 10)
                     _recoverPositions.RemoveAt(0);
 
-                _lastRecoverTime = OneAmEngine.Engine.TotalSeconds;
+                _lastRecoverTime = GameEngine.TotalSeconds;
             }
         }
     }

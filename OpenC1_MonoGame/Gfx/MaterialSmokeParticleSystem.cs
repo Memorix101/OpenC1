@@ -20,7 +20,7 @@ namespace OpenC1.Gfx
 
         protected override void InitializeSettings(ParticleSettings settings)
         {
-            settings.Texture = OneAmEngine.Engine.ContentManager.Load<Texture2D>("material-modifier-smoke");
+            settings.Texture = GameEngine.ContentManager.Load<Texture2D>("Content/material-modifier-smoke");
 
             settings.MaxParticles = 200;
             settings.MinColor = _color;

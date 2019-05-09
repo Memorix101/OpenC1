@@ -88,21 +88,21 @@ namespace OpenC1.Physics
         {
             if (_debugEffect == null)
             {
-                _debugEffect = new BasicEffect(OneAmEngine.Engine.Device);
+                _debugEffect = new BasicEffect(GameEngine.Device);
             }
 
-            _debugEffect.View = OneAmEngine.Engine.Camera.View;
+            _debugEffect.View = GameEngine.Camera.View;
             _debugEffect.World = Matrix.Identity;
-            _debugEffect.Projection = OneAmEngine.Engine.Camera.Projection;;
+            _debugEffect.Projection = GameEngine.Camera.Projection;;
             DebugRenderable debugRenderable = Scene.GetDebugRenderable();
-            //OneAmEngine.Engine.Device.VertexDeclaration = new VertexDeclaration(VertexPositionColor.VertexDeclaration.GetVertexElements());
+            //GameEngine.Device.VertexDeclaration = new VertexDeclaration(VertexPositionColor.VertexDeclaration.GetVertexElements());
 
             foreach (EffectPass pass in _debugEffect.CurrentTechnique.Passes)
             {
                 if (debugRenderable.PointCount > 0)
                 {
                     DebugPoint[] debugPoints = debugRenderable.GetDebugPoints();
-                    //OneAmEngine.Engine.Device.DrawUserPrimitives<DebugPoint>(PrimitiveType.LineList, debugPoints, 0, debugPoints.Length);
+                    //GameEngine.Device.DrawUserPrimitives<DebugPoint>(PrimitiveType.LineList, debugPoints, 0, debugPoints.Length);
                 }
                 if (debugRenderable.LineCount > 0)
                 {
@@ -114,7 +114,7 @@ namespace OpenC1.Physics
                         vertexData[i * 2] = new VertexPositionColor(line.Point0, Color.White);
                         vertexData[(i * 2) + 1] = new VertexPositionColor(line.Point1, Color.White);
                     }
-                    OneAmEngine.Engine.Device.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, vertexData, 0, debugLines.Length);
+                    GameEngine.Device.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, vertexData, 0, debugLines.Length);
                 }
                 if (debugRenderable.TriangleCount > 0)
                 {
@@ -127,7 +127,7 @@ namespace OpenC1.Physics
                         colorArray2[(j * 3) + 1] = new VertexPositionColor(triangle.Point1, Color.White);
                         colorArray2[(j * 3) + 2] = new VertexPositionColor(triangle.Point2, Color.White);
                     }
-                    OneAmEngine.Engine.Device.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleList, colorArray2, 0, debugTriangles.Length);
+                    GameEngine.Device.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleList, colorArray2, 0, debugTriangles.Length);
                 }
             }
         }
@@ -138,7 +138,7 @@ namespace OpenC1.Physics
 
         public void Simulate()
         {    
-            Scene.Simulate(OneAmEngine.Engine.ElapsedSeconds);
+            Scene.Simulate(GameEngine.ElapsedSeconds);
             Scene.FlushStream();
         }
 

@@ -56,7 +56,7 @@ namespace OpenC1.GameModes
             
             _camera.ResetRotation();
             _camera.RotateTo(MathHelper.Pi * 2);
-            OneAmEngine.Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
         }
 
         public override void Activate()
@@ -80,7 +80,7 @@ namespace OpenC1.GameModes
                 _camera.RotateTo(MathHelper.Pi * 2);
             }
 
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.Enter) || OneAmEngine.Engine.Input.WasPressed(Keys.Escape))
+            if (GameEngine.Input.WasPressed(Keys.Enter) || GameEngine.Input.WasPressed(Keys.Escape) || GameEngine.Input.WasPressed(Buttons.Start))
             {
 				Race.Current.ExitAndReturnToMenu();
             }

@@ -108,12 +108,12 @@ namespace OpenC1.Parsers
 
                         if (bytesPerPixel == 1)
                         {
-                            texture = new Texture2D(OneAmEngine.Engine.Device, currentPix.Width, currentPix.Height, true, SurfaceFormat.Color);
+                            texture = new Texture2D(GameEngine.Device, currentPix.Width, currentPix.Height, true, SurfaceFormat.Color);
                             texture.SetData<byte>(Helpers.GetBytesForImage(pixels, currentPix.Width, currentPix.Height, GameVars.Palette));
                         }
                         else if (bytesPerPixel == 2)
                         {
-                            texture = new Texture2D(OneAmEngine.Engine.Device, currentPix.Width, currentPix.Height, true, SurfaceFormat.Bgr565);
+                            texture = new Texture2D(GameEngine.Device, currentPix.Width, currentPix.Height, true, SurfaceFormat.Bgr565);
                             int j = 0;
                             byte[] px = new byte[2];
                             for (int i = 0; i < pixels.Length; i += 2)
@@ -126,7 +126,7 @@ namespace OpenC1.Parsers
                         }
                         else if (bytesPerPixel ==3 )
                         {
-                            texture = new Texture2D(OneAmEngine.Engine.Device, currentPix.Width, currentPix.Height, true, SurfaceFormat.Color);
+                            texture = new Texture2D(GameEngine.Device, currentPix.Width, currentPix.Height, true, SurfaceFormat.Color);
                             int j = 0;
                             byte[] px2 = new byte[pixels.Length * 4];
                             for (int i = 0; i < pixels.Length; i += 3)

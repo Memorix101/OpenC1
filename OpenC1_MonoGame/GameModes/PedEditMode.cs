@@ -28,17 +28,17 @@ namespace OpenC1.GameModes
 
         public override void Update()
         {
-            if (OneAmEngine.Engine.Input.WasPressed(Keys.D1))
+            if (GameEngine.Input.WasPressed(Keys.D1))
             {
                 MessageRenderer.Instance.PostHeaderMessage("Adding new pedestrian", 3);
                 _currentPath = new List<Vector3>();
                 _currentPath.Add(Race.Current.PlayerVehicle.GetBodyBottom());
             }
-            else if (OneAmEngine.Engine.Input.WasPressed(Keys.D2))
+            else if (GameEngine.Input.WasPressed(Keys.D2))
             {
                 _currentPath.Add(Race.Current.PlayerVehicle.GetBodyBottom());
             }
-            else if (OneAmEngine.Engine.Input.WasPressed(Keys.D3))
+            else if (GameEngine.Input.WasPressed(Keys.D3))
             {
                 _currentPath.Add(Race.Current.PlayerVehicle.GetBodyBottom());
                 StringBuilder sb = new StringBuilder();
