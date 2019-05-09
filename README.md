@@ -5,7 +5,7 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
 
 #### Additions
 - **Upgraded to Visual Studio 2017/2019, .NET Framework 3.5 and XNA 3.1**
-- **Better Xbox Controller support! (No Force Feedback yet 😕)**
+- **Improved Xbox Controller support! (No Force Feedback yet 😕)**
 - **Additions for QWERTZ Layout**
 - **Bug fixes**
 
