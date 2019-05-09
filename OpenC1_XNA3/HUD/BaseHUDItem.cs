@@ -18,7 +18,7 @@ namespace OpenC1.HUD
         static BaseHUDItem()
         {
             _shadow = TextureGenerator.Generate(new Color(0f, 0f, 0f, 0.6f));
-            _window = Engine.Window;
+            _window = GameEngine.Window;
             FontScale = _window.Width / 800f;
         }
 
@@ -51,12 +51,12 @@ namespace OpenC1.HUD
 
         public static void DrawShadow(Rectangle rect)
         {
-            Engine.SpriteBatch.Draw(_shadow, rect, Color.White);
+            GameEngine.SpriteBatch.Draw(_shadow, rect, Color.White);
         }
 
         //protected void DrawString(SpriteFont font, string text, Vector2 position, Color color)
         //{
-        //    Engine.SpriteBatch.DrawString(font, text, position, color, 0, Vector2.Zero, FontScale, SpriteEffects.None, 0);
+        //    GameEngine.SpriteBatch.DrawString(font, text, position, color, 0, Vector2.Zero, FontScale, SpriteEffects.None, 0);
         //}
     }
 }

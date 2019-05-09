@@ -42,15 +42,15 @@ namespace OneAmEngine
             CreateShapeEffect();
             CreateCube();
             
-            mFont1 = Engine.ContentManager.Load<SpriteFont>("content\\fonts\\Arial_14");
-            mSpriteBatch = new SpriteBatch(Engine.Device);
+            mFont1 = GameEngine.ContentManager.Load<SpriteFont>("content\\fonts\\Arial_14");
+            mSpriteBatch = new SpriteBatch(GameEngine.Device);
 
         }
 
         public void Update(GameTime gameTime)
         {
-            SetViewMatrix(Engine.Camera.View);
-            SetProjectionMatrix(Engine.Camera.Projection);
+            SetViewMatrix(GameEngine.Camera.View);
+            SetProjectionMatrix(GameEngine.Camera.Projection);
         }
        
         /// <summary>
@@ -69,14 +69,14 @@ namespace OneAmEngine
                     switch (shapeData.mType)
                     {
                         case ShapeType.Cube:
-                            Engine.Device.Vertices[0].SetSource(mCubeVertexBuffer, 0, VertexPositionNormalTexture.SizeInBytes);
+                            GameEngine.Device.Vertices[0].SetSource(mCubeVertexBuffer, 0, VertexPositionNormalTexture.SizeInBytes);
                             nbrPrimitives = 12;
-                            Engine.Device.RenderState.CullMode = CullMode.CullClockwiseFace;
+                            GameEngine.Device.RenderState.CullMode = CullMode.CullClockwiseFace;
                             break;
                     }
 
                     
-                    Engine.Device.VertexDeclaration = mBasicShapeVertexDecl;
+                    GameEngine.Device.VertexDeclaration = mBasicShapeVertexDecl;
 
                     mBasicShapeEffect.DiffuseColor = shapeData.mColor.ToVector3() * 0.5f;
                     mBasicShapeEffect.SpecularColor = shapeData.mColor.ToVector3();
@@ -93,7 +93,7 @@ namespace OneAmEngine
                     foreach (EffectPass pass in mBasicShapeEffect.CurrentTechnique.Passes)
                     {
                         pass.Begin();
-                        Engine.Device.DrawPrimitives(PrimitiveType.TriangleList, 0, nbrPrimitives);
+                        GameEngine.Device.DrawPrimitives(PrimitiveType.TriangleList, 0, nbrPrimitives);
                         pass.End();
                     }
                     mBasicShapeEffect.End();
@@ -105,13 +105,13 @@ namespace OneAmEngine
             // Draw lines
             if (sLinesList.Count > 0)
             {
-                mLineVertexBuffer = new VertexBuffer(Engine.Device,
+                mLineVertexBuffer = new VertexBuffer(GameEngine.Device,
                                                      VertexPositionColor.SizeInBytes * sLinesList.Count,
                                                      BufferUsage.WriteOnly);
 
                 mLineVertexBuffer.SetData<VertexPositionColor>(sLinesList.ToArray());
-                Engine.Device.Vertices[0].SetSource(mLineVertexBuffer, 0, VertexPositionColor.SizeInBytes);
-                Engine.Device.VertexDeclaration = mBasicLineVertexDecl;
+                GameEngine.Device.Vertices[0].SetSource(mLineVertexBuffer, 0, VertexPositionColor.SizeInBytes);
+                GameEngine.Device.VertexDeclaration = mBasicLineVertexDecl;
 
                 mBasicLineEffect.View = mViewMatrix;
                 mBasicLineEffect.Projection = mProjectionMatrix;
@@ -120,7 +120,7 @@ namespace OneAmEngine
                 foreach (EffectPass pass in mBasicLineEffect.CurrentTechnique.Passes)
                 {
                     pass.Begin();
-                    Engine.Device.DrawPrimitives(PrimitiveType.LineList, 0, sLinesList.Count / 2);
+                    GameEngine.Device.DrawPrimitives(PrimitiveType.LineList, 0, sLinesList.Count / 2);
                     pass.End();
                 }
                 mBasicLineEffect.End();
@@ -140,7 +140,7 @@ namespace OneAmEngine
                     if (!textData.mIsTransformed)
                     {
                         // If text was specified in 3D, transform it to 2D coordinates
-                        Vector3 transformed = Engine.Device.Viewport.Project(textData.mPos,
+                        Vector3 transformed = GameEngine.Device.Viewport.Project(textData.mPos,
                                                                               mProjectionMatrix,
                                                                               mViewMatrix,
                                                                               Matrix.Identity);
@@ -463,8 +463,8 @@ namespace OneAmEngine
         /// </summary>
         private void CreateLineEffect()
         {
-            mBasicLineVertexDecl = new VertexDeclaration(Engine.Device, VertexPositionColor.VertexElements);
-            mBasicLineEffect = new BasicEffect(Engine.Device, null);
+            mBasicLineVertexDecl = new VertexDeclaration(GameEngine.Device, VertexPositionColor.VertexElements);
+            mBasicLineEffect = new BasicEffect(GameEngine.Device, null);
             mBasicLineEffect.VertexColorEnabled = true;
         }
 
@@ -474,9 +474,9 @@ namespace OneAmEngine
         /// </summary>
         private void CreateShapeEffect()
         {
-            mBasicShapeVertexDecl = new VertexDeclaration(Engine.Device, VertexPositionNormalTexture.VertexElements);
+            mBasicShapeVertexDecl = new VertexDeclaration(GameEngine.Device, VertexPositionNormalTexture.VertexElements);
 
-            mBasicShapeEffect = new BasicEffect(Engine.Device, null);
+            mBasicShapeEffect = new BasicEffect(GameEngine.Device, null);
             mBasicShapeEffect.Alpha = 1.0f;
             mBasicShapeEffect.DiffuseColor = new Vector3(0.5f, 0.5f, 0.5f);
             mBasicShapeEffect.SpecularColor = new Vector3(1.0f, 1.0f, 1.0f);
@@ -576,7 +576,7 @@ namespace OneAmEngine
             mCubeVertices[34] = new VertexPositionNormalTexture(topRightFront, rightNormal, textureTopLeft);
             mCubeVertices[35] = new VertexPositionNormalTexture(bottomRightBack, rightNormal, textureBottomRight);
 
-            mCubeVertexBuffer = new VertexBuffer(Engine.Device,
+            mCubeVertexBuffer = new VertexBuffer(GameEngine.Device,
                                                  VertexPositionNormalTexture.SizeInBytes * mCubeVertices.Length,
                                                  BufferUsage.WriteOnly);
 

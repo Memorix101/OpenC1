@@ -21,18 +21,18 @@ namespace OpenC1
             PixFile pix = new PixFile(race.ConfigFile.MapTexture);
             if (pix.Exists)
                 _mapTexture = pix.PixMaps[0].Texture;
-            _player = Engine.ContentManager.Load<Texture2D>("content/map-icon-player");
-            _opponent = Engine.ContentManager.Load<Texture2D>("content/map-icon-opponent");
-            _deadOpponent = Engine.ContentManager.Load<Texture2D>("content/map-icon-opponent-dead");
+            _player = GameEngine.ContentManager.Load<Texture2D>("content/map-icon-player");
+            _opponent = GameEngine.ContentManager.Load<Texture2D>("content/map-icon-opponent");
+            _deadOpponent = GameEngine.ContentManager.Load<Texture2D>("content/map-icon-opponent-dead");
 
-            _mapRect = new Rectangle(0, 60, Engine.Window.Width, Engine.Window.Height - 90);
+            _mapRect = new Rectangle(0, 60, GameEngine.Window.Width, GameEngine.Window.Height - 90);
         }
 
         public void Render()
         {
             if (_mapTexture == null) return;
 
-            Engine.SpriteBatch.Draw(_mapTexture, _mapRect, new Color(255,255,255, 200));
+            GameEngine.SpriteBatch.Draw(_mapTexture, _mapRect, new Color(255,255,255, 200));
             Vector3 pos = _race.PlayerVehicle.Position;
             pos /= GameVars.Scale;
             Vector3 translated = Vector3.Transform(pos, _race.ConfigFile.MapTranslation);
@@ -42,7 +42,7 @@ namespace OpenC1
 
             Vector3 direction = _race.PlayerVehicle.Chassis.Actor.GlobalOrientation.Forward;
             float rotation = (float)Math.Atan2(direction.Z, direction.X) + MathHelper.Pi;            
-            Engine.SpriteBatch.Draw(_player, new Vector2(translated.X, translated.Y), null, Color.White, rotation, new Vector2(8,8), 1f, SpriteEffects.None, 0);
+            GameEngine.SpriteBatch.Draw(_player, new Vector2(translated.X, translated.Y), null, Color.White, rotation, new Vector2(8,8), 1f, SpriteEffects.None, 0);
 
             foreach (Opponent o in _race.Opponents)
             {
@@ -57,7 +57,7 @@ namespace OpenC1
                 translated += new Vector3(_mapRect.Left, _mapRect.Top, 0);
                 direction = o.Vehicle.Chassis.Actor.GlobalOrientation.Forward;
                 rotation = (float)Math.Atan2(direction.Z, direction.X) + MathHelper.Pi;
-                Engine.SpriteBatch.Draw(o.IsDead ? _deadOpponent : _opponent,
+                GameEngine.SpriteBatch.Draw(o.IsDead ? _deadOpponent : _opponent,
                     new Vector2(translated.X, translated.Y), null, Color.White, rotation, new Vector2(8, 8), 1f, SpriteEffects.None, 0);
             }
         }

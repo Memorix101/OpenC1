@@ -67,7 +67,7 @@ namespace OpenC1.CameraViews
 
             _camera.Position = _vehicle.GetBodyBottom() + Vector3.Transform(_vehicle.Config.DriverHeadPosition, _vehicle.Chassis.Actor.GlobalOrientation) + new Vector3(0, 0.018f, 0);
 
-            Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
         }
 
         public override void Render()
@@ -81,7 +81,7 @@ namespace OpenC1.CameraViews
             else
                 src = new Rectangle(32, 20, 320, 200);
             Rectangle rect = new Rectangle(0, 0, 800, 600);
-            Engine.SpriteBatch.Draw(_cockpitFile.Forward, rect, src, Color.White);
+            GameEngine.SpriteBatch.Draw(_cockpitFile.Forward, rect, src, Color.White);
 
             float steerRatio = _vehicle.Chassis.SteerRatio;
 
@@ -119,17 +119,17 @@ namespace OpenC1.CameraViews
             if (_cockpitFile.IsHighRes)
             {
                 if (frame.Texture1 != null)
-                    Engine.SpriteBatch.Draw(frame.Texture1, ScaleVec2(frame.Position1), Color.White);
+                    GameEngine.SpriteBatch.Draw(frame.Texture1, ScaleVec2(frame.Position1), Color.White);
                 if (frame.Texture2 != null)
-                    Engine.SpriteBatch.Draw(frame.Texture2, ScaleVec2(frame.Position2), Color.White);
+                    GameEngine.SpriteBatch.Draw(frame.Texture2, ScaleVec2(frame.Position2), Color.White);
             }
             else
             {
                 if (frame.Texture1 != null)
-                    Engine.SpriteBatch.Draw(frame.Texture1,
+                    GameEngine.SpriteBatch.Draw(frame.Texture1,
                         new Rectangle((int)ScaleVec2(frame.Position1).X + 5, (int)ScaleVec2(frame.Position1).Y - 20, 100, 100), Color.White);
                 if (frame.Texture2 != null)
-                    Engine.SpriteBatch.Draw(frame.Texture2,
+                    GameEngine.SpriteBatch.Draw(frame.Texture2,
                         new Rectangle((int)ScaleVec2(frame.Position2).X - 50, (int)ScaleVec2(frame.Position2).Y - 20, 100, 100), Color.White);
             }
 
@@ -138,7 +138,7 @@ namespace OpenC1.CameraViews
 
         public void Activate()
         {
-            Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
             _camera.Position = _vehicle.GetBodyBottom() + Vector3.Transform(_vehicle.Config.DriverHeadPosition, _vehicle.Chassis.Actor.GlobalOrientation);
             _camera.Update();
         }

@@ -70,7 +70,7 @@ namespace OpenC1
             if (!_enabled) return null;
             SoundDesc csound = _soundDescriptions.Find(a => a.Id == id);
             if (csound == null || csound.FailedToLoad) return null;
-            ISound instance = Engine.Audio.Load(GameVars.BasePath + "sound\\" + csound.FileName, is3d);
+            ISound instance = GameEngine.Audio.Load(GameVars.BasePath + "sound\\" + csound.FileName, is3d);
             if (instance == null)
             {
                 csound.FailedToLoad = true;
@@ -149,7 +149,7 @@ namespace OpenC1
 
             if (instance == null || !instance.IsPlaying)
             {
-                int id = Engine.Random.Next(startId, endId+1);
+                int id = GameEngine.Random.Next(startId, endId+1);
                 instance = Play(id, vehicle, true);
             }
         }

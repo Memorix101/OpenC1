@@ -127,9 +127,9 @@ namespace OpenC1.Physics
 
         private void HandleNonCarCollision(Vehicle vehicle, NonCar nonCar, Vector3 pos, Vector3 patchnormal, Vector3 normalforce, ContactPairFlag events)
         {
-            if (nonCar.LastTouchTime + 0.1f > Engine.TotalSeconds)
+            if (nonCar.LastTouchTime + 0.1f > GameEngine.TotalSeconds)
             {
-                nonCar.LastTouchTime = Engine.TotalSeconds;
+                nonCar.LastTouchTime = GameEngine.TotalSeconds;
                 return;
             }
 
@@ -153,7 +153,7 @@ namespace OpenC1.Physics
                 nonCar.Rotation.X += -directedForce.X * factor;
                 nonCar.Rotation.Z += directedForce.Z * factor;
 
-                nonCar.LastTouchTime = Engine.TotalSeconds;
+                nonCar.LastTouchTime = GameEngine.TotalSeconds;
                 nonCar.LastForcePosition = pos;
                 nonCar.LastForce = directedForce;
 
@@ -165,7 +165,7 @@ namespace OpenC1.Physics
                 vehicle.OnCollision(normalforce.Length(), pos, normalforce, false);
             }
 
-            nonCar.LastTouchTime = Engine.TotalSeconds;            
+            nonCar.LastTouchTime = GameEngine.TotalSeconds;            
         }
     }
 }

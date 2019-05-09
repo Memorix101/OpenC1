@@ -253,7 +253,7 @@ namespace OneAmEngine
             
             UpdateWorldPositions();
 
-            float elapsed = Engine.ElapsedSeconds;
+            float elapsed = GameEngine.ElapsedSeconds;
 
             // Calculate spring force
             Vector3 stretch = (Position - _desiredPosition);

@@ -58,14 +58,14 @@ namespace OpenC1
         {
             Vector3 playerPos = Race.Current.PlayerVehicle.Position;
 
-            int j = Engine.Random.Next(Nodes.Count);
+            int j = GameEngine.Random.Next(Nodes.Count);
             for (int i = 0; i < Nodes.Count; i++)
             {
                 float dist = 0;
                 Vector3.Distance(ref playerPos, ref Nodes[j].Position, out dist);
                 if (dist > 100 && dist < 280 && Helpers.HasTimePassed(5, Nodes[j].LastUsedTime))
                 {
-                    Nodes[j].LastUsedTime = Engine.TotalSeconds;
+                    Nodes[j].LastUsedTime = GameEngine.TotalSeconds;
                     return Nodes[j];
                 }
                 j++;
@@ -96,7 +96,7 @@ namespace OpenC1
 
         public static OpponentPathNode GetRandomNode()
         {
-            return Nodes[Engine.Random.Next(Nodes.Count)];
+            return Nodes[GameEngine.Random.Next(Nodes.Count)];
         }
 
         /// <summary>
@@ -108,12 +108,12 @@ namespace OpenC1
         {
             if (currentNode.Paths.Count == 0) return null;
 
-            int choosenPath = Engine.Random.Next(currentNode.Paths.Count);
+            int choosenPath = GameEngine.Random.Next(currentNode.Paths.Count);
             if (currentNode.Paths[choosenPath].Type == PathType.Race)
                 return currentNode.Paths[choosenPath];
 
             // 1/3 times, we re-choose the race path
-            if (Engine.Random.Next() % 3 == 0)
+            if (GameEngine.Random.Next() % 3 == 0)
             {
                 foreach (OpponentPath path in currentNode.Paths)
                 {

@@ -80,7 +80,7 @@ namespace OneAmEngine
         /// </summary>
         public void Update(Vector3 newPosition, ParticleSystem particleSystem)
         {
-            float elapsedSeconds = Engine.ElapsedSeconds;
+            float elapsedSeconds = GameEngine.ElapsedSeconds;
             
             // Work out how much time has passed since the previous update.
 
@@ -128,14 +128,14 @@ namespace OneAmEngine
         public void DumpParticles(Vector3 newPosition, float nbr, Vector3 velocity)
         {
             //only allow dumpparticles every 0.2 of a second
-            if (LastDumpTime + DumpsPerSecond > Engine.TotalSeconds)
+            if (LastDumpTime + DumpsPerSecond > GameEngine.TotalSeconds)
                 return;
 
             for (int i = 0; i < nbr; i++)
             {
                 ParticleSystem.AddParticle(newPosition, velocity);
             }
-            LastDumpTime = Engine.TotalSeconds;
+            LastDumpTime = GameEngine.TotalSeconds;
         }
     }
 }

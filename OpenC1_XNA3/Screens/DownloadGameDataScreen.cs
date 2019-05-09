@@ -34,7 +34,7 @@ namespace OpenC1.Screens
 		{
 			base.Render();
 
-			Engine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
+			GameEngine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
 
 			RenderDefaultBackground();
 
@@ -42,10 +42,10 @@ namespace OpenC1.Screens
 
 			if (_dataDownloaded > 0)
 			{
-				Engine.SpriteBatch.DrawString(_font, "[", new Vector2(30, 150), Color.White);
+				GameEngine.SpriteBatch.DrawString(_font, "[", new Vector2(30, 150), Color.White);
 				int ratio = (int)(((double)_dataDownloaded / (double)_dataContentLength) * 40);
-				Engine.SpriteBatch.DrawString(_font, new string('=', ratio), new Vector2(45, 150), Color.White);
-				Engine.SpriteBatch.DrawString(_font, "]", new Vector2(610, 150), Color.White);
+				GameEngine.SpriteBatch.DrawString(_font, new string('=', ratio), new Vector2(45, 150), Color.White);
+				GameEngine.SpriteBatch.DrawString(_font, "]", new Vector2(610, 150), Color.White);
 
 				long downloadedMb = _dataDownloaded / 1024 / 1024;
 				long contentLengthMb = _dataContentLength / 1024 / 1024;
@@ -65,7 +65,7 @@ namespace OpenC1.Screens
 				WriteLine("Press Enter to exit.");
 			}
 			
-			Engine.SpriteBatch.End();
+			GameEngine.SpriteBatch.End();
 		}
 
 		private void DownloadDataThreadProc()
@@ -116,14 +116,14 @@ namespace OpenC1.Screens
 
 			if (_downloadThread.Join(1) && !_downloadError)
 			{
-				Engine.Screen = new GameSelectionScreen(null);
+				GameEngine.Screen = new GameSelectionScreen(null);
 			}
 		}
 
 		public override void OnOutAnimationFinished()
 		{
 			if (_downloadError)
-				Engine.Game.Exit();
+				GameEngine.Game.Exit();
 		}
 	}
 }

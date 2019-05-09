@@ -10,7 +10,7 @@ using OneAmEngine.Audio;
 
 namespace OneAmEngine
 {
-    public static class Engine
+    public static class GameEngine
     {
         public static Game Game;
         private static ContentManager _contentManager;

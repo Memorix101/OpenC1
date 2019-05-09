@@ -125,8 +125,8 @@ namespace OneAmEngine
 
         public void Update()
         {
-            InputProvider input = Engine.Input;
-            float elapsedTime = Engine.ElapsedSeconds;
+            InputProvider input = GameEngine.Input;
+            float elapsedTime = GameEngine.ElapsedSeconds;
 
             _forwardDelta = input.MoveForward * elapsedTime * Acceleration;
 
@@ -143,8 +143,8 @@ namespace OneAmEngine
             _position.Z -= (float)(Math.Sin(_orientation.X) * input.Strafe);
             
 
-            Engine.Camera.Orientation = Orientation;
-            Engine.Camera.Position = Position;
+            GameEngine.Camera.Orientation = Orientation;
+            GameEngine.Camera.Position = Position;
 
             Matrix view = Matrix.CreateTranslation(-Position);
             view *= Matrix.CreateRotationY(-_orientation.X);
@@ -152,12 +152,12 @@ namespace OneAmEngine
             view *= Matrix.CreateRotationZ(_orientation.Z);
 
             View = view;
-            SetPerspective(fovx, Engine.AspectRatio, this.znear, DrawDistance);
+            SetPerspective(fovx, GameEngine.AspectRatio, this.znear, DrawDistance);
         }
 
         private void UpdateVelocity()
         {
-            float elapsedTimeSec = Engine.ElapsedSeconds;
+            float elapsedTimeSec = GameEngine.ElapsedSeconds;
 
             // Accelerate or decelerate as camera is moved forward or backward.
             float acceleration = Acceleration;

@@ -31,9 +31,9 @@ namespace OpenC1.Parsers.Funks
 
         public override void BeforeRender()
         {
-            _lastMode = Engine.Device.SamplerStates[0].AddressU;
+            _lastMode = GameEngine.Device.SamplerStates[0].AddressU;
             if (_lastMode != TextureAddressMode.Wrap)
-                Engine.Device.SamplerStates[0].AddressU = Engine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
 
             GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
             GameVars.CurrentEffect.TexCoordsMultiplier = 0.1f;
@@ -43,7 +43,7 @@ namespace OpenC1.Parsers.Funks
         public override void AfterRender()
         {
             if (_lastMode != TextureAddressMode.Wrap)
-                Engine.Device.SamplerStates[0].AddressU = Engine.Device.SamplerStates[0].AddressV = _lastMode;
+                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = _lastMode;
 
             GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
             GameVars.CurrentEffect.TexCoordsMultiplier = 1;
@@ -55,7 +55,7 @@ namespace OpenC1.Parsers.Funks
             float y = Math.Min(1, _vehicle.Chassis.Actor.AngularVelocity.Y / 10);
             Speed.X = y;
             Speed.Y = Math.Min(1, _vehicle.Chassis.Actor.LinearVelocity.Length() / 10); 
-            _uvOffset += Speed * Engine.ElapsedSeconds;
+            _uvOffset += Speed * GameEngine.ElapsedSeconds;
             if (_uvOffset.X > 10) _uvOffset.X = 10 - _uvOffset.X;
             if (_uvOffset.Y > 10) _uvOffset.Y = 10 - _uvOffset.Y;
 

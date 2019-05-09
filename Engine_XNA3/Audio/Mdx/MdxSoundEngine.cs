@@ -18,7 +18,7 @@ namespace OneAmEngine.Audio
 		public MdxSoundEngine()
 		{
 			_audioDevice = new Device();
-			_audioDevice.SetCooperativeLevel(Engine.Game.Window.Handle, CooperativeLevel.Priority);
+			_audioDevice.SetCooperativeLevel(GameEngine.Game.Window.Handle, CooperativeLevel.Priority);
 		}
 
         public void SetDefaultVolume(int volume)

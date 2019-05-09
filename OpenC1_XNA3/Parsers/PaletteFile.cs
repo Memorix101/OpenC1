@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using System.Text;
 using MiscUtil.IO;
 using MiscUtil.Conversion;
@@ -11,7 +10,6 @@ namespace OpenC1.Parsers
 {
     class PaletteFile : BaseDataFile, IPalette
     {
-
         enum PaletteBlockType
         {
             Null = 0,

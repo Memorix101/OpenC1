@@ -44,7 +44,7 @@ namespace OpenC1
 
             SettingsFile settings = new SettingsFile();  //load openc1settings.txt
 
-            Engine.ScreenSize = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            GameEngine.ScreenSize = new Vector2(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
             _graphics.IsFullScreen = GameVars.FullScreen;
             //_graphics.SynchronizeWithVerticalRetrace = false;
@@ -97,16 +97,16 @@ namespace OpenC1
         {
             base.Initialize();
 
-            Engine.Startup(this, _graphics);
+            GameEngine.Startup(this, _graphics);
 
-            Engine.DrawDistance = GameVars.DrawDistance;
-            Engine.Audio = new MdxSoundEngine();
+            GameEngine.DrawDistance = GameVars.DrawDistance;
+            GameEngine.Audio = new MdxSoundEngine();
 
 			string gameDataPath = "GameData";
 			if (!Directory.Exists(gameDataPath) || Directory.GetDirectories(gameDataPath).Length == 0)
-				Engine.Screen = new ChooseDownloadGameDataScreen(null);
+				GameEngine.Screen = new ChooseDownloadGameDataScreen(null);
 			else
-				Engine.Screen = new GameSelectionScreen(null);
+				GameEngine.Screen = new GameSelectionScreen(null);
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace OpenC1
         /// </summary>
         protected override void UnloadContent()
         {
-            Engine.ContentManager.Unload();
+            GameEngine.ContentManager.Unload();
         }
 
         /// <summary>
@@ -134,12 +134,12 @@ namespace OpenC1
         protected override void Update(GameTime gameTime)
         {
             //check for exit
-            //if (Engine.Input.WasPressed(Keys.Escape))
+            //if (GameEngine.Input.WasPressed(Keys.Escape))
             //{
             //    Exit();
             //}
 
-            Engine.Update(gameTime);
+            GameEngine.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -150,7 +150,7 @@ namespace OpenC1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            Engine.Render(gameTime);
+            GameEngine.Render(gameTime);
             base.Draw(gameTime);
         }
     }

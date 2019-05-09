@@ -21,7 +21,7 @@ namespace OpenC1.Screens
 
             if (!SoundCache.IsInitialized)
             {
-                Engine.Audio.SetDefaultVolume(-500);
+                GameEngine.Audio.SetDefaultVolume(-500);
                 SoundCache.Initialize();
 
                 GameVars.Palette = new PaletteFile(GameVars.BasePath + "reg\\palettes\\drrender.pal");
@@ -49,9 +49,9 @@ namespace OpenC1.Screens
         public override void OnOutAnimationFinished()
         {
             if (_selectedOption == 0)
-                Engine.Screen = new SelectSkillScreen(this);
+                GameEngine.Screen = new SelectSkillScreen(this);
             else if (_selectedOption == 1)
-                Engine.Game.Exit();
+                GameEngine.Game.Exit();
         }
     }
 }

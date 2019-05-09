@@ -118,7 +118,7 @@ namespace OpenC1
                 _deformableModel.OnContact(position, force, normal);
 
             // if this is a CPU driven car, only damage if the player has something to do with it.  Stops cars killing themselves
-            if (Driver is CpuDriver && ((CpuDriver)Driver).LastPlayerTouchTime + 0.3f > Engine.TotalSeconds)
+            if (Driver is CpuDriver && ((CpuDriver)Driver).LastPlayerTouchTime + 0.3f > GameEngine.TotalSeconds)
             {
                 Damage(force, position);
             }
@@ -157,7 +157,7 @@ namespace OpenC1
 
         public void Render()
         {
-			//Engine.Device.RenderState.FillMode = FillMode.WireFrame;
+			//GameEngine.Device.RenderState.FillMode = FillMode.WireFrame;
             ModelShadow.Render(Config.BoundingBox, Chassis);
             SkidMarkBuffer.Render();
             
@@ -182,7 +182,7 @@ namespace OpenC1
 
             GameVars.CurrentEffect.CurrentTechnique.Passes[0].End();
 
-			Engine.Device.RenderState.FillMode = FillMode.Solid;
+			GameEngine.Device.RenderState.FillMode = FillMode.Solid;
         }
 
         public Vector3 Position

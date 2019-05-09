@@ -29,8 +29,8 @@ namespace OpenC1.Screens
 
         public override void Update()
         {
-            Engine.Camera.Position = new Vector3(-1.5f, 3.5f, 10);
-            Engine.Camera.Orientation = new Vector3(0, -0.28f, -1);
+            GameEngine.Camera.Position = new Vector3(-1.5f, 3.5f, 10);
+            GameEngine.Camera.Orientation = new Vector3(0, -0.28f, -1);
             base.Update();
         }
 
@@ -65,8 +65,8 @@ namespace OpenC1.Screens
 			{
 				_scene = BaseMenuScreen.LoadAnimation(_info.FliFileName)[0];
 			}
-            Engine.SpriteBatch.Draw(_scene, BaseHUDItem.ScaleVec2(0.23f, 0.19f), null, Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
-            Engine.SpriteBatch.DrawString(Engine.ContentManager.Load<SpriteFont>("content/LucidaConsole"), _info.Description, BaseHUDItem.ScaleVec2(0.54f, 0.19f), new Color(0, 220, 0), 0, Vector2.Zero, 1.2f, SpriteEffects.None, 1);
+            GameEngine.SpriteBatch.Draw(_scene, BaseHUDItem.ScaleVec2(0.23f, 0.19f), null, Color.White, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
+            GameEngine.SpriteBatch.DrawString(GameEngine.ContentManager.Load<SpriteFont>("content/LucidaConsole"), _info.Description, BaseHUDItem.ScaleVec2(0.54f, 0.19f), new Color(0, 220, 0), 0, Vector2.Zero, 1.2f, SpriteEffects.None, 1);
         }
 
         public void RenderOutsideSpriteBatch()

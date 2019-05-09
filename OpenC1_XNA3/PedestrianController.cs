@@ -34,7 +34,7 @@ namespace OpenC1
             {   //match up behaviour to ped instance
                 ped.Behaviour = _behaviours.Find(a => a.RefNumber == ped.RefNumber);
                 if (ped.Behaviour == null)
-                    ped.Behaviour = _behaviours[Engine.Random.Next(1, _behaviours.Count-1)];
+                    ped.Behaviour = _behaviours[GameEngine.Random.Next(1, _behaviours.Count-1)];
 
                 ped.Initialize();
 
@@ -118,10 +118,10 @@ namespace OpenC1
 
         public void Render()
         {
-            Engine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
-            Engine.Device.VertexDeclaration = _vertexDeclaration;
-            Engine.Device.RenderState.CullMode = CullMode.None;
-			Engine.Device.RenderState.ReferenceAlpha = 100;
+            GameEngine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
+            GameEngine.Device.VertexDeclaration = _vertexDeclaration;
+            GameEngine.Device.RenderState.CullMode = CullMode.None;
+			GameEngine.Device.RenderState.ReferenceAlpha = 100;
 
             GameVars.CurrentEffect.CurrentTechnique.Passes[0].Begin();
 
@@ -152,12 +152,12 @@ namespace OpenC1
             _vertices[2] = new VertexPositionTexture(topRightFront, textureTopRight);
             _vertices[3] = new VertexPositionTexture(bottomRightFront, textureBottomRight);
 
-            _vertexBuffer = new VertexBuffer(Engine.Device,
+            _vertexBuffer = new VertexBuffer(GameEngine.Device,
                                                  VertexPositionTexture.SizeInBytes * _vertices.Length,
                                                  BufferUsage.WriteOnly);
 
             _vertexBuffer.SetData<VertexPositionTexture>(_vertices);
-            _vertexDeclaration = new VertexDeclaration(Engine.Device, VertexPositionTexture.VertexElements);
+            _vertexDeclaration = new VertexDeclaration(GameEngine.Device, VertexPositionTexture.VertexElements);
         }
 
     }

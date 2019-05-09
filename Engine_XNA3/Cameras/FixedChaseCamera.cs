@@ -20,7 +20,7 @@ namespace OneAmEngine
 		{
             _chaseDistance = new Vector3(chaseDistance);
             _height = height;
-            AspectRatio = Engine.AspectRatio;
+            AspectRatio = GameEngine.AspectRatio;
             FieldOfView = MathHelper.ToRadians(45f);
             NearPlaneDistance = 1.0f;
             View = Matrix.CreateLookAt(Vector3.One, Vector3.UnitZ, Vector3.Up);
@@ -99,9 +99,9 @@ namespace OneAmEngine
             if (_currentRotation != _requestedRotation)
             {
                 if (_currentRotation < _requestedRotation)
-                    _currentRotation += Engine.ElapsedSeconds * RotationSpeed;
+                    _currentRotation += GameEngine.ElapsedSeconds * RotationSpeed;
                 else
-                    _currentRotation -= Engine.ElapsedSeconds * RotationSpeed;
+                    _currentRotation -= GameEngine.ElapsedSeconds * RotationSpeed;
                 if (Math.Abs(_currentRotation - _requestedRotation) < 0.01f)
                     _currentRotation = _requestedRotation;
             }

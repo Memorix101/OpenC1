@@ -12,7 +12,7 @@ namespace OneAmEngine
 		public SimpleCamera()
 		{
             Up = Vector3.Up;
-			AspectRatio = Engine.AspectRatio;
+			AspectRatio = GameEngine.AspectRatio;
 			NearPlaneDistance = 0.01f;
 			DrawDistance = 1000;
 			FieldOfView = MathHelper.ToRadians(45.0f);

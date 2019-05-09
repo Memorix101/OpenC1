@@ -47,12 +47,12 @@ namespace OpenC1.Gfx
             _vertices = new VertexPositionTexture[_maxSkids * 6];
             _skids = new Texture2D[_maxSkids];
 
-            _vertexDeclaration = new VertexDeclaration(Engine.Device, VertexPositionTexture.VertexElements);
+            _vertexDeclaration = new VertexDeclaration(GameEngine.Device, VertexPositionTexture.VertexElements);
 
             // Create a dynamic vertex buffer.
             int size = VertexPositionTexture.SizeInBytes * _vertices.Length;
 
-            _buffer = new DynamicVertexBuffer(Engine.Device, size, BufferUsage.WriteOnly);
+            _buffer = new DynamicVertexBuffer(GameEngine.Device, size, BufferUsage.WriteOnly);
 
             if (_defaultTexture == null)
             {
@@ -122,7 +122,7 @@ namespace OpenC1.Gfx
                 {
                     AddToBuffer(skid);
                     skid.StartPosition = skid.EndPosition;
-                    skid.StartTime = Engine.TotalSeconds;
+                    skid.StartTime = GameEngine.TotalSeconds;
                 }
             }
 
@@ -154,7 +154,7 @@ namespace OpenC1.Gfx
         {
             Update();
 
-            GraphicsDevice device = Engine.Device;
+            GraphicsDevice device = GameEngine.Device;
 
             device.Vertices[0].SetSource(_buffer, 0, VertexPositionTexture.SizeInBytes);
             device.VertexDeclaration = _vertexDeclaration;
@@ -163,7 +163,7 @@ namespace OpenC1.Gfx
             GameVars.CurrentEffect.CurrentTechnique.Passes[0].Begin();
 
             device.RenderState.DepthBias = -0.00002f;
-            CullMode oldCullMode = Engine.Device.RenderState.CullMode;
+            CullMode oldCullMode = GameEngine.Device.RenderState.CullMode;
             device.RenderState.CullMode = CullMode.None;
 
             int nbrCalls = 0;
@@ -251,7 +251,7 @@ namespace OpenC1.Gfx
             }
             if (skid == null)
             {
-                skid = new CurrentSkid { Wheel = wheel, StartPosition = pos, EndPosition = pos, StartTime = Engine.TotalSeconds };
+                skid = new CurrentSkid { Wheel = wheel, StartPosition = pos, EndPosition = pos, StartTime = GameEngine.TotalSeconds };
                 _currentSkids.Add(skid);
             }
             else

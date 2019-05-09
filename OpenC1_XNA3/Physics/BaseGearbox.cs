@@ -112,7 +112,7 @@ namespace OpenC1.Physics
         {
             if (_gearChange != null)
             {
-                _gearChange.TimeTillEngaged -= Engine.ElapsedSeconds;
+                _gearChange.TimeTillEngaged -= GameEngine.ElapsedSeconds;
 
                 if (_gearChange.TimeTillEngaged <= 0)
                 {

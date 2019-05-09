@@ -305,7 +305,7 @@ namespace OpenC1.Parsers
 
         private void AddFrame(byte[] pixels)
         {
-            Texture2D texture = new Texture2D(Engine.Device, _width, _height, 1, TextureUsage.None, SurfaceFormat.Color);
+            Texture2D texture = new Texture2D(GameEngine.Device, _width, _height, 1, TextureUsage.None, SurfaceFormat.Color);
             texture.SetData<byte>(Helpers.GetBytesForImage(pixels, _width, _height, _palette));
             _frames.Add(texture);
             _lastFramePixels = pixels;

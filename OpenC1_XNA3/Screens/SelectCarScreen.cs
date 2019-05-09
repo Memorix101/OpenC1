@@ -20,9 +20,9 @@ namespace OpenC1.Screens
         public SelectCarScreen(BaseMenuScreen parent)
             : base(parent)
         {
-            _titleFont = Engine.ContentManager.Load<SpriteFont>("content/LucidaConsole");
+            _titleFont = GameEngine.ContentManager.Load<SpriteFont>("content/LucidaConsole");
 
-            SimpleCamera cam = Engine.Camera as SimpleCamera;
+            SimpleCamera cam = GameEngine.Camera as SimpleCamera;
             cam.DrawDistance = 999999;
 
             _inAnimation = new AnimationPlayer(LoadAnimation("chcrcome.fli"));
@@ -36,11 +36,11 @@ namespace OpenC1.Screens
             _effect.TexCoordsMultiplier = 1;
             _effect.TextureEnabled = true;
 
-            Engine.Camera.Position = new Vector3(-1.5f, 3.5f, 10);
-            Engine.Camera.Orientation = new Vector3(0, -0.28f, -1);
-            Engine.Camera.Update();
-            _effect.View = Engine.Camera.View;
-            _effect.Projection = Engine.Camera.Projection;
+            GameEngine.Camera.Position = new Vector3(-1.5f, 3.5f, 10);
+            GameEngine.Camera.Orientation = new Vector3(0, -0.28f, -1);
+            GameEngine.Camera.Update();
+            _effect.View = GameEngine.Camera.View;
+            _effect.Projection = GameEngine.Camera.Projection;
 
             _opponents = OpponentsFile.Instance.Opponents;
             if (GameVars.Emulation != EmulationMode.Demo && GameVars.Emulation != EmulationMode.SplatPackDemo)
@@ -119,12 +119,12 @@ namespace OpenC1.Screens
 
         public void RenderInSpriteBatch()
         {
-            Engine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _info.Name.ToUpperInvariant(), BaseHUDItem.ScaleVec2(0.22f, 0.17f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
-            Engine.SpriteBatch.DrawString(SelectCarScreen._titleFont, new String('_', _info.Name.Length), BaseHUDItem.ScaleVec2(0.22f, 0.175f), Color.Red, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
+            GameEngine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _info.Name.ToUpperInvariant(), BaseHUDItem.ScaleVec2(0.22f, 0.17f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
+            GameEngine.SpriteBatch.DrawString(SelectCarScreen._titleFont, new String('_', _info.Name.Length), BaseHUDItem.ScaleVec2(0.22f, 0.175f), Color.Red, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
 
 			if (_loadException != null)
 			{
-				Engine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _loadException, BaseHUDItem.ScaleVec2(0.22f, 0.37f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
+				GameEngine.SpriteBatch.DrawString(SelectCarScreen._titleFont, _loadException, BaseHUDItem.ScaleVec2(0.22f, 0.37f), Color.White, 0, Vector2.Zero, 2f, SpriteEffects.None, 0);
 			}
         }
 
@@ -137,18 +137,18 @@ namespace OpenC1.Screens
             if (_model == null)
                 return;
 
-            Engine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
-            Engine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+            GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
+            GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
 
             _effect.Begin(SaveStateMode.None);
 
             _model.Update();
-            Engine.Device.RenderState.DepthBufferEnable = true;
-            Engine.Device.RenderState.CullMode = CullMode.None;
-			//Engine.Device.RenderState.FillMode = FillMode.WireFrame;
+            GameEngine.Device.RenderState.DepthBufferEnable = true;
+            GameEngine.Device.RenderState.CullMode = CullMode.None;
+			//GameEngine.Device.RenderState.FillMode = FillMode.WireFrame;
 			_effect.TextureEnabled = true;
             _model.Render(Matrix.CreateScale(1.2f) * Matrix.CreateRotationY(2.55f));
-			Engine.Device.RenderState.FillMode = FillMode.Solid;
+			GameEngine.Device.RenderState.FillMode = FillMode.Solid;
 
             _effect.End();
         }

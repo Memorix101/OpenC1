@@ -26,7 +26,7 @@ namespace OpenC1.Screens
 		{
 			base.Render();
 
-			Engine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
+			GameEngine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
 
 			RenderDefaultBackground();
 
@@ -35,8 +35,8 @@ namespace OpenC1.Screens
 			WriteLine("Download and use Carmageddon demo content", 120);
 			WriteLine("(C1 demo, SplatPack demo & SplatPack Xmas demo)?");
 			
-			//Engine.SpriteBatch.DrawString(_font, "Do you want to download and use", new Vector2(20, 110), Color.White);
-			//Engine.SpriteBatch.DrawString(_font, "Carmageddon demo content?", new Vector2(20, 130), Color.White);
+			//GameEngine.SpriteBatch.DrawString(_font, "Do you want to download and use", new Vector2(20, 110), Color.White);
+			//GameEngine.SpriteBatch.DrawString(_font, "Carmageddon demo content?", new Vector2(20, 130), Color.White);
 			
 			string[] options = { "OK", "Cancel" };
 			float y = 250;
@@ -44,26 +44,26 @@ namespace OpenC1.Screens
 			{
 				Color c = Color.White;
 				if (_selectedIndex == i)
-					Engine.SpriteBatch.DrawString(_font, "< " + options[i] + " >", new Vector2(40, y), Color.YellowGreen);
+					GameEngine.SpriteBatch.DrawString(_font, "< " + options[i] + " >", new Vector2(40, y), Color.YellowGreen);
 				else
-					Engine.SpriteBatch.DrawString(_font, "  " + options[i], new Vector2(40, y), Color.White);
+					GameEngine.SpriteBatch.DrawString(_font, "  " + options[i], new Vector2(40, y), Color.White);
 				y += 35;
 			}
 			
 			WriteLine("Carmageddon demo content is property of Stainless", 470);
 			WriteLine("Software Ltd.  See GameData\\readme.txt.");
 
-			Engine.SpriteBatch.End();
+			GameEngine.SpriteBatch.End();
 		}
 
 		public override void Update()
 		{
 			base.Update();
-			if (Engine.Input.WasPressed(Keys.Up) || Engine.Input.WasPressed(Buttons.DPadUp) ||Engine.Input.WasPressed(Buttons.LeftThumbstickUp))
+			if (GameEngine.Input.WasPressed(Keys.Up) || GameEngine.Input.WasPressed(Buttons.DPadUp) ||GameEngine.Input.WasPressed(Buttons.LeftThumbstickUp))
 			{
 				_selectedIndex = 0;
 			}
-			else if (Engine.Input.WasPressed(Keys.Down) || Engine.Input.WasPressed(Buttons.DPadDown) || Engine.Input.WasPressed(Buttons.LeftThumbstickDown))
+			else if (GameEngine.Input.WasPressed(Keys.Down) || GameEngine.Input.WasPressed(Buttons.DPadDown) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickDown))
 			{
 				_selectedIndex = 1;
 			}
@@ -73,11 +73,11 @@ namespace OpenC1.Screens
 		{
 			if (_selectedIndex == 0)
 			{
-				Engine.Screen = new DownloadGameDataScreen(null);
+				GameEngine.Screen = new DownloadGameDataScreen(null);
 			}
 			else
 			{
-				Engine.Game.Exit();
+				GameEngine.Game.Exit();
 			}
 		}
 	}

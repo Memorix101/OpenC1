@@ -29,10 +29,10 @@ namespace OpenC1.Screens
         public BaseMenuScreen(IGameScreen parent)
         {
             Parent = parent;
-			Viewport viewport = Engine.Device.Viewport;
-			_rect = new Rectangle(0, 0, Engine.Device.Viewport.Width, Engine.Device.Viewport.Height);
-            Engine.Camera = new SimpleCamera();
-			_font = Engine.ContentManager.Load<SpriteFont>("content/Fontana");
+			Viewport viewport = GameEngine.Device.Viewport;
+			_rect = new Rectangle(0, 0, GameEngine.Device.Viewport.Width, GameEngine.Device.Viewport.Height);
+            GameEngine.Camera = new SimpleCamera();
+			_font = GameEngine.ContentManager.Load<SpriteFont>("content/Fontana");
         }
 
         public void ReturnToParent()
@@ -42,23 +42,23 @@ namespace OpenC1.Screens
 				if (((BaseMenuScreen)Parent)._inAnimation != null)
 					((BaseMenuScreen)Parent)._inAnimation.Play(false);
 			}
-            Engine.Screen = Parent;
+            GameEngine.Screen = Parent;
         }
 
 		public void RenderDefaultBackground()
 		{
-			Engine.SpriteBatch.Draw(Engine.ContentManager.Load<Texture2D>("content/menu-background"), _rect, Color.White);
+			GameEngine.SpriteBatch.Draw(GameEngine.ContentManager.Load<Texture2D>("content/menu-background"), _rect, Color.White);
 		}
 
 		public void WriteTitleLine(string text)
 		{
-			Engine.SpriteBatch.DrawString(_font, text, new Vector2(20, 30), Color.Red, 0, Vector2.Zero, 1.5f, SpriteEffects.None, 0);
+			GameEngine.SpriteBatch.DrawString(_font, text, new Vector2(20, 30), Color.Red, 0, Vector2.Zero, 1.5f, SpriteEffects.None, 0);
 			_currentLine = 80;
 		}
 
 		public void WriteLine(string text)
 		{
-			Engine.SpriteBatch.DrawString(_font, text, new Vector2(30, _currentLine), Color.LightGray);
+			GameEngine.SpriteBatch.DrawString(_font, text, new Vector2(30, _currentLine), Color.LightGray);
 			_currentLine += 35;
 		}
 
@@ -83,12 +83,12 @@ namespace OpenC1.Screens
 			}
 			else
 			{
-				if (Engine.Input.WasPressed(Keys.Escape) && Parent != null || Engine.Input.WasPressed(Buttons.B) && Parent != null)
+				if (GameEngine.Input.WasPressed(Keys.Escape) && Parent != null || GameEngine.Input.WasPressed(Buttons.B) && Parent != null)
 				{
 					if (SoundCache.IsInitialized) SoundCache.Play(SoundIds.UI_Esc, null, false);
 					ReturnToParent();
 				}
-				if (Engine.Input.WasPressed(Keys.Down) || Engine.Input.WasPressed(Buttons.DPadDown) || Engine.Input.WasPressed(Buttons.LeftThumbstickDown))
+				if (GameEngine.Input.WasPressed(Keys.Down) || GameEngine.Input.WasPressed(Buttons.DPadDown) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickDown))
 				{
 					if (_selectedOption < _options.Count - 1)
 						_selectedOption++;
@@ -96,7 +96,7 @@ namespace OpenC1.Screens
 						_selectedOption = 0;
 					if (SoundCache.IsInitialized) SoundCache.Play(SoundIds.UI_UpDown, null, false);
 				}
-				else if (Engine.Input.WasPressed(Keys.Up) || Engine.Input.WasPressed(Buttons.DPadUp) || Engine.Input.WasPressed(Buttons.LeftThumbstickUp))
+				else if (GameEngine.Input.WasPressed(Keys.Up) || GameEngine.Input.WasPressed(Buttons.DPadUp) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickUp))
 				{
 					if (_selectedOption > 0)
 						_selectedOption--;
@@ -104,7 +104,7 @@ namespace OpenC1.Screens
 						_selectedOption = _options.Count - 1;
 					if (SoundCache.IsInitialized) SoundCache.Play(SoundIds.UI_UpDown, null, false);
 				}
-				else if (Engine.Input.WasPressed(Keys.Enter) || Engine.Input.WasPressed(Buttons.A))
+				else if (GameEngine.Input.WasPressed(Keys.Enter) || GameEngine.Input.WasPressed(Buttons.A))
 				{
 					if (_options.Count == 0 || _options[_selectedOption].CanBeSelected)
 					{
@@ -125,31 +125,31 @@ namespace OpenC1.Screens
 
         public virtual void Render()
         {
-            Engine.Device.Clear(Color.Black);
+            GameEngine.Device.Clear(Color.Black);
 
-            Engine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
+            GameEngine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
 
             if (_outAnimation != null && _waitingForOutAnimation)
-                Engine.SpriteBatch.Draw(_outAnimation.GetCurrentFrame(), _rect, Color.White);
+                GameEngine.SpriteBatch.Draw(_outAnimation.GetCurrentFrame(), _rect, Color.White);
             else if (_inAnimation != null)
-                Engine.SpriteBatch.Draw(_inAnimation.GetCurrentFrame(), _rect, Color.White);
+                GameEngine.SpriteBatch.Draw(_inAnimation.GetCurrentFrame(), _rect, Color.White);
 
 			if (GameVars.BasePath != null)
 			{
 				Vector2 pos = BaseHUDItem.ScaleVec2(0.01f, 0.92f);
 				Version v = Assembly.GetExecutingAssembly().GetName().Version;
-				Engine.SpriteBatch.DrawString(_font, "Open C1 v" + v.Major + "." + v.Minor + "." + v.Build + " - " + new DirectoryInfo(GameVars.BasePath).Name, pos, Color.Red, 0, Vector2.Zero, 1.1f, SpriteEffects.None, 0);
+				GameEngine.SpriteBatch.DrawString(_font, "Open C1 v" + v.Major + "." + v.Minor + "." + v.Build + " - " + new DirectoryInfo(GameVars.BasePath).Name, pos, Color.Red, 0, Vector2.Zero, 1.1f, SpriteEffects.None, 0);
 			}
 
             if (ShouldRenderOptions())
             {
                 _options[_selectedOption].RenderInSpriteBatch();
-                Engine.SpriteBatch.End();
+                GameEngine.SpriteBatch.End();
                 _options[_selectedOption].RenderOutsideSpriteBatch();
             }
             else
             {
-                Engine.SpriteBatch.End();
+                GameEngine.SpriteBatch.End();
             }
         }
 
@@ -170,7 +170,7 @@ namespace OpenC1.Screens
             filename = filename.Substring(0, filename.Length - 3) + "png";
             if (File.Exists(GameVars.BasePath + "anim\\" + filename))
             {
-                return new List<Texture2D> { (Texture2D)Texture.FromFile(Engine.Device, GameVars.BasePath + "anim\\" + filename) };
+                return new List<Texture2D> { (Texture2D)Texture.FromFile(GameEngine.Device, GameVars.BasePath + "anim\\" + filename) };
             }
 
             filename = filename.Substring(0, filename.Length - 3) + "pix";

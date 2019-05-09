@@ -55,7 +55,7 @@ namespace OpenC1.Physics
                 NonCar noncar = otherShape.Actor.UserData as NonCar;
 
                 // if the trigger is a noncar that was hit within 7 seconds
-                if (triggerShape.Actor.UserData is Pedestrian && noncar.LastTouchTime + 7f > Engine.TotalSeconds)
+                if (triggerShape.Actor.UserData is Pedestrian && noncar.LastTouchTime + 7f > GameEngine.TotalSeconds)
                 {
                     Pedestrian ped = (Pedestrian)triggerShape.Actor.UserData;
                     if (!ped.IsHit)

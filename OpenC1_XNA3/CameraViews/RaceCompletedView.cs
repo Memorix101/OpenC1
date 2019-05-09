@@ -40,7 +40,7 @@ namespace OpenC1.CameraViews
                 _camera.RotateTo(MathHelper.Pi * 2);
             }
 
-            //Engine.Camera = _camera;
+            //GameEngine.Camera = _camera;
         }
 
         public void Render()
@@ -50,7 +50,7 @@ namespace OpenC1.CameraViews
 
         public void Activate()
         {
-            Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
             _camera.ResetRotation();
             _camera.RotateTo(MathHelper.Pi * 2);
         }

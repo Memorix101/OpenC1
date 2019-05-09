@@ -56,7 +56,7 @@ namespace OneAmEngine
                 }
             }
 
-            vb = new VertexBuffer(Engine.Device, VertexPositionNormalTexture.SizeInBytes * TILES_X * TILES_Z, BufferUsage.WriteOnly);
+            vb = new VertexBuffer(GameEngine.Device, VertexPositionNormalTexture.SizeInBytes * TILES_X * TILES_Z, BufferUsage.WriteOnly);
             vb.SetData(vertices);
         }
 
@@ -77,32 +77,32 @@ namespace OneAmEngine
                 }
             }
 
-            ib = new IndexBuffer(Engine.Device, typeof(int), (TILES_X - 1) * (TILES_Z - 1) * 6, BufferUsage.WriteOnly);
+            ib = new IndexBuffer(GameEngine.Device, typeof(int), (TILES_X - 1) * (TILES_Z - 1) * 6, BufferUsage.WriteOnly);
             ib.SetData(indices);
         }
 
         public void Draw()
         {
-            Engine.Device.RenderState.CullMode = CullMode.CullClockwiseFace;
+            GameEngine.Device.RenderState.CullMode = CullMode.CullClockwiseFace;
             Matrix worldMatrix = Matrix.CreateTranslation(0, 0, -TILES_Z+1);
             worldMatrix *= Matrix.CreateScale(10, 1, 10);
-            BasicEffect effect = new BasicEffect(Engine.Device, null);
+            BasicEffect effect = new BasicEffect(GameEngine.Device, null);
             effect.World = worldMatrix;
-            effect.View = Engine.Camera.View;
-            effect.Projection = Engine.Camera.Projection;
-            effect.Texture = Engine.ContentManager.Load<Texture2D>("Content\\Textures\\grass");
+            effect.View = GameEngine.Camera.View;
+            effect.Projection = GameEngine.Camera.Projection;
+            effect.Texture = GameEngine.ContentManager.Load<Texture2D>("Content\\Textures\\grass");
             effect.TextureEnabled = true;
-            Engine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
-            Engine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+            GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
+            GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
             effect.Begin();
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
                 pass.Begin();
 
-                Engine.Device.Vertices[0].SetSource(vb, 0, VertexPositionNormalTexture.SizeInBytes);
-                Engine.Device.Indices = ib;
-                Engine.Device.VertexDeclaration = new VertexDeclaration(Engine.Device, VertexPositionNormalTexture.VertexElements);
-                Engine.Device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, TILES_X * TILES_Z, 0, (TILES_X - 1) * (TILES_Z - 1) * 2);
+                GameEngine.Device.Vertices[0].SetSource(vb, 0, VertexPositionNormalTexture.SizeInBytes);
+                GameEngine.Device.Indices = ib;
+                GameEngine.Device.VertexDeclaration = new VertexDeclaration(GameEngine.Device, VertexPositionNormalTexture.VertexElements);
+                GameEngine.Device.DrawIndexedPrimitives(PrimitiveType.TriangleList, 0, 0, TILES_X * TILES_Z, 0, (TILES_X - 1) * (TILES_Z - 1) * 2);
             }
             effect.End();
         }

@@ -14,7 +14,7 @@ namespace OpenC1
 
         static ModelShadow()
         {
-            _vertexDeclaration = new VertexDeclaration(Engine.Device, VertexPositionColor.VertexElements);
+            _vertexDeclaration = new VertexDeclaration(GameEngine.Device, VertexPositionColor.VertexElements);
         }
 
         public static void Render(BoundingBox bb, VehicleChassis chassis)
@@ -49,16 +49,16 @@ namespace OpenC1
                 verts[i2++] = new VertexPositionColor(points[i], shadowColor);
             }
 
-            GraphicsDevice device = Engine.Device;
-            CullMode oldCullMode = Engine.Device.RenderState.CullMode;
-            Engine.Device.RenderState.CullMode = CullMode.None;
+            GraphicsDevice device = GameEngine.Device;
+            CullMode oldCullMode = GameEngine.Device.RenderState.CullMode;
+            GameEngine.Device.RenderState.CullMode = CullMode.None;
             
             GameVars.CurrentEffect.World = Matrix.Identity;
             GameVars.CurrentEffect.TextureEnabled = false;
             GameVars.CurrentEffect.VertexColorEnabled = true;
             VertexDeclaration oldVertDecl = device.VertexDeclaration;
             device.VertexDeclaration = _vertexDeclaration;
-            Engine.Device.RenderState.AlphaTestEnable = false;
+            GameEngine.Device.RenderState.AlphaTestEnable = false;
 			GameVars.CurrentEffect.PreferPerPixelLighting = false;
 			//GameVars.CurrentEffect.LightingEnabled = false;
 
@@ -76,10 +76,10 @@ namespace OpenC1
             device.RenderState.AlphaBlendEnable = false;
             device.RenderState.DepthBufferWriteEnable = true;
             device.VertexDeclaration = oldVertDecl;
-            Engine.Device.RenderState.CullMode = oldCullMode;
+            GameEngine.Device.RenderState.CullMode = oldCullMode;
 
 			GameVars.CurrentEffect.PreferPerPixelLighting = true;
-			Engine.Device.RenderState.AlphaTestEnable = true;
+			GameEngine.Device.RenderState.AlphaTestEnable = true;
 			GameVars.CurrentEffect.TextureEnabled = true;
             
         }

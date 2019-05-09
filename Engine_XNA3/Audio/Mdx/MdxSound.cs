@@ -52,7 +52,6 @@ namespace OneAmEngine.Audio
                 return (float)_buffer.Caps.BufferBytes / (float)_buffer.Format.SamplesPerSecond;
             }
         }
-
 		public Vector3 Position
 		{
             get
@@ -86,7 +85,7 @@ namespace OneAmEngine.Audio
             _buffer.Play(0, loop ? BufferPlayFlags.Looping : BufferPlayFlags.Default);
             if (_is3d && loop && MuteAtMaximumDistance)
             {
-                Engine.Audio.Register3dSound(this);
+                GameEngine.Audio.Register3dSound(this);
             }
 		}
 
@@ -94,7 +93,7 @@ namespace OneAmEngine.Audio
 		{
 			_buffer.Stop();
             _buffer.SetCurrentPosition(0);
-            Engine.Audio.Unregister3dSound(this);
+            GameEngine.Audio.Unregister3dSound(this);
 		}
 
         public void Pause()

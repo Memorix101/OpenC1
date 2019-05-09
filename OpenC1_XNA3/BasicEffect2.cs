@@ -44,8 +44,8 @@ namespace OpenC1
 
         public BasicEffect2()
         {
-            _effect = Engine.ContentManager.Load<Effect>("Content/BasicEffect2");
-            this.CacheEffectParams(Engine.Device);
+            _effect = GameEngine.ContentManager.Load<Effect>("Content/BasicEffect2");
+            this.CacheEffectParams(GameEngine.Device);
         }
 
         private void CacheEffectParams(GraphicsDevice device)

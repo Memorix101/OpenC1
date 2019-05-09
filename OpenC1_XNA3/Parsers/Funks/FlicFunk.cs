@@ -26,7 +26,7 @@ namespace OpenC1.Parsers.Funks
         {
             if (_frames.Count == 0) return;
 
-            _currentFrameTime += Engine.ElapsedSeconds;
+            _currentFrameTime += GameEngine.ElapsedSeconds;
             if (_currentFrameTime > _speed)
             {
                 _currentFrame++;

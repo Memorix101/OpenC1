@@ -14,7 +14,7 @@ namespace OpenC1.CameraViews
         {
             _vehicle = vehicle;
             _camera = new FPSCamera();
-            _camera.SetPerspective(55.55f, Engine.AspectRatio, 1, 500);
+            _camera.SetPerspective(55.55f, GameEngine.AspectRatio, 1, 500);
         }
 
         #region ICameraView Members
@@ -32,12 +32,12 @@ namespace OpenC1.CameraViews
         public void Render()
         {
             _vehicle.Render();
-            Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
         }
 
         public void Activate()
         {
-            Engine.Camera = _camera;
+            GameEngine.Camera = _camera;
             _camera.Position = _vehicle.Position;
         }
 

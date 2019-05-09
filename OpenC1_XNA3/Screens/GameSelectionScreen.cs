@@ -27,7 +27,7 @@ namespace OpenC1.Screens
             ScreenEffects.Instance.FadeSpeed = 300;
             ScreenEffects.Instance.UnFadeScreen();
 
-            _showTime = Engine.TotalSeconds;
+            _showTime = GameEngine.TotalSeconds;
 
 			string[] mods = Directory.GetDirectories("GameData");
 			foreach (string game in mods)
@@ -38,7 +38,7 @@ namespace OpenC1.Screens
         {
             base.Render();
 
-            Engine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
+            GameEngine.SpriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Deferred, SaveStateMode.SaveState);
 
 			RenderDefaultBackground();
 
@@ -49,20 +49,20 @@ namespace OpenC1.Screens
 			{
 				Color c = Color.White;
 				if (i == _selectedIndex)
-					Engine.SpriteBatch.DrawString(_font, "< " + _mods[i] + " >", new Vector2(40, y), Color.YellowGreen);
+					GameEngine.SpriteBatch.DrawString(_font, "< " + _mods[i] + " >", new Vector2(40, y), Color.YellowGreen);
 				else
-					Engine.SpriteBatch.DrawString(_font, "  " + _mods[i], new Vector2(40, y), Color.White);
+					GameEngine.SpriteBatch.DrawString(_font, "  " + _mods[i], new Vector2(40, y), Color.White);
 				y += 35;
 			}
             
-            Engine.SpriteBatch.End();
+            GameEngine.SpriteBatch.End();
         }
 
 		public override void Update()
 		{
-            if (Engine.Input.WasPressed(Keys.Up) || Engine.Input.WasPressed(Buttons.DPadUp) || Engine.Input.WasPressed(Buttons.LeftThumbstickUp))
+            if (GameEngine.Input.WasPressed(Keys.Up) || GameEngine.Input.WasPressed(Buttons.DPadUp) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickUp))
                 _selectedIndex = Math.Max(0, _selectedIndex-1);
-			else if (Engine.Input.WasPressed(Keys.Down) || Engine.Input.WasPressed(Buttons.DPadDown) || Engine.Input.WasPressed(Buttons.LeftThumbstickDown))
+			else if (GameEngine.Input.WasPressed(Keys.Down) || GameEngine.Input.WasPressed(Buttons.DPadDown) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickDown))
 				_selectedIndex = Math.Min(_mods.Count-1, _selectedIndex+1);
 
             base.Update();
@@ -72,7 +72,7 @@ namespace OpenC1.Screens
 		{
 			GameVars.BasePath = Path.Combine(Environment.CurrentDirectory, "GameData") + "\\" + _mods[_selectedIndex] + "\\";
 			GameVars.DetectEmulationMode();
-			Engine.Screen = new MainMenuScreen(null);
+			GameEngine.Screen = new MainMenuScreen(null);
 		}
 	}
 }

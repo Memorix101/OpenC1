@@ -66,7 +66,7 @@ namespace OpenC1
 
         private void GenerateSimpMatGradient()
         {
-            Texture2D tex = new Texture2D(Engine.Device, 1, SimpMatGradientCount + 1, 1, TextureUsage.None, SurfaceFormat.Color);
+            Texture2D tex = new Texture2D(GameEngine.Device, 1, SimpMatGradientCount + 1, 1, TextureUsage.None, SurfaceFormat.Color);
             Color[] pixels = new Color[1 * SimpMatGradientCount+1];
             for (int i = 0; i < SimpMatGradientCount+1; i++)
                 pixels[i] = GameVars.Palette.GetRGBColorForPixel((SimpMatPixelIndex+i) % 255);
