@@ -48,7 +48,7 @@ namespace OpenC1
             else
                 chassis.ReleaseHandbrake();
 
-            if (Engine.Input.WasPressed(Keys.R))
+            if (Engine.Input.WasPressed(Keys.R) || Engine.Input.WasPressed(Buttons.B))
             {
                 if (_recoverPositions.Count > 0)
                 {
@@ -59,7 +59,7 @@ namespace OpenC1
                     Vehicle.Chassis.Reset();
             }
 
-            if (Engine.Input.WasPressed(Keys.Back))
+            if (Engine.Input.WasPressed(Keys.Back) || Engine.Input.WasPressed(Buttons.Back))
             {
                 Vehicle.Repair();
             }

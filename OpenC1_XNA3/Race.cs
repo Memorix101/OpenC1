@@ -212,11 +212,12 @@ namespace OpenC1
 
             MessageRenderer.Instance.Update();
 
-            if (Engine.Input.WasPressed(Keys.Tab))
+            if (Engine.Input.WasPressed(Keys.Tab) || Engine.Input.WasPressed(Buttons.DPadUp))
                 _map.Show = !_map.Show;
-
-			if (Engine.Input.WasPressed(Keys.T))
+#if DEBUG
+            if (Engine.Input.WasPressed(Keys.T) || Engine.Input.WasPressed(Buttons.DPadRight))
 				RaceTime.TimeRemaining += 60;
+#endif
         }
 
         public void Render()

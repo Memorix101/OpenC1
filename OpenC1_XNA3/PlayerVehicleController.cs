@@ -51,17 +51,17 @@ namespace OpenC1
             }
         }
 
-        public static bool ChangeView
+        /*public static bool ChangeView
         {
             get
             {
                 if (Engine.Input.WasPressed(Keys.C))
                     return true;
-                if (Engine.Input.WasPressed(Buttons.RightShoulder))
+                if (Engine.Input.WasPressed(Buttons.DPadUp))
                     return true;
                 return false;
             }
-        }
+        }*/
 
         public static bool GearUp
         {
@@ -69,7 +69,7 @@ namespace OpenC1
             {
                 if (Engine.Input.WasPressed(Keys.A))
                     return true;
-                if (Engine.Input.WasPressed(Buttons.B))
+                if (Engine.Input.WasPressed(Buttons.RightShoulder))
                     return true;
                 return false;
             }
@@ -79,9 +79,9 @@ namespace OpenC1
         {
             get
             {
-                if (Engine.Input.WasPressed(Keys.Z))
+                if (Engine.Input.WasPressed(Keys.Z) || Engine.Input.WasPressed(Keys.Y)) //QWERTZ
                     return true;
-                if (Engine.Input.WasPressed(Buttons.X))
+                if (Engine.Input.WasPressed(Buttons.LeftShoulder))
                     return true;
                 return false;
             }
@@ -92,7 +92,7 @@ namespace OpenC1
             get
             {
                 if (ForceBrake) return true;
-                return Engine.Input.IsKeyDown(Keys.Space);
+                return Engine.Input.IsKeyDown(Keys.Space) || Engine.Input.IsButtonDown(Buttons.X);
             }
         }
     }

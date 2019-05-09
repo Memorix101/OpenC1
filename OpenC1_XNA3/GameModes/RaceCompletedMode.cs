@@ -80,7 +80,7 @@ namespace OpenC1.GameModes
                 _camera.RotateTo(MathHelper.Pi * 2);
             }
 
-            if (Engine.Input.WasPressed(Keys.Enter) || Engine.Input.WasPressed(Keys.Escape))
+            if (Engine.Input.WasPressed(Keys.Enter) || Engine.Input.WasPressed(Keys.Escape) || Engine.Input.WasPressed(Buttons.Start))
             {
 				Race.Current.ExitAndReturnToMenu();
             }

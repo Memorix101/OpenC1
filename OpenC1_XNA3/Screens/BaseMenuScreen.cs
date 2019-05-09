@@ -83,12 +83,12 @@ namespace OpenC1.Screens
 			}
 			else
 			{
-				if (Engine.Input.WasPressed(Keys.Escape) && Parent != null)
+				if (Engine.Input.WasPressed(Keys.Escape) && Parent != null || Engine.Input.WasPressed(Buttons.B) && Parent != null)
 				{
 					if (SoundCache.IsInitialized) SoundCache.Play(SoundIds.UI_Esc, null, false);
 					ReturnToParent();
 				}
-				if (Engine.Input.WasPressed(Keys.Down))
+				if (Engine.Input.WasPressed(Keys.Down) || Engine.Input.WasPressed(Buttons.DPadDown) || Engine.Input.WasPressed(Buttons.LeftThumbstickDown))
 				{
 					if (_selectedOption < _options.Count - 1)
 						_selectedOption++;
@@ -96,7 +96,7 @@ namespace OpenC1.Screens
 						_selectedOption = 0;
 					if (SoundCache.IsInitialized) SoundCache.Play(SoundIds.UI_UpDown, null, false);
 				}
-				else if (Engine.Input.WasPressed(Keys.Up))
+				else if (Engine.Input.WasPressed(Keys.Up) || Engine.Input.WasPressed(Buttons.DPadUp) || Engine.Input.WasPressed(Buttons.LeftThumbstickUp))
 				{
 					if (_selectedOption > 0)
 						_selectedOption--;
@@ -104,7 +104,7 @@ namespace OpenC1.Screens
 						_selectedOption = _options.Count - 1;
 					if (SoundCache.IsInitialized) SoundCache.Play(SoundIds.UI_UpDown, null, false);
 				}
-				else if (Engine.Input.WasPressed(Keys.Enter))
+				else if (Engine.Input.WasPressed(Keys.Enter) || Engine.Input.WasPressed(Buttons.A))
 				{
 					if (_options.Count == 0 || _options[_selectedOption].CanBeSelected)
 					{

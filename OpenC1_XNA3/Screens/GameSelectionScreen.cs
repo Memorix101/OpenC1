@@ -60,12 +60,13 @@ namespace OpenC1.Screens
 
 		public override void Update()
 		{
-			base.Update();
-			if (Engine.Input.WasPressed(Keys.Up))
-				_selectedIndex = Math.Max(0, _selectedIndex-1);
-			else if (Engine.Input.WasPressed(Keys.Down))
+            if (Engine.Input.WasPressed(Keys.Up) || Engine.Input.WasPressed(Buttons.DPadUp) || Engine.Input.WasPressed(Buttons.LeftThumbstickUp))
+                _selectedIndex = Math.Max(0, _selectedIndex-1);
+			else if (Engine.Input.WasPressed(Keys.Down) || Engine.Input.WasPressed(Buttons.DPadDown) || Engine.Input.WasPressed(Buttons.LeftThumbstickDown))
 				_selectedIndex = Math.Min(_mods.Count-1, _selectedIndex+1);
-		}
+
+            base.Update();
+        }
 
 		public override void OnOutAnimationFinished()
 		{

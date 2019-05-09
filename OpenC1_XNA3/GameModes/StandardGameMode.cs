@@ -31,13 +31,13 @@ namespace OpenC1.GameModes
 
         public override void Update()
         {
-			if (Engine.Input.WasPressed(Keys.Escape))
+			if (Engine.Input.WasPressed(Keys.Escape) || Engine.Input.WasPressed(Buttons.Start))
 			{
 				Engine.Screen = new PauseMenuScreen((PlayGameScreen)Engine.Screen);
 				return;
 			}
 
-            if (Engine.Input.WasPressed(Keys.C))  //cockpit / external view
+            if (Engine.Input.WasPressed(Keys.C) || Engine.Input.WasPressed(Buttons.Y))  //cockpit / external view
             {
                 _views[_currentView].Deactivate();
                 _currentView = (_currentView + 1) % _views.Count;

@@ -59,15 +59,15 @@ namespace OpenC1.Screens
 		public override void Update()
 		{
 			base.Update();
-			if (Engine.Input.WasPressed(Keys.Up))
+			if (Engine.Input.WasPressed(Keys.Up) || Engine.Input.WasPressed(Buttons.DPadUp) ||Engine.Input.WasPressed(Buttons.LeftThumbstickUp))
 			{
 				_selectedIndex = 0;
 			}
-			else if (Engine.Input.WasPressed(Keys.Down))
+			else if (Engine.Input.WasPressed(Keys.Down) || Engine.Input.WasPressed(Buttons.DPadDown) || Engine.Input.WasPressed(Buttons.LeftThumbstickDown))
 			{
 				_selectedIndex = 1;
 			}
-		}
+        }
 
 		public override void OnOutAnimationFinished()
 		{

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.DirectX.DirectSound;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace OneAmEngine.Audio
 {
@@ -82,7 +83,7 @@ namespace OneAmEngine.Audio
 
 		public void Play(bool loop)
 		{
-			_buffer.Play(0, loop ? BufferPlayFlags.Looping : BufferPlayFlags.Default);
+            _buffer.Play(0, loop ? BufferPlayFlags.Looping : BufferPlayFlags.Default);
             if (_is3d && loop && MuteAtMaximumDistance)
             {
                 Engine.Audio.Register3dSound(this);

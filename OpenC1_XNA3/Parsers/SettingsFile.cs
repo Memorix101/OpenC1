@@ -11,7 +11,7 @@ namespace OpenC1.Parsers
     class SettingsFile : BaseTextFile
     {
         public SettingsFile()
-            : base(Path.Combine(StorageContainer.TitleLocation, "OpenC1Settings.txt"))
+            : base(Path.Combine(StorageContainer.TitleLocation, "OpenC1Settings.cfg"))
         {
             GameVars.DrawDistance = ReadLineAsInt() * 10;
             GameVars.FullScreen = ReadLineAsBool();

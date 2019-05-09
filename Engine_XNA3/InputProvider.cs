@@ -34,7 +34,6 @@ namespace OneAmEngine
     public class InputProvider : GameComponent
     {
         private GamePadState _gamePadState, _previousGamePadState;
-
         private KeyboardState _keyboardState, _previousKeyboardState;
         private MouseState _mouseState;
         private Vector2 _mouseDelta;
@@ -48,11 +47,11 @@ namespace OneAmEngine
         private float _perFrameMultiplier;
         
 
-        public InputProvider(Game game)
-            : base(game)
+        public InputProvider(Game game) : base(game)
         {
             _mouseDelta = new Vector2();
             _mouseMultiplier = 0.3f;
+            
             // Initialize the mouse smoothing cache.
             _mouseSmoothingCache = new Vector2[MOUSE_SMOOTHING_CACHE_SIZE];
             _mouseInputMode = MouseInputMode.FPS;
@@ -83,8 +82,6 @@ namespace OneAmEngine
 
             if (_previousKeyboardState == null)
                 _previousKeyboardState = _keyboardState;
-
-            
 
             if (_keyboardState.IsKeyDown(Keys.LeftAlt))
             {
@@ -170,7 +167,6 @@ namespace OneAmEngine
             }
         }
 
-
         public bool WasPressed(Keys key)
         {
             return _previousKeyboardState.IsKeyDown(key) && !_keyboardState.IsKeyDown(key);
@@ -184,6 +180,10 @@ namespace OneAmEngine
         public bool IsKeyDown(Keys key)
         {
             return _keyboardState.IsKeyDown(key);
+        }
+        public bool IsButtonDown(Buttons button)
+        {
+            return _gamePadState.IsButtonDown(button);
         }
 
         public MouseInputMode MouseMode
@@ -209,7 +209,6 @@ namespace OneAmEngine
         {
             get { return new Vector2(_mouseState.X, _mouseState.Y); }
         }
-
 
         /// <summary>
         /// Filters the mouse movement based on a weighted sum of mouse
