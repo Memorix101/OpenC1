@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-//using Microsoft.DirectX.DirectSound;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace OneAmEngine.Audio
 {
     class MdxListener : IListener
     {
-        //Listener3D _listener;
+        SoundEffectInstance _listener;
 
-        /* public MdxListener(Device device)
+        /*public MdxListener()
          {
-             BufferDescription desc = new BufferDescription();
+             /*BufferDescription desc = new BufferDescription();
              desc.PrimaryBuffer = true;
              desc.Control3D = true;
-             desc.Mute3DAtMaximumDistance = true;
-             Microsoft.DirectX.DirectSound.Buffer buffer = new Microsoft.DirectX.DirectSound.Buffer(desc, device);
-             _listener = new Listener3D(buffer);
-             Orientation = Matrix.Identity;
-         }*/
+             desc.Mute3DAtMaximumDistance = true;*/
+             //Microsoft.DirectX.DirectSound.Buffer buffer = new Microsoft.DirectX.DirectSound.Buffer(desc, device);
+             //_listener.set3DNumListeners(0);
+            // Orientation = Matrix.Identity;
+        // }*/
 
         public MdxListener()
         {
@@ -59,6 +59,7 @@ namespace OneAmEngine.Audio
         public void CommitChanges()
         {
             //_listener.CommitDeferredSettings();
+           // _listener.update();
         }
     }
 }

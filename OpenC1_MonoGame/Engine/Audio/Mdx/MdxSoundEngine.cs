@@ -8,13 +8,14 @@ namespace OneAmEngine.Audio
 {
     public class MdxSoundEngine : ISoundEngine
     {
-        //Device _audioDevice;
         int _defaultVolume;
         private List<ISound> _sounds = new List<ISound>();
         IListener _listener;
 
         public MdxSoundEngine()
         {
+            //FMOD.Factory.System_Create(out _audioDevice);
+            //_audioDevice.init(32,FMOD.INITFLAGS.NORMAL, IntPtr.Zero);
             //_audioDevice = new Device();
             //_audioDevice.SetCooperativeLevel(Engine.Game.Window.Handle, CooperativeLevel.Priority);
         }
@@ -26,18 +27,18 @@ namespace OneAmEngine.Audio
 
         public IListener GetListener()
         {
-            // if (_listener == null)
-            //_listener = new MdxListener(_audioDevice);
+            if (_listener == null)
+            _listener = new MdxListener();
             return _listener;
         }
 
         public ISound Load(string name, bool is3d)
         {
             if (!File.Exists(name)) return null;
-            //ISound sound = new MdxSound(_audioDevice, name, is3d);
-            //sound.Volume = _defaultVolume;
-            //return sound;
-            return null;
+            ISound sound = new MdxSound(name, is3d);
+            sound.Volume = _defaultVolume;
+            return sound;
+            //return null;
         }
 
         public void Register3dSound(ISound sound)
@@ -49,7 +50,6 @@ namespace OneAmEngine.Audio
         {
             _sounds.Remove(sound);
         }
-
 
         public void Update()
         {
@@ -71,7 +71,6 @@ namespace OneAmEngine.Audio
                 }
             }
         }
-
         public void StopAll()
         {
             foreach (ISound sound in _sounds)
