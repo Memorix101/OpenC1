@@ -40,10 +40,11 @@ namespace OneAmEngine.Audio
             //_buffer = new SecondaryBuffer(filename, desc, device);
             _filename = new FileStream(filename, FileMode.Open);
 
-            if (File.Exists(filename))
+           /* if (File.Exists(filename))
                 Console.WriteLine("YES!!");
             else
-                Console.WriteLine("NAH!!");
+                Console.WriteLine("NAH!!");*/
+
             _sndfx = SoundEffect.FromStream(_filename); //OGG sounds are not supported
             _filename.Dispose();
             _sndInstance = _sndfx.CreateInstance();
