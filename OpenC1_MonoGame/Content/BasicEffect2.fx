@@ -8,6 +8,7 @@
 // Copyright (C) Microsoft Corporation. All rights reserved.
 //-----------------------------------------------------------------------------
 
+#include "Macros.fxh"
 
 //-----------------------------------------------------------------------------
 // Texture sampler
@@ -684,27 +685,17 @@ int ShaderIndex = 0;
 
 //https://github.com/MonoGame/MonoGame/issues/5454
 
-technique BasicEffect
-{
-      pass Pass0
-      {  
-        PixelShader = compile vs_2_0 PSBasic();
-	    PixelShader = compile vs_2_0 PSBasicTx();
-	    PixelShader = compile ps_2_0 PSBasicPixelLighting();
-	    PixelShader = compile ps_2_0 PSBasicPixelLightingTx();
+TECHNIQUE(Basic,                        VSBasic,                        PSBasic)
+TECHNIQUE(Basic_Vc,                     VSBasicVc,                      PSBasic)
+TECHNIQUE(Basic_Tx,                     VSBasicTx,                      PSBasicTx)
+TECHNIQUE(Basic_VcTx,                   VSBasicTxVc,                    PSBasicTx)
 
-    	VertexShader =	compile vs_2_0 VSBasic();
-        VertexShader =	compile vs_2_0 VSBasicVc();
-        VertexShader =	compile vs_2_0 VSBasicTx();
-        VertexShader =	compile vs_2_0 VSBasicTxVc();
-        VertexShader =	compile vs_2_0 VSBasicNm();
-        VertexShader =	compile vs_2_0 VSBasicNmVc();
-        VertexShader =	compile vs_2_0 VSBasicNmTx();
-        VertexShader =	compile vs_2_0 VSBasicNmTxVc();
+TECHNIQUE(Basic_Nm,                     VSBasicNm,                      PSBasic)
+TECHNIQUE(Basic_Nm_Vc,                  VSBasicNmVc,                    PSBasic)
+TECHNIQUE(Basic_Nm_Tx,                  VSBasicNmTx,                    PSBasicTx)
+TECHNIQUE(Basic_Nm_VcTx,                VSBasicNmTxVc,                  PSBasicTx)
 
-        VertexShader =	compile vs_2_0 VSBasicPixelLightingNm();
-        VertexShader =	compile vs_2_0 VSBasicPixelLightingNmVc();
-        VertexShader =	compile vs_2_0 VSBasicPixelLightingNmTx();
-        VertexShader =	compile vs_2_0 VSBasicPixelLightingNmTxVc();
-      }
-}
+TECHNIQUE(BasicPixelLight_Nm,           VSBasicPixelLightingNm,         PSBasic)
+TECHNIQUE(BasicPixelLight_Nm_Vc,        VSBasicPixelLightingNmVc,       PSBasic)
+TECHNIQUE(BasicPixelLight_Nm_Tx,        VSBasicPixelLightingNmTx,       PSBasicTx)
+TECHNIQUE(BasicPixelLight_Nm_VcTx,      VSBasicPixelLightingNmTxVc,     PSBasicTx)
