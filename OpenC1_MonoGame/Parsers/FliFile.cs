@@ -23,9 +23,9 @@ namespace OpenC1.Parsers
         public byte[] GetRGBBytesForPixel(int pixel)
         {
             byte[] rgb = new byte[3];
-            rgb[0] = _paletteData[pixel * 3];
+            rgb[2] = _paletteData[pixel * 3];
             rgb[1] = _paletteData[pixel * 3 + 1];
-            rgb[2] = _paletteData[pixel * 3 + 2];
+            rgb[0] = _paletteData[pixel * 3 + 2];
             return rgb;
         }
 
@@ -126,7 +126,6 @@ namespace OpenC1.Parsers
                 ReadChunk(reader);
             }
         }
-
 
         private void ReadPalette256Chunk(BinaryReader reader)
         {

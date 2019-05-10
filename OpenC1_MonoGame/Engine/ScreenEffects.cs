@@ -105,13 +105,13 @@ namespace OneAmEngine
 
         #endregion
 
-        /* public static Texture2D TakeScreenshot()
-         {
-             int w = GameEngine.Device.PresentationParameters.BackBufferWidth;
-             int h = GameEngine.Device.PresentationParameters.BackBufferHeight;
-             ResolveTexture2D screenshot = new ResolveTexture2D(GameEngine.Device, w, h, 1, GameEngine.Device.PresentationParameters.BackBufferFormat);
-             GameEngine.Device.ResolveBackBuffer(screenshot);
-             return screenshot;
-         }*/
+        public static Texture2D TakeScreenshot()
+        {
+            int w = GameEngine.Device.PresentationParameters.BackBufferWidth;
+            int h = GameEngine.Device.PresentationParameters.BackBufferHeight;
+            RenderTarget2D screenshot = new RenderTarget2D(GameEngine.Device, w, h, false, GameEngine.Device.PresentationParameters.BackBufferFormat, DepthFormat.None);
+            GameEngine.Device.SetRenderTarget(screenshot);
+            return screenshot;
+        }
     }
 }

@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Carmageddon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -284,6 +284,7 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Carmageddon.ico" />
     <Content Include="Lib\a\Microsoft.Xna.Framework.dll" />
     <Content Include="Lib\a\MonoGame.Framework.dll" />
     <Content Include="Lib\a\StillDesign.PhysX.Net.dll" />

@@ -282,7 +282,7 @@ namespace OpenC1.Parsers
         private void ReadOpponentPathsSection()
         {
             Trace.Assert(ReadLine() == "START OF OPPONENT PATHS");
-            
+
             int nbrNodes = ReadLineAsInt();
 
             OpponentPathNodes = new List<OpponentPathNode>();

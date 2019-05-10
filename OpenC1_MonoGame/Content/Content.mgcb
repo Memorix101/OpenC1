@@ -32,6 +32,12 @@
 /processorParam:TextureFormat=Color
 /build:damage-smoke.png
 
+#begin File.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:File.fx
+
 #begin Fontana.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

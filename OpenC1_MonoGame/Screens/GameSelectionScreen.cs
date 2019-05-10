@@ -16,6 +16,8 @@ namespace OpenC1.Screens
 		int _selectedIndex = 0;
 		List<string> _mods = new List<string>();
 
+        // # DEBUG
+        //private Texture2D t2d;
 
         public GameSelectionScreen(BaseMenuScreen parent)
             : base(parent)
@@ -29,7 +31,11 @@ namespace OpenC1.Screens
 
             _showTime = GameEngine.TotalSeconds;
 
-			string[] mods = Directory.GetDirectories("GameData");
+            // # DEBUG
+            //GameVars.Palette = new PaletteFile(AppDomain.CurrentDomain.BaseDirectory + "/GameData/Carmageddon Demo/reg/palettes/DRRENDER.pal");
+            //t2d = new PixFile(AppDomain.CurrentDomain.BaseDirectory + "/GameData/Carmageddon Demo/32X20X8/PIXELMAP/LOADSCRN.PIX").PixMaps[0].Texture;
+
+            string[] mods = Directory.GetDirectories("GameData");
 			foreach (string game in mods)
 				_mods.Add(new DirectoryInfo(game).Name);
         }
@@ -38,9 +44,10 @@ namespace OpenC1.Screens
         {
             base.Render();
 
+            GameEngine.Device.Clear(Color.CornflowerBlue);
             GameEngine.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
-			RenderDefaultBackground();
+            RenderDefaultBackground();
 
 			WriteTitleLine("OpenC1 - choose game:");
 
@@ -54,7 +61,10 @@ namespace OpenC1.Screens
 					GameEngine.SpriteBatch.DrawString(_font, "  " + _mods[i], new Vector2(40, y), Color.White);
 				y += 35;
 			}
-            
+
+            // # DEBUG
+            //GameEngine.SpriteBatch.Draw(t2d, Vector2.Zero, Color.White);
+
             GameEngine.SpriteBatch.End();
         }
 

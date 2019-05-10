@@ -68,18 +68,18 @@ namespace OpenC1.Parsers
         public byte[] GetRGBBytesForPixel(int pixel)
         {
             byte[] rgb = new byte[3];
-            rgb[0] = _paletteData[pixel * 4 + 1];
+            rgb[2] = _paletteData[pixel * 4 + 1];
             rgb[1] = _paletteData[pixel * 4 + 2];
-            rgb[2] = _paletteData[pixel * 4 + 3];
+            rgb[0] = _paletteData[pixel * 4 + 3];
             return rgb;
         }
 
         public Color GetRGBColorForPixel(int pixel)
         {
             byte[] rgb = new byte[3];
-            rgb[0] = _paletteData[pixel * 4 + 1];
+            rgb[2] = _paletteData[pixel * 4 + 1];
             rgb[1] = _paletteData[pixel * 4 + 2];
-            rgb[2] = _paletteData[pixel * 4 + 3];
+            rgb[0] = _paletteData[pixel * 4 + 3];
             return new Color(new Vector4(rgb[0], rgb[1], rgb[2], 255));
         }
     }

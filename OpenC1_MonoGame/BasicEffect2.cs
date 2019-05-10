@@ -7,7 +7,7 @@ using OneAmEngine;
 
 namespace OpenC1
 {
-    class BasicEffect2
+    public class BasicEffect2
     {
 
         // Fields
@@ -40,18 +40,19 @@ namespace OpenC1
         private EffectParameter texCoordsMultiplierParam;
 
         Effect _effect;
-
-
         public BasicEffect2()
         {
-            _effect = GameEngine.ContentManager.Load<Effect>("Content/BasicEffect2");
+            _effect = GameEngine.ContentManager.Load<Effect>("BasicEffect2");
             this.CacheEffectParams(GameEngine.Device);
         }
 
         private void CacheEffectParams(GraphicsDevice device)
         {
+            _effect = GameEngine.ContentManager.Load<Effect>("BasicEffect2");
+            this.CacheEffectParams(GameEngine.Device);
+
             //ShaderProfile maxPixelShaderProfile = device.GraphicsDeviceCapabilities.MaxPixelShaderProfile;
-            //this.hasPS20 = (((maxPixelShaderProfile == ShaderProfile.PS_2_0) || (maxPixelShaderProfile == ShaderProfile.PS_2_A)) || ((maxPixelShaderProfile == ShaderProfile.PS_2_B) || (maxPixelShaderProfile == ShaderProfile.PS_3_0))) || (maxPixelShaderProfile == ShaderProfile.XPS_3_0);
+            //this.hasPS20 = (((maxPixelShaderProfile == ShaderProfile.PS_2_0) || (maxPixelShaderProfile == ShaderProfile.PS_2_A)) || ((maxPixelShaderProfile == ShaderProfile.PS_2_B) || (maxPixelShaderProfile == ShaderProfile.PS_3_0))) || (maxPixelShaderProfile == ShaderProfile.XPS_3_0)
             this.basicShaderTechnique = _effect.Techniques["BasicEffect"];
             this.basicTextureParam = _effect.Parameters["BasicTexture"];
             this.fogEnabledParam = _effect.Parameters["FogEnabled"];
@@ -68,7 +69,7 @@ namespace OpenC1
             this.alphaParam = _effect.Parameters["Alpha"];
             this.ambientLightColorParam = _effect.Parameters["AmbientLightColor"];
             this.eyePositionParam = _effect.Parameters["EyePosition"];
-            this.shaderIndexParam = _effect.Parameters["ShaderIndex"];
+            //this.shaderIndexParam = _effect.Parameters["ShaderIndex"];
             texCoordsOffsetParam = _effect.Parameters["TexCoordsOffset"];
             texCoordsMultiplierParam = _effect.Parameters["TexCoordsMultiplier"];
             this.light0 = new BasicDirectionalLight2(_effect.Parameters["DirLight0Direction"], _effect.Parameters["DirLight0DiffuseColor"], _effect.Parameters["DirLight0SpecularColor"]);
@@ -86,16 +87,15 @@ namespace OpenC1
             _effect.End();
         }*/
 
-        public EffectTechnique CurrentTechnique
+        /*public EffectTechnique CurrentTechnique
         {
             get { return _effect.CurrentTechnique; }
-        }
+        }*/
 
         public void CommitChanges()
         {
             //_effect.CommitChanges();
         }
-
 
         public void EnableDefaultLighting()
         {
@@ -116,7 +116,6 @@ namespace OpenC1
             this.DirectionalLight2.SpecularColor = vector;
             this.DirectionalLight2.Enabled = true;
         }
-
         private void InitializeEffectParams()
         {
             this.World = Matrix.Identity;
@@ -155,7 +154,8 @@ namespace OpenC1
 			bool lightingEnabled2 = true;
 			int num = ((this.vertexColorEnabled ? 1 : 0) | (this.textureEnabled ? 2 : 0)) | (lightingEnabled2 ? 4 : 0);
 			num += ((lightingEnabled2 && this.preferPerPixelLighting) && this.hasPS20) ? 4 : 0;
-            this.shaderIndexParam.SetValue(num);
+            //this.shaderIndexParam.SetValue(num);
+            //CurrentTechnique = Techniques[0]; //Techniques[shaderIndex];
         }
 
         // Properties

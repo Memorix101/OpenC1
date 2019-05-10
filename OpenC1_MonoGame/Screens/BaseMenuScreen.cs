@@ -115,7 +115,7 @@ namespace OpenC1.Screens
 			}
 			if (_inAnimation != null) _inAnimation.Update();
 			if (_outAnimation != null) _outAnimation.Update();
-		}
+        }
 
         private void PlayOutAnimation()
         {

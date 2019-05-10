@@ -6,26 +6,25 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
 
 #### Important Notes
  * Ported from XNA 3.0 to MonoGame (DesktopGL)
- * Running in custom MonoGame build (to fake XNA 3.0 for the Physix .Net Wrapper)
- * The content from the content folder needs to be built with the custom build Pipeline tool first before debugging otherwise it will throw an exception! You can find it in
- ``` OpenC1_MonoGame\MonoGame-develop\Tools\Pipeline\bin\Windows\AnyCPU\Debug ```
- * BasiscEffect2.fx is currently disabled and needs to be ported to MonoGame as well!
- * Screenshot feature not yet reimplemented
+ * **Running in custom MonoGame build (to fake XNA 3.0 for the Nvidia Physx .Net Wrapper)**
+ * **The content from the content folder needs to be built with the custom build Pipeline tool first before debugging otherwise it will throw an exception! Just run the `run_content_pipeline.bat`. You can find it in `` OpenC1_MonoGame\MonoGame-develop\Tools\Pipeline\bin\Windows\AnyCPU\Debug ``**
 
  #### Konwn Issues
- * [Colours are wrong](https://twitter.com/Memorix101/status/1088748699986071552?s=20)
- * Cannot get in-game (where the 3D stuff happens)😕
-
-##### Keys:
- * Up, Down, Left, Right - Accelerate, brake, steer
- * Space - Handbrake
- * Backspace - Repair
- * C - Change camera
- * R - Reset vehicle
- * F4 - Edit modes (for debugging)
- * P - Take screenshot
+* BasiscEffect2.fx is currently broken and needs to be ported to MonoGame as well!
+* Cannot get in-game (where the 3D stuff happens)😕
+  * The parses seem to misbehave ... not sure ... 🧐
  
-#### Thanks to:
-  Stainless Software (the original developers - of course!), Toshiba-3,
-  www.stilldesign.co.nz (PhysX.Net), Neale Davidson (Fontana font),
-  Shayde (txt file decryption), PhysXInfo.com, cwaboard.com
+#### Thanks to: 
+  Stainless Software (the original developers - of course!), 
+  <br/>
+  Toshiba-3, 
+  <br/>
+  www.stilldesign.co.nz (PhysX.Net), 
+  <br/>
+  Neale Davidson (Fontana font),
+  <br/>
+  Shayde (txt file decryption),
+  <br/>
+  PhysXInfo.com, 
+  <br/>
+  cwaboard.com

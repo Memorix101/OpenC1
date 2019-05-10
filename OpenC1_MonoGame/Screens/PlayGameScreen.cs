@@ -22,9 +22,9 @@ namespace OpenC1
         public IGameScreen Parent { get; private set; }
 
         Race _race;
-        BasicEffect2 _effect;   
+        BasicEffect2 _effect;
         List<GameMode> _modes = new List<GameMode>();
-       
+
         int _currentEditMode = 0;
 
         public PlayGameScreen(IGameScreen parent)
@@ -33,13 +33,13 @@ namespace OpenC1
             GC.Collect();
 
             _race = new Race(GameVars.BasePath + "races\\" + GameVars.SelectedRaceInfo.RaceFilename, GameVars.SelectedCarFileName);
-            
+
             _modes.Add(new StandardGameMode());
             _modes.Add(new FlyMode());
             _modes.Add(new OpponentEditMode());
             _modes.Add(new PedEditMode());
             GameMode.Current = _modes[_currentEditMode];
-			
+
         }
 
 
@@ -58,28 +58,29 @@ namespace OpenC1
                 _currentEditMode = (_currentEditMode + 1) % _modes.Count;
                 GameMode.Current = _modes[_currentEditMode];
             }
-            if (GameEngine.Input.WasPressed(Keys.P))
+
+            /*if (GameEngine.Input.WasPressed(Keys.P))
             {
                 TakeScreenshot();
                 //MessageRenderer.Instance.PostMainMessage("destroy.pix", 50, 0.7f, 0.003f, 1.4f);
-            }
-                        
+            }*/
+
             GameMode.Current.Update();
             _race.PlayerVehicle.Chassis.OutputDebugInfo();
 
             GameEngine.Camera.Update();
-            
-            GameConsole.WriteLine("FPS", GameEngine.Fps);   
+
+            GameConsole.WriteLine("FPS", GameEngine.Fps);
         }
 
         public void Render()
         {
             GameEngine.Device.Clear(GameVars.FogColor);
-			
+
             GameVars.NbrDrawCalls = 0;
-            
+
             GameVars.CurrentEffect = SetupRenderEffect();
-			
+
             GameVars.NbrSectionsChecked = GameVars.NbrSectionsRendered = 0;
 
             GameEngine.SpriteBatch.Begin();
@@ -87,7 +88,7 @@ namespace OpenC1
             _race.Render();
             _modes[_currentEditMode].Render();
 
-			GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
 
             foreach (ParticleSystem system in ParticleSystem.AllParticleSystems)
             {
@@ -106,7 +107,7 @@ namespace OpenC1
 
             OpenC1.Physics.PhysX.Instance.Draw();
         }
-		
+
 
         private BasicEffect2 SetupRenderEffect()
         {
@@ -128,44 +129,44 @@ namespace OpenC1
                 {
                     Trace.Assert(false);
                 }
-				_effect.FogEnabled = true;
+                _effect.FogEnabled = true;
                 _effect.FogColor = GameVars.FogColor.ToVector3();
                 _effect.FogEnd = GameEngine.DrawDistance * 6 * (1 / Race.Current.ConfigFile.FogAmount);
-				_effect.FogStart = _effect.FogEnd - 200;
+                _effect.FogStart = _effect.FogEnd - 200;
                 _effect.TextureEnabled = true;
                 //_effect.TexCoordsMultiplier = 1;
                 _effect.PreferPerPixelLighting = true;
-				_effect.LightingEnabled = false;
+                _effect.LightingEnabled = false;
             }
 
-			//GameEngine.Device.RasterizerState.AlphaTestEnable = true; #
-			//GameEngine.Device.RasterizerState.ReferenceAlpha = 200; #
-			//GameEngine.Device.RasterizerState.AlphaFunction = CompareFunction.Greater; #
+            //GameEngine.Device.RasterizerState.AlphaTestEnable = true; #
+            //GameEngine.Device.RasterizerState.ReferenceAlpha = 200; #
+            //GameEngine.Device.RasterizerState.AlphaFunction = CompareFunction.Greater; #
 
-			if (GameVars.CullingOff)
-				GameEngine.Device.RasterizerState.CullMode = CullMode.None;
-			else
-				GameEngine.Device.RasterizerState.CullMode = CullMode.CullClockwiseFace;
-			
+            if (GameVars.CullingOff)
+                GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+            else
+                GameEngine.Device.RasterizerState.CullMode = CullMode.CullClockwiseFace;
+
             _effect.View = GameEngine.Camera.View;
             _effect.Projection = GameEngine.Camera.Projection;
 
             return _effect;
         }
 
-        private void TakeScreenshot()
+        /*private void TakeScreenshot()
         {
-         /*   int count = Directory.GetFiles(StorageContainer.TitleLocation+"\\", "ndump*.bmp").Length + 1;
-            string name = "\\ndump" + count.ToString("000") + ".bmp";
+            int count = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "/", "ndump*.bmp").Length + 1;
+            string name = "/ndump" + count.ToString("000") + ".bmp";
 
             GraphicsDevice device = GameEngine.Device;
-            using (ResolveTexture2D screenshot = new ResolveTexture2D(device, device.PresentationParameters.BackBufferWidth, device.PresentationParameters.BackBufferHeight, 1, SurfaceFormat.Color))
+            using (Texture2D screenshot = new Texture2D(device, device.PresentationParameters.BackBufferWidth, device.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color))
             {
-                device.ResolveBackBuffer(screenshot);
-                screenshot.Save(StorageContainer.TitleLocation + name, ImageFileFormat.Bmp);
+                //device.ResolveBackBuffer(screenshot);
+                screenshot.SaveAsJpeg(new FileStream(AppDomain.CurrentDomain.BaseDirectory + "/" + name, FileMode.Create), device.PresentationParameters.BackBufferWidth, device.PresentationParameters.BackBufferHeight);
             }
-            */
-            //MessageRenderer.Instance.PostHeaderMessage("Screenshot dumped to " + name, 3);
-        }
+
+            MessageRenderer.Instance.PostHeaderMessage("Screenshot dumped to " + name, 3);
+        }*/
     }
 }
