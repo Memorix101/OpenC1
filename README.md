@@ -12,7 +12,7 @@ OpenC1 is a ground-up remake of the classic driving and wrecking game by Stainle
  #### Known Issues
 * BasiscEffect2.fx is currently broken and needs to be ported to MonoGame as well!
 * Cannot get in-game (where the 3D stuff happens)😕
-  * The parses seem to misbehave ... not sure ... 🧐
+  * The parsers seem to misbehave ... not sure ... 🧐
  
 #### Thanks to: 
   Stainless Software (the original developers - of course!), 
