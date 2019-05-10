@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
@@ -7,7 +8,7 @@ using OneAmEngine;
 
 namespace OpenC1
 {
-    public class BasicEffect2
+    public class BasicEffect2 : Effect, IEffectMatrices, IEffectFog
     {
 
         // Fields
@@ -40,7 +41,9 @@ namespace OpenC1
         private EffectParameter texCoordsMultiplierParam;
 
         Effect _effect;
-        public BasicEffect2()
+        static byte[] bytes = File.ReadAllBytes( AppDomain.CurrentDomain.BaseDirectory + "Content/BasicEffect2.mgfxo"); //https://stackoverflow.com/questions/23733470/monogame-and-fx-files
+
+        public BasicEffect2() : base(GameEngine.Device, bytes)
         {
             _effect = GameEngine.ContentManager.Load<Effect>("BasicEffect2");
             this.CacheEffectParams(GameEngine.Device);
@@ -155,7 +158,7 @@ namespace OpenC1
 			int num = ((this.vertexColorEnabled ? 1 : 0) | (this.textureEnabled ? 2 : 0)) | (lightingEnabled2 ? 4 : 0);
 			num += ((lightingEnabled2 && this.preferPerPixelLighting) && this.hasPS20) ? 4 : 0;
             //this.shaderIndexParam.SetValue(num);
-            //CurrentTechnique = Techniques[0]; //Techniques[shaderIndex];
+            
         }
 
         // Properties

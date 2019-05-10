@@ -20,6 +20,9 @@
 /processorParam:DebugMode=Auto
 /build:BasicEffect2.fx
 
+#begin BasicEffect2.mgfxo
+/copy:BasicEffect2.mgfxo
+
 #begin damage-smoke.png
 /importer:TextureImporter
 /processor:TextureProcessor

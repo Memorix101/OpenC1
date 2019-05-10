@@ -1,0 +1,1 @@
+start ./OpenC1_MonoGame/MonoGame-develop/Tools/2MGFX/bin/Windows/AnyCPU/Debug/2MGFX.exe ./OpenC1_MonoGame/Content/BasicEffect2.fx ./OpenC1_MonoGame/Content/BasicEffect2.mgfxo /Profile:OpenGL
