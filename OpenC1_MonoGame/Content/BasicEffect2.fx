@@ -688,24 +688,23 @@ technique BasicEffect
 {
       pass Pass0
       {  
-            PixelShader = compile vs_2_0 PSBasic();
-	      PixelShader = compile vs_2_0 PSBasicTx();
-	      PixelShader = compile ps_2_0 PSBasicPixelLighting();
-	      PixelShader = compile ps_2_0 PSBasicPixelLightingTx();
-            //CurrentTechnique = Techniques[shaderIndex];
-            VertexShader =	compile vs_2_0 VSBasic();
-            VertexShader =	compile vs_2_0 VSBasicVc();
-            VertexShader =	compile vs_2_0 VSBasicTx();
-            VertexShader =	compile vs_2_0 VSBasicTxVc();
+        PixelShader = compile vs_2_0 PSBasic();
+	    PixelShader = compile vs_2_0 PSBasicTx();
+	    PixelShader = compile ps_2_0 PSBasicPixelLighting();
+	    PixelShader = compile ps_2_0 PSBasicPixelLightingTx();
 
-            VertexShader =	compile vs_2_0 VSBasicNm();
-            VertexShader =	compile vs_2_0 VSBasicNmVc();
-            VertexShader =	compile vs_2_0 VSBasicNmTx();
-            VertexShader =	compile vs_2_0 VSBasicNmTxVc();
-	
-            VertexShader =	compile vs_2_0 VSBasicPixelLightingNm();
-            VertexShader =	compile vs_2_0 VSBasicPixelLightingNmVc();
-            VertexShader =	compile vs_2_0 VSBasicPixelLightingNmTx();
-            VertexShader =	compile vs_2_0 VSBasicPixelLightingNmTxVc();
+    	VertexShader =	compile vs_2_0 VSBasic();
+        VertexShader =	compile vs_2_0 VSBasicVc();
+        VertexShader =	compile vs_2_0 VSBasicTx();
+        VertexShader =	compile vs_2_0 VSBasicTxVc();
+        VertexShader =	compile vs_2_0 VSBasicNm();
+        VertexShader =	compile vs_2_0 VSBasicNmVc();
+        VertexShader =	compile vs_2_0 VSBasicNmTx();
+        VertexShader =	compile vs_2_0 VSBasicNmTxVc();
+
+        VertexShader =	compile vs_2_0 VSBasicPixelLightingNm();
+        VertexShader =	compile vs_2_0 VSBasicPixelLightingNmVc();
+        VertexShader =	compile vs_2_0 VSBasicPixelLightingNmTx();
+        VertexShader =	compile vs_2_0 VSBasicPixelLightingNmTxVc();
       }
 }
