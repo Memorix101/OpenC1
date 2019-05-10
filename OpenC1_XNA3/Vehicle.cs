@@ -34,6 +34,7 @@ namespace OpenC1
         PixmapBillboard _flames;
         VehicleModel _model;
         public float LastRunOverPedTime;
+        public bool isPlayer = false;
 
         public Vehicle(string filename, IDriver driver)
         {
@@ -49,9 +50,7 @@ namespace OpenC1
 			}
 
             _model = new VehicleModel(Config, false);
-
             Audio = new VehicleAudio(this);
-            
             Chassis = new VehicleChassis(this);
 
             CActor actor2 = _model.GetActor(Path.GetFileNameWithoutExtension(_model.ModelName));
@@ -85,6 +84,9 @@ namespace OpenC1
         public void OnCollision(float force, Vector3 position, Vector3 normal, bool deform)
         {
             float product = Math.Abs(Vector3.Dot(Chassis.Actor.GlobalPose.Forward, normal));
+
+            if(isPlayer)
+                GameEngine.Input.GamepadRumble(force, force);
 
             if (Chassis.LastSpeeds.GetMax() > 7)
             {
@@ -208,6 +210,9 @@ namespace OpenC1
         private void Damage(float force, Vector3 position)
         {
             if (force < 170000) return;
+
+            if (isPlayer)
+                GameEngine.Input.GamepadRumble(0.75f, 0.75f);
 
             float olddamage = _damage;
             float damage = force * Config.CrushSections[1].DamageMultiplier * 0.000005f;

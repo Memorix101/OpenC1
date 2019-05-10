@@ -22,6 +22,7 @@ namespace OpenC1.Screens
         protected int _selectedOption;
         protected List<IMenuOption> _options = new List<IMenuOption>();
         protected bool _waitingForOutAnimation;
+        protected bool _waitingForInAnimation;
 		public SpriteFont _font;
 		private int _currentLine;
 		private Viewport v;
@@ -37,11 +38,11 @@ namespace OpenC1.Screens
 
         public void ReturnToParent()
         {
-			if (Parent is BaseMenuScreen)
-			{
-				if (((BaseMenuScreen)Parent)._inAnimation != null)
-					((BaseMenuScreen)Parent)._inAnimation.Play(false);
-			}
+			if (Parent is BaseMenuScreen screen)
+            {
+                screen._inAnimation?.Play(false);
+                _waitingForInAnimation = true;
+            }
             GameEngine.Screen = Parent;
         }
 
@@ -81,12 +82,21 @@ namespace OpenC1.Screens
 					return;
 				}
 			}
-			else
+            else if (_waitingForInAnimation)
+            {
+                if (_inAnimation == null || !_inAnimation.IsPlaying)
+                {
+                    _waitingForInAnimation = false;
+                    OnInAnimationFinished();
+                    return;
+                }
+            }
+            else
 			{
 				if (GameEngine.Input.WasPressed(Keys.Escape) && Parent != null || GameEngine.Input.WasPressed(Buttons.B) && Parent != null)
 				{
 					if (SoundCache.IsInitialized) SoundCache.Play(SoundIds.UI_Esc, null, false);
-					ReturnToParent();
+                    ReturnToParent();
 				}
 				if (GameEngine.Input.WasPressed(Keys.Down) || GameEngine.Input.WasPressed(Buttons.DPadDown) || GameEngine.Input.WasPressed(Buttons.LeftThumbstickDown))
 				{
@@ -113,13 +123,14 @@ namespace OpenC1.Screens
 					}
 				}
 			}
-			if (_inAnimation != null) _inAnimation.Update();
-			if (_outAnimation != null) _outAnimation.Update();
-		}
+
+            _inAnimation?.Update();
+            _outAnimation?.Update();
+        }
 
         private void PlayOutAnimation()
         {
-            if (_outAnimation != null) _outAnimation.Play(false);
+            _outAnimation?.Play(false);
             _waitingForOutAnimation = true;
         }
 
@@ -131,10 +142,12 @@ namespace OpenC1.Screens
 
             if (_outAnimation != null && _waitingForOutAnimation)
                 GameEngine.SpriteBatch.Draw(_outAnimation.GetCurrentFrame(), _rect, Color.White);
+            //else if (_inAnimation != null && _waitingForInAnimation)
+                //GameEngine.SpriteBatch.Draw(_inAnimation.GetCurrentFrame(), _rect, Color.White);
             else if (_inAnimation != null)
                 GameEngine.SpriteBatch.Draw(_inAnimation.GetCurrentFrame(), _rect, Color.White);
 
-			if (GameVars.BasePath != null)
+            if (GameVars.BasePath != null)
 			{
 				Vector2 pos = BaseHUDItem.ScaleVec2(0.01f, 0.92f);
 				Version v = Assembly.GetExecutingAssembly().GetName().Version;
@@ -153,7 +166,8 @@ namespace OpenC1.Screens
             }
         }
 
-        public abstract void OnOutAnimationFinished();
+        protected abstract void OnOutAnimationFinished();
+        protected abstract void OnInAnimationFinished();
 
         #endregion
 

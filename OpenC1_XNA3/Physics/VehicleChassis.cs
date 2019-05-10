@@ -187,7 +187,6 @@ namespace OpenC1.Physics
             get { return _steerAngle / 0.5f; }
         }
 
-
         public void Update()
         {
             LastSpeeds.Add(Speed);

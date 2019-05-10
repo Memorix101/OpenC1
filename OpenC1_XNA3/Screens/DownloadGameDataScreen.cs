@@ -120,10 +120,15 @@ namespace OpenC1.Screens
 			}
 		}
 
-		public override void OnOutAnimationFinished()
+        protected override void OnOutAnimationFinished()
 		{
 			if (_downloadError)
 				GameEngine.Game.Exit();
 		}
-	}
+
+        protected override void OnInAnimationFinished()
+        {
+            //throw new NotImplementedException();
+        }
+    }
 }

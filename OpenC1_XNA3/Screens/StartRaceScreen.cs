@@ -66,8 +66,7 @@ namespace OpenC1.Screens
             }
         }
 
-
-        public override void OnOutAnimationFinished()
+        protected override void OnOutAnimationFinished()
         {
             switch (_selectedOption)
             {
@@ -83,6 +82,11 @@ namespace OpenC1.Screens
                     GameEngine.Screen = new LoadRaceScreen(this);
                     break;
             }
+        }
+
+        protected override void OnInAnimationFinished()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

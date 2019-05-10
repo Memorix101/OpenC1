@@ -75,7 +75,7 @@ namespace OpenC1
         {
             _headerText = message;
             _headerTtl = displayTime;
-             _headerRect = CenterRectX(0.13f, _headerText.Length * _scale * 7.5f, 50 * _scale);
+            _headerRect = CenterRectX(0.13f, _headerText.Length * _scale * 7.5f, 50 * _scale);
         }
 
         public void PostMainMessage(string pixname, float displayTime, float y, float scale, float animationSpeed)
@@ -102,12 +102,19 @@ namespace OpenC1
             _messageX = _screenWidth;
         }
 
-
         public override void Render()
         {
             if (_headerTtl > 0)
             {
-                FontRenderer.Render(Fonts.Text,_headerText, new Vector2(_headerRect.Left, _headerRect.Top), Color.White);
+                //FontRenderer.Render(Fonts.Text,_headerText, new Vector2(_headerRect.Left, _headerRect.Top), Color.White);
+                if (_headerText.Equals("Race mode"))
+                {
+                    FontRenderer.Render(Fonts.Text, _headerText, new Vector2(_headerRect.Left - 100, _headerRect.Top), Color.White);
+                }
+                else
+                {
+                    FontRenderer.Render(Fonts.Text, _headerText, new Vector2(_headerRect.Left, _headerRect.Top), Color.White);
+                }
             }
 
             if (_timerTtl > 0)

@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Input;
 using OpenC1.GameModes;
 using OneAmEngine;
 using System.IO;
+using OneAmEngine.Audio;
 
 namespace OpenC1
 {
@@ -30,6 +31,8 @@ namespace OpenC1
         public PedestrianController Peds;
 
         public static Race Current;
+
+        private MusicPlayer _musicPlayer;
 
         public RaceFile ConfigFile { get; private set; }
 
@@ -57,14 +60,14 @@ namespace OpenC1
                 ResourceCache.Add(new CMaterial("drkcurb.mat", 226)); //demo doesn't have this file, I guess the color is hard-coded
             else
                 ResourceCache.Add(new MatFile("drkcurb.mat"));
-                        
+
             ResourceCache.ResolveMaterials();
 
             if (filename.Contains("TESTMAP")) //nasty hack...
                 GameVars.Scale.Y *= 0.5f;
 
             DatFile modelFile = new DatFile(ConfigFile.ModelFile);
-            
+
             ActFile actFile = new ActFile(ConfigFile.ActorFile);
             _actors = actFile.Hierarchy;
             _actors.AttachModels(modelFile.Models);
@@ -92,35 +95,35 @@ namespace OpenC1
 
             Physics.TrackProcessor.GenerateTrackActor(ConfigFile, _actors, out _nonCars);
 
-			Logger.Log("NonCars: " + _nonCars.Count);
+            Logger.Log("NonCars: " + _nonCars.Count);
 
             GridPlacer.Reset();
 
-			List<int> opponentIds = new List<int>();
-			List<int> pickedNbrs = new List<int>();
-			for (int i = 0; i < 5; i++)
-			{
-				int index = 0;
-				while (true)
-				{
-					index = GameEngine.Random.Next(1, OpponentsFile.Instance.Opponents.Count);
-					if (!pickedNbrs.Contains(index))
-					{
-						pickedNbrs.Add(index);
-						break;
-					}
-				}
-				try
-				{
-					Opponents.Add(new Opponent(OpponentsFile.Instance.Opponents[index].FileName, ConfigFile.GridPosition, ConfigFile.GridDirection));
-					NbrOpponents++;
-				}
-				catch(Exception ex)
-				{
-					Logger.Log("Error while loading opponent " + OpponentsFile.Instance.Opponents[index].FileName + ", " + ex.Message);
-				}
-			}
-			
+            List<int> opponentIds = new List<int>();
+            List<int> pickedNbrs = new List<int>();
+            for (int i = 0; i < 5; i++)
+            {
+                int index = 0;
+                while (true)
+                {
+                    index = GameEngine.Random.Next(1, OpponentsFile.Instance.Opponents.Count);
+                    if (!pickedNbrs.Contains(index))
+                    {
+                        pickedNbrs.Add(index);
+                        break;
+                    }
+                }
+                try
+                {
+                    Opponents.Add(new Opponent(OpponentsFile.Instance.Opponents[index].FileName, ConfigFile.GridPosition, ConfigFile.GridDirection));
+                    NbrOpponents++;
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log("Error while loading opponent " + OpponentsFile.Instance.Opponents[index].FileName + ", " + ex.Message);
+                }
+            }
+
             foreach (CopStartPoint point in ConfigFile.CopStartPoints)
             {
                 Opponents.Add(new Opponent(point.IsSpecialForces ? "bigapc.txt" : "apc.txt", point.Position, 0, new CopDriver()));
@@ -132,12 +135,15 @@ namespace OpenC1
 
             PlayerVehicle = new Vehicle(GameVars.BasePath + @"cars\" + playerVehicleFile, new PlayerDriver());
             PlayerVehicle.PlaceOnGrid(ConfigFile.GridPosition, ConfigFile.GridDirection);
+            PlayerVehicle.isPlayer = true;
             Drivers.Add(PlayerVehicle.Driver);
 
             Peds = new PedestrianController(ConfigFile.Peds);
             _map = new RaceMap(this);
 
             RaceTime = new RaceTimeController();
+
+            _musicPlayer = new MusicPlayer();
 
             PhysX.Instance.Scene.SetActorGroupPairFlags(PhysXConsts.TrackId, PhysXConsts.VehicleId, ContactPairFlag.Forces | ContactPairFlag.OnStartTouch | ContactPairFlag.OnTouch);
             PhysX.Instance.Scene.SetActorGroupPairFlags(PhysXConsts.VehicleId, PhysXConsts.NonCarId, ContactPairFlag.Forces | ContactPairFlag.OnStartTouch | ContactPairFlag.OnTouch);
@@ -149,6 +155,8 @@ namespace OpenC1
         public void Update()
         {
             RaceTime.Update();
+
+            _musicPlayer.Update();
 
             if (!RaceTime.IsStarted)
             {
@@ -164,7 +172,7 @@ namespace OpenC1
                     ((FixedChaseCamera)GameEngine.Camera).MinHeight = Math.Max(0, height);
                 }
                 var closestPath = OpponentController.GetClosestPath(ConfigFile.GridPosition);
-                
+
                 foreach (IDriver driver in Drivers)
                     if (driver is CpuDriver)
                     {
@@ -177,7 +185,7 @@ namespace OpenC1
             }
 
             Peds.Update();
-            
+
 
             foreach (IDriver driver in Drivers)
                 driver.Update();
@@ -216,7 +224,7 @@ namespace OpenC1
                 _map.Show = !_map.Show;
 #if DEBUG
             if (GameEngine.Input.WasPressed(Keys.T) || GameEngine.Input.WasPressed(Buttons.DPadRight))
-				RaceTime.TimeRemaining += 60;
+                RaceTime.TimeRemaining += 60;
 #endif
         }
 
@@ -224,7 +232,7 @@ namespace OpenC1
         {
             if (_skybox != null) _skybox.Draw();
 
-            BoundingFrustum frustum = new BoundingFrustum(GameEngine.Camera.View * GameEngine.Camera.Projection);   
+            BoundingFrustum frustum = new BoundingFrustum(GameEngine.Camera.View * GameEngine.Camera.Projection);
             _actors.Render(Matrix.Identity, frustum);
 
             foreach (Opponent opponent in Opponents)
@@ -247,12 +255,12 @@ namespace OpenC1
             RaceTime.Render();
             MessageRenderer.Instance.Render();
             //GameEngine.DebugRenderer.AddAxis(Matrix.CreateTranslation(ConfigFile.GridPosition), 10);
-            
+
             if (_map.Show)
             {
                 _map.Render();
                 return;
-            }            
+            }
         }
 
         public void OnCheckpointHit(Checkpoint checkpoint)
@@ -309,14 +317,17 @@ namespace OpenC1
         {
             foreach (Opponent opponent in Opponents)
             {
-				if (opponent.Vehicle == vehicle)
-				{
-					opponent.Kill();
-					if (!(opponent.Driver is CopDriver))
-						NbrDeadOpponents++;
-					break;
-				}
+                if (opponent.Vehicle == vehicle)
+                {
+                    opponent.Kill();
+                    if (!(opponent.Driver is CopDriver))
+                        NbrDeadOpponents++;
+                    break;
+                }
             }
+
+            if(vehicle == PlayerVehicle)
+                GameEngine.Input.GamepadRumble(1f, 1f);
 
             int time = GeneralSettingsFile.Instance.TimePerCarKill[GameVars.SkillLevel];
             RaceTime.TimeRemaining += time;
@@ -335,32 +346,34 @@ namespace OpenC1
         internal void OnPlayerCpuCarHit(float damage)
         {
             int time = (int)(damage * GeneralSettingsFile.Instance.TimePerCarDamage[GameVars.SkillLevel] * 6);
+            GameEngine.Input.GamepadRumble(damage, damage);
             if (time > 0)
             {
                 RaceTime.TimeRemaining += time;
                 MessageRenderer.Instance.PostTimerMessage(time);
-                MessageRenderer.Instance.PostHeaderMessage(time*14 + " CREDITS", 2);
+                MessageRenderer.Instance.PostHeaderMessage(time * 14 + " CREDITS", 2);
             }
         }
 
         public void OnPedestrianHit(Pedestrian ped, Vehicle vehicle)
         {
-			vehicle.LastRunOverPedTime = GameEngine.TotalSeconds;
-			if (ped.IsHit)
-			{
-				SoundCache.Play(SoundIds.PedSquelch, vehicle, true);
-				return;
-			}
+            vehicle.LastRunOverPedTime = GameEngine.TotalSeconds;
+            if (ped.IsHit)
+            {
+                SoundCache.Play(SoundIds.PedSquelch, vehicle, true);
+                return;
+            }
 
             NbrDeadPeds++;
             ped.OnHit(vehicle);
 
-			if (vehicle == PlayerVehicle)
-			{
-				int time = GeneralSettingsFile.Instance.TimePerPedKill[GameVars.SkillLevel];
-				RaceTime.TimeRemaining += time;
-				MessageRenderer.Instance.PostTimerMessage(time);
-			}
+            if (vehicle == PlayerVehicle)
+            {
+                int time = GeneralSettingsFile.Instance.TimePerPedKill[GameVars.SkillLevel];
+                RaceTime.TimeRemaining += time;
+                MessageRenderer.Instance.PostTimerMessage(time);
+                GameEngine.Input.GamepadRumble(0.75f, 0.75f);
+            }
 
             if (NbrDeadPeds == Peds.Count)
             {
@@ -369,22 +382,23 @@ namespace OpenC1
             }
         }
 
-		public void ExitAndReturnToMenu()
-		{
-			ResourceCache.Clear();
-			foreach (var d in Drivers)
-				d.Vehicle.Audio.Stop();
+        public void ExitAndReturnToMenu()
+        {
+            _musicPlayer.Stop();
+            ResourceCache.Clear();
+            foreach (var d in Drivers)
+                d.Vehicle.Audio.Stop();
 
-			ParticleSystem.AllParticleSystems.Clear();
-			Race.Current = null;
-			PhysX.Instance.Delete();
-			var screen = GameEngine.Screen.Parent;
-			if (screen is PlayGameScreen)  //this will be true if called from the pause screen
-				screen = screen.Parent;
+            ParticleSystem.AllParticleSystems.Clear();
+            Race.Current = null;
+            PhysX.Instance.Delete();
+            var screen = GameEngine.Screen.Parent;
+            if (screen is PlayGameScreen)  //this will be true if called from the pause screen
+                screen = screen.Parent;
 
-			GameEngine.Screen = null;
-			GC.Collect();
-			GameEngine.Screen = screen;
-		}
+            GameEngine.Screen = null;
+            GC.Collect();
+            GameEngine.Screen = screen;
+        }
     }
 }

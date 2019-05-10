@@ -111,7 +111,6 @@ namespace OpenC1
             OpenC1.Physics.PhysX.Instance.Draw();
         }
 
-
         private BasicEffect2 SetupRenderEffect()
         {
             GraphicsDevice device = GameEngine.Device;

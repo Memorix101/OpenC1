@@ -34,11 +34,16 @@ namespace OpenC1.Screens
             base.Update();
         }
 
-        public override void OnOutAnimationFinished()
+        protected override void OnOutAnimationFinished()
         {
             GameVars.SelectedRaceInfo = RacesFile.Instance.Races[_selectedOption];
             GameVars.SelectedRaceScene = ((RaceOption)_options[_selectedOption])._scene;
             ReturnToParent();
+        }
+
+        protected override void OnInAnimationFinished()
+        {
+            //throw new NotImplementedException();
         }
     }
 

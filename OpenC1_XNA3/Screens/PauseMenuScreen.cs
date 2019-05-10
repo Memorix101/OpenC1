@@ -39,7 +39,7 @@ namespace OpenC1.Screens
             base.Update();
         }
 
-        public override void OnOutAnimationFinished()
+        protected override void OnOutAnimationFinished()
         {
             switch (_selectedOption)
             {
@@ -53,6 +53,11 @@ namespace OpenC1.Screens
                     GameEngine.Game.Exit();
                     break;
             }
+        }
+
+        protected override void OnInAnimationFinished()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

@@ -34,7 +34,8 @@ namespace OpenC1.GameModes
 			if (GameEngine.Input.WasPressed(Keys.Escape) || GameEngine.Input.WasPressed(Buttons.Start))
 			{
 				GameEngine.Screen = new PauseMenuScreen((PlayGameScreen)GameEngine.Screen);
-				return;
+                GameEngine.Input.GamepadRumble(0, 0);
+                return;
 			}
 
             if (GameEngine.Input.WasPressed(Keys.C) || GameEngine.Input.WasPressed(Buttons.Y))  //cockpit / external view

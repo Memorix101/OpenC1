@@ -15,8 +15,7 @@ namespace OpenC1
         int _currentFrame;
         List<Texture2D> _frames;
 
-        public AnimationPlayer(List<Texture2D> frames)
-            : this(frames, 0)
+        public AnimationPlayer(List<Texture2D> frames) : this(frames, 0)
         {
         }
 
@@ -33,7 +32,6 @@ namespace OpenC1
             _playing = true;
             _loop = loop;
         }
-
         public void Update()
         {
             if (!_playing) return;
@@ -53,10 +51,10 @@ namespace OpenC1
                         _playing = false;
                     }
                 }
+
                 _currentFrameTime = 0;
             }
         }
-
         public Texture2D GetCurrentFrame()
         {
             return _frames[_currentFrame];

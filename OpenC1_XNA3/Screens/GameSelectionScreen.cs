@@ -68,11 +68,17 @@ namespace OpenC1.Screens
             base.Update();
         }
 
-		public override void OnOutAnimationFinished()
+        protected override void OnOutAnimationFinished()
 		{
 			GameVars.BasePath = Path.Combine(Environment.CurrentDirectory, "GameData") + "\\" + _mods[_selectedIndex] + "\\";
-			GameVars.DetectEmulationMode();
+            OneAmEngine.Audio.MusicPlayer.modName = _mods[_selectedIndex];
+            GameVars.DetectEmulationMode();
 			GameEngine.Screen = new MainMenuScreen(null);
 		}
-	}
+
+        protected override void OnInAnimationFinished()
+        {
+            //throw new NotImplementedException();
+        }
+    }
 }

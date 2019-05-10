@@ -45,13 +45,15 @@ namespace OneAmEngine
         private const float SENSITIVITY = 1.0f;
         private MouseInputMode _mouseInputMode;
         private float _perFrameMultiplier;
-        
+
+        static DateTime startRumble;
+        static TimeSpan timePassed;
 
         public InputProvider(Game game) : base(game)
         {
             _mouseDelta = new Vector2();
             _mouseMultiplier = 0.3f;
-            
+
             // Initialize the mouse smoothing cache.
             _mouseSmoothingCache = new Vector2[MOUSE_SMOOTHING_CACHE_SIZE];
             _mouseInputMode = MouseInputMode.FPS;
@@ -74,7 +76,7 @@ namespace OneAmEngine
         {
             float frameTime = GameEngine.ElapsedSeconds;
             _perFrameMultiplier = frameTime * SENSITIVITY;
-            
+
             _previousKeyboardState = _keyboardState;
             _previousGamePadState = _gamePadState;
             _keyboardState = Keyboard.GetState();
@@ -102,7 +104,7 @@ namespace OneAmEngine
 
                 //Mouse.SetPosition((int)screenCenter.X, (int)screenCenter.Y);
             }
-            
+
             base.Update(gameTime);
         }
 
@@ -186,6 +188,22 @@ namespace OneAmEngine
             return _gamePadState.IsButtonDown(button);
         }
 
+        public void GamepadRumble(float leftMotor, float rightMotor)
+        {
+            startRumble = DateTime.Now;
+            GamePad.SetVibration(PlayerIndex.One, leftMotor, rightMotor);
+        }
+
+        public static void UpdateGamepadRumble()
+        {
+            timePassed = DateTime.Now - startRumble;
+
+            if (timePassed.TotalSeconds >= 0.2f)
+            {
+                GamePad.SetVibration(PlayerIndex.One, 0f, 0f);
+            }
+        }
+
         public MouseInputMode MouseMode
         {
             get { return _mouseInputMode; }
@@ -201,7 +219,7 @@ namespace OneAmEngine
                 {
                     _mouseDelta = new Vector2();
                 }
-                _mouseInputMode = value;                    
+                _mouseInputMode = value;
             }
         }
 

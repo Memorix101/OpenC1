@@ -20,19 +20,16 @@ namespace OneAmEngine.Audio
 			_audioDevice = new Device();
 			_audioDevice.SetCooperativeLevel(GameEngine.Game.Window.Handle, CooperativeLevel.Priority);
 		}
-
         public void SetDefaultVolume(int volume)
         {
             _defaultVolume = volume;
         }
-
 		public IListener GetListener()
 		{
             if (_listener == null)
                 _listener = new MdxListener(_audioDevice);
             return _listener;
 		}
-
 		public ISound Load(string name, bool is3d)
 		{
             if (!File.Exists(name)) return null;
@@ -50,7 +47,6 @@ namespace OneAmEngine.Audio
         {
             _sounds.Remove(sound);
         }
-
 
         public void Update()
         {

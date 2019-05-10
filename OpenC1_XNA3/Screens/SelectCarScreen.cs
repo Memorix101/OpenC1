@@ -79,10 +79,15 @@ namespace OpenC1.Screens
             base.Render();
         }
 
-        public override void OnOutAnimationFinished()
+        protected override void OnOutAnimationFinished()
         {
             GameVars.SelectedCarFileName = _opponents[_selectedOption].FileName;
             ReturnToParent();
+        }
+
+        protected override void OnInAnimationFinished()
+        {
+            //throw new NotImplementedException();
         }
     }
 

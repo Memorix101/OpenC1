@@ -46,12 +46,17 @@ namespace OpenC1.Screens
             );
         }
 
-        public override void OnOutAnimationFinished()
+        protected override void OnOutAnimationFinished()
         {
             if (_selectedOption == 0)
                 GameEngine.Screen = new SelectSkillScreen(this);
             else if (_selectedOption == 1)
                 GameEngine.Game.Exit();
+        }
+
+        protected override void OnInAnimationFinished()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

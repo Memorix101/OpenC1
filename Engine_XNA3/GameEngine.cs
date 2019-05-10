@@ -59,7 +59,8 @@ namespace OneAmEngine
         {
             ElapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds * TimeScale;
             TotalSeconds = (float)gameTime.TotalGameTime.TotalSeconds;
-            
+
+            OneAmEngine.InputProvider.UpdateGamepadRumble();
 
             GameConsole.Clear();
 
