@@ -46,13 +46,14 @@ namespace OpenC1
         public BasicEffect2() : base(GameEngine.Device, bytes)
         {
             _effect = GameEngine.ContentManager.Load<Effect>("BasicEffect2");
-            this.CacheEffectParams(GameEngine.Device);
+            this.CacheEffectParams(GameEngine.Device); //this crashes somehow?!
         }
 
         private void CacheEffectParams(GraphicsDevice device)
         {
-            _effect = GameEngine.ContentManager.Load<Effect>("BasicEffect2");
-            this.CacheEffectParams(GameEngine.Device);
+            // Eh, why this?!
+            //_effect = GameEngine.ContentManager.Load<Effect>("BasicEffect2");
+            //this.CacheEffectParams(GameEngine.Device);
 
             //ShaderProfile maxPixelShaderProfile = device.GraphicsDeviceCapabilities.MaxPixelShaderProfile;
             //this.hasPS20 = (((maxPixelShaderProfile == ShaderProfile.PS_2_0) || (maxPixelShaderProfile == ShaderProfile.PS_2_A)) || ((maxPixelShaderProfile == ShaderProfile.PS_2_B) || (maxPixelShaderProfile == ShaderProfile.PS_3_0))) || (maxPixelShaderProfile == ShaderProfile.XPS_3_0)
