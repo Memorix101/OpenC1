@@ -38,6 +38,8 @@ namespace OneAmEngine
 
         private static RenderTarget2D screenshot;
 
+        public static MusicPlayer musicPlayer;
+
         public static void Startup(Game game, GraphicsDeviceManager graphics)
         {
             Game = game;
@@ -79,6 +81,9 @@ namespace OneAmEngine
                 TakeScreenshot();
                 //MessageRenderer.Instance.PostMainMessage("destroy.pix", 50, 0.7f, 0.003f, 1.4f);
             }
+
+            if(musicPlayer != null)
+                musicPlayer.Update();
         }
 
         public static void Render(GameTime gameTime)

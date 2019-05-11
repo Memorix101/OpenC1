@@ -8,17 +8,15 @@ using Microsoft.Xna.Framework.Graphics;
 using OpenC1.HUD;
 using Microsoft.Xna.Framework.Input;
 using OneAmEngine;
+using OneAmEngine.Audio;
 
 namespace OpenC1.Screens
 {
-    
     class MainMenuScreen : BaseMenuScreen
     {
-
         public MainMenuScreen(BaseMenuScreen parent)
             : base(parent)
         {
-
             if (!SoundCache.IsInitialized)
             {
                 GameEngine.Audio.SetDefaultVolume(1);
@@ -26,7 +24,9 @@ namespace OpenC1.Screens
 
                 GameVars.Palette = new PaletteFile(GameVars.BasePath + "reg\\palettes\\drrender.pal");
             }
-            
+
+            GameEngine.musicPlayer = new MusicPlayer();
+            GameEngine.musicPlayer.Play();
 
             _inAnimation = new AnimationPlayer(LoadAnimation("MAI2COME.fli"), 1);
             _inAnimation.Play(false);
@@ -44,6 +44,8 @@ namespace OpenC1.Screens
                 new TextureMenuOption(BaseHUDItem.ScaleRect(0.180f, 0.711f, 0.715f, 0.045f),
                     LoadAnimation("MAI2QTGL.fli")[0])
             );
+
+
         }
 
         public override void OnOutAnimationFinished()

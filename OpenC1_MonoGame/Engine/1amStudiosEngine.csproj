@@ -58,6 +58,7 @@
     <Compile Include="Audio\Mdx\MdxListener.cs" />
     <Compile Include="Audio\Mdx\MdxSound.cs" />
     <Compile Include="Audio\Mdx\MdxSoundEngine.cs" />
+    <Compile Include="Audio\MusicPlayer.cs" />
     <Compile Include="Audio\SoundInstance.cs" />
     <Compile Include="AverageValueVector3.cs" />
     <Compile Include="Cameras\ChaseCamera.cs" />

@@ -21,9 +21,9 @@ namespace OpenC1
             PixFile pix = new PixFile(race.ConfigFile.MapTexture);
             if (pix.Exists)
                 _mapTexture = pix.PixMaps[0].Texture;
-            _player = GameEngine.ContentManager.Load<Texture2D>("content/map-icon-player");
-            _opponent = GameEngine.ContentManager.Load<Texture2D>("content/map-icon-opponent");
-            _deadOpponent = GameEngine.ContentManager.Load<Texture2D>("content/map-icon-opponent-dead");
+            _player = GameEngine.ContentManager.Load<Texture2D>("map-icon-player");
+            _opponent = GameEngine.ContentManager.Load<Texture2D>("map-icon-opponent");
+            _deadOpponent = GameEngine.ContentManager.Load<Texture2D>("map-icon-opponent-dead");
 
             _mapRect = new Rectangle(0, 60, GameEngine.Window.Width, GameEngine.Window.Height - 90);
         }

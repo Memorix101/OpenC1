@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using OpenC1.Parsers;
 using System.IO;
 using Microsoft.Xna.Framework.Input;
+using OneAmEngine.Audio;
 
 namespace OpenC1.Screens
 {
@@ -81,7 +82,8 @@ namespace OpenC1.Screens
 		public override void OnOutAnimationFinished()
 		{
 			GameVars.BasePath = Path.Combine(Environment.CurrentDirectory, "GameData") + "\\" + _mods[_selectedIndex] + "\\";
-			GameVars.DetectEmulationMode();
+            MusicPlayer.modName = _mods[_selectedIndex];
+            GameVars.DetectEmulationMode();
 			GameEngine.Screen = new MainMenuScreen(null);
 		}
 	}
