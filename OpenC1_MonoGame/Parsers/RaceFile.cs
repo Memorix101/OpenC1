@@ -283,6 +283,8 @@ namespace OpenC1.Parsers
         {
             Trace.Assert(ReadLine() == "START OF OPPONENT PATHS");
 
+            SkipLines(1);
+
             int nbrNodes = ReadLineAsInt();
 
             OpponentPathNodes = new List<OpponentPathNode>();
@@ -330,6 +332,8 @@ namespace OpenC1.Parsers
         private void ReadMaterialModifierSection()
         {
             MaterialModifiers = new List<MaterialModifier>();
+
+            SkipLines(1);
 
             int nbrMaterialModifiers = ReadLineAsInt();
             for (int i = 0; i < nbrMaterialModifiers; i++)
