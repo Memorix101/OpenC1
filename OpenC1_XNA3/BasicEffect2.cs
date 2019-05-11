@@ -9,7 +9,6 @@ namespace OpenC1
 {
     class BasicEffect2
     {
-
         // Fields
         private EffectParameter alphaParam;
         private EffectParameter ambientLightColorParam;
@@ -40,7 +39,6 @@ namespace OpenC1
         private EffectParameter texCoordsMultiplierParam;
 
         Effect _effect;
-
 
         public BasicEffect2()
         {
@@ -95,7 +93,6 @@ namespace OpenC1
         {
             _effect.CommitChanges();
         }
-
 
         public void EnableDefaultLighting()
         {
@@ -152,9 +149,9 @@ namespace OpenC1
 
         private void UpdateShaderIndex()
         {
-			bool lightingEnabled2 = true;
-			int num = ((this.vertexColorEnabled ? 1 : 0) | (this.textureEnabled ? 2 : 0)) | (lightingEnabled2 ? 4 : 0);
-			num += ((lightingEnabled2 && this.preferPerPixelLighting) && this.hasPS20) ? 4 : 0;
+            bool lightingEnabled2 = true;
+            int num = ((this.vertexColorEnabled ? 1 : 0) | (this.textureEnabled ? 2 : 0)) | (lightingEnabled2 ? 4 : 0);
+            num += ((lightingEnabled2 && this.preferPerPixelLighting) && this.hasPS20) ? 4 : 0;
             this.shaderIndexParam.SetValue(num);
         }
 

@@ -31,9 +31,7 @@ namespace OpenC1
         public PedestrianController Peds;
 
         public static Race Current;
-
-        private MusicPlayer _musicPlayer;
-
+        
         public RaceFile ConfigFile { get; private set; }
 
         public Race(string filename, string playerVehicleFile)
@@ -143,8 +141,6 @@ namespace OpenC1
 
             RaceTime = new RaceTimeController();
 
-            _musicPlayer = new MusicPlayer();
-
             PhysX.Instance.Scene.SetActorGroupPairFlags(PhysXConsts.TrackId, PhysXConsts.VehicleId, ContactPairFlag.Forces | ContactPairFlag.OnStartTouch | ContactPairFlag.OnTouch);
             PhysX.Instance.Scene.SetActorGroupPairFlags(PhysXConsts.VehicleId, PhysXConsts.NonCarId, ContactPairFlag.Forces | ContactPairFlag.OnStartTouch | ContactPairFlag.OnTouch);
             PhysX.Instance.Scene.SetActorGroupPairFlags(PhysXConsts.TrackId, PhysXConsts.NonCarId, ContactPairFlag.OnTouch);
@@ -155,8 +151,6 @@ namespace OpenC1
         public void Update()
         {
             RaceTime.Update();
-
-            _musicPlayer.Update();
 
             if (!RaceTime.IsStarted)
             {
@@ -384,7 +378,6 @@ namespace OpenC1
 
         public void ExitAndReturnToMenu()
         {
-            _musicPlayer.Stop();
             ResourceCache.Clear();
             foreach (var d in Drivers)
                 d.Vehicle.Audio.Stop();

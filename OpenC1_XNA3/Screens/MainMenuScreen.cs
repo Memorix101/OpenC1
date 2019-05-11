@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using OpenC1.HUD;
 using Microsoft.Xna.Framework.Input;
 using OneAmEngine;
+using OneAmEngine.Audio;
 
 namespace OpenC1.Screens
 {
@@ -26,7 +27,9 @@ namespace OpenC1.Screens
 
                 GameVars.Palette = new PaletteFile(GameVars.BasePath + "reg\\palettes\\drrender.pal");
             }
-            
+
+            GameEngine.musicPlayer = new MusicPlayer();
+            GameEngine.musicPlayer.Play();
 
             _inAnimation = new AnimationPlayer(LoadAnimation("MAI2COME.fli"), 1);
             _inAnimation.Play(false);

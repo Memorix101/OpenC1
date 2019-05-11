@@ -34,6 +34,7 @@ namespace OneAmEngine
         private static bool _isFullScreen;
         public static Vector2 ScreenSize;
 
+        public static MusicPlayer musicPlayer;
 
         public static void Startup(Game game, GraphicsDeviceManager graphics)
         {
@@ -75,6 +76,9 @@ namespace OneAmEngine
             ScreenEffects.Instance.Update(gameTime);
 
             DebugRenderer.Update(gameTime);
+
+            if (musicPlayer != null)
+                musicPlayer.Update();
         }
 
         public static void Render(GameTime gameTime)
@@ -91,7 +95,6 @@ namespace OneAmEngine
         {
             get { return _contentManager; }
         }
-
 
         public static ICamera Camera
         {
@@ -115,7 +118,6 @@ namespace OneAmEngine
                     return (float)Window.Width / (float)Window.Height;
             }
         }
-
 
         public static SpriteBatch SpriteBatch
         {

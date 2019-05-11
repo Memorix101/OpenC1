@@ -40,9 +40,7 @@ namespace OpenC1
             _modes.Add(new OpponentEditMode());
             _modes.Add(new PedEditMode());
             GameMode.Current = _modes[_currentEditMode];
-
         }
-
 
         public void Update()
         {
