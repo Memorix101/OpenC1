@@ -27,7 +27,7 @@ namespace OpenC1
 
         static FontRenderer()
         {
-            _default = GameEngine.ContentManager.Load<SpriteFont>("content\\fonts\\Arial_14");
+            _default = GameEngine.ContentManager.Load<SpriteFont>("/fonts/Arial_14");
 
             PixMapFont font = new PixMapFont("BLUEHEAD");
             if (font.Exists)
