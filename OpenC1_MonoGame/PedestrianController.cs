@@ -122,7 +122,7 @@ namespace OpenC1
             //GameEngine.Device.VertexDeclaration = _vertexDeclaration;
             GameEngine.Device.SetVertexBuffer(_vertexBuffer);
 
-            // Fussgaenger sind Billboards - die muessen von beiden Seiten sichtbar sein.
+            // Pedestrians are billboards - they have to be visible from both sides.
             RasterizerState oldRasterizerState = GameEngine.Device.RasterizerState;
             GameEngine.Device.RasterizerState = GameVars.CullDisabled;
 

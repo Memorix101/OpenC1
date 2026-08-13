@@ -327,7 +327,7 @@ namespace OpenC1
             BasicEffect effect = GameVars.CurrentEffect;
             effect.World = world;
             effect.Texture = frame.Texture;
-            GameVars.ApplyCurrentEffect(); // ersetzt das XNA-3-effect.CommitChanges()
+            GameVars.ApplyCurrentEffect(); // replaces XNA 3's effect.CommitChanges()
             GameEngine.Device.DrawPrimitives(PrimitiveType.TriangleStrip, 0, 2);
         }
 

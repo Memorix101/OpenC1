@@ -6,14 +6,14 @@ using Microsoft.Xna.Framework.Audio;
 namespace OneAmEngine.Audio
 {
     /// <summary>
-    /// Urspruenglich ein DirectSound-Wrapper (Managed DirectX). Laeuft jetzt komplett
-    /// auf MonoGame-Audio.
+    /// Originally a DirectSound wrapper (Managed DirectX). Runs entirely on MonoGame
+    /// audio now.
     ///
-    /// Zwei Unterschiede zu DirectSound, die hier abgebildet werden:
-    ///  - DirectSound stellt die Abspielrate absolut in Hz ein. MonoGame kennt nur
-    ///    Pitch von -1..+1, also eine Oktave runter bzw. hoch. Umgerechnet wird ueber
-    ///    das Verhaeltnis zur Samplerate der Datei, die aus dem WAV-Header gelesen wird.
-    ///  - 3D-Ton laeuft ueber AudioEmitter/AudioListener statt ueber Buffer3D.
+    /// Two differences to DirectSound are bridged here:
+    ///  - DirectSound sets the playback rate in absolute Hz. MonoGame only knows Pitch
+    ///    from -1..+1, meaning one octave down or up. The conversion goes through the
+    ///    ratio to the file's sample rate, which is read from the WAV header.
+    ///  - 3D sound runs through AudioEmitter/AudioListener instead of Buffer3D.
     /// </summary>
     class MdxSound : ISound
     {
@@ -43,9 +43,9 @@ namespace OneAmEngine.Audio
         }
 
         /// <summary>
-        /// Liest die Samplerate aus dem fmt-Chunk eines RIFF/WAVE-Streams.
-        /// Bei unerwartetem Aufbau wird 22050 angenommen - das trifft nur die
-        /// Tonhoehenumrechnung, nicht die Wiedergabe selbst.
+        /// Reads the sample rate from the fmt chunk of a RIFF/WAVE stream.
+        /// Falls back to 22050 on an unexpected layout - that only affects the pitch
+        /// conversion, not playback itself.
         /// </summary>
         static int ReadWaveSampleRate(Stream stream)
         {
@@ -55,7 +55,7 @@ namespace OneAmEngine.Audio
                 using (BinaryReader reader = new BinaryReader(stream, System.Text.Encoding.ASCII, true))
                 {
                     if (new string(reader.ReadChars(4)) != "RIFF") return fallback;
-                    reader.ReadInt32(); // Chunkgroesse
+                    reader.ReadInt32(); // chunk size
                     if (new string(reader.ReadChars(4)) != "WAVE") return fallback;
 
                     while (stream.Position < stream.Length - 8)
@@ -64,18 +64,18 @@ namespace OneAmEngine.Audio
                         int chunkSize = reader.ReadInt32();
                         if (chunkId == "fmt ")
                         {
-                            reader.ReadInt16(); // Format
-                            reader.ReadInt16(); // Kanaele
+                            reader.ReadInt16(); // format
+                            reader.ReadInt16(); // channels
                             int sampleRate = reader.ReadInt32();
                             return sampleRate > 0 ? sampleRate : fallback;
                         }
-                        stream.Position += chunkSize + (chunkSize % 2); // Chunks sind wortweise ausgerichtet
+                        stream.Position += chunkSize + (chunkSize % 2); // chunks are word aligned
                     }
                 }
             }
             catch (Exception)
             {
-                // Kaputter oder unbekannter Header - Standardwert genuegt.
+                // Broken or unknown header - the default is good enough.
             }
             return fallback;
         }
@@ -89,8 +89,8 @@ namespace OneAmEngine.Audio
         }
 
         /// <summary>
-        /// Abspielrate in Hz, wie sie DirectSound erwartet. Wird auf MonoGames
-        /// Pitch-Bereich umgerechnet; ausserhalb einer Oktave wird begrenzt.
+        /// Playback rate in Hz, the way DirectSound expects it. Converted to MonoGame's
+        /// pitch range and clamped to one octave either way.
         /// </summary>
         public int Frequency
         {
@@ -134,7 +134,7 @@ namespace OneAmEngine.Audio
             }
             catch (InvalidOperationException)
             {
-                // Apply3D verlangt Mono-Samples. Stereo-Dateien bleiben 2D.
+                // Apply3D requires mono samples. Stereo files stay 2D.
                 _apply3dFailed = true;
             }
         }

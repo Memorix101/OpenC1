@@ -7,14 +7,14 @@
     <AssemblyName>OpenC1</AssemblyName>
     <LangVersion>latest</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <!-- Properties\AssemblyInfo.cs wird weiterhin von Hand gepflegt. -->
+    <!-- Properties\AssemblyInfo.cs is still maintained by hand. -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 
     <!--
-      Pflicht: StillDesign.PhysX.Net.dll ist ein Mixed-Mode-Assembly fuer x86.
-      Mit AnyCPU/x64 wirft der Loader beim ersten PhysX-Zugriff BadImageFormatException.
-      app.config setzt zusaetzlich useLegacyV2RuntimeActivationPolicy, weil der
-      Wrapper gegen die 2.0-Runtime gebaut wurde.
+      Mandatory: StillDesign.PhysX.Net.dll is a mixed-mode assembly built for x86.
+      On AnyCPU/x64 the loader throws BadImageFormatException on the first PhysX call.
+      app.config additionally sets useLegacyV2RuntimeActivationPolicy, because the
+      wrapper was built against the 2.0 runtime.
     -->
     <PlatformTarget>x86</PlatformTarget>
     <Prefer32Bit>false</Prefer32Bit>
@@ -24,15 +24,15 @@
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
 
     <!--
-      Das Engine-Projekt liegt in einem Unterordner dieses Projekts. Ohne diesen
-      Ausschluss wuerde der SDK-Glob dessen Quellen ein zweites Mal mitkompilieren
-      (u.a. zwei AssemblyInfo.cs -> CS0579).
+      The engine project lives in a subfolder of this one. Without this exclusion the
+      SDK glob would compile its sources a second time (among others two AssemblyInfo.cs
+      files -> CS0579).
     -->
     <DefaultItemExcludes>$(DefaultItemExcludes);Engine\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Liegen im Ordner, waren aber noch nie Teil des Builds. -->
+    <!-- Present in the folder, but never part of the build. -->
     <Compile Remove="Parsers\BitmapChunk.cs" />
     <Compile Remove="Parsers\CarFile.cs" />
     <Compile Remove="Physics\CarObject.cs" />
@@ -50,10 +50,10 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
     <!--
-      ExcludeAssets="all": wir wollen nur das MGCB-Tool aus dem Paket, nicht dessen
-      Targets - die rufen MGCB ohne Roll-Forward auf und scheitern an der fehlenden
-      netcoreapp3.1-Runtime. Den Aufruf uebernimmt ..\MonoGame.Content.targets.
-      GeneratePathProperty liefert trotzdem $(PkgMonoGame_Content_Builder_Task).
+      ExcludeAssets="all": we only want the MGCB tool from the package, not its targets -
+      those invoke MGCB without roll-forward and fail on the missing netcoreapp3.1
+      runtime. ..\MonoGame.Content.targets does the invocation instead.
+      GeneratePathProperty still provides $(PkgMonoGame_Content_Builder_Task).
     -->
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" GeneratePathProperty="true" ExcludeAssets="all" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
@@ -73,7 +73,7 @@
     </Reference>
   </ItemGroup>
 
-  <!-- Native PhysX-2.8-Bibliotheken muessen neben der EXE liegen. -->
+  <!-- The native PhysX 2.8 libraries have to sit next to the executable. -->
   <ItemGroup>
     <None Include="Lib\PhysXLoader.dll" CopyToOutputDirectory="PreserveNewest" Link="PhysXLoader.dll" />
     <None Include="Lib\NxCooking.dll" CopyToOutputDirectory="PreserveNewest" Link="NxCooking.dll" />
@@ -81,11 +81,11 @@
 
   <ItemGroup>
     <ProjectReference Include="Engine\1amStudiosEngine.csproj" />
-    <!-- Liefert das Assembly "Microsoft.Xna.Framework" v3.0.0.0, gegen das PhysX.Net gebaut wurde. -->
+    <!-- Provides the "Microsoft.Xna.Framework" v3.0.0.0 assembly PhysX.Net was built against. -->
     <ProjectReference Include="..\XnaShim\XnaShim.csproj" />
   </ItemGroup>
 
-  <!-- Content beider Projekte wird hier gebaut, damit alles in einem Content-Ordner landet. -->
+  <!-- Content of both projects is built here so everything ends up in one Content folder. -->
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <MonoGameContentReference Include="Engine\Content\Content.mgcb" />

@@ -182,8 +182,8 @@ namespace OpenC1
 
                 if (actor.Model != null)
                 {
-                    // Muss nach jedem Setzen von World passieren, sonst zeichnet jeder
-                    // Actor mit der Matrix des vorherigen Apply-Aufrufs.
+                    // Has to happen after every World change, otherwise every actor draws
+                    // with the matrix from the previous Apply call.
                     GameVars.ApplyCurrentEffect();
 
                     actor.Model.Render(actor.Material);

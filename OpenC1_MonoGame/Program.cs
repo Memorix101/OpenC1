@@ -20,10 +20,10 @@ namespace OpenC1
         }
 
         /// <summary>
-        /// Die Parser benutzen Trace.Assert als Marker fuer "diese Daten sehen unerwartet
-        /// aus". Frueher wurde ohne TRACE gebaut, die Aufrufe fielen also komplett weg.
-        /// Jetzt sind sie aktiv - ohne diese Umleitung wuerde jeder Treffer mitten im
-        /// Spiel einen modalen Dialog oeffnen. Stattdessen landet er in OpenC1.log.
+        /// The parsers use Trace.Assert as a marker for "this data looks unexpected".
+        /// The project used to be built without TRACE, so those calls vanished entirely.
+        /// They are active now - without this redirection every hit would pop up a modal
+        /// dialog mid-game. Instead it goes to OpenC1.log.
         /// </summary>
         static void SetupTracing()
         {

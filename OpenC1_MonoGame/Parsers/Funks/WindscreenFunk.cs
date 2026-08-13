@@ -31,8 +31,8 @@ namespace OpenC1.Parsers.Funks
 
         public override void BeforeRender()
         {
-            // SamplerState ist ab MonoGame unveraenderlich: das komplette Objekt tauschen,
-            // statt einzelne Felder am gebundenen State zu setzen (wirft zur Laufzeit).
+            // SamplerState is immutable as of MonoGame: swap the whole object instead of
+            // setting individual fields on the bound state (which throws at runtime).
             _lastSamplerState = GameEngine.Device.SamplerStates[0];
             if (_lastSamplerState.AddressU != TextureAddressMode.Wrap)
                 GameEngine.Device.SamplerStates[0] = SamplerState.LinearWrap;

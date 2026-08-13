@@ -432,7 +432,7 @@ namespace OpenC1
 
                 if (GameVars.CullingOff != poly.DoubleSided)
                 {
-                    // Direkt am gebundenen State zu schrauben wirft in MonoGame zur Laufzeit.
+                    // Modifying the bound state directly throws at runtime in MonoGame.
                     device.RasterizerState = poly.DoubleSided ? GameVars.CullDisabled : GameVars.CullBackFaces;
                     GameVars.CullingOff = poly.DoubleSided;
                 }

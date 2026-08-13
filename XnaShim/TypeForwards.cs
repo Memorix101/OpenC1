@@ -1,10 +1,10 @@
 using System.Runtime.CompilerServices;
 
-// Die einzigen XNA-Typen, die StillDesign.PhysX.Net in seinen Signaturen verwendet.
-// Ermittelt aus der TypeRef-Tabelle von Lib/StillDesign.PhysX.Net.dll.
-// Layout stimmt mit XNA 3.0 ueberein (Vector3 = 3 float, Quaternion = 4 float,
-// Matrix = 16 float, Plane = Vector3 + float), daher ist auch das Marshalling
-// zum nativen PhysX-Code unveraendert gueltig.
+// The only XNA types StillDesign.PhysX.Net uses in its signatures, taken from the
+// TypeRef table of Lib/StillDesign.PhysX.Net.dll.
+// Their layout matches XNA 3.0 (Vector3 = 3 floats, Quaternion = 4 floats,
+// Matrix = 16 floats, Plane = Vector3 + float), so marshalling to the native PhysX
+// code stays valid.
 [assembly: TypeForwardedTo(typeof(Microsoft.Xna.Framework.Matrix))]
 [assembly: TypeForwardedTo(typeof(Microsoft.Xna.Framework.Plane))]
 [assembly: TypeForwardedTo(typeof(Microsoft.Xna.Framework.Quaternion))]

@@ -10,9 +10,9 @@ namespace OpenC1
 {
     class ModelShadow
     {
-        /// <summary>Maximaler Abstand Auto-Unterkante zu Boden, ab dem kein Schatten mehr faellt.</summary>
+        /// <summary>Distance from car underside to ground beyond which no shadow is cast.</summary>
         const float MaxShadowDropDistance = 4f;
-        /// <summary>Maximaler Hoehenunterschied innerhalb der Schattenflaeche.</summary>
+        /// <summary>Maximum height difference within the shadow quad.</summary>
         const float MaxShadowHeightSpread = 2f;
 
         static VertexDeclaration _vertexDeclaration;
@@ -44,23 +44,22 @@ namespace OpenC1
                 StillDesign.PhysX.RaycastHit hit = scene.RaycastClosestShape(
                     new StillDesign.PhysX.Ray(points[i], Vector3.Down), StillDesign.PhysX.ShapesType.Static);
 
-                // Trifft ein Strahl nichts (Auto in der Luft, Loch im Mesh), ist
-                // WorldImpact der Nullpunkt - die Schattenflaeche wuerde quer durch
-                // die Karte bis zum Weltursprung gezogen.
+                // When a ray hits nothing (car airborne, hole in the mesh) WorldImpact is
+                // the origin - the shadow quad would be stretched across the map all the
+                // way to the world origin.
                 if (hit.Shape == null)
                     return;
 
-                // Zu weit weg heisst: das Auto haengt in der Luft oder der Strahl hat
-                // etwas ganz anderes getroffen. Beides ergibt ein verdrehtes Polygon,
-                // das frei im Raum steht.
+                // Too far away means the car is airborne or the ray hit something else
+                // entirely. Either way the result is a twisted polygon floating in space.
                 if (Math.Abs(points[i].Y - hit.WorldImpact.Y) > MaxShadowDropDistance)
                     return;
 
                 points[i] = hit.WorldImpact + offset;
             }
 
-            // Ein Schatten liegt flach auf dem Boden. Klaffen die vier Treffer stark
-            // auseinander, steht das Polygon quer - dann lieber gar keinen zeichnen.
+            // A shadow lies flat on the ground. If the four hits are far apart the quad
+            // stands at an angle - better to draw none at all.
             float minY = points[0].Y, maxY = points[0].Y;
             for (int i = 1; i < 4; i++)
             {
@@ -81,9 +80,9 @@ namespace OpenC1
             GraphicsDevice device = GameEngine.Device;
             RasterizerState oldRasterizerState = GameEngine.Device.RasterizerState;
             GameEngine.Device.RasterizerState = GameVars.CullDisabled;
-            // NonPremultiplied, nicht AlphaBlend: die Vertexfarbe (10,10,10,100) ist
-            // nicht vormultipliziert. Mit MonoGames AlphaBlend (das vormultipliziert
-            // erwartet) waere der Schatten eine fast schwarze Flaeche.
+            // NonPremultiplied rather than AlphaBlend: the vertex colour (10,10,10,100)
+            // is not premultiplied. With MonoGame's AlphaBlend (which expects premultiplied
+            // values) the shadow would come out as a near-black patch.
             BlendState oldBlendState = GameEngine.Device.BlendState;
             GameEngine.Device.BlendState = BlendState.NonPremultiplied;
 

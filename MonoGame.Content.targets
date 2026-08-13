@@ -1,27 +1,27 @@
 <Project>
 
   <!--
-    Content-Build fuer OpenC1.
+    Content build for OpenC1.
 
-    Ersetzt die Targets aus MonoGame.Content.Builder.Task. Grund: MGCB 3.8.0 ist ein
-    netcoreapp3.1-Tool, und diese Runtime ist auf aktuellen Systemen nicht mehr
-    installiert. Die Original-Targets rufen MGCB ohne Roll-Forward auf und scheitern
-    daher mit "You must install or update .NET". Hier wird DOTNET_ROLL_FORWARD gesetzt,
-    was die Original-Targets nicht erlauben.
+    Replaces the targets shipped in MonoGame.Content.Builder.Task. Reason: MGCB 3.8.0 is
+    a netcoreapp3.1 tool and that runtime is no longer installed on current systems. The
+    original targets invoke MGCB without roll-forward and therefore fail with
+    "You must install or update .NET". This version sets DOTNET_ROLL_FORWARD, which the
+    original targets give no way to do.
 
-    Erwartet:
-      - PackageReference auf MonoGame.Content.Builder.Task mit GeneratePathProperty="true"
-      - MonoGameContentReference-Items, die auf .mgcb-Dateien zeigen
+    Expects:
+      - a PackageReference to MonoGame.Content.Builder.Task with GeneratePathProperty="true"
+      - MonoGameContentReference items pointing at .mgcb files
   -->
 
   <PropertyGroup>
     <MonoGamePlatform Condition="'$(MonoGamePlatform)' == ''">DesktopGL</MonoGamePlatform>
-    <!-- "Major" nimmt die naechsthoehere installierte Major-Version (statt exakt 3.1). -->
+    <!-- "Major" picks the next higher installed major version instead of requiring 3.1. -->
     <MGCBRollForward Condition="'$(MGCBRollForward)' == ''">Major</MGCBRollForward>
     <MGCBDll Condition="'$(MGCBDll)' == ''">$(PkgMonoGame_Content_Builder_Task)\tools\netcoreapp3.1\any\mgcb.dll</MGCBDll>
   </PropertyGroup>
 
-  <!-- Macht den Item-Typ im Visual-Studio-Eigenschaftenfenster auswaehlbar. -->
+  <!-- Makes the item type selectable in the Visual Studio properties window. -->
   <ItemGroup>
     <AvailableItemName Include="MonoGameContentReference" />
   </ItemGroup>
@@ -39,8 +39,8 @@
       <_MGCBOutDir>$(_MGCBContentDir)bin\$(MonoGamePlatform)</_MGCBOutDir>
       <_MGCBObjDir>$(_MGCBContentDir)obj\$(MonoGamePlatform)</_MGCBObjDir>
       <!--
-        Fuer die Kommandozeile mit Schraegstrichen: ein abschliessender Backslash
-        vor dem Anfuehrungszeichen wuerde dieses escapen ("...\Content\" -> kaputt).
+        Forward slashes for the command line: a trailing backslash in front of the
+        closing quote would escape it ("...\Content\" -> broken).
       -->
       <_MGCBContentDirArg>$(_MGCBContentDir.Replace('\','/'))</_MGCBContentDirArg>
       <_MGCBOutDirArg>$(_MGCBOutDir.Replace('\','/'))</_MGCBOutDirArg>
@@ -56,10 +56,9 @@
           EnvironmentVariables="DOTNET_ROLL_FORWARD=$(MGCBRollForward)" />
 
     <!--
-      Kopie per Item-Transformation statt ueber Content-Items mit Link-Metadatum:
-      innerhalb eines Targets mit Batching wuerde sich ein unqualifiziertes
-      %(Filename) auf das Batch-Item beziehen und leer bleiben. "@(x->'...')"
-      qualifiziert die Metadaten eindeutig.
+      Copy via item transform instead of Content items with Link metadata: inside a
+      batched target an unqualified %(Filename) would refer to the batching item and
+      come out empty. "@(x->'...')" qualifies the metadata unambiguously.
     -->
     <ItemGroup>
       <_MGCBOutputFiles Remove="@(_MGCBOutputFiles)" />

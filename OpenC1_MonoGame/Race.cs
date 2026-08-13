@@ -37,9 +37,9 @@ namespace OpenC1
         {
             Race.Current = this;
 
-            // Hier stand eine Debug-Zeile, die das ausgewaehlte Fahrzeug fest durch
-            // OTIS.TXT ersetzt hat. playerVehicleFile ist GameVars.SelectedCarFileName
-            // und faellt sonst auf Opponent 0 zurueck - Max Damage mit BLKEAGLE.TXT.
+            // There used to be a debug line here that hard-replaced the selected car with
+            // OTIS.TXT. playerVehicleFile is GameVars.SelectedCarFileName and otherwise
+            // falls back to opponent 0 - Max Damage with BLKEAGLE.TXT.
 
             Logger.Log("Starting race " + Path.GetFileName(filename)
                 + " with " + Path.GetFileName(playerVehicleFile));

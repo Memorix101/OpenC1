@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework.Audio;
 namespace OneAmEngine.Audio
 {
     /// <summary>
-    /// Ehemals der DirectSound-Listener, jetzt eine duenne Huelle um MonoGames
-    /// AudioListener. Die frueheren Deferred-Updates (BeginUpdate/CommitChanges)
-    /// entfallen - MonoGame uebernimmt Aenderungen sofort.
+    /// Formerly the DirectSound listener, now a thin shell around MonoGame's
+    /// AudioListener. The old deferred updates (BeginUpdate/CommitChanges) are gone -
+    /// MonoGame applies changes immediately.
     /// </summary>
     class MdxListener : IListener
     {
@@ -42,8 +42,8 @@ namespace OneAmEngine.Audio
 
         float IListener.DistanceFactor
         {
-            // DirectSound rechnete in Metern pro Weltmeinheit - entspricht MonoGames
-            // globalem DistanceScale.
+            // DirectSound counted in metres per world unit, which maps onto MonoGame's
+            // global DistanceScale.
             set { if (value > 0) SoundEffect.DistanceScale = value; }
         }
 

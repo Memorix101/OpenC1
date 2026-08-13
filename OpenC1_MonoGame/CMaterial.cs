@@ -67,8 +67,9 @@ namespace OpenC1
 
         private void GenerateSimpMatGradient()
         {
-            Texture2D tex = new Texture2D(GameEngine.Device, 1, SimpMatGradientCount + 1, false, SurfaceFormat.Color); // XNA 3 hatte hier numberLevels:1 = eine Stufe, also KEINE Mipmaps.
-            // Als mipMap:true portiert blieben die Stufen >0 ungefuellt -> schwarze Flaechen.
+            // XNA 3 had numberLevels:1 here - one level, meaning NO mipmaps. Ported as
+            // mipMap:true, levels above 0 stayed unfilled -> black surfaces.
+            Texture2D tex = new Texture2D(GameEngine.Device, 1, SimpMatGradientCount + 1, false, SurfaceFormat.Color);
             Color[] pixels = new Color[1 * SimpMatGradientCount+1];
             for (int i = 0; i < SimpMatGradientCount+1; i++)
                 pixels[i] = GameVars.Palette.GetRGBColorForPixel((SimpMatPixelIndex+i) % 255);

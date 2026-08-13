@@ -47,16 +47,16 @@ namespace OneAmEngine
             Device = graphics.GraphicsDevice;
             _isFullScreen = graphics.IsFullScreen;
 
-            // Ohne Mipmaps: das Ziel wird 1:1 ins Fenster kopiert, und ungefuellte
-            // Mip-Stufen wuerden nur schwarz sampeln.
+            // No mipmaps: the target is blitted 1:1 into the window, and unfilled mip
+            // levels would only ever sample black.
             screenshot = new RenderTarget2D(Device, Device.PresentationParameters.BackBufferWidth,
                 Device.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color, DepthFormat.Depth24Stencil8);
 
             DrawDistance = 1000;
 
-            // Frueher lief hier ein gepatchtes MonoGame, das "Content/" intern vor jeden
-            // Assetnamen gehaengt hat. Mit dem offiziellen MonoGame uebernimmt das das
-            // RootDirectory des ContentManagers.
+            // This used to run against a patched MonoGame that internally prefixed every
+            // asset name with "Content/". With the official MonoGame the ContentManager's
+            // RootDirectory does that job.
             _contentManager = new ContentManager(Game.Services, "Content");
 
             Input = new InputProvider(Game);

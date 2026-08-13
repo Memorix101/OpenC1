@@ -214,9 +214,9 @@ namespace OpenC1.Parsers
 
         private void ReadFunkSection()
         {
-            // Der ReadLine-Aufruf darf nicht im Trace.Assert stehen: Trace.Assert ist
-            // [Conditional("TRACE")], d.h. ohne TRACE faellt der Aufruf samt Argument weg
-            // und die Kopfzeile bleibt im Stream stehen.
+            // The ReadLine call must not sit inside Trace.Assert: Trace.Assert is
+            // [Conditional("TRACE")], so without TRACE the call disappears together with
+            // its argument and the header line stays in the stream.
             string start = ReadLine();
             Trace.Assert(start == "START OF FUNK");
             Funks = new List<BaseFunk>();

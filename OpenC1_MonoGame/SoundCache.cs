@@ -103,8 +103,8 @@ namespace OpenC1
                 }
                 if (instance != null)
                 {
-                    // Owner muss gesetzt sein: PlayGroup castet instance.Owner nach
-                    // Vehicle, um dem Spieler Vorrang zu geben - sonst NullReference.
+                    // Owner has to be set: PlayGroup casts instance.Owner to Vehicle to
+                    // give the player priority - otherwise it throws NullReference.
                     if (is3d && vehicle != null)
                         instance.Position = vehicle.Position;
                     instance.Owner = vehicle;

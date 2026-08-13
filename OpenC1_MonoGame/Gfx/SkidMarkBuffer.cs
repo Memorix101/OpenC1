@@ -163,8 +163,8 @@ namespace OpenC1.Gfx
             GameVars.CurrentEffect.World = Matrix.Identity;
             GameVars.ApplyCurrentEffect();
 
-            // Renderstates sind ab MonoGame unveraenderlich - DepthBias und CullMode
-            // stecken deshalb in einem vorbereiteten Objekt.
+            // Render states are immutable as of MonoGame - DepthBias and CullMode
+            // therefore live in a prepared object.
             RasterizerState oldRasterizerState = device.RasterizerState;
             device.RasterizerState = GameVars.CullDisabledSkidMarks;
 

@@ -7,13 +7,13 @@
     <AssemblyName>1amStudiosEngine</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
-    <!-- Properties\AssemblyInfo.cs wird weiterhin von Hand gepflegt. -->
+    <!-- Properties\AssemblyInfo.cs is still maintained by hand. -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Doppelt vorhandene, alte Kopie von GameEngine.cs - war auch vorher nicht im Build. -->
+    <!-- Stale duplicate of GameEngine.cs - it was not part of the build before either. -->
     <Compile Remove="Engine.cs" />
   </ItemGroup>
 
@@ -32,9 +32,9 @@
   </ItemGroup>
 
   <!--
-    Der Content dieses Projekts (Engine\Content\Content.mgcb) wird bewusst vom
-    Spielprojekt mitgebaut, nicht hier - so landen Engine- und Spiel-Assets
-    garantiert im selben Content-Ordner neben der EXE.
+    This project's content (Engine\Content\Content.mgcb) is deliberately built by the
+    game project rather than here, so engine and game assets are guaranteed to end up
+    in the same Content folder next to the executable.
   -->
 
 </Project>

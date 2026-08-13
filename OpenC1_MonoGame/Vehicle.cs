@@ -164,14 +164,14 @@ namespace OpenC1
             Matrix pose = Matrix.CreateFromQuaternion(Chassis.Actor.GlobalOrientationQuat) * Matrix.CreateTranslation(Chassis.Actor.GlobalPosition) * Matrix.CreateTranslation(pos2);
             _model.Render(pose);
 
-            // Chassis.Wheels entsteht beim Durchlaufen der PhysX-Shapes und steht damit
-            // NICHT in der Reihenfolge von Config.WheelActors - dafuer gibt es Index.
-            // Ueber die Position gepaart bekaeme ein Rad die Matrix eines anderen und
-            // wuerde quer durchs Bild gezogen.
+            // Chassis.Wheels is filled while walking the PhysX shapes and is therefore
+            // NOT in the order of Config.WheelActors - that is what Index is for.
+            // Pairing them by position would give one wheel another one's matrix and
+            // stretch it across the screen.
             foreach (Physics.VehicleWheel wheel in Chassis.Wheels)
             {
-                // Ohne die World-Matrix zeichnen alle Raeder mit der Matrix der
-                // Karosserie - sie landen als riesige Scheibe neben dem Auto.
+                // Without the World matrix all wheels draw with the body's matrix and
+                // end up as one huge disc next to the car.
                 GameVars.CurrentEffect.World = wheel.GetRenderMatrix();
                 _model.RenderSinglePart(Config.WheelActors[wheel.Index].Actor);
             }
@@ -181,8 +181,8 @@ namespace OpenC1
                 Vector3 pos = Vector3.Transform(_damagePosition, GameVars.ScaleMatrix * Chassis.Actor.GlobalPose);
                 _flames.Render(pos);
             }
-            // Frueher wurde hier der Wireframe-Debugmodus zurueckgesetzt. Renderstates
-            // sind ab MonoGame unveraenderlich - die Zuweisung warf zur Laufzeit.
+            // This used to reset the wireframe debug mode. Render states are immutable
+            // as of MonoGame - the assignment threw at runtime.
         }
 
         public Vector3 Position

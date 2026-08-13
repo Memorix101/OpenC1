@@ -30,9 +30,9 @@ namespace OpenC1
         public static bool CullingOff { get; set; }
         public static Color FogColor;
 
-        // Ab XNA 4 / MonoGame sind Renderstates unveraenderlich: statt
-        // device.RasterizerState.CullMode = ... wird ein fertiges Objekt zugewiesen.
-        // Deshalb hier einmalig angelegt statt pro Draw-Call neu erzeugt.
+        // As of XNA 4 / MonoGame render states are immutable: instead of
+        // device.RasterizerState.CullMode = ... you assign a ready-made object.
+        // Created once here rather than per draw call.
         public static readonly RasterizerState CullBackFaces =
             new RasterizerState { CullMode = CullMode.CullClockwiseFace };
         public static readonly RasterizerState CullDisabled =
@@ -41,10 +41,10 @@ namespace OpenC1
             new RasterizerState { CullMode = CullMode.None, DepthBias = -0.00002f };
 
         /// <summary>
-        /// Uebertraegt geaenderte Effektparameter (World, Texture, ...) an die GPU.
-        /// In XNA 3 leistete das effect.CommitChanges() innerhalb von Begin()/End();
-        /// ab XNA 4 / MonoGame wirkt eine Parameteraenderung erst nach Apply(), und
-        /// zwar vor jedem einzelnen Draw-Call.
+        /// Pushes changed effect parameters (World, Texture, ...) to the GPU.
+        /// In XNA 3 effect.CommitChanges() did this inside Begin()/End(); as of
+        /// XNA 4 / MonoGame a parameter change only takes effect after Apply(),
+        /// which has to run before every single draw call.
         /// </summary>
         public static void ApplyCurrentEffect()
         {
@@ -52,16 +52,16 @@ namespace OpenC1
         }
 
         /// <summary>
-        /// Setzt die Zustaende fuer den 3D-Durchgang. Noetig, weil SpriteBatch
-        /// CullCounterClockwise, LinearClamp und DepthStencilState.None hinterlaesst -
-        /// damit waere die komplette Welt weggecullt bzw. ohne Tiefentest.
+        /// Sets up the states for the 3D pass. Needed because SpriteBatch leaves behind
+        /// CullCounterClockwise, LinearClamp and DepthStencilState.None - which would
+        /// cull away the entire world and disable depth testing.
         /// </summary>
         public static void SetupWorldRenderStates(GraphicsDevice device)
         {
-            // Die Palettentexturen sind Cutouts: Index 0 wird zu Alpha 0. Frueher hat
-            // das ein globaler Alpha-Test erledigt (ReferenceAlpha 100), den es ab
-            // XNA 4 nicht mehr gibt - deshalb hier Alphablending, sonst werden die
-            // transparenten Bereiche (Fussgaenger, Zaeune, Schilder) schwarz gefuellt.
+            // The palette textures are cutouts: index 0 becomes alpha 0. A global alpha
+            // test used to handle that (ReferenceAlpha 100), which no longer exists as of
+            // XNA 4 - hence alpha blending, otherwise the transparent areas (pedestrians,
+            // fences, signs) get filled in black.
             device.BlendState = BlendState.AlphaBlend;
             device.DepthStencilState = DepthStencilState.Default;
             device.SamplerStates[0] = SamplerState.LinearWrap;

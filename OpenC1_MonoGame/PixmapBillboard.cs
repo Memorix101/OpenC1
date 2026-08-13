@@ -54,8 +54,8 @@ namespace OpenC1
             BasicEffect effect = GameVars.CurrentEffect; //BasicEffect2
             effect.World = _scaleMatrix * world;
             effect.Texture = _pixmaps[_currentFrame].Texture;
-            // Apply erst nach dem Setzen der Parameter, sonst zeichnet das Billboard
-            // mit Matrix und Textur des vorherigen Aufrufers.
+            // Apply only after setting the parameters, otherwise the billboard draws
+            // with the previous caller's matrix and texture.
             GameVars.ApplyCurrentEffect();
             GameEngine.Device.RasterizerState = GameVars.CullDisabled;
             GameVars.CullingOff = true;

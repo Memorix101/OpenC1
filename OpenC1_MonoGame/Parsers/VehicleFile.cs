@@ -180,7 +180,7 @@ namespace OpenC1.Parsers
 
         private void ReadFunkSection()
         {
-            // ReadLine gehoert aus dem Trace.Assert heraus - siehe RaceFile.ReadFunkSection.
+            // ReadLine belongs outside the Trace.Assert - see RaceFile.ReadFunkSection.
             string start = ReadLine();
             Trace.Assert(start == "START OF FUNK");
             Funks = new List<BaseFunk>();
