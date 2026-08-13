@@ -157,7 +157,6 @@ namespace OpenC1
 
         public void Render()
         {
-			//GameEngine.Device.RenderState.FillMode = FillMode.WireFrame;
             ModelShadow.Render(Config.BoundingBox, Chassis);
             SkidMarkBuffer.Render();
             
@@ -165,10 +164,16 @@ namespace OpenC1
             Matrix pose = Matrix.CreateFromQuaternion(Chassis.Actor.GlobalOrientationQuat) * Matrix.CreateTranslation(Chassis.Actor.GlobalPosition) * Matrix.CreateTranslation(pos2);
             _model.Render(pose);
 
-            for (int i = 0; i < Config.WheelActors.Count; i++)
+            // Chassis.Wheels entsteht beim Durchlaufen der PhysX-Shapes und steht damit
+            // NICHT in der Reihenfolge von Config.WheelActors - dafuer gibt es Index.
+            // Ueber die Position gepaart bekaeme ein Rad die Matrix eines anderen und
+            // wuerde quer durchs Bild gezogen.
+            foreach (Physics.VehicleWheel wheel in Chassis.Wheels)
             {
-                GameVars.CurrentEffect.World = Chassis.Wheels[i].GetRenderMatrix();
-                _model.RenderSinglePart(Config.WheelActors[i].Actor);
+                // Ohne die World-Matrix zeichnen alle Raeder mit der Matrix der
+                // Karosserie - sie landen als riesige Scheibe neben dem Auto.
+                GameVars.CurrentEffect.World = wheel.GetRenderMatrix();
+                _model.RenderSinglePart(Config.WheelActors[wheel.Index].Actor);
             }
 
             if (_damage > 50)
@@ -176,8 +181,8 @@ namespace OpenC1
                 Vector3 pos = Vector3.Transform(_damagePosition, GameVars.ScaleMatrix * Chassis.Actor.GlobalPose);
                 _flames.Render(pos);
             }
-
-			GameEngine.Device.RasterizerState.FillMode = FillMode.Solid;
+            // Frueher wurde hier der Wireframe-Debugmodus zurueckgesetzt. Renderstates
+            // sind ab MonoGame unveraenderlich - die Zuweisung warf zur Laufzeit.
         }
 
         public Vector3 Position

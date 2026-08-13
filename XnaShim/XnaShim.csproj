@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    XNA-3.0-Kompatibilitaets-Shim.
+
+    StillDesign.PhysX.Net.dll ist ein Mixed-Mode-C++/CLI-Assembly (x86, .NET Framework) und
+    referenziert "Microsoft.Xna.Framework, Version=3.0.0.0, PublicKeyToken=none".
+    Benutzt werden daraus nur vier Typen: Matrix, Plane, Quaternion, Vector3.
+
+    Frueher wurde deshalb eine komplette MonoGame-Quellkopie unter dem Namen
+    Microsoft.Xna.Framework gebaut. Stattdessen liefert dieses Projekt ein winziges
+    Assembly gleichen Namens, das die vier Typen per TypeForwardedTo an das offizielle
+    MonoGame.Framework aus NuGet weiterreicht.
+
+    Wichtig: Der Assemblyname und die Version 3.0.0.0 muessen exakt so bleiben, und das
+    Assembly darf NICHT signiert werden - die Referenz in PhysX.Net traegt kein
+    PublicKeyToken.
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>Microsoft.Xna.Framework</AssemblyName>
+    <RootNamespace>OpenC1.XnaShim</RootNamespace>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0.0</Version>
+    <SignAssembly>false</SignAssembly>
+    <LangVersion>latest</LangVersion>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>

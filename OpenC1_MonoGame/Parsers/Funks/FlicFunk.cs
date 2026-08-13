@@ -33,7 +33,7 @@ namespace OpenC1.Parsers.Funks
                 if (_currentFrame == _frames.Count) _currentFrame = 0;
                 _currentFrameTime = 0;
 
-                Material.Texture = _frames[_currentFrame];
+                //Material.Texture = _frames[_currentFrame];
             }
         }
     }

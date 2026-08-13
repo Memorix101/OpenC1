@@ -22,7 +22,7 @@ namespace OpenC1
         public IGameScreen Parent { get; private set; }
 
         Race _race;
-        BasicEffect2 _effect;
+        BasicEffect _effect; //BasicEffect2
         List<GameMode> _modes = new List<GameMode>();
 
         int _currentEditMode = 0;
@@ -41,7 +41,6 @@ namespace OpenC1
             GameMode.Current = _modes[_currentEditMode];
 
         }
-
 
         public void Update()
         {
@@ -66,7 +65,7 @@ namespace OpenC1
             }*/
 
             GameMode.Current.Update();
-            _race.PlayerVehicle.Chassis.OutputDebugInfo();
+            //_race.PlayerVehicle.Chassis.OutputDebugInfo();
 
             GameEngine.Camera.Update();
 
@@ -85,10 +84,12 @@ namespace OpenC1
 
             GameEngine.SpriteBatch.Begin();
 
+            GameVars.SetupWorldRenderStates(GameEngine.Device);
+
             _race.Render();
             _modes[_currentEditMode].Render();
 
-            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+            //GameEngine.Device.RasterizerState.CullMode = CullMode.None;
 
             foreach (ParticleSystem system in ParticleSystem.AllParticleSystems)
             {
@@ -98,10 +99,10 @@ namespace OpenC1
             GameEngine.SpriteBatch.End();
             //GameEngine.Device.RasterizerState.DepthBufferEnable = true; #
             //GameEngine.Device.RasterizerState.AlphaBlendEnable = false; #
-            GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
-            GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+        //    GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
+        //    GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
 
-            GameConsole.WriteLine("Position", Race.Current.PlayerVehicle.GetBodyBottom() / 6);
+            //GameConsole.WriteLine("Position", Race.Current.PlayerVehicle.GetBodyBottom() / 6);
 
             GameConsole.WriteLine("Draw Calls", GameVars.NbrDrawCalls);
 
@@ -109,13 +110,13 @@ namespace OpenC1
         }
 
 
-        private BasicEffect2 SetupRenderEffect()
+        private BasicEffect SetupRenderEffect()
         {
             GraphicsDevice device = GameEngine.Device;
 
             if (_effect == null)
             {
-                _effect = new BasicEffect2();
+                _effect = new BasicEffect(device);
 
                 if (Race.Current.ConfigFile.DepthCueMode == DepthCueMode.Dark)
                 {
@@ -129,10 +130,10 @@ namespace OpenC1
                 {
                     Trace.Assert(false);
                 }
-                _effect.FogEnabled = true;
+                //_effect.FogEnabled = true;
                 _effect.FogColor = GameVars.FogColor.ToVector3();
-                _effect.FogEnd = GameEngine.DrawDistance * 6 * (1 / Race.Current.ConfigFile.FogAmount);
-                _effect.FogStart = _effect.FogEnd - 200;
+                //_effect.FogEnd = GameEngine.DrawDistance * 6 * (1 / Race.Current.ConfigFile.FogAmount);
+                //_effect.FogStart = _effect.FogEnd - 200;
                 _effect.TextureEnabled = true;
                 //_effect.TexCoordsMultiplier = 1;
                 _effect.PreferPerPixelLighting = true;
@@ -143,10 +144,10 @@ namespace OpenC1
             //GameEngine.Device.RasterizerState.ReferenceAlpha = 200; #
             //GameEngine.Device.RasterizerState.AlphaFunction = CompareFunction.Greater; #
 
-            if (GameVars.CullingOff)
+       /*     if (GameVars.CullingOff)
                 GameEngine.Device.RasterizerState.CullMode = CullMode.None;
             else
-                GameEngine.Device.RasterizerState.CullMode = CullMode.CullClockwiseFace;
+                GameEngine.Device.RasterizerState.CullMode = CullMode.CullClockwiseFace;*/
 
             _effect.View = GameEngine.Camera.View;
             _effect.Projection = GameEngine.Camera.Projection;

@@ -24,6 +24,7 @@ namespace OneAmEngine
         public static DebugRenderer DebugRenderer;
         public static IGameScreen Screen { get; set; }
         public static GraphicsDevice Device { get; private set; }
+
         public static BasicEffect CurrentEffect;
         public static InputProvider Input { get; set; }
         public static float DrawDistance { get; set; }
@@ -46,12 +47,17 @@ namespace OneAmEngine
             Device = graphics.GraphicsDevice;
             _isFullScreen = graphics.IsFullScreen;
 
+            // Ohne Mipmaps: das Ziel wird 1:1 ins Fenster kopiert, und ungefuellte
+            // Mip-Stufen wuerden nur schwarz sampeln.
             screenshot = new RenderTarget2D(Device, Device.PresentationParameters.BackBufferWidth,
-                Device.PresentationParameters.BackBufferHeight, true, SurfaceFormat.Color, DepthFormat.Depth24Stencil8);
+                Device.PresentationParameters.BackBufferHeight, false, SurfaceFormat.Color, DepthFormat.Depth24Stencil8);
 
             DrawDistance = 1000;
 
-            _contentManager = new ContentManager(Game.Services);
+            // Frueher lief hier ein gepatchtes MonoGame, das "Content/" intern vor jeden
+            // Assetnamen gehaengt hat. Mit dem offiziellen MonoGame uebernimmt das das
+            // RootDirectory des ContentManagers.
+            _contentManager = new ContentManager(Game.Services, "Content");
 
             Input = new InputProvider(Game);
             DebugRenderer = new DebugRenderer();
@@ -100,11 +106,8 @@ namespace OneAmEngine
 
             //redraw everything to window
             Device.Clear(Color.Black);
-            SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,
-                SamplerState.LinearClamp, DepthStencilState.Default,
-                RasterizerState.CullNone);
+            SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.Default, RasterizerState.CullNone);
             SpriteBatch.Draw(screenshot, new Rectangle(0, 0, Device.PresentationParameters.BackBufferWidth, Device.PresentationParameters.BackBufferHeight), Color.White);
-
             SpriteBatch.End();
         }
 

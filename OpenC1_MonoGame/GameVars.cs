@@ -29,8 +29,47 @@ namespace OpenC1
         public static int NbrDrawCalls = 0;
         public static bool CullingOff { get; set; }
         public static Color FogColor;
+
+        // Ab XNA 4 / MonoGame sind Renderstates unveraenderlich: statt
+        // device.RasterizerState.CullMode = ... wird ein fertiges Objekt zugewiesen.
+        // Deshalb hier einmalig angelegt statt pro Draw-Call neu erzeugt.
+        public static readonly RasterizerState CullBackFaces =
+            new RasterizerState { CullMode = CullMode.CullClockwiseFace };
+        public static readonly RasterizerState CullDisabled =
+            new RasterizerState { CullMode = CullMode.None };
+        public static readonly RasterizerState CullDisabledSkidMarks =
+            new RasterizerState { CullMode = CullMode.None, DepthBias = -0.00002f };
+
+        /// <summary>
+        /// Uebertraegt geaenderte Effektparameter (World, Texture, ...) an die GPU.
+        /// In XNA 3 leistete das effect.CommitChanges() innerhalb von Begin()/End();
+        /// ab XNA 4 / MonoGame wirkt eine Parameteraenderung erst nach Apply(), und
+        /// zwar vor jedem einzelnen Draw-Call.
+        /// </summary>
+        public static void ApplyCurrentEffect()
+        {
+            CurrentEffect.CurrentTechnique.Passes[0].Apply();
+        }
+
+        /// <summary>
+        /// Setzt die Zustaende fuer den 3D-Durchgang. Noetig, weil SpriteBatch
+        /// CullCounterClockwise, LinearClamp und DepthStencilState.None hinterlaesst -
+        /// damit waere die komplette Welt weggecullt bzw. ohne Tiefentest.
+        /// </summary>
+        public static void SetupWorldRenderStates(GraphicsDevice device)
+        {
+            // Die Palettentexturen sind Cutouts: Index 0 wird zu Alpha 0. Frueher hat
+            // das ein globaler Alpha-Test erledigt (ReferenceAlpha 100), den es ab
+            // XNA 4 nicht mehr gibt - deshalb hier Alphablending, sonst werden die
+            // transparenten Bereiche (Fussgaenger, Zaeune, Schilder) schwarz gefuellt.
+            device.BlendState = BlendState.AlphaBlend;
+            device.DepthStencilState = DepthStencilState.Default;
+            device.SamplerStates[0] = SamplerState.LinearWrap;
+            device.RasterizerState = CullBackFaces;
+            CullingOff = false;
+        }
         public static string BasePath;
-        public static BasicEffect2 CurrentEffect;
+        public static BasicEffect CurrentEffect; //BasicEffect2
         public static ParticleEmitter SparksEmitter;
         public static string SelectedCarFileName;
         public static RaceInfo SelectedRaceInfo;

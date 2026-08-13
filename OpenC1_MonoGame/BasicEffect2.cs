@@ -8,9 +8,8 @@ using OneAmEngine;
 
 namespace OpenC1
 {
-    public class BasicEffect2 : Effect, IEffectMatrices, IEffectFog
+    public class BasicEffect2 : Effect
     {
-
         // Fields
         private EffectParameter alphaParam;
         private EffectParameter ambientLightColorParam;
@@ -98,7 +97,7 @@ namespace OpenC1
 
         public void CommitChanges()
         {
-            //_effect.CommitChanges();
+           // _effect.Apply();
         }
 
         public void EnableDefaultLighting()
@@ -119,38 +118,6 @@ namespace OpenC1
             this.DirectionalLight2.Direction = new Vector3(0.4545195f, -0.7660444f, 0.4545195f);
             this.DirectionalLight2.SpecularColor = vector;
             this.DirectionalLight2.Enabled = true;
-        }
-        private void InitializeEffectParams()
-        {
-            this.World = Matrix.Identity;
-            this.View = Matrix.Identity;
-            this.Projection = Matrix.Identity;
-            this.FogEnabled = false;
-            this.FogStart = 0f;
-            this.FogEnd = 1f;
-            this.FogColor = Vector3.Zero;
-            this.DiffuseColor = Vector3.One;
-            this.SpecularColor = Vector3.One;
-            this.EmissiveColor = Vector3.Zero;
-            this.Alpha = 1f;
-            this.SpecularPower = 16f;
-            this.preferPerPixelLighting = false;
-            this.lightingEnabled = false;
-            this.textureEnabled = false;
-            this.vertexColorEnabled = false;
-            this.UpdateShaderIndex();
-            this.light0.Enabled = false;
-            this.light0.Direction = Vector3.Up;
-            this.light0.DiffuseColor = Vector3.Zero;
-            this.light0.SpecularColor = Vector3.Zero;
-            this.light1.Enabled = false;
-            this.light1.Direction = Vector3.Up;
-            this.light1.DiffuseColor = Vector3.Zero;
-            this.light1.SpecularColor = Vector3.Zero;
-            this.light2.Enabled = false;
-            this.light2.Direction = Vector3.Up;
-            this.light2.DiffuseColor = Vector3.Zero;
-            this.light2.SpecularColor = Vector3.Zero;
         }
 
         private void UpdateShaderIndex()
@@ -247,7 +214,7 @@ namespace OpenC1
             }
         }
 
-        public bool FogEnabled
+        /*public bool FogEnabled
         {
             get
             {
@@ -281,7 +248,7 @@ namespace OpenC1
             {
                 this.fogStartParam.SetValue(value);
             }
-        }
+        }*/
 
         public bool LightingEnabled
         {

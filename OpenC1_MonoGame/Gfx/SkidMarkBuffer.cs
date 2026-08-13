@@ -160,11 +160,13 @@ namespace OpenC1.Gfx
             //device.Vertices[0].SetSource(_buffer, 0, VertexPositionTexture.SizeInBytes);
             //device.VertexDeclaration = _vertexDeclaration;
             device.SetVertexBuffer(_buffer);
-            GameVars.CurrentEffect.World = Matrix.Identity;          
+            GameVars.CurrentEffect.World = Matrix.Identity;
+            GameVars.ApplyCurrentEffect();
 
-            device.RasterizerState.DepthBias = -0.00002f;
-            CullMode oldCullMode = GameEngine.Device.RasterizerState.CullMode;
-            device.RasterizerState.CullMode = CullMode.None;
+            // Renderstates sind ab MonoGame unveraenderlich - DepthBias und CullMode
+            // stecken deshalb in einem vorbereiteten Objekt.
+            RasterizerState oldRasterizerState = device.RasterizerState;
+            device.RasterizerState = GameVars.CullDisabledSkidMarks;
 
             int nbrCalls = 0;
             for (int i = 0; i < _maxSkids; )
@@ -184,13 +186,12 @@ namespace OpenC1.Gfx
 
             GameConsole.WriteLine("skids", nbrCalls);
 
-            device.RasterizerState.CullMode = oldCullMode;
+            device.RasterizerState = oldRasterizerState;
+            GameVars.CullingOff = false;
 
             //de-activate all skids before next update
             foreach (CurrentSkid skid in _currentSkids)
                 skid.IsActive = false;
-
-            device.RasterizerState.DepthBias = 0;
         }
 
 

@@ -85,7 +85,7 @@ namespace OneAmEngine
         public void Draw()
         {
             //GameEngine.Device.RenderState.CullMode = CullMode.CullClockwiseFace;
-            GameEngine.Device.RasterizerState = RasterizerState.CullCounterClockwise;
+            //GameEngine.Device.RasterizerState = RasterizerState.CullCounterClockwise;
             Matrix worldMatrix = Matrix.CreateTranslation(0, 0, -TILES_Z + 1);
             worldMatrix *= Matrix.CreateScale(10, 1, 10);
             BasicEffect effect = new BasicEffect(GameEngine.Device);
@@ -94,8 +94,8 @@ namespace OneAmEngine
             effect.Projection = GameEngine.Camera.Projection;
             effect.Texture = GameEngine.ContentManager.Load<Texture2D>("Content\\Textures\\grass");
             effect.TextureEnabled = true;
-            GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
-            GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+           // GameEngine.Device.SamplerStates[0].AddressU = TextureAddressMode.Wrap;
+           // GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
             //effect.Begin();
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {

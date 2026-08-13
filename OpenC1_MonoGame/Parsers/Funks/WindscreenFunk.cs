@@ -11,7 +11,7 @@ namespace OpenC1.Parsers.Funks
     {
         public Vector2 Speed;
         Vector2 _uvOffset;
-        TextureAddressMode _lastMode;
+        SamplerState _lastSamplerState;
         Vehicle _vehicle;
         Texture2D _origTexture;
 
@@ -31,23 +31,25 @@ namespace OpenC1.Parsers.Funks
 
         public override void BeforeRender()
         {
-            _lastMode = GameEngine.Device.SamplerStates[0].AddressU;
-            if (_lastMode != TextureAddressMode.Wrap)
-                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = TextureAddressMode.Wrap;
+            // SamplerState ist ab MonoGame unveraenderlich: das komplette Objekt tauschen,
+            // statt einzelne Felder am gebundenen State zu setzen (wirft zur Laufzeit).
+            _lastSamplerState = GameEngine.Device.SamplerStates[0];
+            if (_lastSamplerState.AddressU != TextureAddressMode.Wrap)
+                GameEngine.Device.SamplerStates[0] = SamplerState.LinearWrap;
 
-            GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
+         /*   GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
             GameVars.CurrentEffect.TexCoordsMultiplier = 0.1f;
-            GameVars.CurrentEffect.CommitChanges();
+            GameVars.CurrentEffect.CommitChanges();*/
         }
 
         public override void AfterRender()
         {
-            if (_lastMode != TextureAddressMode.Wrap)
-                GameEngine.Device.SamplerStates[0].AddressU = GameEngine.Device.SamplerStates[0].AddressV = _lastMode;
+            if (_lastSamplerState != null && _lastSamplerState.AddressU != TextureAddressMode.Wrap)
+                GameEngine.Device.SamplerStates[0] = _lastSamplerState;
 
-            GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
+        /*    GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
             GameVars.CurrentEffect.TexCoordsMultiplier = 1;
-            GameVars.CurrentEffect.CommitChanges();
+            GameVars.CurrentEffect.CommitChanges();*/
         }
 
         public override void Update()

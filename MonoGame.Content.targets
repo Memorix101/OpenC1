@@ -1,0 +1,74 @@
+<Project>
+
+  <!--
+    Content-Build fuer OpenC1.
+
+    Ersetzt die Targets aus MonoGame.Content.Builder.Task. Grund: MGCB 3.8.0 ist ein
+    netcoreapp3.1-Tool, und diese Runtime ist auf aktuellen Systemen nicht mehr
+    installiert. Die Original-Targets rufen MGCB ohne Roll-Forward auf und scheitern
+    daher mit "You must install or update .NET". Hier wird DOTNET_ROLL_FORWARD gesetzt,
+    was die Original-Targets nicht erlauben.
+
+    Erwartet:
+      - PackageReference auf MonoGame.Content.Builder.Task mit GeneratePathProperty="true"
+      - MonoGameContentReference-Items, die auf .mgcb-Dateien zeigen
+  -->
+
+  <PropertyGroup>
+    <MonoGamePlatform Condition="'$(MonoGamePlatform)' == ''">DesktopGL</MonoGamePlatform>
+    <!-- "Major" nimmt die naechsthoehere installierte Major-Version (statt exakt 3.1). -->
+    <MGCBRollForward Condition="'$(MGCBRollForward)' == ''">Major</MGCBRollForward>
+    <MGCBDll Condition="'$(MGCBDll)' == ''">$(PkgMonoGame_Content_Builder_Task)\tools\netcoreapp3.1\any\mgcb.dll</MGCBDll>
+  </PropertyGroup>
+
+  <!-- Macht den Item-Typ im Visual-Studio-Eigenschaftenfenster auswaehlbar. -->
+  <ItemGroup>
+    <AvailableItemName Include="MonoGameContentReference" />
+  </ItemGroup>
+
+  <Target Name="BuildMonoGameContent"
+          BeforeTargets="BeforeBuild"
+          Condition="'@(MonoGameContentReference)' != ''"
+          Outputs="%(MonoGameContentReference.Identity)">
+
+    <Error Condition="!Exists('$(MGCBDll)')"
+           Text="MGCB nicht gefunden: $(MGCBDll) - fehlt die PackageReference auf MonoGame.Content.Builder.Task mit GeneratePathProperty=&quot;true&quot;?" />
+
+    <PropertyGroup>
+      <_MGCBContentDir>%(MonoGameContentReference.RootDir)%(MonoGameContentReference.Directory)</_MGCBContentDir>
+      <_MGCBOutDir>$(_MGCBContentDir)bin\$(MonoGamePlatform)</_MGCBOutDir>
+      <_MGCBObjDir>$(_MGCBContentDir)obj\$(MonoGamePlatform)</_MGCBObjDir>
+      <!--
+        Fuer die Kommandozeile mit Schraegstrichen: ein abschliessender Backslash
+        vor dem Anfuehrungszeichen wuerde dieses escapen ("...\Content\" -> kaputt).
+      -->
+      <_MGCBContentDirArg>$(_MGCBContentDir.Replace('\','/'))</_MGCBContentDirArg>
+      <_MGCBOutDirArg>$(_MGCBOutDir.Replace('\','/'))</_MGCBOutDirArg>
+      <_MGCBObjDirArg>$(_MGCBObjDir.Replace('\','/'))</_MGCBObjDirArg>
+    </PropertyGroup>
+
+    <!--
+      /outputDir und /intermediateDir stehen bewusst NACH /@:, damit sie die Werte
+      aus der .mgcb-Datei ueberschreiben. MGCB wertet Optionen in Reihenfolge aus.
+    -->
+    <Exec Command="dotnet &quot;$(MGCBDll)&quot; /@:&quot;%(MonoGameContentReference.FullPath)&quot; /platform:$(MonoGamePlatform) /outputDir:&quot;$(_MGCBOutDirArg)&quot; /intermediateDir:&quot;$(_MGCBObjDirArg)&quot; /workingDir:&quot;$(_MGCBContentDirArg)&quot;"
+          WorkingDirectory="$(_MGCBContentDir)"
+          EnvironmentVariables="DOTNET_ROLL_FORWARD=$(MGCBRollForward)" />
+
+    <!--
+      Kopie per Item-Transformation statt ueber Content-Items mit Link-Metadatum:
+      innerhalb eines Targets mit Batching wuerde sich ein unqualifiziertes
+      %(Filename) auf das Batch-Item beziehen und leer bleiben. "@(x->'...')"
+      qualifiziert die Metadaten eindeutig.
+    -->
+    <ItemGroup>
+      <_MGCBOutputFiles Remove="@(_MGCBOutputFiles)" />
+      <_MGCBOutputFiles Include="$(_MGCBOutDir)\**\*.*" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(_MGCBOutputFiles)"
+          DestinationFiles="@(_MGCBOutputFiles->'$(OutDir)Content\%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

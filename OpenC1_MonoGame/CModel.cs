@@ -109,7 +109,7 @@ namespace OpenC1
 
 				if (GameVars.CullingOff != poly.DoubleSided)
                 {
-                    device.RasterizerState.CullMode = (poly.DoubleSided ? CullMode.None : CullMode.CullClockwiseFace);
+                    device.RasterizerState = poly.DoubleSided ? GameVars.CullDisabled : GameVars.CullBackFaces;
                     GameVars.CullingOff = poly.DoubleSided;
                 }
 

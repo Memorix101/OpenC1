@@ -324,10 +324,10 @@ namespace OpenC1
 
             world = Matrix.CreateScale(scale) * Matrix.CreateRotationZ(_hitCurrentSpin) * world * Matrix.CreateTranslation(frame.Offset) * Matrix.CreateTranslation(0, scale.Y * 0.5f, 0);
 
-            BasicEffect2 effect = GameVars.CurrentEffect;
+            BasicEffect effect = GameVars.CurrentEffect;
             effect.World = world;
             effect.Texture = frame.Texture;
-            effect.CommitChanges();
+            GameVars.ApplyCurrentEffect(); // ersetzt das XNA-3-effect.CommitChanges()
             GameEngine.Device.DrawPrimitives(PrimitiveType.TriangleStrip, 0, 2);
         }
 

@@ -35,7 +35,6 @@ namespace OpenC1
             //GameEngine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
             //GameEngine.Device.VertexDeclaration = _vertexDeclaration;
             GameEngine.Device.SetVertexBuffer(_vertexBuffer);
-            //GameEngine.CurrentEffect.CurrentTechnique.Passes[0].Begin();
         }
 
         public void EndBatch()
@@ -52,10 +51,14 @@ namespace OpenC1
 
             Matrix world = Matrix.CreateScale(0.03f) * Matrix.CreateBillboard(position, GameEngine.Camera.Position, Vector3.Up, Vector3.Forward);
 
-            BasicEffect2 effect = GameVars.CurrentEffect;
+            BasicEffect effect = GameVars.CurrentEffect; //BasicEffect2
             effect.World = _scaleMatrix * world;
             effect.Texture = _pixmaps[_currentFrame].Texture;
-            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+            // Apply erst nach dem Setzen der Parameter, sonst zeichnet das Billboard
+            // mit Matrix und Textur des vorherigen Aufrufers.
+            GameVars.ApplyCurrentEffect();
+            GameEngine.Device.RasterizerState = GameVars.CullDisabled;
+            GameVars.CullingOff = true;
             GameEngine.Device.DrawPrimitives(PrimitiveType.TriangleStrip, 0, 2);
             EndBatch();
         }

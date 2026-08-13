@@ -125,7 +125,7 @@ namespace OpenC1
 
             bool overrideActor = world != Matrix.Identity;
 
-            //GameVars.CurrentEffect.CurrentTechnique.Passes[0].Begin();
+            GameVars.CurrentEffect.CurrentTechnique.Passes[0].Apply();
 
             for (int i = 0; i < _actors.Count; i++)
             {
@@ -182,6 +182,10 @@ namespace OpenC1
 
                 if (actor.Model != null)
                 {
+                    // Muss nach jedem Setzen von World passieren, sonst zeichnet jeder
+                    // Actor mit der Matrix des vorherigen Apply-Aufrufs.
+                    GameVars.ApplyCurrentEffect();
+
                     actor.Model.Render(actor.Material);
 					if (actor.Model is CDeformableModel)
 					{
@@ -201,6 +205,7 @@ namespace OpenC1
             Matrix m = actor.Matrix;
             m.Translation = Vector3.Zero;
             GameVars.CurrentEffect.World = m * GameVars.CurrentEffect.World;
+            GameVars.ApplyCurrentEffect();
 
             actor.Model.Render(actor.Material);
         }

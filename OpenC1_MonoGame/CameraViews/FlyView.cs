@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 using OneAmEngine;
 
 namespace OpenC1.CameraViews
@@ -31,14 +32,14 @@ namespace OpenC1.CameraViews
 
         public void Render()
         {
-            _vehicle.Render();
+            //_vehicle.Render();
             GameEngine.Camera = _camera;
         }
 
         public void Activate()
         {
             GameEngine.Camera = _camera;
-            _camera.Position = _vehicle.Position;
+            _camera.Position = new Vector3(-968.4f, -17.04f, 197.64f); // _vehicle.Position;
         }
 
         public void Deactivate()

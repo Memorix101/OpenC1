@@ -130,6 +130,7 @@ namespace OpenC1.Parsers
             for (int i = 0; i < nbrActors; i++)
             {
                 string modelRef = ReadLine();  //this is in the format 0,Eagle.act
+
                 int dist = int.Parse(modelRef.Substring(0, modelRef.IndexOf(",")));
                 if (dist == -1)
                     BonnetActorFile = modelRef.Substring(modelRef.IndexOf(",")+1);
@@ -179,7 +180,9 @@ namespace OpenC1.Parsers
 
         private void ReadFunkSection()
         {
-            Trace.Assert(ReadLine() == "START OF FUNK");
+            // ReadLine gehoert aus dem Trace.Assert heraus - siehe RaceFile.ReadFunkSection.
+            string start = ReadLine();
+            Trace.Assert(start == "START OF FUNK");
             Funks = new List<BaseFunk>();
             FunkReader reader = new FunkReader();
 
@@ -192,7 +195,8 @@ namespace OpenC1.Parsers
 
         private void ReadGrooveSection()
         {
-            Trace.Assert(ReadLine() == "START OF GROOVE");
+            string start = ReadLine();
+            Trace.Assert(start == "START OF GROOVE");
             Grooves = new List<BaseGroove>();
             GrooveReader reader = new GrooveReader();
 
@@ -289,7 +293,8 @@ namespace OpenC1.Parsers
             TopSpeed = Math.Min(320, ReadLineAsFloat(false));
             EnginePower = ReadLineAsFloat(false);
 
-            Trace.Assert(ReadLine().StartsWith("END OF MECHANICS"));
+            string end = ReadLine();
+            Trace.Assert(end.StartsWith("END OF MECHANICS"));
         }
     }
 }

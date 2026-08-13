@@ -86,7 +86,7 @@ namespace OpenC1
 
         public void Update()
         {
-            Vector3 playerPos = Race.Current.PlayerVehicle.Position;
+            //Vector3 playerPos = Race.Current.PlayerVehicle.Position;
 
             for (int i = 0; i < _peds.Count; i++)
             {
@@ -101,7 +101,7 @@ namespace OpenC1
                         continue;
                     }
                 }
-                ped.DistanceFromPlayer = Vector3.Distance(playerPos, ped.Position);
+               // ped.DistanceFromPlayer = Vector3.Distance(playerPos, ped.Position);
                 if (ped.DistanceFromPlayer < 100)
                 {
                     if (ped.DistanceFromPlayer < 25)
@@ -121,14 +121,19 @@ namespace OpenC1
             //GameEngine.Device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionTexture.SizeInBytes);
             //GameEngine.Device.VertexDeclaration = _vertexDeclaration;
             GameEngine.Device.SetVertexBuffer(_vertexBuffer);
-            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
-			//GameEngine.Device.RasterizerState.ReferenceAlpha = 100; #
+
+            // Fussgaenger sind Billboards - die muessen von beiden Seiten sichtbar sein.
+            RasterizerState oldRasterizerState = GameEngine.Device.RasterizerState;
+            GameEngine.Device.RasterizerState = GameVars.CullDisabled;
 
             foreach (Pedestrian ped in _peds)
             {
                 if (ped.DistanceFromPlayer < 150)
                     ped.Render();
             }
+
+            GameEngine.Device.RasterizerState = oldRasterizerState;
+            GameVars.CullingOff = false;
         }
 
         private void CreateGeometry()

@@ -432,7 +432,8 @@ namespace OpenC1
 
                 if (GameVars.CullingOff != poly.DoubleSided)
                 {
-                    device.RasterizerState.CullMode = (poly.DoubleSided ? CullMode.None : CullMode.CullClockwiseFace);
+                    // Direkt am gebundenen State zu schrauben wirft in MonoGame zur Laufzeit.
+                    device.RasterizerState = poly.DoubleSided ? GameVars.CullDisabled : GameVars.CullBackFaces;
                     GameVars.CullingOff = poly.DoubleSided;
                 }
 

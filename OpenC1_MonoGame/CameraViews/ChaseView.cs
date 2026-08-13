@@ -28,7 +28,7 @@ namespace OpenC1.CameraViews
             _vehicle = vehicle;
 
             _hudItems.Add(new StandardHudItem());
-            _hudItems.Add(new RevCounter(_vehicle.Chassis));
+            //_hudItems.Add(new RevCounter(_vehicle.Chassis));
             _hudItems.Add(new Timer());   
         }
 

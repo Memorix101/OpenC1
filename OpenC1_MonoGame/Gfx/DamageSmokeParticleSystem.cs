@@ -19,7 +19,7 @@ namespace OpenC1.Gfx
 
         protected override void InitializeSettings(ParticleSettings settings)
         {
-            settings.Texture = GameEngine.ContentManager.Load<Texture2D>("Content/damage-smoke");
+            settings.Texture = GameEngine.ContentManager.Load<Texture2D>("damage-smoke");
             
             settings.MaxParticles = 150;
 

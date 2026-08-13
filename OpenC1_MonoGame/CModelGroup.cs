@@ -65,8 +65,8 @@ namespace OpenC1
 			if (_vertexBuffer != null)
 			{
 				//device.Vertices[0].SetSource(_vertexBuffer, 0, VertexPositionNormalTexture.SizeInBytes);
-				device.Indices = _indexBuffer;
                 device.SetVertexBuffer(_vertexBuffer);
+                device.Indices = _indexBuffer;
             }
             //device.VertexDeclaration = _vertexDeclaration;
         }

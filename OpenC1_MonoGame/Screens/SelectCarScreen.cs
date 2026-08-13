@@ -13,7 +13,7 @@ namespace OpenC1.Screens
 {
     class SelectCarScreen : BaseMenuScreen
     {
-        BasicEffect2 _effect;
+        BasicEffect _effect;
         List<OpponentInfo> _opponents;
         public static SpriteFont _titleFont;
 
@@ -30,10 +30,10 @@ namespace OpenC1.Screens
 
             _outAnimation = new AnimationPlayer(LoadAnimation("chcraway.fli"));
 
-            _effect = new BasicEffect2();
-            //_effect.LightingEnabled = false;
+            _effect = new BasicEffect(GameEngine.Device);
+            _effect.LightingEnabled = false;
 			_effect.PreferPerPixelLighting = true;
-            //_effect.TexCoordsMultiplier = 1;
+        //    _effect.TexCoordsMultiplier = 1;
             _effect.TextureEnabled = true;
 
             GameEngine.Camera.Position = new Vector3(-1.5f, 3.5f, 10);
@@ -64,7 +64,7 @@ namespace OpenC1.Screens
 
 			foreach (var opponent in _opponents)
 			{
-				_options.Add(new CarModelMenuOption(_effect, opponent));
+				_options.Add(new CarModelMenuOption(null, opponent));
 			}
         }
 
@@ -75,7 +75,7 @@ namespace OpenC1.Screens
 
         public override void Render()
         {
-            GameVars.CurrentEffect = _effect;
+        //    GameVars.CurrentEffect = _effect;
             base.Render();
         }
 
@@ -88,12 +88,12 @@ namespace OpenC1.Screens
 
     class CarModelMenuOption : IMenuOption
     {
-        BasicEffect2 _effect;
+        BasicEffect _effect;
         VehicleModel _model;
         OpponentInfo _info;
 		string _loadException;
         
-        public CarModelMenuOption(BasicEffect2 effect, OpponentInfo info)
+        public CarModelMenuOption(BasicEffect effect, OpponentInfo info)
         {
             _effect = effect;
             _info = info;
@@ -142,11 +142,11 @@ namespace OpenC1.Screens
 
             _model.Update();
             //GameEngine.Device.RasterizerState.DepthBufferEnable = true; #
-            GameEngine.Device.RasterizerState.CullMode = CullMode.None;
+       //     GameEngine.Device.RasterizerState.CullMode = CullMode.None;
 			//GameEngine.Device.RenderState.FillMode = FillMode.WireFrame;
-			_effect.TextureEnabled = true;
+		//	_effect.TextureEnabled = true;
             _model.Render(Matrix.CreateScale(1.2f) * Matrix.CreateRotationY(2.55f));
-			GameEngine.Device.RasterizerState.FillMode = FillMode.Solid;
+		//	GameEngine.Device.RasterizerState.FillMode = FillMode.Solid;
         }
     }
 }

@@ -1,1 +1,0 @@
-start ./OpenC1_MonoGame/MonoGame-develop/Tools/Pipeline/bin/Windows/AnyCPU/Debug/Pipeline.exe

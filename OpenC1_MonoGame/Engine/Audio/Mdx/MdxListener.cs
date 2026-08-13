@@ -1,83 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 
 namespace OneAmEngine.Audio
 {
+    /// <summary>
+    /// Ehemals der DirectSound-Listener, jetzt eine duenne Huelle um MonoGames
+    /// AudioListener. Die frueheren Deferred-Updates (BeginUpdate/CommitChanges)
+    /// entfallen - MonoGame uebernimmt Aenderungen sofort.
+    /// </summary>
     class MdxListener : IListener
     {
-        SoundEffectInstance _listener;
-
-        private float _DistanceFactor;
-        private Vector3 _Position;
-        private Vector3 _Velocity;
-        private float _RolloffFactor;
-
-        /*public MdxListener()
-         {
-             /*BufferDescription desc = new BufferDescription();
-             desc.PrimaryBuffer = true;
-             desc.Control3D = true;
-             desc.Mute3DAtMaximumDistance = true;*/
-        //Microsoft.DirectX.DirectSound.Buffer buffer = new Microsoft.DirectX.DirectSound.Buffer(desc, device);
-        //_listener.set3DNumListeners(0);
-        // Orientation = Matrix.Identity;
-        // }*/
-
-        public MdxListener()
-        {
-
-        }
-
+        internal readonly AudioListener XnaListener = new AudioListener();
 
         public Matrix Orientation
         {
             set
             {
-                /*Listener3DOrientation orientation = _listener.Orientation;
-				orientation.Front = MdxHelpers.ToMdx(Vector3.Normalize(value.Forward));
-				orientation.Top = MdxHelpers.ToMdx(Vector3.Normalize(value.Up));
-				_listener.Orientation = orientation;*/
+                XnaListener.Forward = Vector3.Normalize(value.Forward);
+                XnaListener.Up = Vector3.Normalize(value.Up);
             }
         }
 
         public void SetOrientation(Vector3 forward)
         {
-            /*Listener3DOrientation orientation = _listener.Orientation;
-            orientation.Front = MdxHelpers.ToMdx(forward);
-            orientation.Top = MdxHelpers.ToMdx(Vector3.Up);
-            _listener.Orientation = orientation;*/
+            if (forward != Vector3.Zero)
+                XnaListener.Forward = Vector3.Normalize(forward);
+            XnaListener.Up = Vector3.Up;
         }
 
         Vector3 IListener.Position
         {
-            get => _Position;
-            set => _Position = value;
+            get => XnaListener.Position;
+            set => XnaListener.Position = value;
         }
+
         Vector3 IListener.Velocity
         {
-            set => _Velocity = value;
+            set => XnaListener.Velocity = value;
         }
+
         float IListener.DistanceFactor
         {
-            set => _DistanceFactor = value;
+            // DirectSound rechnete in Metern pro Weltmeinheit - entspricht MonoGames
+            // globalem DistanceScale.
+            set { if (value > 0) SoundEffect.DistanceScale = value; }
         }
+
         float IListener.RolloffFactor
         {
-            set => _RolloffFactor = value;
+            set { if (value > 0) SoundEffect.DopplerScale = value; }
         }
 
-        public void BeginUpdate()
-        {
-            //_listener.Deferred = true;
-        }
+        public void BeginUpdate() { }
 
-        public void CommitChanges()
-        {
-            //_listener.CommitDeferredSettings();
-           // _listener.update();
-        }
+        public void CommitChanges() { }
     }
 }

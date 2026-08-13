@@ -37,7 +37,12 @@ namespace OpenC1
         {
             Race.Current = this;
 
-            Logger.Log("Starting race " + Path.GetFileName(filename));
+            // Hier stand eine Debug-Zeile, die das ausgewaehlte Fahrzeug fest durch
+            // OTIS.TXT ersetzt hat. playerVehicleFile ist GameVars.SelectedCarFileName
+            // und faellt sonst auf Opponent 0 zurueck - Max Damage mit BLKEAGLE.TXT.
+
+            Logger.Log("Starting race " + Path.GetFileName(filename)
+                + " with " + Path.GetFileName(playerVehicleFile));
 
             ConfigFile = new RaceFile(filename);
 
@@ -123,7 +128,8 @@ namespace OpenC1
 			
             foreach (CopStartPoint point in ConfigFile.CopStartPoints)
             {
-                Opponents.Add(new Opponent(point.IsSpecialForces ? "bigapc.txt" : "apc.txt", point.Position, 0, new CopDriver()));
+                //APC FIX NEEDED
+                //Opponents.Add(new Opponent(point.IsSpecialForces ? "bigapc.txt" : "apc.txt", point.Position, 0, new CopDriver()));
             }
 
             foreach (Opponent o in Opponents) Drivers.Add(o.Driver);
@@ -133,6 +139,7 @@ namespace OpenC1
             PlayerVehicle = new Vehicle(GameVars.BasePath + @"cars\" + playerVehicleFile, new PlayerDriver());
             PlayerVehicle.PlaceOnGrid(ConfigFile.GridPosition, ConfigFile.GridDirection);
             Drivers.Add(PlayerVehicle.Driver);
+            
 
             Peds = new PedestrianController(ConfigFile.Peds);
             _map = new RaceMap(this);

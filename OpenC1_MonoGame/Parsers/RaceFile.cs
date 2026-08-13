@@ -214,7 +214,11 @@ namespace OpenC1.Parsers
 
         private void ReadFunkSection()
         {
-            Trace.Assert(ReadLine() == "START OF FUNK");
+            // Der ReadLine-Aufruf darf nicht im Trace.Assert stehen: Trace.Assert ist
+            // [Conditional("TRACE")], d.h. ohne TRACE faellt der Aufruf samt Argument weg
+            // und die Kopfzeile bleibt im Stream stehen.
+            string start = ReadLine();
+            Trace.Assert(start == "START OF FUNK");
             Funks = new List<BaseFunk>();
             FunkReader reader = new FunkReader();
 
@@ -281,9 +285,8 @@ namespace OpenC1.Parsers
 
         private void ReadOpponentPathsSection()
         {
-            Trace.Assert(ReadLine() == "START OF OPPONENT PATHS");
-
-            SkipLines(1);
+            string start = ReadLine();
+            Trace.Assert(start == "START OF OPPONENT PATHS");
 
             int nbrNodes = ReadLineAsInt();
 
@@ -326,14 +329,13 @@ namespace OpenC1.Parsers
                 pos += new Vector3(0, 2, 0);
                 CopStartPoints.Add(new CopStartPoint { Position = pos, IsSpecialForces = tokens[3].Contains("9") });
             }
-            Trace.Assert(ReadLine() == "END OF OPPONENT PATHS");
+            string end = ReadLine();
+            Trace.Assert(end == "END OF OPPONENT PATHS");
         }
 
         private void ReadMaterialModifierSection()
         {
             MaterialModifiers = new List<MaterialModifier>();
-
-            SkipLines(1);
 
             int nbrMaterialModifiers = ReadLineAsInt();
             for (int i = 0; i < nbrMaterialModifiers; i++)

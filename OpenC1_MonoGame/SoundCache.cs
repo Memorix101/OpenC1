@@ -103,7 +103,10 @@ namespace OpenC1
                 }
                 if (instance != null)
                 {
-                    if (is3d) instance.Position = vehicle.Position;
+                    // Owner muss gesetzt sein: PlayGroup castet instance.Owner nach
+                    // Vehicle, um dem Spieler Vorrang zu geben - sonst NullReference.
+                    if (is3d && vehicle != null)
+                        instance.Position = vehicle.Position;
                     instance.Owner = vehicle;
                     instance.Play(false);
                     //GameConsole.WriteEvent("PlaySound " + id.ToString());
@@ -139,9 +142,9 @@ namespace OpenC1
         {
             if (instance != null && instance.IsPlaying && instance.Owner != vehicle)
             {
-                if (vehicle.Driver is PlayerDriver)  //priority
+                if (vehicle != null && vehicle.Driver is PlayerDriver)  //priority
                     instance.Reset();
-                else if (((Vehicle)instance.Owner).Driver is PlayerDriver)
+                else if ((instance.Owner as Vehicle)?.Driver is PlayerDriver)
                 {
                     return; //dont steal player's sound
                 }

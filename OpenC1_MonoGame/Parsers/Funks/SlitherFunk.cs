@@ -23,14 +23,14 @@ namespace OpenC1.Parsers.Funks
 
         public override void BeforeRender()
         {
-            GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
-            GameVars.CurrentEffect.CommitChanges();
+        //    GameVars.CurrentEffect.TexCoordsOffset = _uvOffset;
+        //    GameVars.CurrentEffect.CommitChanges();
         }
 
         public override void AfterRender()
         {
-            GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
-            GameVars.CurrentEffect.CommitChanges();
+        //    GameVars.CurrentEffect.TexCoordsOffset = Vector2.Zero;
+         //   GameVars.CurrentEffect.CommitChanges();
         }
 
         public override void Update()

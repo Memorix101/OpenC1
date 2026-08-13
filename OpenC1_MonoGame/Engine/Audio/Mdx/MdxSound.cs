@@ -1,23 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.IO;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 
 namespace OneAmEngine.Audio
 {
-    //https://mysteriousspace.com/2015/05/31/fmod-in-c-its-a-pain-to-set-up-heres-how-i-did-it/
+    /// <summary>
+    /// Urspruenglich ein DirectSound-Wrapper (Managed DirectX). Laeuft jetzt komplett
+    /// auf MonoGame-Audio.
+    ///
+    /// Zwei Unterschiede zu DirectSound, die hier abgebildet werden:
+    ///  - DirectSound stellt die Abspielrate absolut in Hz ein. MonoGame kennt nur
+    ///    Pitch von -1..+1, also eine Oktave runter bzw. hoch. Umgerechnet wird ueber
+    ///    das Verhaeltnis zur Samplerate der Datei, die aus dem WAV-Header gelesen wird.
+    ///  - 3D-Ton laeuft ueber AudioEmitter/AudioListener statt ueber Buffer3D.
+    /// </summary>
     class MdxSound : ISound
     {
-        //Buffer3D _buffer3d;
-        bool _is3d;
-        private FileStream _filename;
-        private float _MinimumDistance;
-        private float _MaximumDistance;
-        private SoundEffect _sndfx;
-        private SoundEffectInstance _sndInstance;
+        readonly bool _is3d;
+        bool _apply3dFailed;
+        readonly SoundEffect _sndfx;
+        readonly SoundEffectInstance _sndInstance;
+        readonly AudioEmitter _emitter = new AudioEmitter();
+        readonly int _sampleRate;
 
         public int Id { get; set; }
         public object Owner { get; set; }
@@ -25,50 +30,135 @@ namespace OneAmEngine.Audio
 
         internal MdxSound(string filename, bool is3d)
         {
-            //BufferDescription desc = new BufferDescription();
+            _is3d = is3d;
 
-            if (is3d)
+            using (FileStream file = new FileStream(filename, FileMode.Open, FileAccess.Read))
             {
-                /*
-                 desc.Control3D = true;
-                 desc.Guid3DAlgorithm = DSoundHelper.Guid3DAlgorithmDefault;
-                 desc.Mute3DAtMaximumDistance = true;
-                 */
+                _sampleRate = ReadWaveSampleRate(file);
+                file.Position = 0;
+                _sndfx = SoundEffect.FromStream(file); //OGG sounds are not supported
             }
-            /*desc.ControlVolume = true;
-			desc.ControlFrequency = true;*/
-            //_buffer = new SecondaryBuffer(filename, desc, device);
-            _filename = new FileStream(filename, FileMode.Open);
 
-           /* if (File.Exists(filename))
-                Console.WriteLine("YES!!");
-            else
-                Console.WriteLine("NAH!!");*/
-
-            _sndfx = SoundEffect.FromStream(_filename); //OGG sounds are not supported
-            _filename.Dispose();
             _sndInstance = _sndfx.CreateInstance();
-
-            /*
-            if (is3d)
-            {
-                _buffer3d = new Buffer3D(_buffer);
-                _buffer3d.Mode = Mode3D.Normal;
-                _is3d = true;
-            }*/
         }
 
-        public float Duration => _sndfx.Duration.Seconds;
-        public float Volume { get => _sndInstance.Volume; set => _sndInstance.Volume = value; }
-        public Vector3 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); } //_sndInstance.Apply3D(new AudioListener(), new AudioEmitter());
-        public Vector3 Velocity { set => throw new NotImplementedException(); }
-        public int Frequency { set => throw new NotImplementedException(); }
+        /// <summary>
+        /// Liest die Samplerate aus dem fmt-Chunk eines RIFF/WAVE-Streams.
+        /// Bei unerwartetem Aufbau wird 22050 angenommen - das trifft nur die
+        /// Tonhoehenumrechnung, nicht die Wiedergabe selbst.
+        /// </summary>
+        static int ReadWaveSampleRate(Stream stream)
+        {
+            const int fallback = 22050;
+            try
+            {
+                using (BinaryReader reader = new BinaryReader(stream, System.Text.Encoding.ASCII, true))
+                {
+                    if (new string(reader.ReadChars(4)) != "RIFF") return fallback;
+                    reader.ReadInt32(); // Chunkgroesse
+                    if (new string(reader.ReadChars(4)) != "WAVE") return fallback;
+
+                    while (stream.Position < stream.Length - 8)
+                    {
+                        string chunkId = new string(reader.ReadChars(4));
+                        int chunkSize = reader.ReadInt32();
+                        if (chunkId == "fmt ")
+                        {
+                            reader.ReadInt16(); // Format
+                            reader.ReadInt16(); // Kanaele
+                            int sampleRate = reader.ReadInt32();
+                            return sampleRate > 0 ? sampleRate : fallback;
+                        }
+                        stream.Position += chunkSize + (chunkSize % 2); // Chunks sind wortweise ausgerichtet
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                // Kaputter oder unbekannter Header - Standardwert genuegt.
+            }
+            return fallback;
+        }
+
+        public float Duration => (float)_sndfx.Duration.TotalSeconds;
+
+        public float Volume
+        {
+            get => _sndInstance.Volume;
+            set => _sndInstance.Volume = MathHelper.Clamp(value, 0f, 1f);
+        }
+
+        /// <summary>
+        /// Abspielrate in Hz, wie sie DirectSound erwartet. Wird auf MonoGames
+        /// Pitch-Bereich umgerechnet; ausserhalb einer Oktave wird begrenzt.
+        /// </summary>
+        public int Frequency
+        {
+            set
+            {
+                if (value <= 0) return;
+                float octaves = (float)Math.Log((double)value / _sampleRate, 2);
+                _sndInstance.Pitch = MathHelper.Clamp(octaves, -1f, 1f);
+            }
+        }
+
+        public Vector3 Position
+        {
+            get => _emitter.Position;
+            set
+            {
+                _emitter.Position = value;
+                Apply3D();
+            }
+        }
+
+        public Vector3 Velocity
+        {
+            set
+            {
+                _emitter.Velocity = value;
+                Apply3D();
+            }
+        }
+
+        void Apply3D()
+        {
+            if (!_is3d || _apply3dFailed) return;
+
+            MdxListener listener = GameEngine.Audio?.GetListener() as MdxListener;
+            if (listener == null) return;
+
+            try
+            {
+                _sndInstance.Apply3D(listener.XnaListener, _emitter);
+            }
+            catch (InvalidOperationException)
+            {
+                // Apply3D verlangt Mono-Samples. Stereo-Dateien bleiben 2D.
+                _apply3dFailed = true;
+            }
+        }
+
         public bool IsPlaying => _sndInstance.State == SoundState.Playing;
-        public float MinimumDistance { get => _MinimumDistance; set => _MinimumDistance = value; }
-        public float MaximumDistance { get => _MaximumDistance; set => _MaximumDistance = value; }
+        public float MinimumDistance { get; set; }
+        public float MaximumDistance { get; set; }
+
         public void Pause() { _sndInstance.Pause(); }
         public void Stop() { _sndInstance.Stop(); }
-        public void Reset() { throw new NotImplementedException(); }
-        public void Play(bool loop) { _sndInstance.Play(); }
+
+        public void Reset()
+        {
+            _sndInstance.Stop();
+            _sndInstance.Pitch = 0f;
+        }
+
+        public void Play(bool loop)
+        {
+            _sndInstance.IsLooped = loop;
+            if (_sndInstance.State == SoundState.Paused)
+                _sndInstance.Resume();
+            else if (_sndInstance.State != SoundState.Playing)
+                _sndInstance.Play();
+        }
     }
 }

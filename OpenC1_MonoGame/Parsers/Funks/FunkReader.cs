@@ -95,7 +95,9 @@ namespace OpenC1.Parsers.Funks
             while (true)
             {
                 string line = file.ReadLine();
-                if (line == "NEXT FUNK")
+                if (line == "START OF FUNK") //NEXT FUNK
+                    return;
+                else if(line == "NEXT FUNK")
                     return;
                 if (line == "END OF FUNK")
                 {

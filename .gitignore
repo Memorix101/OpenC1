@@ -1,17 +1,16 @@
 
-OpenC1_MonoGame/bin/
-
-OpenC1_MonoGame/obj/
+# Build-Ausgaben
+bin/
+obj/
 
 .vs/
-OpenC1_MonoGame/Engine/obj
 
-OpenC1_MonoGame/Engine/bin/
-
+# Vom MGCB erzeugter Content
+OpenC1_MonoGame/Content/bin/
+OpenC1_MonoGame/Content/obj/
+OpenC1_MonoGame/Engine/Content/bin/
 OpenC1_MonoGame/Engine/Content/obj/
 
-OpenC1_MonoGame/Engine/Content/bin/
-
-OpenC1_MonoGame/Content/obj/
-
 OpenC1_MonoGame/OpenC1_MonoGame\.7z
+
+Notes.md
